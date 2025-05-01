@@ -1,3 +1,4 @@
+/* NAV BAR START */
 .navBar{
     background-color: white;
     height: 100px;
@@ -6,52 +7,145 @@
     border-radius: 16px;
     color: white;
     
-   display: flex;
-    justify-content: space-between;
+    display: flex;
     align-items: center;
     
+    
     z-index: 100;
-
-}
-
-
-.navLogo a{
+  
+  }
+  
+  
+  .navLogo a{
     text-decoration: none;
     color: #470606b2;
     font-family: fantasy;
     font-size: 30px;
     text-align: center;
     font-weight: 500;
-}
-
-.menu a{
+  }
+  
+  nav a{
     list-style:none;
     display: inline-block;
-
+    
     font-weight: 500;
     text-decoration: none;
-
-    font-size: 18px;
+  
+    font-size: 1.2vw;
     margin: 0 20px;
     color: black;
     padding: 20px;
-
-
+  
+   
+  
     font-family: "Verdana", sans-serif;
-}
-
-.menu a:hover{
+  }
+  
+  .menu a:hover{
     color:rgb(255, 255, 255);
     background-color:#b20a72;
     border-radius: 16px;
-}
-
-#brandlogo{
+  }
+  
+  
+  
+  nav{
+    margin-right: 0;
+    margin-left: 11vw;
+    justify-content: flex-end;
+    place-content: center;
+    display: flex; 
+  }
+  
+  
+  
+  #brandlogo{
     width: auto;
     height: 80px;
     margin-left: 50px;
    
-}
+  }
+  
+  
+  
+  .sideBar{
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 250px;
+    z-index: 999;
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.716);
+    box-shadow: -10px 0 10px rgb(0, 0, 0, 0.1);
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  
+  }
+  
+  #linkSide{
+    width: 50%;
+  }
+  
+  
+  
+  #menuButton{
+    display: none;
+  }
+  
+  @media (max-width: 1149px){
+    .menu{
+      margin-left: 0;
+      gap: 2px;
+    }
+  
+    #menuButton{
+      display: inline-block;
+      margin-right: 10px;
+      cursor: pointer
+  
+      
+    }
+  
+    nav a{
+      font-size: 18px;
+    }
+  
+    .navLogo{
+      margin-right: auto;
+    }
+  
+    .hideOnMobile{
+      display: none;
+    }
+  
+  
+  }
+  
+  @media (max-width: 400px){
+    .sideBar{
+      width: 100%;
+    }
+  
+    nav a{
+      font-size: 18px;
+    }
+  
+    #name{
+      display: none;
+    }
+  }
+  
+  @media (max-width: 1920px){
+    .menu{
+      margin-left: auto;
+    }
+  }
+  
+  /* NAV BAR END */
 
 
 body{
@@ -67,10 +161,7 @@ body{
 
 }
 
-menu{
-    place-content: center;
 
-}
 .text{
    text-align: center;
     font-size: 2vw;
