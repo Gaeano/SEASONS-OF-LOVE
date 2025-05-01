@@ -426,3 +426,9 @@ body {
     display: none;
   }
 }
+
+@media (max-width: 1920px){
+  .menu{
+    margin-left: auto;
+  }
+}
