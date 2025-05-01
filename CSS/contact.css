@@ -124,7 +124,7 @@
   
   
   }
-  
+
   @media (max-width: 400px){
     .sideBar{
       width: 100%;
@@ -134,8 +134,12 @@
       font-size: 18px;
     }
   
-    #name{
+    #brandlogo{
       display: none;
+    }
+
+    #name{
+      margin-left: 20px;
     }
   }
   
@@ -162,16 +166,22 @@ body{
 }
 
 
-.text{
+.title{
    text-align: center;
-    font-size: 2vw;
-    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-family:fantasy;
+    color: rgb(255, 255, 255);
+    margin-bottom: 30px;
+    text-shadow: 10px 10px 5px rgba(0, 0, 0, 0.568);
 }
 
-.text{
-    color: rgb(211, 209, 209);
-
+.title h1{
+  font-size: 70px;
 }
+
+.title h3{
+  font-size: 60px;
+}
+
 
 #form{
     background-color: #c4c4c4d7;
@@ -180,7 +190,7 @@ body{
     box-shadow: 15px 15px 10px rgba(0, 0, 0, 0.479);
     width: 30%;
     margin-right: 0;
-    margin-left: 30%;
+    margin-left: 35%;
     display: flex;
     justify-content: center;
 }
@@ -216,14 +226,22 @@ label{
             display: none;
             margin-top: 5px;
         }
+ input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+ }      
 
-@media screen and (max-width: 570px) {
+@media (max-width: 800px) {
     #form {
       width: 65%;
-      margin-left:none;
       padding:40px;
+      margin-right: 0;
+      margin-left: 18%;
     }
-  }
   input, textarea {
     width: 100%;
     padding: 10px;
@@ -233,3 +251,28 @@ label{
     font-size: 14px;
 }
 
+}
+
+@media (max-width: 400px) {
+  #form {
+    width: 100%;
+    padding:40px;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+
+.title{
+  display: none;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+}

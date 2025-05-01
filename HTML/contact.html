@@ -70,16 +70,16 @@
 </div>
 <!-- NAV BAR END -->
 
-    <div class="text">
+    <div class="title">
         <h1>Seasons of Love Catering</h1>
         <h3>Contact us</h3>
     </div>
     <div id="form">
         <form id="contactForm" name="form" method="POST">
             <label>Name: </label>
-            <input style="width: 20vw;" type="text" id="name" name="user"> <br><br>
+            <input type="text" id="userName" name="user"> <br><br>
             <label>Email: </label>
-            <input style="width: 20vw;" type="text" id="email" name="user"><br><br>
+            <input  type="text" id="email" name="user"><br><br>
           
              <label for="message">Message:</label>
         
@@ -105,7 +105,7 @@
         document.getElementById("contactForm").addEventListener("submit", function(event){
             event.preventDefault();
     
-            let name = document.getElementById("name").value.trim();
+            let name = document.getElementById("userName").value.trim();
             let email = document.getElementById("email").value.trim();
             let message = document.getElementById("message").value.trim();
             let responseMessage = document.getElementById("responseMessage");
