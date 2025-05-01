@@ -134,8 +134,12 @@ nav{
     font-size: 18px;
   }
 
-  #name{
+  #brandlogo{
     display: none;
+  }
+
+  #name{
+    margin-left: 20px;
   }
 }
 
