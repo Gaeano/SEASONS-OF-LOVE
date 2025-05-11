@@ -1,5 +1,6 @@
 .navBar{
-  background-color: white;
+  background:linear-gradient(to right, rgb(255, 255, 255), rgb(243, 124, 124) );
+  
   height: 62px;
  
   color: white;
@@ -8,7 +9,7 @@
   align-items: center;
   z-index: 100;
 
-  
+
 }
 
 
@@ -39,8 +40,14 @@ nav a{
 
 .menu a:hover{
   color:rgb(255, 255, 255);
-  background-color:#b20a72;
-  border-radius: 16px;
+  background-color:rgb(243, 124, 124);
+  
+}
+
+.reserve a:hover{
+ color:  #470606b2;;
+  background-color: white;
+  
 }
 
 
@@ -51,9 +58,10 @@ nav{
 }
 
 
-#reserve{
-  width: 12%;
+.reserve{
+  
   list-style:none;
+  text-decoration: none;
   display: inline-block;
   
   font-weight: 500;
@@ -171,9 +179,13 @@ nav{
 /* NAV BAR END */
 
 
-body{
-    background: linear-gradient(to bottom, #b0a72f, white); /* Example gradient */
 
+body{
+  background:linear-gradient(rgba(0, 0, 0, 0.736), rgba(0, 0, 0, 0.37)), url(https://wallpapercave.com/wp/wp6866113.jpg);
+    
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
     margin: 0;
     padding: 0;
     
