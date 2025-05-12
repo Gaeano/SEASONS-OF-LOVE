@@ -1,7 +1,11 @@
-/* NAV BAR START */
 .navBar{
+<<<<<<< HEAD
   background-color: white;
   height: 72px;
+=======
+  background:linear-gradient(to right, rgb(255, 255, 255), rgb(243, 124, 124) );
+    
+>>>>>>> 3c036fd6bdcbaee0452a5b8192f44b510d970c4f
   height: 62px;
  
   color: white;
@@ -10,7 +14,7 @@
   align-items: center;
   z-index: 100;
 
-  
+
 }
 
 
@@ -45,7 +49,18 @@ nav a{
 
 .menu a:hover{
   color:rgb(255, 255, 255);
+<<<<<<< HEAD
   background-color:#b20a72;
+=======
+  background-color:rgb(243, 124, 124);
+  
+}
+
+.reserve a:hover{
+ color:  #470606b2;;
+  background-color: white;
+  
+>>>>>>> 3c036fd6bdcbaee0452a5b8192f44b510d970c4f
 }
 
 
@@ -56,9 +71,10 @@ nav{
 }
 
 
-#reserve{
-  width: 12%;
+.reserve{
+  
   list-style:none;
+  text-decoration: none;
   display: inline-block;
   
   font-weight: 500;
@@ -100,7 +116,7 @@ nav{
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-
+  margin-right: 0;
 }
 
 #linkSide{
@@ -176,6 +192,12 @@ nav{
 }
 
 /* NAV BAR END */
+
+
+
+
+
+
 body{
   background-image: url(IMAGES/indexbg.png);
   background-repeat: no-repeat;
