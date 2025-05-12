@@ -20,7 +20,7 @@
         <h3>Login</h3>
         <form name="form" method="POST">
             <label>Username: </label>
-            <input type="text" id="name" name="name"><br><br>
+            <input type="text" id="username" name="username"><br><br>
             <label>Password: </label>
             <input type="password" id="password" name="password"><br><br>
             <input type="submit" id=btn value="Login" name="submit"/>

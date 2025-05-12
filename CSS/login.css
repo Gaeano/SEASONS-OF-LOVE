@@ -1,7 +1,5 @@
 body{
-    background-image: url(../travelBG.jpg);
-    background-size: cover;
-    background-position-x: center;
+    background-color: rgba(201, 201, 201, 0.87);
     
 }
 
@@ -26,3 +24,4 @@ body{
         padding: 40px
     }
 }
+
