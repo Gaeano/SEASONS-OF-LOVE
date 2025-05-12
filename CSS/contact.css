@@ -1,6 +1,6 @@
 .navBar{
   background:linear-gradient(to right, rgb(255, 255, 255), rgb(243, 124, 124) );
-  
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   height: 62px;
  
   color: white;
@@ -180,9 +180,11 @@ nav{
 
 
 body{
-    background-image: url(../IMAGES/backgroundImage.webp);
-    background-repeat: no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.736), rgba(0, 0, 0, 0.37)), url(../IMAGES/backgroundImage.webp);
+   
+     background-repeat: no-repeat;
     background-size: cover;
+   background-attachment: fixed;
     
     margin: 0;
     padding: 0;
@@ -190,6 +192,29 @@ body{
     height: 100vh;
     width: auto;
 
+}
+
+
+
+/*akong gi update ang fonts para consistent with others*/
+
+
+  p{
+    line-height: 27px;
+    font-family: "Verdana", sans-serif;
+    text-align: justify;
+}
+
+
+h4{
+    text-align: center;
+    font-family: "Glass Antiqua", cursive;
+    font-weight: bold;
+    font-size: 50px;
+    color:  #ffee00be;
+    letter-spacing: 9px;
+    text-transform: uppercase;
+    
 }
 
 
@@ -202,7 +227,20 @@ body{
 }
 
 .title h1{
-  font-size: 70px;
+  
+
+font-family: "Marck Script", cursive;
+  font-weight: 400;
+  font-style: normal;
+
+  color: white;
+    font-size: 100px;
+   
+    text-align: center;
+
+   margin-top: 100px;
+    margin-bottom: 30px;
+
 }
 
 .title h3{
@@ -220,14 +258,19 @@ body{
     margin-left: 35%;
     display: flex;
     justify-content: center;
+
+    padding-bottom: 50px;
+    
 }
 #btn{
-    background-color:  #3e3a19;
+    background-color: #ffee00be;
     font: 4vw;
-    color: white;
+    color: black;
     border-radius: 7px;
     padding: 8px;  
     margin-top: 5px;
+    
+    border-width: 1px;
     
 }
 
@@ -302,4 +345,9 @@ input, textarea {
   font-size: 14px;
 }
 
+}
+
+.mother{
+  
+  padding-bottom: 50px;
 }
