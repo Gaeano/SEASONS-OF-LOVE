@@ -1,16 +1,15 @@
 /* NAV BAR START */
 .navBar{
   background-color: white;
-  height: 72px;
+  height: 100px;
  
   color: white;
   
   display: flex;
   align-items: center;
-  
-  
   z-index: 100;
 
+  
 }
 
 
@@ -30,10 +29,10 @@ nav a{
   font-weight: 500;
   text-decoration: none;
 
-  font-size: 18px;
+  font-size: 1.2vw;
   margin: 0 20px;
   color: black;
-  padding: 18px;
+  padding: 20px;
 
  
 
@@ -46,23 +45,38 @@ nav a{
 }
 
 
-
 nav{
-  margin-right: 0;
-  margin-left: 11vw;
-  justify-content: flex-end;
   place-content: center;
-  display: flex; 
+  display: flex;
+  margin-right: 46%;
 }
 
+
+#reserve{
+  width: 12%;
+  list-style:none;
+  display: inline-block;
+  
+  font-weight: 500;
+  text-decoration: none;
+
+  font-size: 0.8vw;
+  margin: 0 20px;
+  color: black;
+  padding: 20px;
+  
+
+  font-family: "Verdana", sans-serif;
+}
 
 
 #brandlogo{
   width: auto;
   height: 60px;
   margin-left: 50px;
-  margin-right: 20px;
+ 
 }
+
 
 
 
@@ -94,6 +108,10 @@ nav{
 }
 
 @media (max-width: 1149px){
+  .hideOnMobile{
+    display: none;
+  }
+
   .menu{
     margin-left: 0;
     gap: 2px;
@@ -107,6 +125,9 @@ nav{
     
   }
 
+  #reserve{
+    display: none;
+  }
   nav a{
     font-size: 18px;
   }
@@ -115,9 +136,7 @@ nav{
     margin-right: auto;
   }
 
-  .hideOnMobile{
-    display: none;
-  }
+  
 
 
 }
@@ -137,6 +156,10 @@ nav{
 
   #name{
     margin-left: 20px;
+  }
+
+  .hideOnMobile{
+    display: none;
   }
 }
 
