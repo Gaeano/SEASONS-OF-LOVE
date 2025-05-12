@@ -1,0 +1,28 @@
+body{
+    background-image: url(../travelBG.jpg);
+    background-size: cover;
+    background-position-x: center;
+    
+}
+
+#form{
+    margin: 150px auto;
+    background-color: #28362eb4;  
+    width: 25%;
+    padding: 50px;
+    box-shadow: 10px 10px 5px #28362ed2;
+    border-radius: 8px;
+    color: white;
+}
+
+#btn{
+    padding: 5px;
+    font-size: large;
+}
+
+@media screen and (max-width:700px){
+    #form{
+        width: 65%;
+        padding: 40px
+    }
+}

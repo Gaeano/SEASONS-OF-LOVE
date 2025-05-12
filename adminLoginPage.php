@@ -10,7 +10,7 @@
 <head>
     <meta name="viewport" content="with=device-width-width, initial-scale=1.0">
     <title>Login</title>
-   <link rel="stylesheet" href="css/login.css"> 
+   <link rel="stylesheet" href="/CSS/login.css"> 
 
 </head>
 
