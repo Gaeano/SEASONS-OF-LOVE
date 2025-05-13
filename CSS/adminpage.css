@@ -46,7 +46,10 @@ h3{
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 5px;
-  max-width: 420px;
+  
+  width: 1000px; 
+  height: 900px; 
+  
 }
 .calendar-day {
   padding: 10px;
