@@ -6,67 +6,72 @@ const container = document.getElementById("order-container");
   let allOrders = [];
 
   function renderOrders(statusFilter) {
-    container.innerHTML = "";
+  container.innerHTML = "";
 
-    const filtered = allOrders.filter(order => order.status === statusFilter);
+  const filtered = allOrders.filter(order => order.status === statusFilter);
 
-    filtered.forEach((order) => {
-      const orderDiv = document.createElement("div");
-      orderDiv.className = "order";
+  filtered.forEach((order) => {
+    const orderDiv = document.createElement("div");
+    orderDiv.className = "order";
 
-      const header = document.createElement("h3");
-      header.textContent = `Order #${order.order_id}`;
+    const header = document.createElement("h3");
+    header.textContent = `Order #${order.order_id}`;
 
-      const phone = document.createElement("p");
-      phone.textContent = `Customer Phone #: ${order.customer_phone}`;
+    const name = document.createElement("p");
+    name.textContent = `Name: ${order.customer_name}`;
 
-      const date = document.createElement("p");
-      date.textContent = `Date: ${new Date(order.order_date).toLocaleString()}`;
+    const phone = document.createElement("p");
+    phone.textContent = `Contact: ${order.customer_phone}`;
 
-      const statusLabel = document.createElement("label");
-      statusLabel.textContent = "Completed: ";
+    const date = document.createElement("p");
+    date.textContent = `Date: ${new Date(order.order_date).toLocaleString()}`;
 
-      const statusCheckbox = document.createElement("input");
-      statusCheckbox.type = "checkbox";
-      statusCheckbox.checked = order.status === "completed";
+    const statusLabel = document.createElement("label");
+    statusLabel.textContent = "Completed: ";
 
-      statusCheckbox.addEventListener("change", () => {
-        const newStatus = statusCheckbox.checked ? "completed" : "pending";
+    const statusCheckbox = document.createElement("input");
+    statusCheckbox.type = "checkbox";
+    statusCheckbox.checked = order.status === "completed";
 
-        fetch(`../PHP/update_status.php`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            order_id: order.order_id,
-            status: newStatus
-          })
+    statusCheckbox.addEventListener("change", () => {
+      const newStatus = statusCheckbox.checked ? "completed" : "pending";
+
+      fetch(`/PHP/update_status.php`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          order_id: order.order_id,
+          status: newStatus
         })
-        .then(res => res.json())
-        .then(data => {
-          order.status = newStatus;
-          renderOrders(statusFilter); 
-        })
-        .catch(err => console.error("Failed to update:", err));
-      });
-
-      statusLabel.appendChild(statusCheckbox);
-
-      const itemList = document.createElement("ul");
-      order.items.forEach((item) => {
-        const itemEl = document.createElement("li");
-        itemEl.textContent = `${item.dish_name} * ${item.quantity}`;
-        itemList.appendChild(itemEl);
-      });
-
-      orderDiv.appendChild(header);
-      orderDiv.appendChild(phone);
-      orderDiv.appendChild(date);
-      orderDiv.appendChild(itemList);
-      orderDiv.appendChild(statusLabel);
-
-      container.appendChild(orderDiv);
+      })
+      .then(res => res.json())
+      .then(data => {
+        order.status = newStatus;
+        renderOrders(statusFilter);
+      })
+      .catch(err => console.error("Failed to update:", err));
     });
-  }
+
+    statusLabel.appendChild(statusCheckbox);
+
+    const itemList = document.createElement("ul");
+    order.items.forEach((item) => {
+      const itemEl = document.createElement("li");
+      itemEl.textContent = `${item.dish_name} × ${item.quantity}`;
+      itemList.appendChild(itemEl);
+    });
+
+    orderDiv.appendChild(header);
+    orderDiv.appendChild(name);     
+    orderDiv.appendChild(phone);
+    orderDiv.appendChild(date);
+    orderDiv.appendChild(itemList);
+    orderDiv.appendChild(statusLabel);
+
+    container.appendChild(orderDiv);
+  });
+}
+
 
 
   fetch("../PHP/api.php")

@@ -19,7 +19,8 @@ try {
 
 $sql = "
     SELECT 
-        o.order_id,
+        o.order_id, 
+        o.customer_name,
         o.customer_phone,
         o.order_date,
         o.status,
@@ -42,7 +43,8 @@ foreach ($rows as $row) {
 
     if (!isset($orders[$oid])) {
         $orders[$oid] = [
-            'order_id' => $oid,
+            'order_id' => $oid, 
+            'customer_name' => $row['customer_name'],
             'customer_phone' => $row['customer_phone'],
             'order_date' => $row['order_date'], 
             'status' => $row['status'],
