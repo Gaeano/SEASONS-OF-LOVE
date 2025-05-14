@@ -1,4 +1,6 @@
 <?php 
+
+
     $host = "localhost";
     $dbname = "s19010108_seasonsoflove";
     $user = "s19010108_seasonsoflove";
