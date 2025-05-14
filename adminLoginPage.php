@@ -1,7 +1,10 @@
 <?php 
-    include ("connection.php");
-    include ("login.php");
-    
+    session_start();
+
+    if (isset($_SESSION['username'])) {
+    header("Location: ../HTML/admintest.php");
+    exit();
+    }
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +21,7 @@
     <div id="form">
         <h1> Linear <h1>
         <h3>Login</h3>
-        <form name="form" method="POST">
+        <form name="form" method="POST" action="login.php">
             <label>Username: </label>
             <input type="text" id="username" name="username"><br><br>
             <label>Password: </label>

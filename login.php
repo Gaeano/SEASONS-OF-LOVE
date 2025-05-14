@@ -1,6 +1,9 @@
 <?php
+    session_start();
     include('connection.php');
     
+   
+
     if (isset($_POST['submit'])) {
         $username = $_POST['username'];
         $password = $_POST['password'];
@@ -11,8 +14,8 @@
         $count = mysqli_num_rows($result);  
         
         if($count == 1){  
-            header("Location: ../HTML/admintest.html"); 
-            session_start();
+            $_SESSION['username'] = $username;
+            header("Location: ../HTML/admintest.php"); 
         }  
         else{  
             echo '<script>
@@ -20,5 +23,5 @@
                        window.location.href = "adminloginPage.php";
                      </script>';
         }     
-    }
+    } 
 ?>
