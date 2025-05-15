@@ -1,86 +1,108 @@
-.navBar {
-  background: linear-gradient(to right, rgb(255, 255, 255), rgb(243, 124, 124));
-
-
+.navBar{
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   height: 62px;
-
-  color: white;
-
+  background-color: white;
+  
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
   z-index: 100;
-
-
+  
+  
 }
 
 
-.navLogo a {
-  text-decoration: none;
-  color: #470606b2;
-  font-family: fantasy;
-  font-size: 30px;
-  text-align: center;
-  font-weight: 500;
+.navLogo{
+  margin-right: 20px;
+
 }
 
-nav a {
-  list-style: none;
+.menu a{
+  list-style:none;
   display: inline-block;
-
+  
   font-weight: 500;
   text-decoration: none;
 
-  font-size: 0.8vw;
+  font-size: 0.8rem;
   margin: 0 20px;
   color: black;
   padding: 20px;
-
+  
 
   font-family: "Verdana", sans-serif;
-}
-
-.menu a:hover {
-  color: rgb(255, 255, 255);
-  background-color: rgb(243, 124, 124);
+  border-bottom: 3px solid white;
+  transition: all 0.5s ease;
 
 }
+.sideBar a{
+  list-style:none;
+  display: inline-block;
+  
+  font-weight: 500;
+  text-decoration: none;
 
-.reserve a:hover {
-  color: #470606b2;
-  ;
-  background-color: white;
+  font-size: 18px;
+  margin: 0 20px;
+  color: black;
+  padding: 20px;
+  
+
+  font-family: "Verdana", sans-serif;
+  transition: all 0.5s ease;
 
 }
 
-
-nav {
-  place-content: center;
+.menu {
   display: flex;
-  margin-right: 46%;
+  align-items: center;
+  flex-grow: 1;
+  justify-content: space-between;
+
 }
 
 
-.reserve {
+.menuLeft {
+  display: flex;
+  align-items: center;
+  gap: 5px; 
+  
+}
 
-  list-style: none;
+.menuLeft a:hover{
+  color:rgb(0, 0, 0);
+  border-bottom: 3px solid rgb(243, 124, 124);
+
+}
+
+#reserve:hover{
+  color: white;
+  background-color: rgb(243, 124, 124);
+}
+
+
+
+
+
+#reserve{
+  
+  list-style:none;
   text-decoration: none;
   display: inline-block;
-
+  
   font-weight: 500;
   text-decoration: none;
 
-  font-size: 0.8vw;
-  margin: 0 20px;
+  font-size: 0.8rem;
+
   color: black;
-  padding: 20px;
-
-
+  
   font-family: "Verdana", sans-serif;
+
 }
 
-
-#brandlogo {
+#brandlogo{
   width: auto;
   height: 60px;
   margin-left: 50px;
@@ -90,7 +112,7 @@ nav {
 
 
 
-.sideBar {
+.sideBar{
   position: fixed;
   top: 0;
   right: 0;
@@ -107,76 +129,45 @@ nav {
   margin-right: 0;
 }
 
-#linkSide {
+#linkSide{
   width: 50%;
 }
 
 
 
-#menuButton {
+#menuButton{
   display: none;
 }
 
-@media (max-width: 1149px) {
-  .hideOnMobile {
-    display: none;
-  }
 
-  .menu {
-    margin-left: 0;
-    gap: 2px;
+@media screen and (min-width: 768px)  {
+  .navBar {
+    flex-wrap: nowrap;
   }
 
   #menuButton {
-    display: inline-block;
-    margin-right: 10px;
-    cursor: pointer
-  }
-
-  #reserve {
     display: none;
   }
 
-  nav a {
-    font-size: 18px;
-  }
-
-  .navLogo {
-    margin-right: auto;
-  }
-
-
-
-
-}
-
-@media (max-width: 400px) {
   .sideBar {
-    width: 100%;
-  }
-
-  nav a {
-    font-size: 18px;
-  }
-
-  #brandlogo {
     display: none;
   }
 
-  #name {
-    margin-left: 20px;
-  }
 
-  .hideOnMobile {
+}
+
+@media screen and (max-width: 920px) {
+  .menu{
     display: none;
   }
+
+  #menuButton{
+    display: block;
+  }
+
 }
 
-@media (max-width: 1920px) {
-  .menu {
-    margin-left: auto;
-  }
-}
+
 
 /* NAV BAR END */
 
@@ -329,6 +320,7 @@ td {
   background: rgba(0, 0, 0, 0.536);
   color: white;
   cursor: pointer;
+  transition: all ease 0.3s;
 }
 
 td:hover {

@@ -53,7 +53,7 @@
         </nav>
 
         <nav class="menu">
-
+          <div class="menuLeft">
           <a class="hideOnMobile" href="../index.html" target="_self"> HOME </a>
 
           <a class="hideOnMobile" href="gallery.html" target="_self"> GALLERY </a></button>
@@ -61,11 +61,10 @@
           <a class="hideOnMobile" href="about company.html" target="_self"> COMPANY </a>
 
           <a class="hideOnMobile" href="contact.html" target="_self"> CONTACT US </a>
-
-        </nav>
-
-        <nav class="reserve">
-  <a class="hideOnMobile" href="reserve date.html" target="_self"> RESERVE A DATE </a>
+          </div>
+          <div>
+          <a class="hideOnMobile" href="reserve date.html" id="reserve" target="_self"> RESERVE A DATE </a>
+          </div>
         </nav>
        
 
@@ -85,7 +84,11 @@
     </div>
 
     <div class="mother">
+      
+
       <div id="form">
+       
+
           <form id="contactForm" name="form" method="POST">
               <label>Name: </label>
               <input type="text" id="userName" name="user"> <br><br>
@@ -99,13 +102,16 @@
 
           
               
-
+              <div id="btnDiv">
               <button id="btn" type="submit">SEND MESSAGE</button>
-
+              </div>
               <p id="responseMessage"></p>
           </form>
 
+      
       </div>
+
+    
 
     </div>
 
