@@ -427,6 +427,27 @@ td:hover {
 }
 
 
+.summarycontainer{
+  width: 900px; 
+  display: flex;
+  justify-content: flex-start;
+  align-items: center; 
+  text-align: center;
+  margin-left: 26%; 
+  overflow-y: auto; 
+  border-radius: 20px; 
+  height: 400px; 
+  background-color:  #c4c4c4d7; 
+  box-shadow: 15px 15px 10px rgba(0, 0, 0, 0.479); 
+  flex-direction: column;
+}
+ 
+.summarycontainer h5{
+  font-family: "Glass Antiqua", cursive; 
+  letter-spacing: 5px; 
+  font-weight: 200; 
+  font-size: 30px;
+}
 
 
 

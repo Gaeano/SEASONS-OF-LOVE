@@ -9,12 +9,14 @@
 
   #order-container {
       width: 800px;
-      height: 400px;
+      height: 800px;
       overflow-y: auto;
-      border: 1px solid #333;
+      
       padding: 10px;
       margin: 20px;
-      background-color: #fafafa;
+      background-color: #fafafa; 
+      box-shadow: 15px 15px 10px #8888887d;
+      border-radius: 10px;
     }
 
     .item {
@@ -46,10 +48,14 @@ h3{
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 5px;
-  
-  width: 900px; 
-  height: 900px; 
-  
+  background-color: #fafafa;
+  width: 800px; 
+  height: 800px; 
+  border-style: solid 1px; 
+  margin-top: 3.2vw; 
+  padding-right: 0; 
+  box-shadow: 15px 15px 10px #8888887d;
+      border-radius: 10px;
 }
 .calendar-day {
   padding: 10px;
@@ -57,7 +63,7 @@ h3{
   text-align: center;
 }
 .has-order {
-  background-color: #f9c74f;
+  background-color: #ffe19d;
   font-weight: bold;
 }
 .today {
@@ -66,9 +72,13 @@ h3{
  
 
 button { 
-  background-color: white;
+  background-color: #fafafa;
    border-radius: 6px;
+  padding: 5px;
+  margin: none; 
 
+}  
 
-
-} 
+body{ 
+  background-image: linear-gradient(rgb(54, 54, 54), rgb(27, 27, 27), rgb(56, 56, 56));
+}

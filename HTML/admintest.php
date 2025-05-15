@@ -22,17 +22,17 @@
 
 <body>
   
-<div style="display: flex; flex-direction: row; gap: 20vw; width: 100%; margin: 10px">
+<div style="display: flex; flex-direction: row; gap: 3vw; width: 100%; margin: 20px; margin-left: 3.5vw;">
         <div>
-            <div style="margin-left: 15px;">
-                <button id="tab-pending">Pending</button>
-                <button id="tab-completed">Completed</button>
+            <div style="margin-left: 20px;">
+                <button id="tab-pending" style="border: solid lightcoral">Pending</button>
+                <button id="tab-completed" style="border: solid lightgreen">Completed</button>
             </div>
     
             <div id="order-container"></div>
         </div> 
 
-        <div id="calendar" style="border-style: solid "></div>
+        <div id="calendar" ></div>
 
 
 </div>
