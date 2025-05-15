@@ -1,0 +1,65 @@
+.list{ 
+    border-style: solid; 
+    width: 30vw; 
+    height: 85vw; 
+    align-content: center; 
+    margin: 10px;
+} 
+
+
+  #order-container {
+      width: 400px;
+      height: 400px;
+      overflow-y: auto;
+      border: 1px solid #333;
+      padding: 10px;
+      margin: 20px;
+      background-color: #fafafa;
+    }
+
+    .item {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 10px;
+      background-color: #f0f0f0;
+      border-radius: 5px;
+    } 
+
+
+    .order {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  background: #f9f9f9; 
+} 
+ 
+
+
+h3{ 
+  color: red;
+}
+ 
+
+
+#calendar {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  
+  width: 1000px; 
+  height: 900px; 
+  
+}
+.calendar-day {
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+.has-order {
+  background-color: #f9c74f;
+  font-weight: bold;
+}
+.today {
+  border: 2px solid #000;
+}
