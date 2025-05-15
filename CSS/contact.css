@@ -375,3 +375,69 @@ input, textarea {
 
 
 
+
+/*the demmn footer*/
+
+.footer{
+  height: 120px;
+  border: 3px solid black;
+  background: black;
+
+  display: inline-block;
+  box-direction: column;
+  align-items: center;
+  
+width: 100%;
+  text-align: center;
+  color: white;
+  padding-bottom: 10px;
+
+  
+}
+
+.footer a{
+  color: white;
+  font-size: 25px;
+}
+
+.footer p{
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+@media (max-width: 1052px) {
+    #form {
+      flex-direction: column;
+    }
+    .part2 {
+      display: none;
+    }
+    .part1{
+      padding: 30px 20px;
+      width: 100%;
+      box-shadow: none;
+    }
+  }
+
+  @media (max-width: 680px) {
+    #form {
+      flex-direction: column;
+    }
+    .part2 {
+      display: none;
+    }
+    .part1{
+      padding: 30px 20px;
+      width: 100%;
+      box-shadow: none;
+    }
+
+    .part1 h1{
+      font-size: 70px;
+    }
+  }
+
+
+

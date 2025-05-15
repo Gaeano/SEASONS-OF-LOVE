@@ -115,23 +115,21 @@
 
 <div class="info">
 <center>
-
- <h1>Seasons of Love</h1>
- <h4>MENU</h4>
+   <h4>MENU</h4>
 
  </center>
 
 </div>
 
 
-<div class="info">
+<div class="info" onclick="clickOpenBEEF()">
   <center>
         <h3><hr><b>BEEF</b><hr></h3>
   </center>
 
 </div>
 
-  <div class="product_container">
+  <div class="product_containerBEEF">
 
   <div class="product" onclick="toggleHighlight(this)">
     <img src="https://cdn.sanity.io/images/f3knbc2s/production/f74d8aed0419d87b41895136fede06b671ed0482-2500x1500.jpg" alt="Beef Caldereta" />
@@ -198,7 +196,7 @@
 </div>
 
 
-<div class="info">
+<div class="info" onclick="clickOpenCHICKEN()">
 <center>
         <h3><hr><b>CHICKEN</b><hr></h3>
   </center>
@@ -208,7 +206,7 @@
 
 
 
-<div class="product_container">
+<div class="product_containerCHICKEN">
  
   <div class="product" onclick="toggleHighlight(this)">
     <img src="https://salu-salo.com/wp-content/uploads/2012/07/Chicken-Afritada-5.jpg" alt="Chicken Afritada" />
@@ -328,7 +326,7 @@
 
 
 
-<div class="info">
+<div class="info" onclick="clickOpenPORK()">
 <center>
         <h3><hr><b>PORK</b><hr></h3>
   </center>
@@ -338,7 +336,7 @@
 
 
 
-<div class="product_container">
+<div class="product_containerPORK">
  
   <div class="product" onclick="toggleHighlight(this)">
     <img src="https://s-media-cache-ak0.pinimg.com/originals/b3/86/6a/b3866af7035723dfde2291236df38fdc.jpg" alt="Pork Embotido" />
@@ -452,7 +450,7 @@
 
 
 
-<div class="info">
+<div class="info" onclick="clickOpenFISH()">
 <center>
         <h3><hr><b>FISH & SEAFOOD</b><hr></h3>
   </center>
@@ -460,7 +458,7 @@
 
 
 
-<div class="product_container">
+<div class="product_containerFISH">
  
 
 
@@ -508,7 +506,7 @@
 
 
 
-<div class="info">
+<div class="info" onclick="clickOpenNOODLES()">
 <center>
         <h3><hr><b>NOODLES & PASTA</b><hr></h3>
   </center>
@@ -518,7 +516,7 @@
 
 
 
-<div class="product_container">
+<div class="product_containerNOODLES">
  
 
    <div class="product" onclick="toggleHighlight(this)">
@@ -583,7 +581,7 @@
 
 
 
-<div class="info">
+<div class="info" onclick="clickOpenSALADS()">
   <center>
         <h3><hr><b>SALADS & DESERTS</b><hr></h3>
   </center>
@@ -592,7 +590,7 @@
 
 
 
-<div class="product_container">
+<div class="product_containerSALADS">
  
    <div class="product" onclick="toggleHighlight(this)">
     <img src="https://th.bing.com/th/id/OIP.l8s8la7LjKXPN1svhtk-zQHaFE?cb=iwc2&rs=1&pid=ImgDetMain" alt="Chicken Salad" />
@@ -667,7 +665,21 @@
 
 
 
+<div class="footer">
+    <div class="f1">
+        <p>Contact Us:</p>
+        <p>09488393223 || 09198492201 || 09466377208</p>
+        <p>AURORA, ZAMBOANGA DEL SUR</p>
+    </div>
 
+    <div class="f2">
+        <a href="??"><ion-icon name="logo-facebook"></ion-icon></a>
+        <a href="??"><ion-icon name="logo-instagram"></ion-icon></a>
+        <a href="??"><ion-icon name="mail-open-outline"></ion-icon></a>
+
+    </div>
+
+  </div>
 
 
 
@@ -774,6 +786,66 @@ function showImage(index) {
     });
     updateThumbnails();
 }
+// BEEF COLLAPSIBLE
+function clickOpenBEEF(){
+let product_container = document.querySelector('.product_containerBEEF');
+product_container.classList.toggle('open');
+
+
+
+}
+
+// CHICKEN COLLAPSIBLE
+function clickOpenCHICKEN(){
+let product_container = document.querySelector('.product_containerCHICKEN');
+product_container.classList.toggle('open');
+
+
+
+
+
+}
+
+
+// PORK COLLAPSIBLE
+function clickOpenPORK(){
+let product_container = document.querySelector('.product_containerPORK');
+product_container.classList.toggle('open');
+
+
+
+
+}
+
+// FISH COLLAPSIBLE
+function clickOpenFISH(){
+let product_container = document.querySelector('.product_containerFISH');
+product_container.classList.toggle('open');
+
+
+
+}
+
+// NOODLES COLLAPSIBLE
+function clickOpenNOODLES(){
+let product_container = document.querySelector('.product_containerNOODLES');
+product_container.classList.toggle('open');
+
+
+
+}
+
+// SALADS COLLAPSIBLE
+function clickOpenSALADS(){
+let product_container = document.querySelector('.product_containerSALADS');
+product_container.classList.toggle('open');
+
+
+
+
+}
+
+//END OOF COLLAPSE
 
 function changeImage(step) {
     currentIndex += step;

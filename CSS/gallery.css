@@ -412,14 +412,31 @@ body{
 /*menu protion*/
 
 
-  .product_container {
+  .product_containerBEEF, .product_containerCHICKEN, .product_containerPORK, .product_containerFISH, .product_containerNOODLES, .product_containerSALADS {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 25px;
     max-width: 900px;
     margin: 0 auto;
+    overflow: hidden;
+
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    pointer-events: none;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+
+
 
   }
+
+.product_containerBEEF.open,  .product_containerCHICKEN.open, .product_containerPORK.open, .product_containerFISH.open, .product_containerNOODLES.open, .product_containerSALADS.open{
+  max-height: 1000px; /* or a value that fits your grid */
+  opacity: 1;
+  pointer-events: auto;
+}
+
+
 
 
   @media (max-width: 600px) {
@@ -511,7 +528,7 @@ p{
     text-align: justify;
 }
 
-h3{
+h3 {
   font-family: "Glass Antiqua", cursive;
   font-weight: 400;
   font-style: normal;
@@ -519,16 +536,16 @@ h3{
 
   font-size: 30px;
 
-    letter-spacing: 5px;
+  letter-spacing: 5px;
 
 
-  background-color:  #ffee00be;
-  padding: 3px;
+  background-color: #ffee00be;
+  padding: 1px;
   width: 900px;
-    border-radius: 6px;
-    margin-bottom: 50px;
+  border-radius: 6px;
+  margin-bottom: 5px;
 
-    margin-top: 100px;
+  margin-top: 25px;
 
 }
 
@@ -580,6 +597,40 @@ p2{
 
 
 
+
+
+
+
+/*the demmn footer*/
+
+.footer{
+  height: 120px;
+  border: 3px solid black;
+  background: black;
+
+  display: inline-block;
+  box-direction: column;
+  align-items: center;
+  
+width: 100%;
+  text-align: center;
+  color: white;
+  padding-bottom: 10px;
+
+  
+}
+
+.footer a{
+  color: white;
+  font-size: 25px;
+}
+
+.footer p{
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
 
 
 

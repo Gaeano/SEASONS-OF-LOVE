@@ -171,10 +171,9 @@
 
 /* NAV BAR END */
 
-
 body {
 
-  background: rgb(199, 152, 152);
+  background: #fdfbd4;
 
   background-repeat: no-repeat;
   background-size: cover;
@@ -216,9 +215,9 @@ h4 {
   font-weight: bold;
   font-size: 90px;
   color: #ffee00be;
-    text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
+  text-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
   letter-spacing: 9px;
-
+margin-top: 20px;
 }
 
 p {
@@ -239,16 +238,16 @@ h3 {
 
 
   background-color: #ffee00be;
-  padding: 20px;
+  padding: 1px;
   width: 900px;
   border-radius: 6px;
-  margin-bottom: 50px;
+  margin-bottom: 5px;
 
-  margin-top: 100px;
+  margin-top: 25px;
 
 }
 
-p2 {
+#p2 {
   color: black;
   font-family: "Verdana", sans-serif;
 
@@ -343,14 +342,31 @@ td:hover {
 
 /* For da products shit ka taas*/
 
-.product_container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
-  max-width: 900px;
-  margin: 0 auto;
+.product_containerBEEF, .product_containerCHICKEN, .product_containerPORK, .product_containerFISH, .product_containerNOODLES, .product_containerSALADS {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    max-width: 900px;
+    margin: 0 auto;
+    overflow: hidden;
 
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    pointer-events: none;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
+
+
+
+  }
+
+.product_containerBEEF.open,  .product_containerCHICKEN.open, .product_containerPORK.open, .product_containerFISH.open, .product_containerNOODLES.open, .product_containerSALADS.open{
+  max-height: 1000px; /* or a value that fits your grid */
+  opacity: 1;
+  pointer-events: auto;
 }
+
+
 
 
 @media (max-width: 600px) {
@@ -469,10 +485,7 @@ td:hover {
   justify-content: center;
 
 
-
-
-
-  margin-top: 100px;
+  margin-top: 5px;
 
 }
 
@@ -567,5 +580,47 @@ textarea {
 
 
 .mother {
-  padding-bottom: 100px;
+  padding-bottom: 50px;
 }
+
+
+
+
+
+
+
+
+
+/*the demmn footer*/
+
+.footer{
+  height: 120px;
+  border: 3px solid black;
+  background: black;
+
+  display: inline-block;
+  box-direction: column;
+  align-items: center;
+  
+width: 100%;
+  text-align: center;
+  color: white;
+  padding-bottom: 10px;
+
+  margin: 0;
+
+  
+}
+
+.footer a{
+  color: white;
+  font-size: 25px;
+}
+
+.footer p{
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
