@@ -1,64 +1,91 @@
 .navBar{
-  background:linear-gradient(to right, rgb(255, 255, 255), rgb(243, 124, 124) );
-    
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   height: 62px;
- 
-  color: white;
+  background-color: white;
   
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
   z-index: 100;
-
-
+  
+  
 }
 
 
-.navLogo a{
-  text-decoration: none;
-  color: #470606b2;
-  font-family: fantasy;
-  font-size: 30px;
-  text-align: center;
-  font-weight: 500;
+.navLogo{
+  margin-right: 20px;
+
 }
 
-nav a{
+.menu a{
   list-style:none;
   display: inline-block;
   
   font-weight: 500;
   text-decoration: none;
 
-  font-size: 0.8vw;
+  font-size: 0.8rem;
   margin: 0 20px;
   color: black;
   padding: 20px;
   
 
   font-family: "Verdana", sans-serif;
-}
+  border-bottom: 3px solid white;
+  transition: all 0.5s ease;
 
-.menu a:hover{
-  color:rgb(255, 255, 255);
-  background-color:rgb(243, 124, 124);
+}
+.sideBar a{
+  list-style:none;
+  display: inline-block;
   
-}
+  font-weight: 500;
+  text-decoration: none;
 
-.reserve a:hover{
- color:  #470606b2;;
-  background-color: white;
+  font-size: 18px;
+  margin: 0 20px;
+  color: black;
+  padding: 20px;
   
+
+  font-family: "Verdana", sans-serif;
+  transition: all 0.5s ease;
+
 }
 
-
-nav{
-  place-content: center;
+.menu {
   display: flex;
-  margin-right: 46%;
+  align-items: center;
+  flex-grow: 1;
+  justify-content: space-between;
+
 }
 
 
-.reserve{
+.menuLeft {
+  display: flex;
+  align-items: center;
+  gap: 5px; 
+  
+}
+
+.menuLeft a:hover{
+  color:rgb(0, 0, 0);
+  border-bottom: 3px solid rgb(243, 124, 124);
+
+}
+
+#reserve:hover{
+  color: white;
+  background-color: rgb(243, 124, 124);
+}
+
+
+
+
+
+#reserve{
   
   list-style:none;
   text-decoration: none;
@@ -67,15 +94,13 @@ nav{
   font-weight: 500;
   text-decoration: none;
 
-  font-size: 0.8vw;
-  margin: 0 20px;
+  font-size: 0.8rem;
+
   color: black;
-  padding: 20px;
   
-
   font-family: "Verdana", sans-serif;
-}
 
+}
 
 #brandlogo{
   width: auto;
@@ -114,67 +139,35 @@ nav{
   display: none;
 }
 
-@media (max-width: 1149px){
-  .hideOnMobile{
+
+@media screen and (min-width: 768px)  {
+  .navBar {
+    flex-wrap: nowrap;
+  }
+
+  #menuButton {
     display: none;
   }
 
+  .sideBar {
+    display: none;
+  }
+
+
+}
+
+@media screen and (max-width: 920px) {
   .menu{
-    margin-left: 0;
-    gap: 2px;
+    display: none;
   }
 
   #menuButton{
-    display: inline-block;
-    margin-right: 10px;
-    cursor: pointer
-
-    
+    display: block;
   }
-
-  #reserve{
-    display: none;
-  }
-  nav a{
-    font-size: 18px;
-  }
-
-  .navLogo{
-    margin-right: auto;
-  }
-
-  
-
 
 }
 
-@media (max-width: 400px){
-  .sideBar{
-    width: 100%;
-  }
 
-  nav a{
-    font-size: 18px;
-  }
-
-  #brandlogo{
-    display: none;
-  }
-
-  #name{
-    margin-left: 20px;
-  }
-
-  .hideOnMobile{
-    display: none;
-  }
-}
-
-@media (max-width: 1920px){
-  .menu{
-    margin-left: auto;
-  }
-}
 
 /* NAV BAR END */
 
@@ -183,24 +176,16 @@ nav{
 
 
 
-body{
-  background-image: url(IMAGES/indexbg.png);
-  background-repeat: no-repeat;
-  background-size: cover;
-  
-  margin: 0;
-  padding: 0;
-  
-  height: 100vh;
-  width: auto;
+h1 {
+  font-family: "Marck Script", cursive;
+  font-weight: 400;
+  font-style: normal;
+  color: rgb(0, 0, 0);
+    font-size: 100px;
+    text-align: center;
+    margin-bottom: 30px;
+    
 
-}
-
-
-h1{
-  font-family: cursive;
-  color: #470606b2;
-  font-size: 30px;
 }
 
   .footer{
@@ -226,15 +211,7 @@ h1{
   }
 
 
-  
 
-body {
-  margin: 0;
-    padding: 0;
-    
-    height: 100vh;
-    width: auto;
-}
 
 .text{
   text-align: center;
@@ -245,27 +222,6 @@ body {
 
 
 
-.Title {
-  text-align: center;
-  margin-left: -.5vw;
-  color: rgb(255, 255, 255);
-  font-size: 10vw;
-  margin-bottom: 0vw;
-}
-
-#bgimg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-image: url('IMAGES/indexbg.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  filter: blur(8px);
-  z-index: -1;
-}
 
 
 
@@ -273,10 +229,6 @@ body {
 
 
 
-
-body {
-  background: #eee;
-}
 
 .gallery {
   position: relative; 
@@ -288,19 +240,24 @@ body {
   box-shadow:
     0 0 10px #0002,
     0 20px 40px -20px #0004;
-  background: #fff;
-  border: 6px solid #fff;
+  background: #000000;
+  border: 1px solid #000000;
   display: grid;
   grid-template-rows: 50% 50%;
   grid-template-columns: 1fr 1fr;
   overflow: hidden;
   gap: 6px;
+
+  
+
+  
 }
 
 .gallery img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  
 }
 
 @keyframes moveHorizontal {
@@ -441,29 +398,21 @@ body {
 
 
 
-#bgimg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-image: url('IMAGES/indexbg.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  filter: blur(8px);
-  z-index: -1;
-}
-
-
-
-
-
-
-
 body {
-  background: #eee;
-}
+
+  margin: 0;
+  padding: 0;
+
+  height: 100vh;
+  width: auto;
+
+
+  
+
+} 
+
+
+
 
 
 
@@ -472,3 +421,19 @@ body {
   height: 100%;
   object-fit: cover;
 }
+
+
+.content{
+  height: 500px;
+  margin: 100px;
+  
+
+}
+
+
+
+
+
+
+
+
