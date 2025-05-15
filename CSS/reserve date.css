@@ -341,7 +341,10 @@ td:hover {
   transform: scale(1.05);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   background-color: #ffee00be;
-}
+} 
+
+
+
 
 
  
@@ -501,7 +504,8 @@ td:hover {
   background-color:  #c4c4c4d7; 
   box-shadow: 15px 15px 10px rgba(0, 0, 0, 0.479); 
   flex-direction: column;
-}
+  margin-bottom: 3vw;
+} 
  
 .summarycontainer h5{
   font-family: "Glass Antiqua", cursive; 
@@ -530,7 +534,7 @@ td:hover {
 
 
   margin-top: 5px;
-
+  
 }
 
 #btn {
