@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const year = today.getFullYear();
       const month = today.getMonth(); 
 
-      const firstDay = new Date(year, month, 1).getDay(); // day of week
+      const firstDay = new Date(year, month, 1).getDay();
       const daysInMonth = new Date(year, month + 1, 0).getDate();
 
       
