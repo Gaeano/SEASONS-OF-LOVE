@@ -98,101 +98,21 @@
 
 
   <div class="calendar">
-    <center style="margin-bottom: 50px;">
-      <p2>Reserve a Date for Seasons of Love Catering Services!<br></p2>
-      <p2>Please Select a Date when we can serve you! Choose wisely and considerably. Seasons of Love might be busy in
-        days highlighted as red in the given calendar below! Please reserve a more suitable date!</p2>
+  <center style="margin-bottom: 20px;">
+    <p2>Reserve a Date for Seasons of Love Catering Services!<br></p2>
+    <p2>Please Select a Date when we can serve you! Choose wisely and considerably. Seasons of Love might be busy in
+      days highlighted as red in the given calendar below! Please reserve a more suitable date!</p2>
+  </center>
 
-    </center>
-
-
-
-    <div class="month">
-      <h2>MONTH</h2>
-      <h2><i>year</i></h2>
-    </div>
-
-    <table>
-      <tr>
-        <th>SUN</th>
-        <th>MON</th>
-        <th>TUES</th>
-        <th>WED</th>
-        <th>THURS</th>
-        <th>FRI</th>
-        <th>SAT</th>
-      </tr>
-      <tr>
-        <td></td>
-        <td></td>
-        <td onclick="highlightCell(this)">1</td>
-        <td onclick="highlightCell(this)">2</td>
-        <td onclick="highlightCell(this)">3</td>
-        <td onclick="highlightCell(this)">4</td>
-        <td onclick="highlightCell(this)">5</td>
-      </tr>
-      <tr>
-        <td onclick="highlightCell(this)">6</td>
-        <td onclick="highlightCell(this)">7</td>
-        <td onclick="highlightCell(this)">8</td>
-        <td onclick="highlightCell(this)">9</td>
-        <td onclick="highlightCell(this)">10</td>
-        <td onclick="highlightCell(this)">11</td>
-        <td onclick="highlightCell(this)">12</td>
-      </tr>
-      <tr>
-        <td onclick="highlightCell(this)">13</td>
-        <td onclick="highlightCell(this)">14</td>
-        <td onclick="highlightCell(this)">15</td>
-        <td onclick="highlightCell(this)">16</td>
-        <td onclick="highlightCell(this)">17</td>
-        <td onclick="highlightCell(this)">18</td>
-        <td onclick="highlightCell(this)">19</td>
-      </tr>
-      <tr>
-        <td onclick="highlightCell(this)">20</td>
-        <td onclick="highlightCell(this)">21</td>
-        <td onclick="highlightCell(this)">22</td>
-        <td onclick="highlightCell(this)">23</td>
-        <td onclick="highlightCell(this)">24</td>
-        <td onclick="highlightCell(this)">25</td>
-        <td onclick="highlightCell(this)">26</td>
-      </tr>
-      <tr>
-        <td onclick="highlightCell(this)">27</td>
-        <td onclick="highlightCell(this)">28</td>
-        <td onclick="highlightCell(this)">29</td>
-        <td onclick="highlightCell(this)">30</td>
-        <td onclick="highlightCell(this)">31</td>
-        <td></td>
-        <td></td>
-      </tr>
-
-    </table>
-
-
+  <div class="month" style="display: flex; justify-content: center; align-items: center; gap: 1rem;">
+    <button id="prevMonth">&lt</button>
+    <h2 id="calendar-month">January</h2>
+    <h2 id="calendar-year">2025</h2>
+    <button id="nextMonth">&gt</button>
   </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  <div id="calendar" class="calendar-grid"></div>
+</div>
 
 
   <div class="mother">
@@ -1023,7 +943,82 @@
 
 
 
-  </script>
+  </script> 
+  <script>
+
+
+  const calendar = document.getElementById("calendar");
+  const monthText = document.getElementById("calendar-month");
+  const yearText = document.getElementById("calendar-year");
+
+  const prevBtn = document.getElementById("prevMonth");
+  const nextBtn = document.getElementById("nextMonth");
+
+  const monthNames = [
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
+  ];
+
+  let currentDate = new Date();
+
+  function renderCalendar() {
+    calendar.innerHTML = "";
+
+    const month = currentDate.getMonth();
+    const year = currentDate.getFullYear();
+
+    monthText.textContent = monthNames[month];
+    yearText.textContent = year;
+
+    const firstDay = new Date(year, month, 1).getDay();
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+    const today = new Date();
+
+    for (let i = 0; i < firstDay; i++) {
+      const empty = document.createElement("div");
+      empty.className = "calendar-day";
+      calendar.appendChild(empty);
+    }
+
+    for (let day = 1; day <= daysInMonth; day++) {
+      const dayDiv = document.createElement("div");
+      dayDiv.className = "calendar-day";
+      dayDiv.textContent = day;
+
+      const fullDate = `${year}-${String(month + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+
+      if (
+        day === today.getDate() &&
+        month === today.getMonth() &&
+        year === today.getFullYear()
+      ) {
+        dayDiv.classList.add("today");
+      }
+
+      dayDiv.onclick = function () {
+        document.querySelectorAll(".calendar-day").forEach(d => d.classList.remove("highlight"));
+        dayDiv.classList.add("highlight");
+        selectedDate = fullDate;
+        console.log("Selected full date:", selectedDate);
+      };
+
+      calendar.appendChild(dayDiv);
+    }
+  }
+
+  prevBtn.addEventListener("click", () => {
+    currentDate.setMonth(currentDate.getMonth() - 1);
+    renderCalendar();
+  });
+
+  nextBtn.addEventListener("click", () => {
+    currentDate.setMonth(currentDate.getMonth() + 1);
+    renderCalendar();
+  });
+
+  renderCalendar();
+</script>
 </body>
 
 </html>
