@@ -1,4 +1,10 @@
-
+<?php 
+   session_start();
+     if (!isset($_SESSION['username'])) {
+    header("Location: ../PHP/adminLoginPage.php");
+    exit();
+}
+?>
 
 <!DOCTYPE html>  
 <html lang = "en"> 
@@ -16,11 +22,11 @@
 
 <body>
   
-<div style="display: flex; flex-direction: row; gap: 3vw; width: 100%; margin: 20px">
+<div style="display: flex; flex-direction: row; gap: 20vw; width: 100%; margin: 10px">
         <div>
-            <div style="margin-left: 20px;">
-                <button id="tab-pending" style="border: solid red">Pending</button>
-                <button id="tab-completed" style="border: solid lightgreen">Completed</button>
+            <div style="margin-left: 15px;">
+                <button id="tab-pending">Pending</button>
+                <button id="tab-completed">Completed</button>
             </div>
     
             <div id="order-container"></div>
@@ -31,6 +37,10 @@
 
 </div>
 
+  <!-- Add Logout Button -->
+    <form action="../PHP/logout.php" method="post">
+        <button type="submit">Logout</button>
+    </form>
 
 
 
