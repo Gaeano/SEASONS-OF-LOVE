@@ -30,9 +30,12 @@
             </div>
     
             <div id="order-container"></div>
-        </div> 
-
-        <div id="calendar" ></div>
+        </div>  
+        
+        <div class="calendar-wrapper">
+            <div id="calendar-header"></div>
+            <div id="calendar" class="calendar" ></div>
+        </div>
 
 
 </div>
