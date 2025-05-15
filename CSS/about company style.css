@@ -174,7 +174,7 @@
 
 
 body{
-  background:linear-gradient(rgba(0, 0, 0, 0.736), rgba(0, 0, 0, 0.37)), url(https://wallpapercave.com/wp/wp6866113.jpg);
+  background:linear-gradient(rgba(0, 0, 0, 0.736), rgba(0, 0, 0, 0.37)), url(../IMAGES/backgroundImage.webp);
    
     background-repeat: no-repeat;
     background-size: cover;
@@ -339,7 +339,7 @@ p2{
 
 
 .part2{
-  height: 80%;
+  height: 70%;
   margin: auto;
 
    display: flex;
@@ -386,7 +386,7 @@ p2{
     transition: max-height 0.4s ease, padding 0.4s ease;
   }
   .card:hover .content {
-    max-height: 200px; /* Enough height for content */
+    max-height: 500px; /* Enough height for content */
     padding: 0 1.25rem 1rem 1.25rem;
   }
   /* Responsive: stack cards vertically on small screens */
@@ -422,6 +422,45 @@ margin-left: 50px;
 justify-content:space-around;
 color: black;
 }
+
+
+
+
+
+
+
+/*the demmn footer*/
+
+.footer{
+  height: 120px;
+  border: 3px solid black;
+  background: black;
+
+  display: inline-block;
+  box-direction: column;
+  align-items: center;
+  
+width: 100%;
+  text-align: center;
+  color: white;
+  padding-bottom: 10px;
+
+  
+}
+
+.footer a{
+  color: white;
+  font-size: 25px;
+}
+
+.footer p{
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+
 
 
     

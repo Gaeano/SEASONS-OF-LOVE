@@ -21,38 +21,35 @@
 </head>
 
 <body>
-  <!-- NAV BAR START -->
- 
+<!-- NAV BAR START -->
+<div id="bgimg"> </div>
 
 
-  <div class="navBar">
+    <div class="navBar">
+              
+  
 
+      <div class="navLogo">
+        <img id="brandlogo" src="../IMAGES/logo3.png" alt="Logo">  
+      </div>
+      
+        <nav class="sideBar">
 
+          <a id="closeBtn" onclick=hideSideBar()> <svg xmlns="http://www.w3.org/2000/svg" height="27x" viewBox="0 -960 960 960" width="27px" fill="black"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a>
+        
+          <a id="linkSide" href="../index.html" target="_self"> HOME </a>
 
-    <div class="navLogo">
-      <img id="brandlogo" src="../IMAGES/logo3.png" alt="Logo">
-    </div>
+          <a id="linkSide" href="gallery.html" target="_self"> GALLERY </a>
 
-    <nav class="sideBar">
+          <a id="linkSide" href="about company.html" target="_self"> COMPANY </a>
 
-      <a id="closeBtn" onclick=hideSideBar()> <svg xmlns="http://www.w3.org/2000/svg" height="27x"
-          viewBox="0 -960 960 960" width="27px" fill="black">
-          <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z" />
-        </svg></a>
+          <a id="linkSide" href="contact.html" target="_self"> CONTACT US </a>
 
-      <a id="linkSide" href="../index.html" target="_self"> HOME </a>
+          <a id="linkSide" href="reserve date.html" target="_self"> RESERVE A DATE </a>
 
-      <a id="linkSide" href="gallery.html" target="_self"> GALLERY </a>
+        </nav>
 
-      <a id="linkSide" href="about company.html" target="_self"> COMPANY </a>
-
-      <a id="linkSide" href="contact.html" target="_self"> CONTACT US </a>
-
-      <a id="linkSide" href="reserve date.html" target="_self"> RESERVE A DATE </a>
-
-    </nav>
-
-    <nav class="menu">
+        <nav class="menu">
           <div class="menuLeft">
           <a class="hideOnMobile" href="../index.html" target="_self"> HOME </a>
 
@@ -66,21 +63,17 @@
           <a class="hideOnMobile" href="reserve date.html" id="reserve" target="_self"> RESERVE A DATE </a>
           </div>
         </nav>
+       
 
+        
+        <p id="menuButton" onclick= openSideBar()> <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="black"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg> </p>
 
-
-    <p id="menuButton" onclick=openSideBar()> <svg xmlns="http://www.w3.org/2000/svg" height="24px"
-        viewBox="0 -960 960 960" width="24px" fill="black">
-        <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
-      </svg> </p>
-
-
+        
 
 
 
   </div>
-  <!-- NAV BAR END -->
-  <!-- NAV BAR END -->
+<!-- NAV BAR END -->
 
   <div class="the-title">
     <h1>Seasons of Love</h1>
@@ -121,608 +114,552 @@
 
     <center>
 
-      <h1>Seasons of Love</h1>
-      <h4><i>MENU</i></h4>
+      <h4>MENU</h4>
 
-      <p2>pick and choose as many authentic Filipino dishes to your liking</p2>
+      <p2 id="p2">pick and choose as many authentic Filipino dishes to your liking</p2>
 
     </center>
 
-    <center>
-      <h3><b>BEEF</b></h3>
-    </center>
+    <div class="info" onclick="clickOpenBEEF()">
+  <center>
+        <h3><hr><b>BEEF</b><hr></h3>
+  </center>
 
-    <div class="product_container">
+</div>
 
-      <div class="product" onclick="toggleHighlight(this)">
-        <img
-          src="https://cdn.sanity.io/images/f3knbc2s/production/f74d8aed0419d87b41895136fede06b671ed0482-2500x1500.jpg"
-          alt="Beef Caldereta" />
-        <div class="product_content">
-          <h2>Beef Caldereta</h2>
-          <p>Tomato-based beef stew with potatoes, carrots, and bell peppers.</p>
-        </div>
-      </div>
+  <div class="product_containerBEEF">
 
-
-      <div class="product" onclick="toggleHighlight(this)">
-        <img
-          src="https://cdn.sanity.io/images/f3knbc2s/production/12ce50fc6e32bdf23f98756fea89d19566239ae5-2500x1500.jpg"
-          alt="Beef Stroganoff" />
-        <div class="product_content">
-          <h2>Beef Stroganoff</h2>
-          <p>Creamy beef dish with mushrooms and a rich sauce.</p>
-        </div>
-      </div>
-
-
-      <div class="product" onclick="toggleHighlight(this)">
-        <img
-          src="https://eatlikepinoy.com/wp-content/uploads/2021/05/Chef-Laudico-Guevarras-Beef-Kare-Kare-959x1024.jpg"
-          alt="Beef Kare-Kare" />
-        <div class="product_content">
-          <h2>Beef Kare-Kare</h2>
-          <p>Peanut-based stew with beef, tripe, and vegetables.</p>
-        </div>
-      </div>
-
-
-      <div class="product" onclick="toggleHighlight(this)">
-        <img src="https://www.foxyfolksy.com/wp-content/uploads/2017/05/filipino-menudo-recipe-640.jpg"
-          alt="Beef Menudo" />
-        <div class="product_content">
-          <h2>Beef Menudo</h2>
-          <p>Beef cooked in a tomato sauce with potatoes, carrots, and bell peppers.</p>
-        </div>
-      </div>
-
-
-      <div class="product" onclick="toggleHighlight(this)">
-        <img
-          src="https://th.bing.com/th/id/R.4a2805392f30d855f82d1d0ed5ff2f47?rik=ZftzmBuUlVVDBw&riu=http%3a%2f%2fwww.magluto.com%2fwp-content%2fgallery%2fpinoy-food-photo%2fbeef_broccoli_18.jpg&ehk=V6PjaCTp8q5Bc6q1gbPgAQkkrqZWTctLjGdI1pE7B9w%3d&risl=&pid=ImgRaw&r=0"
-          alt="Beef with Broccoli" />
-        <div class="product_content">
-          <h2>Beef with Broccoli</h2>
-          <p>Stir-fried beef with fresh broccoli in a savory sauce.</p>
-        </div>
-      </div>
-
-
-      <div class="product" onclick="toggleHighlight(this)">
-        <img src="https://i.pinimg.com/originals/03/03/1e/03031e734ec58298de9ee8978cfba676.jpg" alt="Bistik Tagalog" />
-        <div class="product_content">
-          <h2>Bistik Tagalog</h2>
-          <p>Thin beef slices cooked in soy sauce, calamansi, and onions.</p>
-        </div>
-      </div>
-
-
-      <div class="product" style="grid-column: span 3;" onclick="toggleHighlight(this)">
-        <img src="https://www.pinoycookingrecipes.com/uploads/7/6/7/8/7678114/watermark-2019-04-24-16-07-03_orig.jpg"
-          alt="Ampalaya con Carne" />
-        <div class="product_content">
-          <h2>Ampalaya con Carne</h2>
-          <p>Bitter melon stir-fried with beef and garlic.</p>
-        </div>
-      </div>
-
+  <div class="product" onclick="toggleHighlight(this)">
+    <img src="https://cdn.sanity.io/images/f3knbc2s/production/f74d8aed0419d87b41895136fede06b671ed0482-2500x1500.jpg" alt="Beef Caldereta" />
+    <div class="product_content">
+      <h2>Beef Caldereta</h2>
+      <p>Tomato-based beef stew with potatoes, carrots, and bell peppers.</p>
     </div>
+  </div>
 
 
-
-    <center>
-      <h3><b>CHICKEN</b></h3>
-    </center>
-
-
-
-
-    <div class="product_container">
-
-      <div class="product" onclick="toggleHighlight(this)">
-        <img src="https://salu-salo.com/wp-content/uploads/2012/07/Chicken-Afritada-5.jpg" alt="Chicken Afritada" />
-        <div class="product_content">
-          <h2>Chicken Afritada</h2>
-          <p>Chicken stew with tomato sauce, potatoes, and bell peppers.</p>
-        </div>
-      </div>
-
-
-      <div class="product" onclick="toggleHighlight(this)">
-        <img src="https://www.foxyfolksy.com/wp-content/uploads/2013/08/chicken-curry-recipe.jpg" alt="Chicken Curry" />
-        <div class="product_content">
-          <h2>Chicken Curry</h2>
-          <p>Filipino-style curry with coconut milk and vegetables.</p>
-        </div>
-      </div>
-
-
-      <div class="product" onclick="toggleHighlight(this)">
-        <img src="https://www.friendcheapmenu.com/wp-content/uploads/2020/11/chicken-fillet-2.jpg"
-          alt="Chicken Fillet" />
-        <div class="product_content">
-          <h2>Chicken Fillet</h2>
-          <p>Boneless chicken pieces, usually fried or grilled.</p>
-        </div>
-      </div>
-
-
-      <div class="product" onclick="toggleHighlight(this)">
-        <img src="https://gypsyplate.com/wp-content/uploads/2021/03/chicken-asado_05.jpg" alt="Chicken Asado" />
-        <div class="product_content">
-          <h2>Chicken Asado</h2>
-          <p>Sweet-savory braised chicken in a soy sauce-based marinade.</p>
-        </div>
-      </div>
-
-
-      <div class="product" onclick="toggleHighlight(this)">
-        <img src="https://th.bing.com/th/id/OIP.qjn2v9vlVheEykCN_sceiwHaEK?cb=iwc2&rs=1&pid=ImgDetMain"
-          alt="Chicken Adobo with Egg" />
-        <div class="product_content">
-          <h2>Chicken Adobo with Egg</h2>
-          <p>Classic adobo with hard-boiled eggs for extra flavor.</p>
-        </div>
-      </div>
-
-
-      <div class="product" onclick="toggleHighlight(this)">
-        <img src="https://img-global.cpcdn.com/recipes/a80076f86f830989/1200x630cq70/photo.jpg" alt="Chicken Strips" />
-        <div class="product_content">
-          <h2>Chicken Strips</h2>
-          <p>Breaded and fried chicken tenders.</p>
-        </div>
-      </div>
-
-
-      <div class="product" onclick="toggleHighlight(this)">
-        <img src="https://i.pinimg.com/originals/cd/d6/e4/cdd6e4224b61878abc2ed76917df4d0c.png"
-          alt="Chicken Embotido" />
-        <div class="product_content">
-          <h2>Chicken Embotido</h2>
-          <p>Chicken meatloaf with vegetables and spices.</p>
-        </div>
-      </div>
-
-
-      <div class="product" onclick="toggleHighlight(this)">
-        <img
-          src="https://1.bp.blogspot.com/-PqYE2yrncZo/WDY0ynrOjeI/AAAAAAAAOvs/twNafF2AOoUIMt8iiPu28fq5ywnBTDd_wCLcB/w1200-h630-p-k-no-nu/15179065_10211370530598622_8843274761581417795_n.jpg"
-          alt="Chicken Meatballs" />
-        <div class="product_content">
-          <h2>Chicken Meatballs</h2>
-          <p>Minced chicken balls in sauce or fried.</p>
-        </div>
-      </div>
-
-
-      <div class="product" onclick="toggleHighlight(this)">
-        <img src="https://yummykitchentv.com/wp-content/uploads/2022/03/buffalo-chicken-wings-1200x822.jpg"
-          alt="Buffalo Wings" />
-        <div class="product_content">
-          <h2>Buffalo Wings</h2>
-          <p>Spicy and tangy fried chicken wings.</p>
-        </div>
-      </div>
-
-      <div class="product" onclick="toggleHighlight(this)">
-        <img
-          src="https://images.aws.nestle.recipes/resized/1fd8d4fb87e9ecc7b8d1c7b50c6ccaeb_nksb04s1-d01_5040_944_531.jpg"
-          alt="Fried Chicken" />
-        <div class="product_content">
-          <h2>Fried Chicken</h2>
-          <p>Crispy, golden-brown deep-fried chicken.</p>
-        </div>
-      </div>
-
-
-      <div class="product" onclick="toggleHighlight(this)">
-        <img
-          src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgjDvO45RK453BPWvYzgrV1zIw5Q3RuK7DYd2KE9uxogMxYBZKrpyZsRREZPx6xKHlzKmb_7jqwNOF3NqRc2KBhdtnuDj-nIhEqLZdmi2zY3mhaL0tKEzgY5XMT-q8gnxs9rfp3UcWfqEo/s1632/chicken+sweet.jpg"
-          alt="Chicken Sweet & Sour" />
-        <div class="product_content">
-          <h2>Chicken Sweet & Sour</h2>
-          <p>Chicken in a tangy sweet-sour sauce with vegetables</p>
-        </div>
-      </div>
-
-
-      <div class="product" onclick="toggleHighlight(this)">
-        <img src="https://www.ajinomoto.com.ph/ajinomoto-static/web/wp-content/uploads/2020/11/Chicken-Cordon-Blue-.jpg"
-          alt="Chicken Cordon Bleu" />
-        <div class="product_content">
-          <h2>Chicken Cordon Bleu</h2>
-          <p>Breaded chicken stuffed with ham and cheese.</p>
-        </div>
-      </div>
-
-
-      <div class="product" style="grid-column: span 3;" onclick="toggleHighlight(this)">
-        <img src="https://th.bing.com/th/id/OIP.KDdbKZdKw14f3ePBt_FqLAAAAA?cb=iwc2&rs=1&pid=ImgDetMain"
-          alt="Chicken Ala King" />
-        <div class="product_content">
-          <h2>Chicken Ala King</h2>
-          <p>Creamy chicken dish with bell peppers and mushrooms.</p>
-        </div>
-      </div>
+  <div class="product" onclick="toggleHighlight(this)">
+    <img src="https://cdn.sanity.io/images/f3knbc2s/production/12ce50fc6e32bdf23f98756fea89d19566239ae5-2500x1500.jpg" alt="Beef Stroganoff" />
+    <div class="product_content">
+      <h2>Beef Stroganoff</h2>
+      <p>Creamy beef dish with mushrooms and a rich sauce.</p>
     </div>
+  </div>
 
 
-
-
-    <center>
-      <h3><b>PORK</b></h3>
-    </center>
-
-
-
-
-    <div class="product_container">
-
-      <div class="product" onclick="toggleHighlight(this)">
-        <img src="https://s-media-cache-ak0.pinimg.com/originals/b3/86/6a/b3866af7035723dfde2291236df38fdc.jpg"
-          alt="Pork Embotido" />
-        <div class="product_content">
-          <h2>Pork Embotido</h2>
-          <p>Pork meatloaf with vegetables, eggs, and sausage.</p>
-        </div>
-      </div>
-
-
-      <div class="product" onclick="toggleHighlight(this)">
-        <img src="https://yummyfood.ph/wp-content/uploads/2022/07/pork-steak-pork-chop.jpg" alt="Pork Steak" />
-        <div class="product_content">
-          <h2>Pork Steak</h2>
-          <p>Tender pork slices cooked in soy sauce and calamansi.</p>
-        </div>
-      </div>
-
-
-      <div class="product" onclick="toggleHighlight(this)">
-        <img src="https://yummyfood.ph/wp-content/uploads/2021/09/pork-menudo-recipe.jpg" alt="Pork Menudo" />
-        <div class="product_content">
-          <h2>Pork Menudo</h2>
-          <p>Pork stew in tomato sauce with potatoes and bell peppers.</p>
-        </div>
-      </div>
-
-
-      <div class="product" onclick="toggleHighlight(this)">
-        <img
-          src="https://2.bp.blogspot.com/-URMyvtE-xEU/XGioNEEoBgI/AAAAAAAASKQ/cK2QYWyoHEo0KDrUdkgwot7OpyE8DFhjACLcBGAs/s1600/pork%2Bafritada%2B.jpg"
-          alt="Pork Afritada" />
-        <div class="product_content">
-          <h2>Pork Afritada</h2>
-          <p>Tomato-based pork stew with vegetables.</p>
-        </div>
-      </div>
-
-
-      <div class="product" onclick="toggleHighlight(this)">
-        <img src="https://thepinoyofw.com/wp-content/uploads/2023/03/Pork-Binagoongan-menu.jpg"
-          alt="Pork Binagoongan" />
-        <div class="product_content">
-          <h2>Pork Binagoongan</h2>
-          <p>Pork cooked in fermented shrimp paste.</p>
-        </div>
-      </div>
-
-
-      <div class="product" onclick="toggleHighlight(this)">
-        <img
-          src="https://th.bing.com/th/id/R.6ebe17849db6e75afdfb35ace35cd4a1?rik=tfboVoeOrdzLsg&riu=http%3a%2f%2fimages.deliveryhero.io%2fimage%2ffoodpanda%2frecipes%2fbicol-express-recipe-1.jpg&ehk=VhH3ubS0EoC%2f4yY1knnnPsiW8ku5unL5Pb7DNgauCLI%3d&risl=&pid=ImgRaw&r=0"
-          alt="Bicol Express" />
-        <div class="product_content">
-          <h2>Bicol Express</h2>
-          <p>Spicy pork dish with coconut milk and chilies.</p>
-        </div>
-      </div>
-
-
-      <div class="product" onclick="toggleHighlight(this)">
-        <img src="https://th.bing.com/th/id/OIP.3VQ7LFMJPswwYLluYye2bAAAAA?cb=iwc2&rs=1&pid=ImgDetMain"
-          alt="Sweet & Sour Meatballs" />
-        <div class="product_content">
-          <h2>Sweet & Sour Meatballs</h2>
-          <p>SPork meatballs in a sweet-sour sauce.</p>
-        </div>
-      </div>
-
-
-      <div class="product" onclick="toggleHighlight(this)">
-        <img src="https://th.bing.com/th/id/OIP.EMuRClLBj0KgqTOKzbOOsQAAAA?cb=iwc2&rs=1&pid=ImgDetMain"
-          alt="Shanghai Roll" />
-        <div class="product_content">
-          <h2>Shanghai Roll</h2>
-          <p>Crispy Filipino spring rolls filled with pork and vegetables.</p>
-        </div>
-      </div>
-
-
-      <div class="product" onclick="toggleHighlight(this)">
-        <img src="https://th.bing.com/th/id/OIP.VZ0iTsZm9KfILwlJfKCXuwAAAA?cb=iwc2&rs=1&pid=ImgDetMain"
-          alt="Pork Kare-Kare" />
-        <div class="product_content">
-          <h2>Pork Kare-Kare</h2>
-          <p>Peanut stew featuring pork and vegetables.</p>
-        </div>
-      </div>
-
-
-      <div class="product" onclick="toggleHighlight(this)">
-        <img
-          src="https://th.bing.com/th/id/R.aec9664fd20f1825f1a4c5680eb6d479?rik=Wlk0ZQ2KOhz%2fEg&riu=http%3a%2f%2f3.bp.blogspot.com%2f_lHrl7jnR2nw%2fTIDKztjK_0I%2fAAAAAAAAAHo%2fiIp4tvcmd8k%2fs1600%2fSweet-and-Sour-Pork.jpg&ehk=a6EYIGvovv6NIwVGv6%2bjkuxaJnTKJSm%2fVyqaKvVAjew%3d&risl=&pid=ImgRaw&r=0"
-          alt="Pork Sweet & Sour" />
-        <div class="product_content">
-          <h2>Pork Sweet & Sour</h2>
-          <p>Pork cooked in a sweet-sour sauce.</p>
-        </div>
-      </div>
-
-
-      <div class="product" onclick="toggleHighlight(this)">
-        <img src="https://th.bing.com/th/id/OIP.SWeHjelY905Q6WeYctlzFQHaFE?cb=iwc2&rs=1&pid=ImgDetMain"
-          alt="Pork Humba" />
-        <div class="product_content">
-          <h2>Pork Humba</h2>
-          <p>Braised pork belly with soy sauce, sugar, and banana blossoms.</p>
-        </div>
-      </div>
-
-
-      <div class="product" onclick="toggleHighlight(this)">
-        <img src="https://th.bing.com/th/id/OIP.HFXPJmP4Ypem7sE4QfggqwHaHt?cb=iwc2&rs=1&pid=ImgDetMain"
-          alt="Pork Asado" />
-        <div class="product_content">
-          <h2>Pork Asado</h2>
-          <p>Sweet and savory pork braised in a soy-based sauce.</p>
-        </div>
-      </div>
-
+  <div class="product" onclick="toggleHighlight(this)">
+    <img src="https://eatlikepinoy.com/wp-content/uploads/2021/05/Chef-Laudico-Guevarras-Beef-Kare-Kare-959x1024.jpg" alt="Beef Kare-Kare" />
+    <div class="product_content">
+      <h2>Beef Kare-Kare</h2>
+      <p>Peanut-based stew with beef, tripe, and vegetables.</p>
     </div>
+  </div>
 
 
-
-
-
-    <center>
-      <h3><b>FISH & SEAFOOD</b></h3>
-    </center>
-
-
-
-
-    <div class="product_container">
-
-
-
-
-
-
-      <div class="product" onclick="toggleHighlight(this)">
-        <img src="https://th.bing.com/th/id/OIP.lhGfGxQqW14mXxvVY_0QuwHaE8?cb=iwc2&rs=1&pid=ImgDetMain"
-          alt="Fish Kinilaw" />
-        <div class="product_content">
-          <h2>Fish Kinilaw</h2>
-          <p>Fresh raw fish marinated in vinegar and spices.</p>
-        </div>
-      </div>
-
-
-      <div class="product" onclick="toggleHighlight(this)">
-        <img src="https://th.bing.com/th/id/OIP.5nKXUpht9oiEizQBiFSkdgHaDq?cb=iwc2&rs=1&pid=ImgDetMain"
-          alt="Sweet & Sour Fish" />
-        <div class="product_content">
-          <h2>Sweet & Sour Fish</h2>
-          <p>Fish cooked in a tangy sweet-sour sauce.</p>
-        </div>
-      </div>
-
-
-      <div class="product" onclick="toggleHighlight(this)">
-        <img src="https://i.ytimg.com/vi/e9KMkNM1ckM/maxresdefault.jpg" alt="Chopsuey Seafood" />
-        <div class="product_content">
-          <h2>Chopsuey Seafood</h2>
-          <p>Mixed vegetables and seafood stir-fried in a savory sauce.</p>
-        </div>
-      </div>
-
-
-      <div class="product" style="grid-column: span 3;" onclick="toggleHighlight(this)">
-        <img src="https://th.bing.com/th/id/OIP.51pbWz2_4izc_HuthYxdxgHaEK?cb=iwc2&rs=1&pid=ImgDetMain"
-          alt="Fish Fillet" />
-        <div class="product_content">
-          <h2>Fish Fillet</h2>
-          <p>Crispy or pan-seared boneless fish fillet.</p>
-        </div>
-      </div>
-
-      <div class="product" style="grid-column: span 3;" onclick="toggleHighlight(this)">
-        <img src="" alt="Seafood Kare-Kare" />
-        <div class="product_content">
-          <h2>Seafood Kare-Kare</h2>
-          <p>Tender seafood in an umami peanut sauce.</p>
-        </div>
-      </div>
-
-
+   <div class="product" onclick="toggleHighlight(this)">
+    <img src="https://www.foxyfolksy.com/wp-content/uploads/2017/05/filipino-menudo-recipe-640.jpg" alt="Beef Menudo" />
+    <div class="product_content">
+      <h2>Beef Menudo</h2>
+      <p>Beef cooked in a tomato sauce with potatoes, carrots, and bell peppers.</p>
     </div>
+  </div>
 
 
-
-
-
-    <center>
-      <h3><b>NOODLES & PASTA</b></h3>
-    </center>
-
-
-
-
-    <div class="product_container">
-
-
-      <div class="product" onclick="toggleHighlight(this)">
-        <img src="https://yummyfood.ph/wp-content/uploads/2021/07/Pancit-Bihon-Guisado.jpg" alt="Bihon Guisado" />
-        <div class="product_content">
-          <h2>Bihon Guisado</h2>
-          <p>Stir-fried rice noodles with vegetables and meat.</p>
-        </div>
-      </div>
-
-
-      <div class="product" onclick="toggleHighlight(this)">
-        <img src="https://www.myfoodom.com/wp-content/uploads/2022/07/pancit-canton.jpg" alt="Pancit Canton" />
-        <div class="product_content">
-          <h2>Pancit Canton</h2>
-          <p>Egg noodles stir-fried with meat and vegetables.</p>
-        </div>
-      </div>
-
-
-      <div class="product" onclick="toggleHighlight(this)">
-        <img
-          src="https://th.bing.com/th/id/R.2dc6f700302e20e29d10ff9cc6b2fba9?rik=G7DsXZVfJlIMdw&riu=http%3a%2f%2fwww.filipinorecipesite.com%2fwp-content%2fuploads%2f2009%2f09%2fPancit-Bisaya-Bam-i.jpg&ehk=vm%2bwugvX2gWhH%2fBqOfUL2wQ%2fE9mlmWoR1EidemYu8a8%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1"
-          alt="Bam-i" />
-        <div class="produc t_content">
-          <h2>Bam-i</h2>
-          <p>Cebuano-style noodles mixing pancit canton and sotanghon.</p>
-        </div>
-      </div>
-
-
-      <div class="product" onclick="toggleHighlight(this)">
-        <img src="https://th.bing.com/th/id/OIP.b4HYbl2maQsGpvdz5PvYgwHaHt?cb=iwc2&rs=1&pid=ImgDetMain"
-          alt="Sotanghon Guisado" />
-        <div class="product_content">
-          <h2>Sotanghon Guisado</h2>
-          <p>Stir-fried glass noodles with vegetables and meat.</p>
-        </div>
-      </div>
-
-
-      <div class="product" onclick="toggleHighlight(this)">
-        <img src="https://th.bing.com/th/id/OIP.OrQiBiLhTHbZgKdFlqrN5gHaFj?cb=iwc2&rs=1&pid=ImgDetMain"
-          alt="Special Spaghetti" />
-        <div class="product_content">
-          <h2>Special Spaghetti</h2>
-          <p>Filipino-style sweet spaghetti with hotdogs and cheese.</p>
-        </div>
-      </div>
-
-
-      <div class="product" onclick="toggleHighlight(this)">
-        <img src="https://th.bing.com/th/id/OIP.X2_rKb8wiruG0feDQ7Y_7QAAAA?cb=iwc2&rs=1&pid=ImgDetMain"
-          alt="Vegetable Lumpia" />
-        <div class="product_content">
-          <h2>Vegetable Lumpia</h2>
-          <p>Fresh or fried vegetable spring rolls.</p>
-        </div>
-      </div>
-
-
-
-
+  <div class="product" onclick="toggleHighlight(this)">
+    <img src="https://th.bing.com/th/id/R.4a2805392f30d855f82d1d0ed5ff2f47?rik=ZftzmBuUlVVDBw&riu=http%3a%2f%2fwww.magluto.com%2fwp-content%2fgallery%2fpinoy-food-photo%2fbeef_broccoli_18.jpg&ehk=V6PjaCTp8q5Bc6q1gbPgAQkkrqZWTctLjGdI1pE7B9w%3d&risl=&pid=ImgRaw&r=0" alt="Beef with Broccoli" />
+    <div class="product_content">
+      <h2>Beef with Broccoli</h2>
+      <p>Stir-fried beef with fresh broccoli in a savory sauce.</p>
     </div>
+  </div>
 
 
-
-
-
-    <center>
-      <h3><b>SALADS & DESERTS</b></h3>
-    </center>
-
-
-
-
-    <div class="product_container">
-
-      <div class="product" onclick="toggleHighlight(this)">
-        <img src="https://th.bing.com/th/id/OIP.l8s8la7LjKXPN1svhtk-zQHaFE?cb=iwc2&rs=1&pid=ImgDetMain"
-          alt="Chicken Salad" />
-        <div class="product_content">
-          <h2>Chicken Salad</h2>
-          <p>Cold salad with shredded chicken, mayo, and vegetables.</p>
-        </div>
-      </div>
-
-
-      <div class="product" onclick="toggleHighlight(this)">
-        <img src="https://th.bing.com/th/id/OIP.BMa7X0P__g03z7TNaIWonQHaJ4?cb=iwc2&rs=1&pid=ImgDetMain"
-          alt="Fruit Macaroni Salad" />
-        <div class="product_content">
-          <h2>Fruit Macaroni Salad</h2>
-          <p>Sweet macaroni salad with fruit cocktail and cream.</p>
-        </div>
-      </div>
-
-
-      <div class="product" onclick="toggleHighlight(this)">
-        <img src="https://i.pinimg.com/originals/e1/d0/e6/e1d0e6b93aed738c3e09fbaa7c102a14.jpg" alt="Fruit Salad" />
-        <div class="product_content">
-          <h2>Fruit Salad</h2>
-          <p>A mix of fresh or canned fruits in sweetened cream.</p>
-        </div>
-      </div>
-
-
-      <div class="product" onclick="toggleHighlight(this)">
-        <img src="https://th.bing.com/th/id/OIP.YrN1jrOFjrRzK-ViTvOP4QHaHa?cb=iwc2&rs=1&pid=ImgDetMain"
-          alt="Buko Pandan" />
-        <div class="product_content">
-          <h2>Buko Pandan</h2>
-          <p>Creamy coconut and pandan-flavored dessert.</p>
-        </div>
-      </div>
-
-
-      <div class="product" onclick="toggleHighlight(this)">
-        <img src="https://th.bing.com/th/id/OIP.o48ab6ILqUrQeVkOG3BgrwHaFS?cb=iwc2&rs=1&pid=ImgDetMain"
-          alt="Fresh Fruits" />
-        <div class="product_content">
-          <h2>Fresh Fruits</h2>
-          <p>A colorful assortment of fresh tropical fruits.</p>
-        </div>
-      </div>
-
-
-      <div class="product" onclick="toggleHighlight(this)">
-        <img
-          src="https://th.bing.com/th/id/R.8cd5456e28ef73cf1fb4c5b93b5e9674?rik=eAks52vb%2fZRP9Q&riu=http%3a%2f%2fwww.pinoycookingrecipes.com%2fuploads%2f7%2f6%2f7%2f8%2f7678114%2f20201215-170451-1_orig.png&ehk=eP6JzcYFCbwjtsalRRWhXS9wSr1I5yWsuuUbkY2oYQs%3d&risl=&pid=ImgRaw&r=0"
-          alt="Black Sambo" />
-        <div class="product_content">
-          <h2>Black Sambo</h2>
-          <p>Layered chocolate and milk gelatin dessert.</p>
-        </div>
-      </div>
-
-
-      <div class="product" style="grid-column: span 3;" onclick="toggleHighlight(this)">
-        <img src="https://pinoybites.com/wp-content/uploads/2021/09/macaroniwithlogo4-scaled.jpg"
-          alt="Macaroni Salad" />
-        <div class="product_content">
-          <h2>Macaroni Salad</h2>
-          <p>Creamy and slightly sweet macaroni-based dish.</p>
-        </div>
-      </div>
-
+  <div class="product" onclick="toggleHighlight(this)">
+    <img src="https://i.pinimg.com/originals/03/03/1e/03031e734ec58298de9ee8978cfba676.jpg" alt="Bistik Tagalog" />
+    <div class="product_content">
+      <h2>Bistik Tagalog</h2>
+      <p>Thin beef slices cooked in soy sauce, calamansi, and onions.</p>
     </div>
+  </div>
 
 
-      <center>
-        <h3><b>Your Order Summary:</b></h3>
-      </center>
-
-     <div class="summarycontainer"> 
-      <h5>Your dishes:</h5> 
-      <ul id="summary-list"></ul>
+  <div class="product" style="grid-column: span 3;" onclick="toggleHighlight(this)">
+    <img src="https://www.pinoycookingrecipes.com/uploads/7/6/7/8/7678114/watermark-2019-04-24-16-07-03_orig.jpg" alt="Ampalaya con Carne" />
+    <div class="product_content">
+      <h2>Ampalaya con Carne</h2>
+      <p>Bitter melon stir-fried with beef and garlic.</p>
     </div>
+  </div>
+
+</div>
+
+
+<div class="info" onclick="clickOpenCHICKEN()">
+<center>
+        <h3><hr><b>CHICKEN</b><hr></h3>
+  </center>
+
+</div>
+
+
+
+
+<div class="product_containerCHICKEN">
+ 
+  <div class="product" onclick="toggleHighlight(this)">
+    <img src="https://salu-salo.com/wp-content/uploads/2012/07/Chicken-Afritada-5.jpg" alt="Chicken Afritada" />
+    <div class="product_content">
+      <h2>Chicken Afritada</h2>
+      <p>Chicken stew with tomato sauce, potatoes, and bell peppers.</p>
+    </div>
+  </div>
+
+
+  <div class="product" onclick="toggleHighlight(this)">
+    <img src="https://www.foxyfolksy.com/wp-content/uploads/2013/08/chicken-curry-recipe.jpg" alt="Chicken Curry" />
+    <div class="product_content">
+      <h2>Chicken Curry</h2>
+      <p>Filipino-style curry with coconut milk and vegetables.</p>
+    </div>
+  </div>
+
+
+  <div class="product" onclick="toggleHighlight(this)">
+    <img src="https://www.friendcheapmenu.com/wp-content/uploads/2020/11/chicken-fillet-2.jpg" alt="Chicken Fillet" />
+    <div class="product_content">
+      <h2>Chicken Fillet</h2>
+      <p>Boneless chicken pieces, usually fried or grilled.</p>
+    </div>
+  </div>
+
+
+  <div class="product" onclick="toggleHighlight(this)">
+    <img src="https://gypsyplate.com/wp-content/uploads/2021/03/chicken-asado_05.jpg" alt="Chicken Asado" />
+    <div class="product_content">
+      <h2>Chicken Asado</h2>
+      <p>Sweet-savory braised chicken in a soy sauce-based marinade.</p>
+    </div>
+  </div>
+
+
+  <div class="product" onclick="toggleHighlight(this)">
+    <img src="https://th.bing.com/th/id/OIP.qjn2v9vlVheEykCN_sceiwHaEK?cb=iwc2&rs=1&pid=ImgDetMain" alt="Chicken Adobo with Egg" />
+    <div class="product_content">
+      <h2>Chicken Adobo with Egg</h2>
+      <p>Classic adobo with hard-boiled eggs for extra flavor.</p>
+    </div>
+  </div>
+
+
+  <div class="product" onclick="toggleHighlight(this)">
+    <img src="https://img-global.cpcdn.com/recipes/a80076f86f830989/1200x630cq70/photo.jpg" alt="Chicken Strips" />
+    <div class="product_content">
+      <h2>Chicken Strips</h2>
+      <p>Breaded and fried chicken tenders.</p>
+    </div>
+  </div>
+
+
+  <div class="product" onclick="toggleHighlight(this)">
+    <img src="https://i.pinimg.com/originals/cd/d6/e4/cdd6e4224b61878abc2ed76917df4d0c.png" alt="Chicken Embotido" />
+    <div class="product_content">
+      <h2>Chicken Embotido</h2>
+      <p>Chicken meatloaf with vegetables and spices.</p>
+    </div>
+  </div>
+
+
+  <div class="product" onclick="toggleHighlight(this)">
+    <img src="https://1.bp.blogspot.com/-PqYE2yrncZo/WDY0ynrOjeI/AAAAAAAAOvs/twNafF2AOoUIMt8iiPu28fq5ywnBTDd_wCLcB/w1200-h630-p-k-no-nu/15179065_10211370530598622_8843274761581417795_n.jpg" alt="Chicken Meatballs" />
+    <div class="product_content">
+      <h2>Chicken Meatballs</h2>
+      <p>Minced chicken balls in sauce or fried.</p>
+    </div>
+  </div>
+
+
+  <div class="product" onclick="toggleHighlight(this)">
+    <img src="https://yummykitchentv.com/wp-content/uploads/2022/03/buffalo-chicken-wings-1200x822.jpg" alt="Buffalo Wings" />
+    <div class="product_content">
+      <h2>Buffalo Wings</h2>
+      <p>Spicy and tangy fried chicken wings.</p>
+    </div>
+  </div>
+
+  <div class="product" onclick="toggleHighlight(this)">
+    <img src="https://images.aws.nestle.recipes/resized/1fd8d4fb87e9ecc7b8d1c7b50c6ccaeb_nksb04s1-d01_5040_944_531.jpg" alt="Fried Chicken" />
+    <div class="product_content">
+      <h2>Fried Chicken</h2>
+      <p>Crispy, golden-brown deep-fried chicken.</p>
+    </div>
+  </div>
+
+
+  <div class="product" onclick="toggleHighlight(this)">
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgjDvO45RK453BPWvYzgrV1zIw5Q3RuK7DYd2KE9uxogMxYBZKrpyZsRREZPx6xKHlzKmb_7jqwNOF3NqRc2KBhdtnuDj-nIhEqLZdmi2zY3mhaL0tKEzgY5XMT-q8gnxs9rfp3UcWfqEo/s1632/chicken+sweet.jpg" alt="Chicken Sweet & Sour" />
+    <div class="product_content">
+      <h2>Chicken Sweet & Sour</h2>
+      <p>Chicken in a tangy sweet-sour sauce with vegetables</p>
+    </div>
+  </div>
+
+
+  <div class="product" onclick="toggleHighlight(this)">
+    <img src="https://www.ajinomoto.com.ph/ajinomoto-static/web/wp-content/uploads/2020/11/Chicken-Cordon-Blue-.jpg" alt="Chicken Cordon Bleu" />
+    <div class="product_content">
+      <h2>Chicken Cordon Bleu</h2>
+      <p>Breaded chicken stuffed with ham and cheese.</p>
+    </div>
+  </div>
+
+
+    <div class="product" style="grid-column: span 3;" onclick="toggleHighlight(this)">
+    <img src="https://th.bing.com/th/id/OIP.KDdbKZdKw14f3ePBt_FqLAAAAA?cb=iwc2&rs=1&pid=ImgDetMain" alt="Chicken Ala King" />
+    <div class="product_content">
+      <h2>Chicken Ala King</h2>
+      <p>Creamy chicken dish with bell peppers and mushrooms.</p>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="info" onclick="clickOpenPORK()">
+<center>
+        <h3><hr><b>PORK</b><hr></h3>
+  </center>
+
+</div>
+
+
+
+
+<div class="product_containerPORK">
+ 
+  <div class="product" onclick="toggleHighlight(this)">
+    <img src="https://s-media-cache-ak0.pinimg.com/originals/b3/86/6a/b3866af7035723dfde2291236df38fdc.jpg" alt="Pork Embotido" />
+    <div class="product_content">
+      <h2>Pork Embotido</h2>
+      <p>Pork meatloaf with vegetables, eggs, and sausage.</p>
+    </div>
+  </div>
+
+  
+  <div class="product" onclick="toggleHighlight(this)">
+    <img src="https://yummyfood.ph/wp-content/uploads/2022/07/pork-steak-pork-chop.jpg" alt="Pork Steak" />
+    <div class="product_content">
+      <h2>Pork Steak</h2>
+      <p>Tender pork slices cooked in soy sauce and calamansi.</p>
+    </div>
+  </div>
+
+
+  <div class="product" onclick="toggleHighlight(this)">
+    <img src="https://yummyfood.ph/wp-content/uploads/2021/09/pork-menudo-recipe.jpg" alt="Pork Menudo" />
+    <div class="product_content">
+      <h2>Pork Menudo</h2>
+      <p>Pork stew in tomato sauce with potatoes and bell peppers.</p>
+    </div>
+  </div>
+
+
+ <div class="product" onclick="toggleHighlight(this)">
+    <img src="https://2.bp.blogspot.com/-URMyvtE-xEU/XGioNEEoBgI/AAAAAAAASKQ/cK2QYWyoHEo0KDrUdkgwot7OpyE8DFhjACLcBGAs/s1600/pork%2Bafritada%2B.jpg" alt="Pork Afritada" />
+    <div class="product_content">
+      <h2>Pork Afritada</h2>
+      <p>Tomato-based pork stew with vegetables.</p>
+    </div>
+  </div>
+
+
+   <div class="product" onclick="toggleHighlight(this)">
+    <img src="https://thepinoyofw.com/wp-content/uploads/2023/03/Pork-Binagoongan-menu.jpg" alt="Pork Binagoongan" />
+    <div class="product_content">
+      <h2>Pork Binagoongan</h2>
+      <p>Pork cooked in fermented shrimp paste.</p>
+    </div>
+  </div>
+
+
+   <div class="product" onclick="toggleHighlight(this)">
+    <img src="https://th.bing.com/th/id/R.6ebe17849db6e75afdfb35ace35cd4a1?rik=tfboVoeOrdzLsg&riu=http%3a%2f%2fimages.deliveryhero.io%2fimage%2ffoodpanda%2frecipes%2fbicol-express-recipe-1.jpg&ehk=VhH3ubS0EoC%2f4yY1knnnPsiW8ku5unL5Pb7DNgauCLI%3d&risl=&pid=ImgRaw&r=0" alt="Bicol Express" />
+    <div class="product_content">
+      <h2>Bicol Express</h2>
+      <p>Spicy pork dish with coconut milk and chilies.</p>
+    </div>
+  </div>
+
+
+   <div class="product" onclick="toggleHighlight(this)">
+    <img src="https://th.bing.com/th/id/OIP.3VQ7LFMJPswwYLluYye2bAAAAA?cb=iwc2&rs=1&pid=ImgDetMain" alt="Sweet & Sour Meatballs" />
+    <div class="product_content">
+      <h2>Sweet & Sour Meatballs</h2>
+      <p>SPork meatballs in a sweet-sour sauce.</p>
+    </div>
+  </div>
+
+
+   <div class="product" onclick="toggleHighlight(this)">
+    <img src="https://th.bing.com/th/id/OIP.EMuRClLBj0KgqTOKzbOOsQAAAA?cb=iwc2&rs=1&pid=ImgDetMain" alt="Shanghai Roll" />
+    <div class="product_content">
+      <h2>Shanghai Roll</h2>
+      <p>Crispy Filipino spring rolls filled with pork and vegetables.</p>
+    </div>
+  </div>
+
+
+   <div class="product" onclick="toggleHighlight(this)">
+    <img src="https://th.bing.com/th/id/OIP.VZ0iTsZm9KfILwlJfKCXuwAAAA?cb=iwc2&rs=1&pid=ImgDetMain" alt="Pork Kare-Kare" />
+    <div class="product_content">
+      <h2>Pork Kare-Kare</h2>
+      <p>Peanut stew featuring pork and vegetables.</p>
+    </div>
+  </div>
+
+
+   <div class="product" onclick="toggleHighlight(this)">
+    <img src="https://th.bing.com/th/id/R.aec9664fd20f1825f1a4c5680eb6d479?rik=Wlk0ZQ2KOhz%2fEg&riu=http%3a%2f%2f3.bp.blogspot.com%2f_lHrl7jnR2nw%2fTIDKztjK_0I%2fAAAAAAAAAHo%2fiIp4tvcmd8k%2fs1600%2fSweet-and-Sour-Pork.jpg&ehk=a6EYIGvovv6NIwVGv6%2bjkuxaJnTKJSm%2fVyqaKvVAjew%3d&risl=&pid=ImgRaw&r=0" alt="Pork Sweet & Sour" />
+    <div class="product_content">
+      <h2>Pork Sweet & Sour</h2>
+      <p>Pork cooked in a sweet-sour sauce.</p>
+    </div>
+  </div>
+
+
+   <div class="product" onclick="toggleHighlight(this)">
+    <img src="https://th.bing.com/th/id/OIP.SWeHjelY905Q6WeYctlzFQHaFE?cb=iwc2&rs=1&pid=ImgDetMain" alt="Pork Humba" />
+    <div class="product_content">
+      <h2>Pork Humba</h2>
+      <p>Braised pork belly with soy sauce, sugar, and banana blossoms.</p>
+    </div>
+  </div>
+
+
+   <div class="product" onclick="toggleHighlight(this)">
+    <img src="https://th.bing.com/th/id/OIP.HFXPJmP4Ypem7sE4QfggqwHaHt?cb=iwc2&rs=1&pid=ImgDetMain" alt="Pork Asado" />
+    <div class="product_content">
+      <h2>Pork Asado</h2>
+      <p>Sweet and savory pork braised in a soy-based sauce.</p>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+<div class="info" onclick="clickOpenFISH()">
+<center>
+        <h3><hr><b>FISH & SEAFOOD</b><hr></h3>
+  </center>
+</div>
+
+
+
+<div class="product_containerFISH">
+ 
+
+
+
+
+  
+   <div class="product" onclick="toggleHighlight(this)">
+    <img src="https://th.bing.com/th/id/OIP.lhGfGxQqW14mXxvVY_0QuwHaE8?cb=iwc2&rs=1&pid=ImgDetMain" alt="Fish Kinilaw" />
+    <div class="product_content">
+      <h2>Fish Kinilaw</h2>
+      <p>Fresh raw fish marinated in vinegar and spices.</p>
+    </div>
+  </div>
+
+
+   <div class="product" onclick="toggleHighlight(this)">
+    <img src="https://th.bing.com/th/id/OIP.5nKXUpht9oiEizQBiFSkdgHaDq?cb=iwc2&rs=1&pid=ImgDetMain" alt= "Sweet & Sour Fish" />
+    <div class="product_content">
+      <h2>Sweet & Sour Fish</h2>
+      <p>Fish cooked in a tangy sweet-sour sauce.</p>
+    </div>
+  </div>
+
+
+   <div class="product" onclick="toggleHighlight(this)">
+    <img src="https://i.ytimg.com/vi/e9KMkNM1ckM/maxresdefault.jpg" alt="Chopsuey Seafood" />
+    <div class="product_content">
+      <h2>Chopsuey Seafood </h2>
+      <p>Mixed vegetables and seafood stir-fried in a savory sauce.</p>
+    </div>
+  </div>
+  
+
+<div class="product" style="grid-column: span 3;" onclick="toggleHighlight(this)">
+    <img src="https://th.bing.com/th/id/OIP.51pbWz2_4izc_HuthYxdxgHaEK?cb=iwc2&rs=1&pid=ImgDetMain" alt="Fish Fillet" />
+    <div class="product_content">
+      <h2>Fish Fillet</h2>
+      <p>Crispy or pan-seared boneless fish fillet.</p>
+    </div>
+  </div>
+
+
+</div>
+
+
+
+
+<div class="info" onclick="clickOpenNOODLES()">
+<center>
+        <h3><hr><b>NOODLES & PASTA</b><hr></h3>
+  </center>
+
+</div>
+
+
+
+
+<div class="product_containerNOODLES">
+ 
+
+   <div class="product" onclick="toggleHighlight(this)">
+    <img src="https://yummyfood.ph/wp-content/uploads/2021/07/Pancit-Bihon-Guisado.jpg" alt="Bihon Guisado" />
+    <div class="product_content">
+      <h2>Bihon Guisado</h2>
+      <p>Stir-fried rice noodles with vegetables and meat.</p>
+    </div>
+  </div>
+
+
+   <div class="product" onclick="toggleHighlight(this)">
+    <img src="https://www.myfoodom.com/wp-content/uploads/2022/07/pancit-canton.jpg" alt="Pancit Canton" />
+    <div class="product_content">
+      <h2>Pancit Canton</h2>
+      <p>Egg noodles stir-fried with meat and vegetables.</p>
+    </div>
+  </div>
+
+
+   <div class="product" onclick="toggleHighlight(this)">
+    <img src="https://th.bing.com/th/id/R.2dc6f700302e20e29d10ff9cc6b2fba9?rik=G7DsXZVfJlIMdw&riu=http%3a%2f%2fwww.filipinorecipesite.com%2fwp-content%2fuploads%2f2009%2f09%2fPancit-Bisaya-Bam-i.jpg&ehk=vm%2bwugvX2gWhH%2fBqOfUL2wQ%2fE9mlmWoR1EidemYu8a8%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1" alt="Bam-i" />
+    <div class="product_content">
+      <h2>Bam-i</h2>
+      <p>Cebuano-style noodles mixing pancit canton and sotanghon.</p>
+    </div>
+  </div>
+
+
+   <div class="product" onclick="toggleHighlight(this)">
+    <img src="https://th.bing.com/th/id/OIP.b4HYbl2maQsGpvdz5PvYgwHaHt?cb=iwc2&rs=1&pid=ImgDetMain" alt="Sotanghon Guisado" />
+    <div class="product_content">
+      <h2>Sotanghon Guisado</h2>
+      <p>Stir-fried glass noodles with vegetables and meat.</p>
+    </div>
+  </div>
+
+
+   <div class="product" onclick="toggleHighlight(this)">
+    <img src="https://th.bing.com/th/id/OIP.OrQiBiLhTHbZgKdFlqrN5gHaFj?cb=iwc2&rs=1&pid=ImgDetMain" alt="Special Spaghetti" />
+    <div class="product_content">
+      <h2>Special Spaghetti</h2>
+      <p>Filipino-style sweet spaghetti with hotdogs and cheese.</p>
+    </div>
+  </div>
+
+
+   <div class="product" onclick="toggleHighlight(this)">
+    <img src="https://th.bing.com/th/id/OIP.X2_rKb8wiruG0feDQ7Y_7QAAAA?cb=iwc2&rs=1&pid=ImgDetMain" alt="Vegetable Lumpia" />
+    <div class="product_content">
+      <h2>Vegetable Lumpia</h2>
+      <p>Fresh or fried vegetable spring rolls.</p>
+    </div>
+  </div>
+
+
+  
+
+</div>
 
 
 
 
 
+<div class="info" onclick="clickOpenSALADS()">
+  <center>
+        <h3><hr><b>SALADS & DESERTS</b><hr></h3>
+  </center>
+</div>
+
+
+
+
+<div class="product_containerSALADS">
+ 
+   <div class="product" onclick="toggleHighlight(this)">
+    <img src="https://th.bing.com/th/id/OIP.l8s8la7LjKXPN1svhtk-zQHaFE?cb=iwc2&rs=1&pid=ImgDetMain" alt="Chicken Salad" />
+    <div class="product_content">
+      <h2>Chicken Salad</h2>
+      <p>Cold salad with shredded chicken, mayo, and vegetables.</p>
+    </div>
+  </div>
+
+
+   <div class="product" onclick="toggleHighlight(this)">
+    <img src="https://th.bing.com/th/id/OIP.BMa7X0P__g03z7TNaIWonQHaJ4?cb=iwc2&rs=1&pid=ImgDetMain" alt="Fruit Macaroni Salad" />
+    <div class="product_content">
+      <h2>Fruit Macaroni Salad</h2>
+      <p>Sweet macaroni salad with fruit cocktail and cream.</p>
+    </div>
+  </div>
+
+
+   <div class="product" onclick="toggleHighlight(this)">
+    <img src="https://i.pinimg.com/originals/e1/d0/e6/e1d0e6b93aed738c3e09fbaa7c102a14.jpg" alt="Fruit Salad" />
+    <div class="product_content">
+      <h2>Fruit Salad</h2>
+      <p>A mix of fresh or canned fruits in sweetened cream.</p>
+    </div>
+  </div>
+
+
+   <div class="product" onclick="toggleHighlight(this)">
+    <img src="https://th.bing.com/th/id/OIP.YrN1jrOFjrRzK-ViTvOP4QHaHa?cb=iwc2&rs=1&pid=ImgDetMain" alt="Buko Pandan" />
+    <div class="product_content">
+      <h2>Buko Pandan</h2>
+      <p>Creamy coconut and pandan-flavored dessert.</p>
+    </div>
+  </div>
+
+
+   <div class="product" onclick="toggleHighlight(this)">
+    <img src="https://th.bing.com/th/id/OIP.o48ab6ILqUrQeVkOG3BgrwHaFS?cb=iwc2&rs=1&pid=ImgDetMain" alt="Fresh Fruits" />
+    <div class="product_content">
+      <h2>Fresh Fruits</h2>
+      <p>A colorful assortment of fresh tropical fruits.</p>
+    </div>
+  </div>
+
+
+   <div class="product" onclick="toggleHighlight(this)">
+    <img src="https://th.bing.com/th/id/R.8cd5456e28ef73cf1fb4c5b93b5e9674?rik=eAks52vb%2fZRP9Q&riu=http%3a%2f%2fwww.pinoycookingrecipes.com%2fuploads%2f7%2f6%2f7%2f8%2f7678114%2f20201215-170451-1_orig.png&ehk=eP6JzcYFCbwjtsalRRWhXS9wSr1I5yWsuuUbkY2oYQs%3d&risl=&pid=ImgRaw&r=0" alt="Black Sambo" />
+    <div class="product_content">
+      <h2>Black Sambo</h2>
+      <p>Layered chocolate and milk gelatin dessert.</p>
+    </div>
+  </div>
+
+
+   <div class="product" style="grid-column: span 3;" onclick="toggleHighlight(this)">
+    <img src="https://pinoybites.com/wp-content/uploads/2021/09/macaroniwithlogo4-scaled.jpg" alt="Macaroni Salad" />
+    <div class="product_content">
+      <h2>Macaroni Salad</h2>
+      <p>Creamy and slightly sweet macaroni-based dish.</p>
+    </div>
+  </div>
+
+  </div>
+
+
+
+
+
+
+</div>
 
 
 
@@ -751,7 +688,14 @@
 
 
 
-   
+    <div>
+      <center>
+        <h3><b>Your Order Summary:</b></h3>
+      </center>
+
+      <ul id="summary-list"></ul>
+    </div>
+
 
 
 
@@ -766,6 +710,22 @@
 
   </div>
 
+
+  <div class="footer">
+    <div class="f1">
+        <p>Contact Us:</p>
+        <p>09488393223 || 09198492201 || 09466377208</p>
+        <p>AURORA, ZAMBOANGA DEL SUR</p>
+    </div>
+
+    <div class="f2">
+        <a href="??"><ion-icon name="logo-facebook"></ion-icon></a>
+        <a href="??"><ion-icon name="logo-instagram"></ion-icon></a>
+        <a href="??"><ion-icon name="mail-open-outline"></ion-icon></a>
+
+    </div>
+
+  </div>
 
 
 
@@ -838,6 +798,67 @@
   console.log("Selected full date:", selectedDate);
 }
 
+
+// BEEF COLLAPSIBLE
+function clickOpenBEEF(){
+let product_container = document.querySelector('.product_containerBEEF');
+product_container.classList.toggle('open');
+
+
+
+}
+
+// CHICKEN COLLAPSIBLE
+function clickOpenCHICKEN(){
+let product_container = document.querySelector('.product_containerCHICKEN');
+product_container.classList.toggle('open');
+
+
+
+
+
+}
+
+
+// PORK COLLAPSIBLE
+function clickOpenPORK(){
+let product_container = document.querySelector('.product_containerPORK');
+product_container.classList.toggle('open');
+
+
+
+
+}
+
+// FISH COLLAPSIBLE
+function clickOpenFISH(){
+let product_container = document.querySelector('.product_containerFISH');
+product_container.classList.toggle('open');
+
+
+
+}
+
+// NOODLES COLLAPSIBLE
+function clickOpenNOODLES(){
+let product_container = document.querySelector('.product_containerNOODLES');
+product_container.classList.toggle('open');
+
+
+
+}
+
+// SALADS COLLAPSIBLE
+function clickOpenSALADS(){
+let product_container = document.querySelector('.product_containerSALADS');
+product_container.classList.toggle('open');
+
+
+
+
+}
+
+//END OOF COLLAPSE
 
     //for thee demn forms men ugh. watafak
     document.getElementById("contactForm").addEventListener("submit", function (event) {
