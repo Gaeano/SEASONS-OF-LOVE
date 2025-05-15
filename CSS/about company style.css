@@ -174,7 +174,7 @@
 
 
 body{
-  background:linear-gradient(rgba(0, 0, 0, 0.736), rgba(0, 0, 0, 0.37)), url(../IMAGES/backgroundImage.webp);
+  background:#fdfbd4;
    
     background-repeat: no-repeat;
     background-size: cover;
@@ -192,7 +192,7 @@ h1 {
   font-weight: 400;
   font-style: normal;
 
-  color: white;
+  color: black;
     font-size: 100px;
    
     text-align: center;
@@ -244,7 +244,7 @@ h3{
 }
 
 p2{
-    color: white;
+    color: #a09604;
     font-family: "Verdana", sans-serif;
     
       font-size: 18px;
@@ -277,7 +277,7 @@ p2{
   
   button{
       width: 500px;
-      color:  #ffee00;
+      color:  black;
       padding: 8px;
       background:none;
       border: 0;
@@ -327,7 +327,7 @@ p2{
     bottom: 0;
     
     width: 0;
-    background-color: #ffee0051;
+    background-color:#ffee00;
     transition: width 0.4s ease;
     z-index: -1;
     color: black;
