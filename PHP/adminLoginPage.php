@@ -19,7 +19,7 @@
 
 <body>
     <div id="form">
-        <h1> Linear <h1>
+        <h1> Seasons Of Love <h1>
         <h3>Login</h3>
         <form name="form" method="POST" action="login.php">
             <label>Username: </label>
