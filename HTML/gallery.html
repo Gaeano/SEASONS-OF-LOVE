@@ -18,7 +18,6 @@
 
 
 
-    <title>Gallery</title>
 </head>
 
 <body>
@@ -77,33 +76,32 @@
 
 <!-- GALLERY-->
     <div class="gallery-container">
-    <h4 class="gallery-title">GALLERY</h4>
     
     <div class="main-gallery">
         <div class="slide-wrapper">
-            <button class="nav-arrow prev" onclick="changeImage(-1)">❮</button>
+            <button class="nav-arrow prev" onclick="changeImage(-1)"><</button>
             
             <div class="slide-container" id="slideContainer">
-                <img id="mainImage" src="../IMAGES/gallery1.jpg" alt="Gallery Image">
+                <img id="mainImage" src="../IMAGES/gallery_1.jpg" alt="Gallery Image">
                 <div class="image-caption" id="mainCaption">Beautiful Wedding Moment</div>
-            </div>
+            </div>  
             
-            <button class="nav-arrow next" onclick="changeImage(1)">❯</button>
+            <button class="nav-arrow next" onclick="changeImage(1)">></button>
         </div>
     </div>
     
     <div class="thumbnail-strip">
         <div class="thumbnail active" onclick="showImage(0)">
-            <img src="../IMAGES/gallery1.jpg" alt="Thumbnail 1">
+            <img src="../IMAGES/gallery_1.jpg" alt="Thumbnail 1">
         </div>
         <div class="thumbnail" onclick="showImage(1)">
-            <img src="../IMAGES/gallery2.jpg" alt="Thumbnail 2">
+            <img src="../IMAGES/gallery_2.jpg" alt="Thumbnail 2">
         </div>
         <div class="thumbnail" onclick="showImage(2)">
-            <img src="../IMAGES/gallery3.jpg" alt="Thumbnail 3">
+            <img src="../IMAGES/gallery_3.jpg" alt="Thumbnail 3">
         </div>
         <div class="thumbnail" onclick="showImage(3)">
-            <img src="../IMAGES/gallery4.jpg" alt="Thumbnail 4">
+            <img src="../IMAGES/gallery_4.jpg" alt="Thumbnail 4">
         </div>
     </div>
 </div>
@@ -120,8 +118,6 @@
 
  <h1>Seasons of Love</h1>
  <h4>MENU</h4>
-
- <p2>pick and choose as many authentic Filipino dishes to your liking</p2>
 
  </center>
 
@@ -706,10 +702,10 @@
       // JS NAV BAR END
 
     const images = [
-    { src: "../IMAGES/gallery1.jpg", caption: "Placeholder caption 1" },
-    { src: "../IMAGES/gallery2.jpg", caption: "Placeholder caption 2" },
-    { src: "../IMAGES/gallery3.jpg", caption: "Placeholder caption 3" },
-    { src: "../IMAGES/gallery4.jpg", caption: "Placeholder caption 4" }
+    { src: "../IMAGES/gallery_1.jpg", caption: "Placeholder caption 1" },
+    { src: "../IMAGES/gallery_2.jpg", caption: "Placeholder caption 2" },
+    { src: "../IMAGES/gallery_3.jpg", caption: "Placeholder caption 3" },
+    { src: "../IMAGES/gallery_4.jpg", caption: "Placeholder caption 4" }
 ];
     //add photos by just copy pasting the line above and its corresponding div in the html
     //gallery1-4 rn are all still placeholder photos when replacing just name the new photos as gallery 1-4
