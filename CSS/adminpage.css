@@ -40,6 +40,17 @@
 
 h3{ 
   color: red;
+} 
+
+
+
+#orderdatecontainer{
+ display: flex;
+  flex-direction: row;       
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;  
+
 }
  
 
@@ -68,16 +79,14 @@ h3{
 } 
 
 
-.calendar-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-} 
+
 
 .calendar-wrapper h2{
   color: white;
-}
+} 
+
+
+
 
 
  
@@ -92,4 +101,96 @@ button {
 
 body{ 
   background-image: linear-gradient(rgb(54, 54, 54), rgb(27, 27, 27), rgb(56, 56, 56));
+} 
+
+ 
+@media (min-width: 1440px) {
+  .calendar-wrapper {
+    flex-direction: row;
+    justify-content: center;
+    gap: 5vw;
+  }
+
+  #calendar, #order-container {
+    width: 40vw;
+    height: auto;
+  }
+
+  .calendar-day {
+    padding: 12px;
+    font-size: 1.1rem;
+  }
+
+  h3 {
+    font-size: 1.6rem;
+  } 
+}
+
+
+@media (max-width: 768px) {
+  .list {
+    width: 90vw;
+    height: auto;
+  }
+
+  #order-container {
+    width: 90vw;
+    height: auto;
+  }
+
+  #calendar {
+    width: 95vw;
+    height: auto;
+    grid-template-columns: repeat(7, 1fr);
+  }
+
+  .calendar-day {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+
+  .calendar-wrapper {
+    padding: 1rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+  }
+}
+
+/* For phones and very narrow screens */
+@media (max-width: 480px) {
+  .list {
+    width: 100%;
+    height: auto;
+  }
+
+  #order-container {
+    width: 100%;
+    height: auto;
+    margin: 10px;
+  }
+
+  #calendar {
+    grid-template-columns: repeat(4, 1fr); /* fewer columns to avoid cramping */
+    gap: 3px;
+  }
+
+  .calendar-day {
+    padding: 6px;
+    font-size: 0.8rem;
+  }
+
+  .calendar-wrapper {
+    width: 100%;
+  }
+
+  button {
+    font-size: 0.9rem;
+    padding: 4px 8px;
+  }
+
+  h3 {
+    font-size: 1.1rem;
+  }
 }
