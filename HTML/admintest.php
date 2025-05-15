@@ -22,7 +22,7 @@
 
 <body>
   
-<div style="display: flex; flex-direction: row; gap: 3vw; width: 100%; margin: 20px; margin-left: 3.5vw;">
+<div style="display: flex; flex-direction: row; gap: 3vw; width: 100%; margin: 20px; margin-left: 3.5vw;" id="orderdatecontainer">
         <div>
             <div style="margin-left: 20px;">
                 <button id="tab-pending" style="border: solid lightcoral">Pending</button>
@@ -30,9 +30,12 @@
             </div>
     
             <div id="order-container"></div>
-        </div> 
-
-        <div id="calendar" ></div>
+        </div>  
+        
+        <div class="calendar-wrapper">
+            <div id="calendar-header"></div>
+            <div id="calendar" class="calendar" ></div>
+        </div>
 
 
 </div>

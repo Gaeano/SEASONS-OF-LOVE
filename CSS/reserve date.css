@@ -275,8 +275,12 @@ h3 {
   font-family: "Verdana", sans-serif;
   font-weight: bold;
   color: black;
-
-  place-content: center;
+justify-content: center; 
+  align-items: center;
+  place-content: center; 
+  display: flex; 
+  flex-direction: column; 
+  width: 800px
 }
 
 .month {
@@ -286,9 +290,12 @@ h3 {
   letter-spacing: 1px;
   color: white;
   padding: 10px;
-
+  width: 775px;
   font-family: "Glass Antiqua", cursive;
-
+  justify-content: center; 
+  align-items: center; 
+  height: 75px;
+  
 }
 
 table,
@@ -337,6 +344,43 @@ td:hover {
 }
 
 
+ 
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  max-width: 775px;
+  margin: 0 auto; 
+  width: 775px; 
+  height: 375px;
+}
+.calendar-day {
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: center;
+  min-height: 40px;
+  cursor: pointer;
+  background-color: #fff; 
+  font-size: larger;
+  }
+  
+.calendar-day:hover {
+  background-color: #f0f0f0;
+}
+.calendar-day.highlight {
+  background-color: #ffee00be;
+  font-weight: bold;
+}
+.today {
+  border: 2px solid #000;
+} 
+
+
+.month button{
+  background: none; 
+  border: none;  
+  color: white;
+}
 
 
 
