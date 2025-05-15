@@ -661,10 +661,18 @@
 
 </div>
 
+ <div  class="summarycontainer">
+      <center>
+        <h5><b>Your Order Summary:</b></h5>
+      </center>
+
+      <ul id="summary-list"></ul>
+    </div>
 
 
 
-    <div class="forms">
+
+    <div class="forms" style="margin-bottom: 3vw;">
       <div id="form">
         <form id="contactForm" name="form" action="../PHP/place_order.php">
 
@@ -688,15 +696,7 @@
 
 
 
-    <div>
-      <center>
-        <h3><b>Your Order Summary:</b></h3>
-      </center>
-
-      <ul id="summary-list"></ul>
-    </div>
-
-
+   
 
 
 
@@ -747,7 +747,8 @@
 
     //global variable
     let selectedDate = null;
-    let selectedDishes = [];
+    let selectedDishes = []; 
+    let existingOrderDates = [];
 
     // JS NAV BAR START
     function openSideBar() {
@@ -880,7 +881,13 @@ product_container.classList.toggle('open');
         responseMessage.style.color = "red";
         responseMessage.textContent = "Please enter valid email.";
         return;
-      }
+      } 
+
+      if (existingOrderDates.includes(selectedDate)) {
+     responseMessage.style.color = "red";
+     responseMessage.textContent = "Sorry, that date is already reserved.";
+      return;
+    }
 
       fetch("../PHP/place_order.php", {
         method: "POST",
@@ -934,7 +941,6 @@ product_container.classList.toggle('open');
         summaryList.appendChild(li);
       });
 
-      // Add input change listeners
       document.querySelectorAll(".qty-input").forEach(input => {
         input.addEventListener("input", function () {
           const idx = this.dataset.index;
@@ -949,7 +955,7 @@ product_container.classList.toggle('open');
     function removeDish(index) {
       const removed = selectedDishes.splice(index, 1)[0];
 
-      // Also remove highlight from card
+    
       document.querySelectorAll('.product').forEach(card => {
         const name = card.querySelector('h2').textContent.trim();
         if (name === removed.name) {
@@ -1038,7 +1044,19 @@ product_container.classList.toggle('open');
     renderCalendar();
   });
 
-  renderCalendar();
+  renderCalendar(); 
+
+  fetch("../PHP/order_dates.php")
+  .then(res => res.json())
+  .then(data => {
+   
+    existingOrderDates = data
+      .filter(order => order.status === "pending")
+      .map(order => order.date);
+  })
+  .catch(err => {
+    console.error("Error fetching order dates:", err);
+  });
 </script>
 </body>
 
