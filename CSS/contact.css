@@ -7,7 +7,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0 30px;
-  z-index: 100;
+  z-index: 1000;
   
   
 }
@@ -174,7 +174,6 @@
 
 body{
 
-    
     margin: 0;
     padding: 0;
     
@@ -241,6 +240,8 @@ font-family: "Marck Script", cursive;
     margin-left:20%;
 
     padding-bottom: 50px;
+}
+
 
 #btnDiv {
   display: flex;
@@ -248,7 +249,7 @@ font-family: "Marck Script", cursive;
   margin-top: 10px;
 }
     
-}
+
 
 #contactForm{
   width:90%;
@@ -349,6 +350,7 @@ input, textarea {
 .mother{
   display: flex;
   flex-direction: row;
+  
 
  
 }
@@ -359,17 +361,20 @@ input, textarea {
   background-color:  #fdfbd4;
   padding-bottom: 50px;
   box-shadow: 15px 15px 10px rgba(0, 0, 0, 0.479);
-  height: 100vh;
+  height: 100%;
 
-  z-index: -1;
   
 }
 
 .part2{
-  background-image: url(../IMAGES/contact1.jpg);
+  background: url(../IMAGES/contact1.jpg);
+  background-color: r;
   background-repeat: no-repeat;
   background-size: cover;
   width: 50%;
+  
+
+
 }
 
 
@@ -391,13 +396,16 @@ width: 100%;
   text-align: center;
   color: white;
   padding-bottom: 10px;
+  
 
   
 }
 
 .footer a{
-  color: white;
+  color: rgb(255, 255, 255);
   font-size: 25px;
+  
+
 }
 
 .footer p{
@@ -419,6 +427,7 @@ width: 100%;
       width: 100%;
       box-shadow: none;
     }
+
   }
 
   @media (max-width: 680px) {
@@ -440,4 +449,8 @@ width: 100%;
   }
 
 
-
+@media (max-height: 680px) {
+    #form {
+      flex-direction: column;
+    }
+  }

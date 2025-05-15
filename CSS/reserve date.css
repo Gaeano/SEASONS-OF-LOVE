@@ -165,7 +165,7 @@
     display: block;
   }
 
-}
+ 
 
 
 
@@ -271,7 +271,7 @@ h3 {
 /*calenfuckingdar*/
 .calendar {
   margin: auto;
-  max-width: 800px;
+  
   font-family: "Verdana", sans-serif;
   font-weight: bold;
   color: black;
@@ -352,7 +352,7 @@ td:hover {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 5px;
-  max-width: 775px;
+  /*max-width: 775px;*/
   margin: 0 auto; 
   width: 775px; 
   height: 375px;
@@ -408,7 +408,7 @@ td:hover {
   }
 
 .product_containerBEEF.open,  .product_containerCHICKEN.open, .product_containerPORK.open, .product_containerFISH.open, .product_containerNOODLES.open, .product_containerSALADS.open{
-  max-height: 1000px; /* or a value that fits your grid */
+  max-height: 3000px; /* or a value that fits your grid */
   opacity: 1;
   pointer-events: auto;
 }
@@ -497,7 +497,7 @@ td:hover {
   justify-content: flex-start;
   align-items: center; 
   text-align: center;
-  margin-left: 26%; 
+  /*margin-left: 26%; */
   overflow-y: auto; 
   border-radius: 20px; 
   height: 400px; 
@@ -526,13 +526,13 @@ td:hover {
   padding: 4%;
   border-radius: 20px;
   box-shadow: 15px 15px 10px rgba(0, 0, 0, 0.479);
-  width: 30%;
+  width: 900px;
   margin-right: 0;
-  margin-left: 35%;
+ 
   display: flex;
-  justify-content: center;
 
-
+  place-content: center;
+  place-self: center;
   margin-top: 5px;
   
 }
@@ -581,7 +581,7 @@ textarea {
   font-size: 14px;
 }
 
-@media (max-width: 800px) {
+/*@media (max-width: 800px) {
   #form {
     width: 65%;
     padding: 40px;
@@ -624,7 +624,7 @@ textarea {
     font-size: 14px;
   }
 
-}
+}*/
 
 
 .mother {
@@ -672,3 +672,51 @@ width: 100%;
   text-align: center;
 }
 
+
+
+
+/*for da categories responsive*/
+
+@media (max-width: 902px){
+    .info h3{
+      font-size: 1.5rem;
+      margin: 15px;
+      width: 95%;
+    }
+
+    .info h1{
+      font-size: 70px;
+    }
+
+    .info h4{
+      font-size: 70px;
+    }
+
+    .summarycontainer{
+      width: 90%; 
+      
+    }
+
+    .calendar{
+      width: 90%; 
+    }
+
+    .calendar-grid{
+      width: 90%;
+
+  }
+  
+  .month{
+    width: 90%;
+  }
+
+  #form{
+    width: 90%;
+  }
+}
+
+@media (max-width: 472px){
+    .calendar-grid{
+    width: 5%;
+  }
+}
