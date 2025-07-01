@@ -22,13 +22,13 @@ document.addEventListener("DOMContentLoaded", () => {
   header.appendChild(prevBtn);
   header.appendChild(monthLabel);
   header.appendChild(nextBtn);
-  calendar.before(header); // Insert above the calendar grid
+  calendar.before(header); 
 
   let currentYear = new Date().getFullYear();
   let currentMonth = new Date().getMonth();
 
   function renderCalendar(orderDates) {
-    calendar.innerHTML = ""; // Clear existing calendar
+    calendar.innerHTML = ""; 
 
     monthLabel.textContent = `${monthNames[currentMonth]} ${currentYear}`;
 
