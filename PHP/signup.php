@@ -1,7 +1,7 @@
 <?php
     session_start();
     if(isset($_SESSION['username'])){
-        header("Location: welcome.php");
+        header("Location: adminLoginPage.php");
     }
 ?>
 <?php
@@ -12,21 +12,21 @@
         $password = mysqli_real_escape_string($conn, $_POST['pass']);
         $cpassword = mysqli_real_escape_string($conn, $_POST['cpass']);
         
-        $sql="select * from signup where username='$username'";
+        $sql="select * from users where username='$username'";
         $result = mysqli_query($conn, $sql);
         $count_user = mysqli_num_rows($result);
 
-        $sql="select * from signup where email='$email'";
+        $sql="select * from users where email='$email'";
         $result = mysqli_query($conn, $sql);
         $count_email = mysqli_num_rows($result);
 
         if($count_user == 0 & $count_email==0){
             if($password==$cpassword){
                 $hash = password_hash($password, PASSWORD_DEFAULT);
-                $sql = "INSERT INTO signup(username, email, password) VALUES('$username', '$email', '$hash')";
+                $sql = "INSERT INTO users(username, email, password) VALUES('$username', '$email', '$hash')";
                 $result = mysqli_query($conn, $sql);
                 if($result){
-                    header("Location: login.php");
+                    header("Location: adminLoginPage.php");
                 }
             }
             else{
@@ -39,13 +39,13 @@
         else{
             if($count_user>0){
                 echo '<script>
-                    window.location.href="index.php";
+                    window.location.href="signup.php";
                     alert("Username already exists!!");
                 </script>';
             }
             if($count_email>0){
                 echo '<script>
-                    window.location.href="index.php";
+                    window.location.href="signup.php";
                     alert("Email already exists!!");
                 </script>';
             }
@@ -53,18 +53,14 @@
         
     }
 ?>
-<?php
-    include("navbar.php");
-?>
+
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap demo</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../CSS/signup.css">
+
 </head>
   <body>
     <div id="form">

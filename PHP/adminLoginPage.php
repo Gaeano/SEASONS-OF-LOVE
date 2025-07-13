@@ -6,6 +6,52 @@
     exit();
     }
 ?>
+<?php
+    $login = false;
+    include('connection.php');
+    
+    if (isset($_POST['submit'])) {
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        $sql = "SELECT * FROM users WHERE username = '$username'";  
+        $result = mysqli_query($conn, $sql);  
+        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);  
+        $count = mysqli_num_rows($result);  
+
+        if ($row){
+
+            if (password_verify($password, $row["password"])){
+                $login = true;
+
+                session_start();
+
+                $sql = "select username from users where username = '$username'";
+                $r = mysqli_fetch_array(mysqli_query($conn, $sql), MYSQLI_ASSOC) ;
+
+                $_SESSION['username'] = $r['username'];
+                $_SESSION['loggedin'] = true;
+                
+                header("Location: ../HTML/admintest.php");
+            }
+        } else {
+             echo '<script>
+                        alert("Login failed. Invalid username or password!!");
+                       window.location.href = "adminloginPage.php";
+                     </script>';
+        }
+        
+        // if($count == 1){  
+        //     $_SESSION['username'] = $username;
+        //     header("Location: ../HTML/admintest.php"); 
+        // }  
+        // else{  
+        //     echo '<script>
+        //                 alert("Login failed. Invalid username or password!!");
+        //                window.location.href = "adminloginPage.php";
+        //              </script>';
+        // }     
+    } 
+?>
 
 <!DOCTYPE html>
 <html>
@@ -21,7 +67,7 @@
     <div id="form">
         <h1> Seasons Of Love <h1>
         <h3>Login</h3>
-        <form name="form" method="POST" action="login.php">
+        <form name="form" method="POST" action="adminLoginPage.php">
             <label>Username: </label>
             <input type="text" id="username" name="username"><br><br>
             <label>Password: </label>
