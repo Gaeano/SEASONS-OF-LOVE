@@ -377,6 +377,10 @@ td:hover {
 .today {
   border: 2px solid #000;
 } 
+.has-order {
+  background-color: #ffe19d;
+  font-weight: bold;
+}
 
 
 .month button{

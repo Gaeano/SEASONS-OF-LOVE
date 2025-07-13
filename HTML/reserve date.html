@@ -980,88 +980,106 @@ product_container.classList.toggle('open');
 
 
   const calendar = document.getElementById("calendar");
-  const monthText = document.getElementById("calendar-month");
-  const yearText = document.getElementById("calendar-year");
+const monthText = document.getElementById("calendar-month");
+const yearText = document.getElementById("calendar-year");
 
-  const prevBtn = document.getElementById("prevMonth");
-  const nextBtn = document.getElementById("nextMonth");
+const prevBtn = document.getElementById("prevMonth");
+const nextBtn = document.getElementById("nextMonth");
 
-  const monthNames = [
-    "January", "February", "March", "April", "May", "June",
-    "July", "August", "September", "October", "November", "December"
-  ];
+const monthNames = [
+  "January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+];
 
-  let currentDate = new Date();
+let currentMonth = new Date().getMonth();
+let currentYear = new Date().getFullYear();
 
-  function renderCalendar() {
-    calendar.innerHTML = "";
 
-    const month = currentDate.getMonth();
-    const year = currentDate.getFullYear();
+function renderCalendar(orderDates) {
+  calendar.innerHTML = "";
 
-    monthText.textContent = monthNames[month];
-    yearText.textContent = year;
+  monthText.textContent = monthNames[currentMonth];
+  yearText.textContent = currentYear;
 
-    const firstDay = new Date(year, month, 1).getDay();
-    const daysInMonth = new Date(year, month + 1, 0).getDate();
+  const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+  const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+  const today = new Date();
 
-    const today = new Date();
-
-    for (let i = 0; i < firstDay; i++) {
-      const empty = document.createElement("div");
-      empty.className = "calendar-day";
-      calendar.appendChild(empty);
-    }
-
-    for (let day = 1; day <= daysInMonth; day++) {
-      const dayDiv = document.createElement("div");
-      dayDiv.className = "calendar-day";
-      dayDiv.textContent = day;
-
-      const fullDate = `${year}-${String(month + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
-
-      if (
-        day === today.getDate() &&
-        month === today.getMonth() &&
-        year === today.getFullYear()
-      ) {
-        dayDiv.classList.add("today");
-      }
-
-      dayDiv.onclick = function () {
-        document.querySelectorAll(".calendar-day").forEach(d => d.classList.remove("highlight"));
-        dayDiv.classList.add("highlight");
-        selectedDate = fullDate;
-        console.log("Selected full date:", selectedDate);
-      };
-
-      calendar.appendChild(dayDiv);
-    }
+  for (let i = 0; i < firstDay; i++) {
+    const empty = document.createElement("div");
+    empty.className = "calendar-day";
+    calendar.appendChild(empty);
   }
 
-  prevBtn.addEventListener("click", () => {
-    currentDate.setMonth(currentDate.getMonth() - 1);
-    renderCalendar();
-  });
+  for (let day = 1; day <= daysInMonth; day++) {
+    const dayDiv = document.createElement("div");
+    dayDiv.className = "calendar-day";
+    dayDiv.textContent = day;
 
-  nextBtn.addEventListener("click", () => {
-    currentDate.setMonth(currentDate.getMonth() + 1);
-    renderCalendar();
-  });
+    const fullDate = `${currentYear}-${String(currentMonth + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
 
-  renderCalendar(); 
+    const isPending = orderDates.some(
+      order => order.date === fullDate && order.status === "pending"
+    );
 
+    if (isPending) {
+      dayDiv.classList.add("has-order");
+    }
+
+    if (
+      day === today.getDate() &&
+      currentMonth === today.getMonth() &&
+      currentYear === today.getFullYear()
+    ) {
+      dayDiv.classList.add("today");
+    }
+
+    dayDiv.onclick = function () {
+      document.querySelectorAll(".calendar-day").forEach(d => d.classList.remove("highlight"));
+      dayDiv.classList.add("highlight");
+      selectedDate = fullDate;
+      console.log("Selected full date:", selectedDate);
+    };
+
+    calendar.appendChild(dayDiv);
+  }
+}
+
+function loadAndRenderCalendar() {
   fetch("../PHP/order_dates.php")
-  .then(res => res.json())
-  .then(data => {
-   
-    existingOrderDates = data
-      .filter(order => order.status === "pending")
-      .map(order => order.date);
-  })
-  .catch(err => {
-    console.error("Error fetching order dates:", err);
-  });
+    .then(res => res.json())
+    .then(orderDates => {
+      renderCalendar(orderDates);
+      existingOrderDates = orderDates
+        .filter(order => order.status === "pending")
+        .map(order => order.date);
+    })
+    .catch(err => {
+      calendar.textContent = "Calendar failed to load.";
+      console.error(err);
+    });
+}
+
+prevBtn.addEventListener("click", () => {
+  currentMonth--;
+  if (currentMonth < 0) {
+    currentMonth = 11;
+    currentYear--;
+  }
+  loadAndRenderCalendar();
+});
+
+nextBtn.addEventListener("click", () => {
+  currentMonth++;
+  if (currentMonth > 11) {
+    currentMonth = 0;
+    currentYear++;
+  }
+  loadAndRenderCalendar();
+});
+
+loadAndRenderCalendar();
+
 </script>
 </body>
 
