@@ -2,7 +2,7 @@
     session_start();
 
     if (isset($_SESSION['username'])) {
-    header("Location: ../HTML/admintest.php");
+    header("Location: ../HTML/employeePage.php");
     exit();
     }
 ?>
@@ -31,12 +31,12 @@
                 $_SESSION['username'] = $r['username'];
                 $_SESSION['loggedin'] = true;
                 
-                header("Location: ../HTML/admintest.php");
+                header("Location: ../HTML/employeePage.php");
             }
         } else {
              echo '<script>
                         alert("Login failed. Invalid username or password!!");
-                       window.location.href = "adminloginPage.php";
+                       window.location.href = "employeeLoginPage.php";
                      </script>';
         }
         
@@ -67,7 +67,7 @@
     <div id="form">
         <h1> Seasons Of Love <h1>
         <h3>Login</h3>
-        <form name="form" method="POST" action="adminLoginPage.php">
+        <form name="form" method="POST" action="employeeLoginPage.php">
             <label>Username: </label>
             <input type="text" id="username" name="username"><br><br>
             <label>Password: </label>

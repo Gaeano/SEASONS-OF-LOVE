@@ -1,7 +1,7 @@
 <?php
     session_start();
     if(isset($_SESSION['username'])){
-        header("Location: adminLoginPage.php");
+        header("Location: employeeLoginPage.php");
     }
 ?>
 <?php
@@ -64,7 +64,8 @@
 </head>
   <body>
     <div id="form">
-        <h1 id="heading">SignUp Form</h1><br>
+        <h1 id="heading">SignUp Form</h1>
+        <h2> Customer Sign Up</h2>  
         <form name="form" action="signup.php" method="POST">
             <label>Enter Username: </label>
             <input type="text" id="user" name="user" required><br><br>
