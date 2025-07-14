@@ -1,3 +1,33 @@
+<?php 
+    session_start();
+
+    if (isset($_SESSION['username'])) {
+    header("Location: ../HTML/employeePage.php");
+    exit();
+    }
+?>
+
+<?php
+  include('connection.php');
+
+
+  $sql = "Select username, userType from users";
+  $result = mysqli_query($conn, $sql);
+
+  $users = [];
+
+  while ($row = mysqli_fetch_assoc($result)){
+      $users[] = $row;
+  }
+
+  echo "<script>const usersFromPHP = " . json_encode($users).";</script>";
+
+
+
+?>
+
+
+
 
 <!DOCTYPE html>
 <html lang = "en">
@@ -153,53 +183,29 @@
       }
       
       // JS NAV BAR END
-      const data = [
-    { name: "Alice"},
-    { name: "Bob"},
-    { name: "Charlie"}
-];
+  
 
-// Get the table body element
-const tableBody = document.querySelector("#tableEmp tbody");
 
-// Iterate over the data and create table rows
-data.forEach(item => {
-    // Create a new table row
+const tableEmployee = document.querySelector("#tableEmp tbody");
+const tableCustomer = document.querySelector("#tableCustomer tbody");
+
+usersFromPHP.forEach(user => {
     const row = document.createElement("tr");
 
-    // Create table data cells for each property
     const nameCell = document.createElement("td");
-    nameCell.textContent = item.name;
+    nameCell.textContent = user.username;
     row.appendChild(nameCell);
 
+    if (user.userType === "employee"){
+      tableEmployee.appendChild(row);
+    } else if (user.userType === "customer"){
+      tableCustomer.appendChild(row)
+    }
 
-    // Append the row to the table body
-    tableBody.appendChild(row);
 });
 
-const dataz = [
-    { name: "Alice"},
-    { name: "Bob"},
-    { name: "Charlie"}
-];
 
-const tableBodi = document.querySelector("#tableCustomer tbody");
-
-// Iterate over the data and create table rows
-dataz.forEach(item => {
-    // Create a new table row
-    const row = document.createElement("tr");
-
-    // Create table data cells for each property
-    const nameCell = document.createElement("td");
-    nameCell.textContent = item.name;
-    row.appendChild(nameCell);
-
-
-    // Append the row to the table body
-    tableBodi.appendChild(row);
-});
-      </script> 
+    </script> 
 
 </body>
 
