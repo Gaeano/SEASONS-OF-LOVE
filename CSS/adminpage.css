@@ -1,196 +1,176 @@
-.list{ 
-    border-style: solid; 
-    width: 30vw; 
-    height: 85vw; 
-    align-content: center; 
-    margin: 10px;
-} 
+.navBar{
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  height: 62px;
+  background-color: white;
+  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  z-index: 100;
+  
+  
+}
 
 
-  #order-container {
-      width: 800px;
-      height: 800px;
-      overflow-y: auto;
-      
-      padding: 10px;
-      margin: 20px;
-      background-color: #fafafa; 
-      box-shadow: 15px 15px 10px #8888887d;
-      border-radius: 10px;
-    }
-
-    .item {
-      border: 1px solid #ccc;
-      padding: 10px;
-      margin-bottom: 10px;
-      background-color: #f0f0f0;
-      border-radius: 5px;
-    } 
-
-
-    .order {
-  border: 1px solid #ccc;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 6px;
-  background: #f9f9f9; 
-} 
- 
-
-
-h3{ 
-  color: red;
-} 
-
-
-
-#orderdatecontainer{
- display: flex;
-  flex-direction: row;       
-  justify-content: center;
-  align-items: flex-start;
-  flex-wrap: wrap;  
+.navLogo{
+  margin-right: 20px;
 
 }
- 
 
+.menu a{
+  list-style:none;
+  display: inline-block;
+  
+  font-weight: 500;
+  text-decoration: none;
 
-#calendar {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 5px;
-  background-color: #fafafa;
-  width: 800px; 
-  height: 800px; 
-  box-shadow: 15px 15px 10px #8888887d;
-  border-radius: 10px;
+  font-size: 0.8rem;
+  margin: 0 20px;
+  color: black;
+  padding: 20px;
+  
+
+  font-family: "Verdana", sans-serif;
+  border-bottom: 3px solid white;
+  transition: all 0.5s ease;
+
 }
-.calendar-day {
-  padding: 10px;
-  border: 1px solid #ccc;
-  text-align: center;
+.sideBar a{
+  list-style:none;
+  display: inline-block;
+  
+  font-weight: 500;
+  text-decoration: none;
+
+  font-size: 18px;
+  margin: 0 20px;
+  color: black;
+  padding: 20px;
+  
+
+  font-family: "Verdana", sans-serif;
+  transition: all 0.5s ease;
+
 }
-.has-order {
-  background-color: #ffe19d;
-  font-weight: bold;
+
+.menu {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  justify-content: space-between;
+
 }
-.today {
-  border: 2px solid #000;
-} 
 
 
+.menuLeft {
+  display: flex;
+  align-items: center;
+  gap: 5px; 
+  
+}
 
+.menuLeft a:hover{
+  color:rgb(0, 0, 0);
+  border-bottom: 3px solid rgb(243, 124, 124);
 
-.calendar-wrapper h2{
+}
+
+#reserve:hover{
   color: white;
-} 
-
-
-
-
-
- 
-
-button { 
-  background-color: #fafafa;
-   border-radius: 6px;
-  padding: 5px;
-  margin: none; 
-
-}  
-
-body{ 
-  background-image: linear-gradient(rgb(54, 54, 54), rgb(27, 27, 27), rgb(56, 56, 56));
-} 
-
- 
-@media (min-width: 1440px) {
-  .calendar-wrapper {
-    flex-direction: row;
-    justify-content: center;
-    gap: 5vw;
-  }
-
-  #calendar, #order-container {
-    width: 40vw;
-    height: auto;
-  }
-
-  .calendar-day {
-    padding: 12px;
-    font-size: 1.1rem;
-  }
-
-  h3 {
-    font-size: 1.6rem;
-  } 
+  background-color: rgb(243, 124, 124);
 }
 
 
-@media (max-width: 768px) {
-  .list {
-    width: 90vw;
-    height: auto;
-  }
 
-  #order-container {
-    width: 90vw;
-    height: auto;
-  }
 
-  #calendar {
-    width: 95vw;
-    height: auto;
-    grid-template-columns: repeat(7, 1fr);
-  }
 
-  .calendar-day {
-    padding: 8px;
-    font-size: 0.9rem;
-  }
+#reserve{
+  
+  list-style:none;
+  text-decoration: none;
+  display: inline-block;
+  
+  font-weight: 500;
+  text-decoration: none;
 
-  .calendar-wrapper {
-    padding: 1rem;
-  }
+  font-size: 0.8rem;
 
-  h3 {
-    font-size: 1.25rem;
-  }
+  color: rgb(0, 0, 0);
+  
+  font-family: "Verdana", sans-serif;
+
 }
 
-/* For phones and very narrow screens */
-@media (max-width: 480px) {
-  .list {
-    width: 100%;
-    height: auto;
+#brandlogo{
+  width: auto;
+  height: 60px;
+  margin-left: 50px;
+  margin-right: 0px;
+}
+
+
+
+
+.sideBar{
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 250px;
+  z-index: 999;
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.716);
+  box-shadow: -10px 0 10px rgb(0, 0, 0, 0.1);
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-right: 0;
+}
+
+#linkSide{
+  width: 50%;
+}
+
+
+
+#menuButton{
+  display: none;
+}
+
+
+@media screen and (min-width: 768px)  {
+  .navBar {
+    flex-wrap: nowrap;
   }
 
-  #order-container {
-    width: 100%;
-    height: auto;
-    margin: 10px;
+  #menuButton {
+    display: none;
   }
 
-  #calendar {
-    grid-template-columns: repeat(4, 1fr); /* fewer columns to avoid cramping */
-    gap: 3px;
+  .sideBar {
+    display: none;
   }
 
-  .calendar-day {
-    padding: 6px;
-    font-size: 0.8rem;
+
+}
+
+@media screen and (max-width: 920px) {
+  .menu{
+    display: none;
   }
 
-  .calendar-wrapper {
-    width: 100%;
+  #menuButton{
+    display: block;
   }
 
-  button {
-    font-size: 0.9rem;
-    padding: 4px 8px;
-  }
+}
 
-  h3 {
-    font-size: 1.1rem;
-  }
+
+
+/* NAV BAR END */
+
+body{
+    background-color: rgb(220, 156, 220);
 }
