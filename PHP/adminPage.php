@@ -1,3 +1,34 @@
+<?php 
+    session_start();
+
+    if (isset($_SESSION['username'])) {
+    header("Location: adminPage.php");
+    exit();
+    }
+?>
+
+<?php
+  include('connection.php');
+
+
+  $sql = "Select username, userType from users";
+  $result = mysqli_query($conn, $sql);
+
+  $users = [];
+
+  while ($row = mysqli_fetch_assoc($result)){
+      $users[] = $row;
+  }
+
+  echo "<script>const usersFromPHP = " . json_encode($users).";</script>";
+
+
+
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang = "en">
 <head> 
@@ -10,6 +41,7 @@
 
 
     <link rel="stylesheet" href="../CSS/adminPage.css">
+
 
 <!--For font for brand-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -55,15 +87,8 @@
 
           <a id="closeBtn" onclick=hideSideBar()> <svg xmlns="http://www.w3.org/2000/svg" height="27x" viewBox="0 -960 960 960" width="27px" fill="black"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a>
         
-          <a id="linkSide" href="index.html" target="_self"> HOME </a>
 
-          <a id="linkSide" href="HTML/gallery.html" target="_self"> GALLERY </a>
-
-          <a id="linkSide" href="HTML/about company.html" target="_self"> COMPANY </a>
-
-          <a id="linkSide" href="HTML/contact.html" target="_self"> CONTACT US </a>
-
-          <a id="linkSide" href="HTML/reserve date.html" target="_self"> RESERVE A DATE </a>
+          <a id="linkSide" href="HTML/gallery.html" target="_self"> USERS </a>
 
         </nav>
 
@@ -72,8 +97,8 @@
      
           </div>
           <div>
-            <a class="hideOnMobile" id="reserve" href="HTML/reserve date.html" target="_self"> MENU  </a>
           <a class="hideOnMobile" id="reserve" href="HTML/reserve date.html" target="_self"> USERS </a>
+
           </div>
         </nav>
 
@@ -81,13 +106,63 @@
 
         <p id="menuButton" onclick= openSideBar()> <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="black"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg> </p>
 
-        
-
-
-
   </div>
 <!-- NAV BAR END -->
 
+<div class="contentContainer"> 
+    <div class="tableContainer"> 
+      <div id="menuTitle">
+        <h2>MENU</h2>
+        </div>
+
+        <table id="myTable">
+          <thead>
+            <tr>
+              
+              <th>Product Name</th>
+              <th>Status</th>
+              <th>Edit</th>
+            </tr>
+
+          </thead>
+          <tbody>
+            <!-- insert rows -->
+          </tbody>
+
+        </table>
+
+    </div>
+
+
+    <div class="userContainer">
+      <h2 style="text-align: center;">USERS</h2>
+      <div class="userTable">
+        <table id="tableEmp">
+            <thead>
+              <tr>
+                <th id="emp">Employee</th>
+              </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+
+        <table id="tableCustomer">
+          <thead>
+            <tr>
+              <th id="cust">Customer</th>
+            </tr>
+          </thead>
+          <tbody>
+
+          </tbody>
+        </table>
+    </div>
+
+</div>
+    
+   
 
 
 
@@ -108,8 +183,29 @@
       }
       
       // JS NAV BAR END
-      
-      </script> 
+  
+
+
+const tableEmployee = document.querySelector("#tableEmp tbody");
+const tableCustomer = document.querySelector("#tableCustomer tbody");
+
+usersFromPHP.forEach(user => {
+    const row = document.createElement("tr");
+
+    const nameCell = document.createElement("td");
+    nameCell.textContent = user.username;
+    row.appendChild(nameCell);
+
+    if (user.userType === "employee"){
+      tableEmployee.appendChild(row);
+    } else if (user.userType === "customer"){
+      tableCustomer.appendChild(row)
+    }
+
+});
+
+
+    </script> 
 
 </body>
 

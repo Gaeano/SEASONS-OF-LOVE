@@ -174,3 +174,60 @@
 body{
     background-color: rgb(220, 156, 220);
 }
+
+
+.tableContainer{
+  border-style: solid;
+  padding: 2px;
+  width: 50%;
+  margin: 20px;
+}
+
+#menuTitle h2{
+  text-align: center;
+}
+
+.productContainer{
+  border-style: solid;
+  margin: 5px;
+  margin-top: 10px;
+}
+
+#myTable{
+  padding:30px;
+  width: 100%;
+
+} 
+
+th{
+  padding-right: 20px;
+  padding-left: 20px;
+  border: solid black;
+}
+
+td{
+  border: solid black;
+}
+
+.contentContainer{
+  display: flex;
+  gap: 40px;
+}
+
+.userContainer{
+  margin-top: 20px;
+  margin-right: 20px;
+  width: 50%;
+
+}
+
+/* for the  */
+.userTable{ 
+  display: flex;
+  gap: 10px;
+}
+
+#tableEmp, #tableCustomer{
+  width: 50%;
+  background-color:  rgb(202, 160, 202);
+}
