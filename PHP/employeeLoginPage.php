@@ -29,7 +29,7 @@ if (isset($_POST['submit'])) {
 
          
             if ($_SESSION['UserType'] === 'admin') {
-                header("Location: ../PHP/adminPage.html");
+                header("Location: adminPage.php");
                 exit;
             } elseif ($_SESSION['UserType'] === 'employee') {
                 header("Location: ../HTML/employeePage.php");
