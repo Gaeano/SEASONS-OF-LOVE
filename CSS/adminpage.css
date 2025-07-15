@@ -265,7 +265,7 @@ td{
 }
 
 .accountCrudTable{
-  margin-left: 220px;
+  /* margin-left: 220px; */
 }
 
 #buttons{
@@ -279,7 +279,7 @@ td{
 }
 
 .tbl th{
-  width: 80%;
+  width: 76%;
 }
 
 #employeeButton, #customerButton, #createEmp{
