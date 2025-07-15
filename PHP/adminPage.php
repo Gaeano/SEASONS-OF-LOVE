@@ -137,17 +137,21 @@
     <div class="userContainer">
       <h2 style="text-align: center;">USERS</h2>
       <div class="userTable">
-        <table id="tableEmp">
-            <thead>
-              <tr>
-                <th id="emp">Employee</th>
-              </tr>
-            </thead>
-            <tbody>
+        <div class="employeeTable">
+          <table id="tableEmp">
+              <thead>
+                <tr>
+                  <th id="emp">Employee</th>
+                </tr>
+              </thead>
+              <tbody>
 
-            </tbody>
-        </table>
-
+              </tbody>
+          </table>
+          <div id="empPagination" class="pagination"></div>
+        </div>
+          
+      <div class="customerTable">
         <table id="tableCustomer">
           <thead>
             <tr>
@@ -158,9 +162,13 @@
 
           </tbody>
         </table>
+         <div id="custPagination" class="pagination"></div>
     </div>
+  </div>
 
 </div>
+
+
     
    
 
@@ -189,21 +197,51 @@
 const tableEmployee = document.querySelector("#tableEmp tbody");
 const tableCustomer = document.querySelector("#tableCustomer tbody");
 
-usersFromPHP.forEach(user => {
-    const row = document.createElement("tr");
+const employeeData = usersFromPHP.filter(user => user.userType === "employee");
+const customerData = usersFromPHP.filter(user => user.userType === "customer");
 
-    const nameCell = document.createElement("td");
-    nameCell.textContent = user.username;
-    row.appendChild(nameCell);
+const rowPerPage = 10;
 
-    if (user.userType === "employee"){
-      tableEmployee.appendChild(row);
-    } else if (user.userType === "customer"){
-      tableCustomer.appendChild(row)
-    }
+function pagination (data, tableBody, page){
+    tableBody.innerHTML = "";
 
-});
 
+  const start = (page - 1) * rowPerPage;
+  const end = start + rowPerPage;
+  const pageData = data.slice(start, end);
+
+    pageData.forEach(user => {
+        const row = document.createElement("tr");
+
+        const nameCell = document.createElement("td");
+        nameCell.textContent = user.username;
+        row.appendChild(nameCell);
+        tableBody.appendChild(row);
+
+    });
+}
+
+function pageControls (containerId, data, tableBody){
+  const container = document.getElementById(containerId);
+  container.innerHTML = "";
+
+  const totalPages = Math.ceil (data.length / rowPerPage);
+  
+  for (let i = 1; i <= totalPages; i++){
+    const btn = document.createElement("button");
+    btn.textContent = i;
+    btn.classList.add ("page-btn");
+    btn.addEventListener("click", () => pagination(data, tableBody, i));
+    container.appendChild(btn);
+  }
+}
+
+
+  pagination(employeeData, tableEmployee, 1);
+  pagination(customerData, tableCustomer, 1);
+
+  pageControls("empPagination", employeeData, tableEmployee);
+  pageControls("custPagination", customerData, tableCustomer);
 
     </script> 
 

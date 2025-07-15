@@ -228,6 +228,28 @@ td{
 }
 
 #tableEmp, #tableCustomer{
-  width: 50%;
+  width: 100%;
   background-color:  rgb(202, 160, 202);
+}
+
+.customerTable, .employeeTable{
+  width: 100%;
+}
+
+.page-btn {
+  padding: 5px 10px;
+  margin: 3px;
+  border: 1px solid  rgb(170, 136, 170);
+  background-color:  rgb(170, 136, 170);
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.page-btn:hover {
+  background-color:  rgb(215, 172, 215);
+}
+
+.pagination {
+  margin: 10px 0;
+  text-align: center;
 }
