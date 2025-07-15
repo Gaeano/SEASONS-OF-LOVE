@@ -1,57 +1,57 @@
 <?php 
-    session_start();
+session_start();
 
-    if (isset($_SESSION['username'])) {
+
+if (isset($_SESSION['username'])) {
     header("Location: ../HTML/employeePage.php");
     exit();
     }
 ?>
 <?php
-    $login = false;
-    include('connection.php');
-    
-    if (isset($_POST['submit'])) {
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-        $sql = "SELECT * FROM login WHERE username = '$username'";  
-        $result = mysqli_query($conn, $sql);  
-        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);  
-        $count = mysqli_num_rows($result);  
+  
 
-        if ($row){
+$login = false;
+include('connection.php');
 
-            if (password_verify($password, $row["password"])){
-                $login = true;
+if (isset($_POST['submit'])) {
+    $username = $_POST['username'];
+    $password = $_POST['password'] ;
 
-                session_start();
+ 
+    $stmt = $conn->prepare("SELECT username, password, UserType FROM login WHERE username = ?");
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-                $sql = "select username from login where username = '$username'";
-                $r = mysqli_fetch_array(mysqli_query($conn, $sql), MYSQLI_ASSOC) ;
-
-                $_SESSION['username'] = $r['username'];
-                $_SESSION['loggedin'] = true;
-                
-                header("Location: ../HTML/employeePage.php");
-            }
-        } else {
-             echo '<script>
-                        alert("Login failed. Invalid username or password!!");
-                       window.location.href = "employeeLoginPage.php";
-                     </script>';
-        }
+    if ($row = $result->fetch_assoc()) {
+        if (password_verify($password, $row["password"])) {
         
-        // if($count == 1){  
-        //     $_SESSION['username'] = $username;
-        //     header("Location: ../HTML/admintest.php"); 
-        // }  
-        // else{  
-        //     echo '<script>
-        //                 alert("Login failed. Invalid username or password!!");
-        //                window.location.href = "adminloginPage.php";
-        //              </script>';
-        // }     
-    } 
+            $_SESSION['username'] = $row['username'];
+            $_SESSION['UserType'] = $row['UserType'];
+            $_SESSION['loggedin'] = true;
+
+         
+            if ($_SESSION['UserType'] === 'admin') {
+                header("Location: ../PHP/adminPage.html");
+                exit;
+            } elseif ($_SESSION['UserType'] === 'employee') {
+                header("Location: ../HTML/employeePage.php");
+                exit;
+            } else {
+                header("Location: ../HTML/reserve date.html");
+                exit;
+            }
+        }
+    }
+
+
+    echo '<script>
+            alert("Login failed. Invalid username or password!!");
+            window.location.href = "employeeLoginPage.php";
+          </script>';
+}
 ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -65,7 +65,7 @@
 
 <body>
     <div id="form">
-        <h1> Seasons Of Love <h1>
+        <h1> Seasons Of Love </h1>
         <h3>Login</h3>
         <form name="form" method="POST" action="employeeLoginPage.php">
             <label>Username: </label>
