@@ -2,7 +2,7 @@
     session_start();
 
     if (isset($_SESSION['username'])) {
-    header("Location: ../HTML/employeePage.php");
+    header("Location: adminPage.php");
     exit();
     }
 ?>

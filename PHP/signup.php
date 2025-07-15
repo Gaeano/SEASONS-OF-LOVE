@@ -11,6 +11,7 @@
         $email = mysqli_real_escape_string($conn, $_POST['email']);
         $password = mysqli_real_escape_string($conn, $_POST['pass']);
         $cpassword = mysqli_real_escape_string($conn, $_POST['cpass']);
+       
         
         $sql="select * from users where username='$username'";
         $result = mysqli_query($conn, $sql);
@@ -23,10 +24,10 @@
         if($count_user == 0 & $count_email==0){
             if($password==$cpassword){
                 $hash = password_hash($password, PASSWORD_DEFAULT);
-                $sql = "INSERT INTO users(username, email, password) VALUES('$username', '$email', '$hash')";
+                $sql = "INSERT INTO users(username, email, password, userType) VALUES('$username', '$email', '$hash', 'employee')";
                 $result = mysqli_query($conn, $sql);
                 if($result){
-                    header("Location: adminLoginPage.php");
+                    header("Location: adminPage.php");
                 }
             }
             else{
@@ -65,7 +66,7 @@
   <body>
     <div id="form">
         <h1 id="heading">SignUp Form</h1>
-        <h2> Customer Sign Up</h2>  
+        <h2> Employee Sign Up</h2>  
         <form name="form" action="signup.php" method="POST">
             <label>Enter Username: </label>
             <input type="text" id="user" name="user" required><br><br>
