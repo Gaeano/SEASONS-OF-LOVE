@@ -264,6 +264,10 @@ td{
   margin-right: 20px;
 }
 
+.accountCrudTable{
+  margin-left: 220px;
+}
+
 #buttons{
   gap: 20px;
   margin-bottom: 10px;
@@ -278,6 +282,13 @@ td{
   width: 80%;
 }
 
+#employeeButton, #customerButton, #createEmp{
+  background-color: rgb(215, 172, 215);
+}
+
+#employeeButton:hover, #customerButton:hover, #createEmp:hover{
+  background-color: rgb(150, 121, 150);
+}
 #nextPage{
   margin-left: 20px;
   margin-top: 5px;
