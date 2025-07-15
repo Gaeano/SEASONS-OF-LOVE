@@ -13,7 +13,7 @@
   include('connection.php');
 
 
-  $sql = "Select username, userType from login";
+  $sql = "Select user_id, username, userType from login";
   $result = mysqli_query($conn, $sql);
 
   $users = [];
@@ -143,6 +143,7 @@
             <table id="tableEmp">
                 <thead>
                   <tr>
+                    <th>ID</th>
                     <th id="emp">Employee</th>
                   </tr>
                 </thead>
@@ -157,6 +158,7 @@
           <table id="tableCustomer">
             <thead>
               <tr>
+                <th>ID</th>
                 <th id="cust">Customer</th>
               </tr>
             </thead>
@@ -182,6 +184,7 @@
     <table class=tbl>
       <thead>
         <tr>
+          <th>ID</th>
           <th> Name </th>
           <th  id="actions"> Actions </th>
         </tr>
@@ -241,8 +244,11 @@ function pagination (data, tableBody, page){
     pageData.forEach(user => {
         const row = document.createElement("tr");
         row.addClass
+        const userID = document.createElement("td");
+        userID.textContent = user.user_id;
         const nameCell = document.createElement("td");
         nameCell.textContent = user.username;
+        row.appendChild(userID);
         row.appendChild(nameCell);
         tableBody.appendChild(row);
 
@@ -299,19 +305,28 @@ function paginate (data, page){
         const rows = document.createElement("tr");
         rows.classList.add("rowz")
 
+        const userID = document.createElement("td");
+        userID.textContent = user.user_id;
+        userID.classList.add("userIDCol")
+
         const nameCellz = document.createElement("td");
         nameCellz.textContent = user.username;
+        nameCellz.classList.add("nameCol")
     
 
         const editDel = document.createElement("td");
-        editDel.innerHTML = `<button id ="editButton">Edit</button> <button id="delButton">Delete</button>`;
+        editDel.innerHTML = `
+          <button class ="editButton" data-id= ${user.user_id}>Edit</button>
+          <button class="delButton" data-id=${user.user_id}>Delete</button>`;
         editDel.classList.add("table3Data")
-
+        rows.appendChild(userID);
         rows.appendChild(nameCellz);
         rows.appendChild(editDel);
         tblBody.appendChild(rows);
 
     });
+
+    addEventListeners();
 } 
 
 function controlz (container, data){
@@ -329,6 +344,26 @@ function controlz (container, data){
     container.appendChild(btnz);
   }
 }
+
+function addEventListeners(){
+  const editButton = document.querySelectorAll(".editButton");
+  editButton.forEach(btn => {
+    btn.addEventListener("click", ()=> {
+      const userId = btn.getAttribute("data-id");
+      window.location.href = `update_page_1.php?id=${userId}`;
+    });
+  });
+
+
+  const deleteButton = document.querySelectorAll(".delButton");
+  deleteButton.forEach(btn =>{
+    btn.addEventListener("click", () => {
+      const userId = btn.getAttribute("data-id");
+      window.location.href = `delete_page_1.php?id=${userId}`;
+    });
+  });
+}
+
 
 function showData(userType){
   currentData = users.filter(user => user.userType === userType);

@@ -278,8 +278,16 @@ td{
   margin-left: 20px;
 }
 
-.tbl th{
-  width: 76%;
+/* .tbl th{
+  width: 50%;
+} */
+
+.userIDCol{
+  width: fit-content;
+}
+
+.nameCol{
+  width: 70%;
 }
 
 #employeeButton, #customerButton, #createEmp{
@@ -298,14 +306,14 @@ td{
  padding: 10px 20px 10px;
 }
 
-#editButton, #delButton{
+.editButton, .delButton{
   background-color: rgb(215, 172, 215);
 }
 
-#editButton:hover{
+.editButton:hover{
   background-color: rgb(150, 121, 150);
 }
-#delButton:hover{
+.delButton:hover{
   background-color: rgb(180, 0, 0);
   color: white;
 }
