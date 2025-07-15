@@ -40,7 +40,6 @@
 
 </div>
 
-  <!-- Add Logout Button -->
     <form action="../PHP/logout.php" method="post">
         <button type="submit">Logout</button>
     </form>
