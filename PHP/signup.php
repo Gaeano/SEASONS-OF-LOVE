@@ -13,18 +13,18 @@
         $cpassword = mysqli_real_escape_string($conn, $_POST['cpass']);
        
         
-        $sql="select * from users where username='$username'";
+        $sql="select * from login where username='$username'";
         $result = mysqli_query($conn, $sql);
         $count_user = mysqli_num_rows($result);
 
-        $sql="select * from users where email='$email'";
+        $sql="select * from login where email='$email'";
         $result = mysqli_query($conn, $sql);
         $count_email = mysqli_num_rows($result);
 
         if($count_user == 0 & $count_email==0){
             if($password==$cpassword){
                 $hash = password_hash($password, PASSWORD_DEFAULT);
-                $sql = "INSERT INTO users(username, email, password, userType) VALUES('$username', '$email', '$hash', 'employee')";
+                $sql = "INSERT INTO login(username, email, password, userType) VALUES('$username', '$email', '$hash', 'employee')";
                 $result = mysqli_query($conn, $sql);
                 if($result){
                     header("Location: adminPage.php");
