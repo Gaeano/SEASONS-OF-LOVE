@@ -173,8 +173,8 @@
   <div class="accountCrudTable">
     <div id ="buttons">
         <button id="employeeButton" style="margin-left:20px;"> Employee </button>
-        <button id="employeeButton"> Customer </button>
-        <button id="employeeButton"> Create Employee Account </button>
+        <button id="customerButton"> Customer </button>
+        <button id="createEmp"> Create Employee Account </button>
     </div>
 
     <table class=tbl>
@@ -189,7 +189,8 @@
 
       </tbody>
     </table>
-    <div id="nextPage" class="pagination"></div>
+  
+    <div id="nextPage"></div>
 
 
   </div>
@@ -265,69 +266,74 @@ function pageControls (containerId, data, tableBody){
   pagination(employeeData, tableEmployee, 1);
   pagination(customerData, tableCustomer, 1);
 
-  pageControls("nextPage", employeeData, tableEmployee);
-  pageControls("nextPage", customerData, tableCustomer);
+  pageControls("empPagination", employeeData, tableEmployee);
+  pageControls("custPagination", customerData, tableCustomer);
     
     // end of pagination
 
-//     // start of accounts pagination
+    // start of accounts pagination
     
-// const tblBody = document.querySelector(".tbl tbody");
-// const users = usersFromPHP;
-// const paginationContainer = document.getElementById('nextPage')
+const tblBody = document.querySelector(".tbl tbody");
+const users = usersFromPHP;
+const paginationContainer = document.getElementById("nextPage")
+
+const employeeButton = document.getElementById("employeeButton");
+const customerButton = document.getElementById("customerButton");
+
+const customers = usersFromPHP.filter(u => u.userType === "customer");
+const employee = userFromPHP.filter(u => u.userType === "employee");
+
+const rowsPerPage = 5;
+
+function paginate (data, tableBody, page){
+    tableBody.innerHTML = "";
 
 
-// const rowsPerPage = 5;
+  const start = (page - 1) * rowsPerPage;
+  const end = startz + rowsPerPage;
+  const pageData = data.slice(startz, endz);
 
-// function paginate (data, tableBody, page){
-//     tableBody.innerHTML = "";
+    pageData.forEach(user => {
+        const rows = document.createElement("tr");
+
+        const nameCellz = document.createElement("td");
+        nameCellz.textContent = user.username;
+
+        const editDel = document.createElement("td");
+        editDel.innerHTML = `<button>Edit</button> <button>Delete</button>`;
 
 
-//   const startz = (page - 1) * rowsPerPage;
-//   const endz = startz + rowsPerPage;
-//   const pageDataz = data.slice(startz, endz);
+        rows.appendChild(nameCellz);
+        rows.appendChild(editDel);
+        tableBody.appendChild(rows);
 
-//     pageDataz.forEach(user => {
-//         const rows = document.createElement("tr");
+    });
+} 
 
-//         const nameCellz = document.createElement("td");
-//         nameCellz.textContent = user.username;
+function controlz (containerId, data, tableBody){
+  const container = document.getElementById(containerId);
+  container.innerHTML = "";
 
-//         const edit = document.createElement("td");
-//         edit.innerHTML = `<button>Edit</button>`;
-
-//         const del= document.createElement("td");
-//         del.innerHTML = `<button>Delete</button>`;
-
-//         rows.appendChild(nameCellz);
-//         rows.appendChild(edit);
-//         rows.appendChild(del)
-//         tableBody.appendChild(rows);
-
-//     });
-// } 
-
-// function controlz (containerId, data, tableBody){
-//   const container = document.getElementById(containerId);
-//   container.innerHTML = "";
-
-//   const totalPagesz = Math.ceil (data.length / rowsPerPage);
+  const totalPagesz = Math.ceil (data.length / rowsPerPage);
   
-//   for (let i = 1; i <= totalPagesz; i++){
-//     const btnz = document.createElement("button");
-//     btnz.textContent = i;
-//     btnz.classList.add ("page-btn");
-//     btnz.addEventListener("click", () => paginate(data, tableBody, i));
-//     container.appendChild(btn);
-//   }
-// }
+  for (let i = 1; i <= totalPagesz; i++){
+    const btnz = document.createElement("button");
+    btnz.textContent = i;
+    btnz.classList.add ("page-btn");
+    btnz.addEventListener("click", () => paginate(data, tableBody, i));
+    container.appendChild(btn);
+  }
+}
 
+function showEmployee(){
+  paginate()
+}
 
-//   paginate(empData, tblEmp, 1);
-//   paginate(custData, tblCust, 1);
+  paginate(empData, tblEmp, 1);
+  paginate(custData, tblCust, 1);
 
-//   controlz("nextPage", empData, tblEmp);
-//   controlz("nextPage", custData, tblCust);
+  controlz("nextPage", empData, tblEmp);
+  controlz("nextPage", custData, tblCust);
 
 // // end of accoouns pagination
 
