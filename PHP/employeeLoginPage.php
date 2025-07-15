@@ -18,7 +18,7 @@ if (isset($_POST['submit'])) {
     $password = $_POST['password'] ;
 
  
-    $stmt = $conn->prepare("SELECT username, password, UserType FROM login WHERE username = ?");
+    $stmt = $conn->prepare("SELECT username, password, UserType, userID FROM login WHERE username = ?");
     $stmt->bind_param("s", $username);
     $stmt->execute();
     $result = $stmt->get_result();
@@ -28,8 +28,9 @@ if (isset($_POST['submit'])) {
         
             $_SESSION['username'] = $row['username'];
             $_SESSION['UserType'] = $row['UserType'];
+            $_SESSION['userID'] = $row['userID'];
             $_SESSION['loggedin'] = true;
-
+           
          
             if ($_SESSION['UserType'] === 'admin') {
                 header("Location: adminPage.php");
@@ -66,7 +67,7 @@ if (isset($_POST['submit'])) {
 <body>
     <div id="form">
         <h1> Seasons Of Love </h1>
-        <h3>Login</h3>
+        <h3>Login</h3> 
         <form name="form" method="POST" action="employeeLoginPage.php">
             <label>Username: </label>
             <input type="text" id="username" name="username"><br><br>

@@ -2,10 +2,10 @@
     session_start();
 
 
-    if (isset($_SESSION['username']) && $_SESSION['UserType'] === 'admin') {
-    header("Location: adminPage.php");
-    exit();
-   }
+  //   //if (isset($_SESSION['username']) && $_SESSION['UserType'] === 'admin') {
+  //   header("Location: adminPage.php");
+  //   exit();
+  //  }
 
 ?>
 
@@ -13,7 +13,7 @@
   include('connection.php');
 
 
-  $sql = "Select username, userType from login";
+  $sql = "Select username, UserType from login";
   $result = mysqli_query($conn, $sql);
 
   $users = [];
@@ -34,7 +34,7 @@
 <!DOCTYPE html>
 <html lang = "en">
 <head> 
-    <meta charset="utf=8">
+    <meta charset="UTFs=8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
 
