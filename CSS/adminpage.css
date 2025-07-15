@@ -264,9 +264,9 @@ td{
   margin-right: 20px;
 }
 
-.accountCrudTable{
+/* .accountCrudTable{ */
   /* margin-left: 220px; */
-}
+/* }dsa */
 
 #buttons{
   gap: 20px;
@@ -276,11 +276,23 @@ td{
 
 .tbl{
   margin-left: 20px;
+<<<<<<< HEAD
   background-color:  rgb(202, 160, 202);
+=======
+  background-color:  rgb(202, 160, 202); ;
+>>>>>>> 6033105d595ac13ba39647904355a3b1e247a3ac
 }
 
-.tbl th{
-  width: 76%;
+/* .tbl th{
+  width: 50%;
+} */
+
+.userIDCol{
+  width: fit-content;
+}
+
+.nameCol{
+  width: 70%;
 }
 
 #employeeButton, #customerButton, #createEmp{
@@ -299,14 +311,14 @@ td{
  padding: 10px 20px 10px;
 }
 
-#editButton, #delButton{
+.editButton, .delButton{
   background-color: rgb(215, 172, 215);
 }
 
-#editButton:hover{
+.editButton:hover{
   background-color: rgb(150, 121, 150);
 }
-#delButton:hover{
+.delButton:hover{
   background-color: rgb(180, 0, 0);
   color: white;
 }
