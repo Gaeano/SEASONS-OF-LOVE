@@ -90,7 +90,7 @@
           <a id="closeBtn" onclick=hideSideBar()> <svg xmlns="http://www.w3.org/2000/svg" height="27x" viewBox="0 -960 960 960" width="27px" fill="black"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a>
         
 
-          <a id="linkSide" href="HTML/gallery.html" target="_self"> EMPLOYEE </a>
+          <a id="linkSide" href="../HTML/employeePage.php" target="_self"> EMPLOYEE </a>
 
         </nav>
 
@@ -99,7 +99,7 @@
      
           </div>
           <div>
-          <a class="hideOnMobile" id="reserve" href="HTML/reserve date.html" target="_self"> EMPLOYEE </a>
+          <a class="hideOnMobile" id="reserve" href="../HTML/employeePage.php" target="_self"> EMPLOYEE </a>
 
           </div>
         </nav>
