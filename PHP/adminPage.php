@@ -348,7 +348,7 @@ function showData(userType){
 // // end of accoouns pagination
 
 
-
+createEmp.addEventListener("click", () =>  window.location.href = "signup.php");
 
 </script> 
 

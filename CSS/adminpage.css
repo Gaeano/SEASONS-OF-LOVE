@@ -278,6 +278,11 @@ td{
   width: 80%;
 }
 
+#nextPage{
+  margin-left: 20px;
+  margin-top: 5px;
+}
+
 .table3Data{
  padding: 10px 20px 10px;
 }
