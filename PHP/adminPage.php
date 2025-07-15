@@ -42,7 +42,7 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
 
-    <link rel="stylesheet" href="../CSS/adminPage.css">
+    <link rel="stylesheet" href="../CSS/adminpage.css">
 
 
 <!--For font for brand-->
@@ -183,7 +183,7 @@
       <thead>
         <tr>
           <th> Name </th>
-          <th> Actions </th>
+          <th  id="actions"> Actions </th>
         </tr>
       </thead>
       
@@ -240,7 +240,7 @@ function pagination (data, tableBody, page){
 
     pageData.forEach(user => {
         const row = document.createElement("tr");
-
+        row.addClass
         const nameCell = document.createElement("td");
         nameCell.textContent = user.username;
         row.appendChild(nameCell);
@@ -277,67 +277,77 @@ function pageControls (containerId, data, tableBody){
     
 const tblBody = document.querySelector(".tbl tbody");
 const users = usersFromPHP;
-const paginationContainer = document.getElementById("nextPage")
+const buttonContainers = document.getElementById("nextPage");
 
 const employeeButton = document.getElementById("employeeButton");
 const customerButton = document.getElementById("customerButton");
 
-const customers = usersFromPHP.filter(u => u.userType === "customer");
-const employee = userFromPHP.filter(u => u.userType === "employee");
 
 const rowsPerPage = 5;
+let currentData =  usersFromPHP.filter(u => u.userType === "employee");
+let currentPage = 1;
 
-function paginate (data, tableBody, page){
-    tableBody.innerHTML = "";
+function paginate (data, page){
+    tblBody.innerHTML = "";
 
 
   const start = (page - 1) * rowsPerPage;
-  const end = startz + rowsPerPage;
-  const pageData = data.slice(startz, endz);
+  const end = start + rowsPerPage;
+  const pageData = data.slice(start, end);
 
     pageData.forEach(user => {
         const rows = document.createElement("tr");
+        rows.classList.add("rowz")
 
         const nameCellz = document.createElement("td");
         nameCellz.textContent = user.username;
+    
 
         const editDel = document.createElement("td");
-        editDel.innerHTML = `<button>Edit</button> <button>Delete</button>`;
-
+        editDel.innerHTML = `<button id ="editButton">Edit</button> <button id="delButton">Delete</button>`;
+        editDel.classList.add("table3Data")
 
         rows.appendChild(nameCellz);
         rows.appendChild(editDel);
-        tableBody.appendChild(rows);
+        tblBody.appendChild(rows);
 
     });
 } 
 
-function controlz (containerId, data, tableBody){
-  const container = document.getElementById(containerId);
+function controlz (container, data){
   container.innerHTML = "";
-
   const totalPagesz = Math.ceil (data.length / rowsPerPage);
-  
+
   for (let i = 1; i <= totalPagesz; i++){
     const btnz = document.createElement("button");
     btnz.textContent = i;
     btnz.classList.add ("page-btn");
-    btnz.addEventListener("click", () => paginate(data, tableBody, i));
-    container.appendChild(btn);
+    btnz.addEventListener("click", () => {
+      currentPage = i;
+      paginate(data, currentPage);
+    });
+    container.appendChild(btnz);
   }
 }
 
-function showEmployee(){
-  paginate()
+function showData(userType){
+  currentData = users.filter(user => user.userType === userType);
+  currentPage = 1;
+  paginate (currentData, currentPage);
+  controlz(buttonContainers, currentData);
 }
 
-  paginate(empData, tblEmp, 1);
-  paginate(custData, tblCust, 1);
 
-  controlz("nextPage", empData, tblEmp);
-  controlz("nextPage", custData, tblCust);
+
+  paginate(currentData, currentPage);
+  controlz(buttonContainers, currentData);
+
+  employeeButton.addEventListener("click", () => showData("employee"));
+  customerButton.addEventListener("click", () => showData("customer"));
 
 // // end of accoouns pagination
+
+
 
 
 </script> 

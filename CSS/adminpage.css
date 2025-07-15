@@ -212,7 +212,7 @@ td{
 .contentContainer{
   display: flex;
   gap: 40px;
-  border:solid black;
+  /* border:solid black; */
   margin-bottom: 10px;
 }
 
@@ -220,7 +220,7 @@ td{
   margin-top: 20px;
   margin-right: 20px;
   width: 50%;
-  border: solid black;
+  /* border: solid black; */
 }
 
 /* for the  */
@@ -274,3 +274,22 @@ td{
   margin-left: 20px;
 }
 
+.tbl th{
+  width: 80%;
+}
+
+.table3Data{
+ padding: 10px 20px 10px;
+}
+
+#editButton, #delButton{
+  background-color: rgb(215, 172, 215);
+}
+
+#editButton:hover{
+  background-color: rgb(150, 121, 150);
+}
+#delButton:hover{
+  background-color: rgb(180, 0, 0);
+  color: white;
+}
