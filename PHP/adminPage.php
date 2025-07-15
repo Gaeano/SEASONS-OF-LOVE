@@ -1,17 +1,19 @@
 <?php 
     session_start();
 
+
     if (isset($_SESSION['username']) && $_SESSION['UserType'] === 'admin') {
     header("Location: adminPage.php");
     exit();
-    }
+   }
+
 ?>
 
 <?php
   include('connection.php');
 
 
-  $sql = "Select username, userType from users";
+  $sql = "Select username, userType from login";
   $result = mysqli_query($conn, $sql);
 
   $users = [];
@@ -88,7 +90,7 @@
           <a id="closeBtn" onclick=hideSideBar()> <svg xmlns="http://www.w3.org/2000/svg" height="27x" viewBox="0 -960 960 960" width="27px" fill="black"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a>
         
 
-          <a id="linkSide" href="HTML/gallery.html" target="_self"> USERS </a>
+          <a id="linkSide" href="HTML/gallery.html" target="_self"> EMPLOYEE </a>
 
         </nav>
 
@@ -97,7 +99,7 @@
      
           </div>
           <div>
-          <a class="hideOnMobile" id="reserve" href="HTML/reserve date.html" target="_self"> USERS </a>
+          <a class="hideOnMobile" id="reserve" href="HTML/reserve date.html" target="_self"> EMPLOYEE </a>
 
           </div>
         </nav>
@@ -110,67 +112,92 @@
 <!-- NAV BAR END -->
 
 <div class="contentContainer"> 
-    <div class="tableContainer"> 
-      <div id="menuTitle">
-        <h2>MENU</h2>
-        </div>
+      <div class="tableContainer"> 
+        <div id="menuTitle">
+          <h2>MENU</h2>
+          </div>
 
-        <table id="myTable">
-          <thead>
-            <tr>
-              
-              <th>Product Name</th>
-              <th>Status</th>
-              <th>Edit</th>
-            </tr>
+          <table id="myTable">
+            <thead>
+              <tr>
+                
+                <th>Product Name</th>
+                <th>Status</th>
+                <th>Edit</th>
+              </tr>
 
-          </thead>
-          <tbody>
-            <!-- insert rows -->
-          </tbody>
+            </thead>
+            <tbody>
+              <!-- insert rows -->
+            </tbody>
 
-        </table>
-
-    </div>
-
-
-    <div class="userContainer">
-      <h2 style="text-align: center;">USERS</h2>
-      <div class="userTable">
-        <div class="employeeTable">
-          <table id="tableEmp">
-              <thead>
-                <tr>
-                  <th id="emp">Employee</th>
-                </tr>
-              </thead>
-              <tbody>
-
-              </tbody>
           </table>
-          <div id="empPagination" class="pagination"></div>
+
         </div>
-          
-      <div class="customerTable">
-        <table id="tableCustomer">
-          <thead>
-            <tr>
-              <th id="cust">Customer</th>
-            </tr>
-          </thead>
-          <tbody>
 
-          </tbody>
-        </table>
-         <div id="custPagination" class="pagination"></div>
+
+      <div class="userContainer">
+        <h2 style="text-align: center;">USERS</h2>
+        <div class="userTable">
+          <div class="employeeTable">
+            <table id="tableEmp">
+                <thead>
+                  <tr>
+                    <th id="emp">Employee</th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+            <div id="empPagination" class="pagination"></div>
+          </div>
+            
+        <div class="customerTable">
+          <table id="tableCustomer">
+            <thead>
+              <tr>
+                <th id="cust">Customer</th>
+              </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+          </table>
+          <div id="custPagination" class="pagination"></div>
+      </div>
     </div>
+    
   </div>
-
 </div>
 
+<div class="userCrudContainer">
+  <div class="accountCrudTable">
+    <div id ="buttons">
+        <button id="employeeButton" style="margin-left:20px;"> Employee </button>
+        <button id="employeeButton"> Customer </button>
+        <button id="employeeButton"> Create Employee Account </button>
+    </div>
 
-    
-   
+    <table class=tbl>
+      <thead>
+        <tr>
+          <th> Name </th>
+          <th> Actions </th>
+        </tr>
+      </thead>
+      
+      <tbody>
+
+      </tbody>
+    </table>
+    <div id="nextPage" class="pagination"></div>
+
+
+  </div>
+
+
+</div>
 
 
 
@@ -193,14 +220,14 @@
       // JS NAV BAR END
   
 
-
+// pagination
 const tableEmployee = document.querySelector("#tableEmp tbody");
 const tableCustomer = document.querySelector("#tableCustomer tbody");
 
 const employeeData = usersFromPHP.filter(user => user.userType === "employee");
 const customerData = usersFromPHP.filter(user => user.userType === "customer");
 
-const rowPerPage = 10;
+const rowPerPage = 5;
 
 function pagination (data, tableBody, page){
     tableBody.innerHTML = "";
@@ -240,10 +267,74 @@ function pageControls (containerId, data, tableBody){
   pagination(employeeData, tableEmployee, 1);
   pagination(customerData, tableCustomer, 1);
 
-  pageControls("empPagination", employeeData, tableEmployee);
-  pageControls("custPagination", customerData, tableCustomer);
+  pageControls("nextPage", employeeData, tableEmployee);
+  pageControls("nextPage", customerData, tableCustomer);
+    
+    // end of pagination
 
-    </script> 
+//     // start of accounts pagination
+    
+// const tblBody = document.querySelector(".tbl tbody");
+// const users = usersFromPHP;
+// const paginationContainer = document.getElementById('nextPage')
+
+
+// const rowsPerPage = 5;
+
+// function paginate (data, tableBody, page){
+//     tableBody.innerHTML = "";
+
+
+//   const startz = (page - 1) * rowsPerPage;
+//   const endz = startz + rowsPerPage;
+//   const pageDataz = data.slice(startz, endz);
+
+//     pageDataz.forEach(user => {
+//         const rows = document.createElement("tr");
+
+//         const nameCellz = document.createElement("td");
+//         nameCellz.textContent = user.username;
+
+//         const edit = document.createElement("td");
+//         edit.innerHTML = `<button>Edit</button>`;
+
+//         const del= document.createElement("td");
+//         del.innerHTML = `<button>Delete</button>`;
+
+//         rows.appendChild(nameCellz);
+//         rows.appendChild(edit);
+//         rows.appendChild(del)
+//         tableBody.appendChild(rows);
+
+//     });
+// } 
+
+// function controlz (containerId, data, tableBody){
+//   const container = document.getElementById(containerId);
+//   container.innerHTML = "";
+
+//   const totalPagesz = Math.ceil (data.length / rowsPerPage);
+  
+//   for (let i = 1; i <= totalPagesz; i++){
+//     const btnz = document.createElement("button");
+//     btnz.textContent = i;
+//     btnz.classList.add ("page-btn");
+//     btnz.addEventListener("click", () => paginate(data, tableBody, i));
+//     container.appendChild(btn);
+//   }
+// }
+
+
+//   paginate(empData, tblEmp, 1);
+//   paginate(custData, tblCust, 1);
+
+//   controlz("nextPage", empData, tblEmp);
+//   controlz("nextPage", custData, tblCust);
+
+// // end of accoouns pagination
+
+
+</script> 
 
 </body>
 

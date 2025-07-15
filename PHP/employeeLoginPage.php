@@ -5,7 +5,10 @@ session_start();
 if (isset($_SESSION['username'])) {
     header("Location: ../HTML/employeePage.php");
     exit();
-}
+    }
+?>
+<?php
+  
 
 $login = false;
 include('connection.php');
