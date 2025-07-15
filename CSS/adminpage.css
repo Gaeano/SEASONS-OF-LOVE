@@ -264,9 +264,9 @@ td{
   margin-right: 20px;
 }
 
-.accountCrudTable{
+/* .accountCrudTable{ */
   /* margin-left: 220px; */
-}
+/* }dsa */
 
 #buttons{
   gap: 20px;
@@ -276,6 +276,7 @@ td{
 
 .tbl{
   margin-left: 20px;
+  background-color:  rgb(202, 160, 202); ;
 }
 
 /* .tbl th{
