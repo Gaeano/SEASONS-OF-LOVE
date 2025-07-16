@@ -101,7 +101,7 @@
 
 
 
-    <title>Seasons Of Love</title>
+    <title>Admin Page</title>
 
     <style>
       .container-fluid{
