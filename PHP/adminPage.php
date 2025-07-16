@@ -280,6 +280,18 @@
       </div>
     </div>
 
+<div id="formEdit">
+  <div id="modal-content-edit">
+    <h1 id="heading">Edit Form</h1>
+    <form name="form" id="editFrm" method="POST">
+        <label>Edit Name: </label>
+        <input type="text" id="username" name="username" required><br><br>
+        <input type="submit" id="btn" value="Edit" name = "submit"/>
+        <button id="cancelButton">Cancel</button>
+    </form>
+  </div>
+</div>
+
 
 
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
@@ -424,12 +436,22 @@ function controlz (container, data){
 
 function addEventListeners(){
   const editButton = document.querySelectorAll(".editButton");
+  const formEdit = document.getElementById("formEdit");
+  const editFrm = document.getElementById("editFrm");
+  const cancelButton = formEdit.querySelector("#cancelButton");
+  const usernameInput = document.getElementById("username");
+
   editButton.forEach(btn => {
     btn.addEventListener("click", ()=> {
       const userId = btn.getAttribute("data-id");
-      window.location.href = `update_page_1.php?id=${userId}`;
+      const userToEdit = users.find(user=>user.user_id == userId);
+      usernameInput.value = userToEdit.username;
+      editFrm.action = `update_page_1.php?id=${userId};`;
+
+
+      formEdit.style.display = "flex";
     });
-  });
+  }); 
 
 
   const deleteButton = document.querySelectorAll(".delButton");
@@ -439,6 +461,19 @@ function addEventListeners(){
       window.location.href = `delete_page_1.php?id=${userId}`;
     });
   });
+
+
+window.addEventListener("click", function(event){
+  if(event.target == formEdit){
+    formEdit.style.display = "none";
+  }
+});
+
+cancelButton.onclick = function(){
+  formEdit.style.display = "none";
+}
+
+
 }
 
 
@@ -474,6 +509,8 @@ window.onclick = function(event){
     modal.style.display = "none";
   }
 }
+
+
 
 
 

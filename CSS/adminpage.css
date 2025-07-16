@@ -332,10 +332,14 @@
     align-items: center;
   }
 
-  #btn{
+  #btn, #buttonz{
       padding: 5px;
       font-size: large;
   }
+
+  #btn:hover, #buttonz:hover{
+    background-color: rgb(138, 136, 136);
+}
 
   @media screen and (max-width:700px){
       #form{
@@ -345,6 +349,80 @@
   }
 
   #modal-content{
+    background-color: #e1abe7;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 100%;
+  } 
+
+   #form{
+    display: none; 
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 9999; 
+    justify-content: center;
+    align-items: center;
+  }
+
+  #btn, #buttonz{
+      padding: 5px;
+      font-size: large;
+  }
+
+  #btn:hover, #buttonz:hover{
+    background-color: rgb(138, 136, 136);
+}
+
+  @media screen and (max-width:700px){
+      #form{
+          width: 65%;
+          padding: 40px
+      }
+  }
+
+  #modal-content{
+    background-color: #e1abe7;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 100%;
+  } 
+
+   #formEdit{
+    display: none; 
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 9999; 
+    justify-content: center;
+    align-items: center;
+  }
+
+  #btn, #buttonz{
+      padding: 5px;
+      font-size: large;
+  }
+
+  #btn:hover, #buttonz:hover{
+    background-color: rgb(138, 136, 136);
+}
+
+  @media screen and (max-width:700px){
+      #form{
+          width: 65%;
+          padding: 40px
+      }
+  }
+
+  #modal-content-edit{
     background-color: #e1abe7;
     padding: 20px;
     border-radius: 8px;
