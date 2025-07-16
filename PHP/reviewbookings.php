@@ -1,13 +1,18 @@
 <?php  
 session_start(); 
   include('connection.php');
-
+if (!isset($_SESSION['UserType'])){
+   echo '<script>
+            alert("Please Login to access your bookings.");
+            window.location.href = "employeeLoginPage.php";
+          </script>';
+}
 
 $userID = $_SESSION['userID']; 
 
 
 
-$sql = "SELECT order_date, status FROM orders WHERE userID = ?";
+$sql = "SELECT order_date, status, order_id FROM orders WHERE userID = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $userID); 
 $stmt->execute();
@@ -112,11 +117,12 @@ $result = $stmt->get_result();
 <!--Start table -->
 
 <div class="contentContainer">  
-   <div style="margin-left: 20px;">
+   
+      <div class="tableContainer">  
+        <div style="margin-left: 20px;">
                 <button id="tab-pending" style="border: solid lightcoral">Pending</button>
                 <button id="tab-completed" style="border: solid lightgreen">Completed</button>
             </div>
-      <div class="tableContainer"> 
         <div id="menuTitle">
           <h2>Bookings</h2>
           </div>
@@ -143,20 +149,42 @@ $result = $stmt->get_result();
 
 
 
+<!-- Modal -->
+<div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="Edit" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+    
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Edit Order</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body"> 
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" id="saveButton" class="btn btn-primary">Save changes</button> 
+        <button type="button" id="cancelButton" class="btn btn-primary">Cancel Order</button>
+      </div>
+
+    </div>
+  </div>
+</div>
 
 
 
 
     
 <script>  
-const pendingTab = document.getElementById("tab-pending");
+  const pendingTab = document.getElementById("tab-pending");
   const completedTab = document.getElementById("tab-completed");
 
-const tableBooking = document.querySelector("#myTable tbody");
-const bookingData = bookingsFromPHP
-const rowPerPage = 5;
+  const tableBooking = document.querySelector("#myTable tbody");
+  const bookingData = bookingsFromPHP
+  const rowPerPage = 5;
 
-function pagination (data, tableBody, page){
+  function pagination (data, tableBody, page){
     tableBody.innerHTML = "";
 
 
@@ -170,17 +198,147 @@ function pagination (data, tableBody, page){
         const statusCell = document.createElement("td"); 
          const editButton = document.createElement("button");
         nameCell.textContent = booking.order_date;  
-        statusCell.textContent = booking.status;  
-        editButton.textContent = 'Edit'; 
+        statusCell.textContent = booking.status; 
+
+        editButton.textContent = 'Edit';  
+        editButton.type = "button"; 
+        editButton.classList.add("btn", "btn-primary");  
+        editButton.setAttribute("data-bs-toggle", "modal");
+        editButton.setAttribute("data-bs-target", "#editModal"); 
+
+        editButton.setAttribute("data-orderid", booking.order_id);  
+         editButton.addEventListener("click", () => {
+      const orderID = booking.order_id;
+
+      fetch("getOrderDetails.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: "order_id=" + encodeURIComponent(orderID)
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log("Fetched order details:", data);
+        
+       
+      const modalBody = document.querySelector("#editModal .modal-body");
+modalBody.innerHTML = "";
+
+if (data.length === 0) {
+  modalBody.textContent = "No dishes found for this order.";
+} else {
+  const form = document.createElement("form");
+  form.id = "orderEditForm";
+
+  form.setAttribute("data-orderid", orderID);
+
+  data.forEach((item, index) => {
+    const formGroup = document.createElement("div");
+    formGroup.classList.add("mb-3");
+
+    const label = document.createElement("label");
+    label.textContent = item.NAME || item.dish_name || "Unnamed Dish";
+    label.setAttribute("for", `quantity-${index}`);
+    label.classList.add("form-label");
+
+    const input = document.createElement("input");
+    input.type = "number";
+    input.min = 1;
+    input.name = `quantity_${item.dish_id}`;
+    input.value = item.quantity;
+    input.id = `quantity-${index}`;
+    input.classList.add("form-control");
+
+    formGroup.appendChild(label);
+    formGroup.appendChild(input);
+    form.appendChild(formGroup);
+  });
+
+  modalBody.appendChild(form);
+}
+      })
+      .catch(error => {
+        console.error("Error fetching order details:", error);
+      });
+    });
+
+
         row.appendChild(nameCell);
         row.appendChild(statusCell); 
         row.appendChild(editButton);
         tableBody.appendChild(row);
 
     });
-} 
+  }  
 
-function pageControls (containerId, data, tableBody){
+  document.getElementById("saveButton").addEventListener("click", () => {
+  const form = document.getElementById("orderEditForm");
+  const formData = new FormData(form);
+  
+  const orderID = form.getAttribute("data-orderid");
+  formData.append("order_id", orderID);
+
+  fetch("updateOrderDetails.php", {
+    method: "POST",
+    body: formData
+  })
+  .then(response => response.json())
+  .then(result => {
+    if (result.success) {
+      alert("Order updated successfully.");
+      location.reload();
+    } else {
+      alert("Error: " + result.error);
+    }
+  })
+  .catch(error => {
+    console.error("Error updating order:", error);
+    alert("An error occurred while saving.");
+  });
+}); 
+
+
+
+document.getElementById("cancelButton").addEventListener("click", () => {
+  const form = document.getElementById("orderEditForm");
+  const orderID = form.getAttribute("data-orderid");
+
+  if (!orderID) {
+    alert("Order ID not found.");
+    return;
+  }
+
+  if (!confirm("Are you sure you want to cancel this order?")) {
+    return;
+  }
+
+  fetch("cancelOrder.php", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded"
+    },
+    body: "order_id=" + encodeURIComponent(orderID)
+  })
+  .then(response => response.json())
+  .then(result => {
+    if (result.success) {
+      alert("Order cancelled successfully.");
+      location.reload();
+    } else {
+      alert("Error: " + result.error);
+    }
+  })
+  .catch(error => {
+    console.error("Error cancelling order:", error);
+    alert("An error occurred while cancelling the order.");
+  });
+});
+
+
+
+
+  function pageControls (containerId, data, tableBody){
   const container = document.getElementById(containerId);
   container.innerHTML = "";
 
@@ -193,28 +351,37 @@ function pageControls (containerId, data, tableBody){
     btn.addEventListener("click", () => pagination(data, tableBody, i));
     container.appendChild(btn);
   }
-}
+  }
 
 
-pagination(bookingData, tableBooking, 1);
-pageControls("nextPage", bookingData, tableBooking);
+  pagination(bookingData, tableBooking, 1);
+  pageControls("nextPage", bookingData, tableBooking);
 
    
 
-pendingTab.addEventListener("click", () => {
-  const pendingData = bookingData.filter(b => b.status.toLowerCase() === "pending");
-  pagination(pendingData, tableBooking, 1);
-  pageControls("nextPage", pendingData, tableBooking);
-});
+  pendingTab.addEventListener("click", () => {
+    const pendingData = bookingData.filter(b => b.status.toLowerCase() === "pending");
+    pagination(pendingData, tableBooking, 1);
+    pageControls("nextPage", pendingData, tableBooking);
+  });
 
-completedTab.addEventListener("click", () => {
-  const completedData = bookingData.filter(b => b.status.toLowerCase() === "completed");
-  pagination(completedData, tableBooking, 1);
-  pageControls("nextPage", completedData, tableBooking);
-});
+  completedTab.addEventListener("click", () => {
+    const completedData = bookingData.filter(b => b.status.toLowerCase() === "completed");
+    pagination(completedData, tableBooking, 1);
+    pageControls("nextPage", completedData, tableBooking);
+  });
 
 
 </script> 
+
+<script> 
+
+
+
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
 
 </body>
 </html> 
