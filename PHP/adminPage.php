@@ -24,6 +24,53 @@
 
   echo "<script>const usersFromPHP = " . json_encode($users).";</script>";
 
+  if(isset($_POST['submit'])){
+        $username = mysqli_real_escape_string($conn, $_POST['user']);
+        $email = mysqli_real_escape_string($conn, $_POST['email']);
+        $password = mysqli_real_escape_string($conn, $_POST['pass']);
+        $cpassword = mysqli_real_escape_string($conn, $_POST['cpass']);
+       
+        
+        $sql="select * from login where username='$username'";
+        $result = mysqli_query($conn, $sql);
+        $count_user = mysqli_num_rows($result);
+
+        $sql="select * from login where email='$email'";
+        $result = mysqli_query($conn, $sql);
+        $count_email = mysqli_num_rows($result);
+
+        if($count_user == 0 & $count_email==0){
+            if($password==$cpassword){
+                $hash = password_hash($password, PASSWORD_DEFAULT);
+                $sql = "INSERT INTO login(username, email, password, userType) VALUES('$username', '$email', '$hash', 'employee')";
+                $result = mysqli_query($conn, $sql);
+                if($result){
+                    header("Location: adminPage.php");
+                }
+            }
+            else{
+                echo '<script>
+                    alert("Passwords do not match");
+                    window.location.href = "signup.php?error=password_mismatch";
+                </script>';
+            }
+        }
+        else{
+            if($count_user>0){
+                echo '<script>
+                    window.location.href="signup.php?error=username_exists";
+                    alert("Username already exists!!");
+                </script>';
+            }
+            if($count_email>0){
+                echo '<script>
+                    window.location.href="signup.php?error=email_exists";
+                    alert("Email already exists!!");
+                </script>';
+            }
+        }
+        
+    }
 
 
 ?>
@@ -90,13 +137,9 @@
           <a id="closeBtn" onclick=hideSideBar()> <svg xmlns="http://www.w3.org/2000/svg" height="27x" viewBox="0 -960 960 960" width="27px" fill="black"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a>
         
 
-<<<<<<< HEAD
           <a id="linkSide" href="HTML/gallery.html" target="_self"> MANAGE BOOKINGS </a>
           <a id="linkSide" href="../HTML/empManagementPage.html" target="_self"> MANAGE MENU </a>
           <a id="linkSide" href="HTML/gallery.html" target="_self"> ADMIN </a>
-=======
-          <a id="linkSide" href="../HTML/employeePage.php" target="_self"> EMPLOYEE </a>
->>>>>>> 6033105d595ac13ba39647904355a3b1e247a3ac
 
         </nav>
 
@@ -105,13 +148,9 @@
      
           </div>
           <div>
-<<<<<<< HEAD
           <a class="hideOnMobile" id="reserve" href="HTML/reserve date.html" target="_self"> MANAGE BOOKINGS </a>
           <a class="hideOnMobile" id="reserve" href="../HTML/empManagementPage.html" target="_self"> MANAGE MENU </a>
           <a class="hideOnMobile" id="reserve" href="adminPage.php" target="_self"> ADMIN </a>
-=======
-          <a class="hideOnMobile" id="reserve" href="../HTML/employeePage.php" target="_self"> EMPLOYEE </a>
->>>>>>> 6033105d595ac13ba39647904355a3b1e247a3ac
 
           </div>
         </nav>
@@ -214,6 +253,24 @@
 
 
 </div>
+  <div id="form">
+    <div id="modal-content">
+        <h1 id="heading">SignUp Form</h1>
+        <h2> Employee Sign Up</h2>  
+        <form name="form" action="signup.php" method="POST">
+            <label>Enter Username: </label>
+            <input type="text" id="user" name="user" required><br><br>
+            <label>Enter Email: </label>
+            <input type="email" id="email" name="email" required><br><br>
+            <label>Create Password: </label>
+            <input type="password" id="pass" name="pass" required><br><br>
+            <label>Retype Password: </label>
+            <input type="password" id="cpass" name="cpass" required><br><br>
+            <input type="submit" id="btn" value="SignUp" name = "submit"/>
+            <button id="buttonz">Cancel</button>
+        </form>
+      </div>
+    </div>
 
 
 
@@ -395,7 +452,22 @@ function showData(userType){
 // // end of accoouns pagination
 
 
-createEmp.addEventListener("click", () =>  window.location.href = "signup.php");
+  const modal = document.getElementById("form");
+
+  createEmp.addEventListener("click", () => modal.style.display = 'flex');
+  const btn = document.getElementById("buttonz");
+
+btn.onclick = function(){
+  modal.style.display = "none";
+}
+
+window.onclick = function(event){
+  if(event.target == modal){
+    modal.style.display = "none";
+  }
+}
+
+
 
 </script> 
 
