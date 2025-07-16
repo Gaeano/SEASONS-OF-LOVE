@@ -2,10 +2,10 @@
     session_start();
 
 
-    if (isset($_SESSION['username']) && $_SESSION['UserType'] === 'admin') {
-    header("Location: adminPage.php");
-    exit();
-   }
+  //   //if (isset($_SESSION['username']) && $_SESSION['UserType'] === 'admin') {
+  //   header("Location: adminPage.php");
+  //   exit();
+  //  }
 
 ?>
 
@@ -13,7 +13,9 @@
   include('connection.php');
 
 
+
   $sql = "Select user_id, username, userType from login";
+
   $result = mysqli_query($conn, $sql);
 
   $users = [];
@@ -34,7 +36,7 @@
 <!DOCTYPE html>
 <html lang = "en">
 <head> 
-    <meta charset="utf=8">
+    <meta charset="UTFs=8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
 
@@ -90,13 +92,13 @@
           <a id="closeBtn" onclick=hideSideBar()> <svg xmlns="http://www.w3.org/2000/svg" height="27x" viewBox="0 -960 960 960" width="27px" fill="black"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a>
         
 
-<<<<<<< HEAD
+
           <a id="linkSide" href="HTML/gallery.html" target="_self"> MANAGE BOOKINGS </a>
           <a id="linkSide" href="../HTML/empManagementPage.html" target="_self"> MANAGE MENU </a>
           <a id="linkSide" href="HTML/gallery.html" target="_self"> ADMIN </a>
-=======
+
           <a id="linkSide" href="../HTML/employeePage.php" target="_self"> EMPLOYEE </a>
->>>>>>> 6033105d595ac13ba39647904355a3b1e247a3ac
+
 
         </nav>
 
@@ -105,13 +107,11 @@
      
           </div>
           <div>
-<<<<<<< HEAD
+
           <a class="hideOnMobile" id="reserve" href="HTML/reserve date.html" target="_self"> MANAGE BOOKINGS </a>
           <a class="hideOnMobile" id="reserve" href="../HTML/empManagementPage.html" target="_self"> MANAGE MENU </a>
           <a class="hideOnMobile" id="reserve" href="adminPage.php" target="_self"> ADMIN </a>
-=======
-          <a class="hideOnMobile" id="reserve" href="../HTML/employeePage.php" target="_self"> EMPLOYEE </a>
->>>>>>> 6033105d595ac13ba39647904355a3b1e247a3ac
+
 
           </div>
         </nav>

@@ -12,7 +12,6 @@
         $password = mysqli_real_escape_string($conn, $_POST['pass']);
         $cpassword = mysqli_real_escape_string($conn, $_POST['cpass']);
        
-        
         $sql="select * from login where username='$username'";
         $result = mysqli_query($conn, $sql);
         $count_user = mysqli_num_rows($result);
