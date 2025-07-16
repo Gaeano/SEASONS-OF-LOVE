@@ -26,6 +26,53 @@
 
   echo "<script>const usersFromPHP = " . json_encode($users).";</script>";
 
+  if(isset($_POST['submit'])){
+        $username = mysqli_real_escape_string($conn, $_POST['user']);
+        $email = mysqli_real_escape_string($conn, $_POST['email']);
+        $password = mysqli_real_escape_string($conn, $_POST['pass']);
+        $cpassword = mysqli_real_escape_string($conn, $_POST['cpass']);
+       
+        
+        $sql="select * from login where username='$username'";
+        $result = mysqli_query($conn, $sql);
+        $count_user = mysqli_num_rows($result);
+
+        $sql="select * from login where email='$email'";
+        $result = mysqli_query($conn, $sql);
+        $count_email = mysqli_num_rows($result);
+
+        if($count_user == 0 & $count_email==0){
+            if($password==$cpassword){
+                $hash = password_hash($password, PASSWORD_DEFAULT);
+                $sql = "INSERT INTO login(username, email, password, userType) VALUES('$username', '$email', '$hash', 'employee')";
+                $result = mysqli_query($conn, $sql);
+                if($result){
+                    header("Location: adminPage.php");
+                }
+            }
+            else{
+                echo '<script>
+                    alert("Passwords do not match");
+                    window.location.href = "adminPage.php?error=password_mismatch";
+                </script>';
+            }
+        }
+        else{
+            if($count_user>0){
+                echo '<script>
+                    window.location.href="adminPage.php?error=username_exists";
+                    alert("Username already exists!!");
+                </script>';
+            }
+            if($count_email>0){
+                echo '<script>
+                    window.location.href="adminPage.php?error=email_exists";
+                    alert("Email already exists!!");
+                </script>';
+            }
+        }
+        
+    }
 
 
 ?>
@@ -54,7 +101,7 @@
 
 
 
-    <title>Seasons Of Love</title>
+    <title>Admin Page</title>
 
     <style>
       .container-fluid{
@@ -214,6 +261,36 @@
 
 
 </div>
+  <div id="form">
+    <div id="modal-content">
+        <h1 id="heading">SignUp Form</h1>
+        <h2> Employee Sign Up</h2>  
+        <form name="form" action="signup.php" method="POST">
+            <label>Enter Username: </label>
+            <input type="text" id="user" name="user" required><br><br>
+            <label>Enter Email: </label>
+            <input type="email" id="email" name="email" required><br><br>
+            <label>Create Password: </label>
+            <input type="password" id="pass" name="pass" required><br><br>
+            <label>Retype Password: </label>
+            <input type="password" id="cpass" name="cpass" required><br><br>
+            <input type="submit" id="btn" class="button" value="SignUp" name = "submit"/>
+            <button class="button" id="buttonz">Cancel</button>
+        </form>
+      </div>
+    </div>
+
+<div id="formEdit">
+  <div id="modal-content-edit">
+    <h1 id="heading">Edit Form</h1>
+    <form name="form" id="editFrm" method="POST">
+        <label>Edit Name: </label>
+        <input type="text" id="username" name="username" required><br><br>
+        <input type="submit" id="btn" class="button" value="Edit" name = "submit"/>
+        <button id="cancelButton" class="button">Cancel</button>
+    </form>
+  </div>
+</div>
 
 
 
@@ -359,12 +436,22 @@ function controlz (container, data){
 
 function addEventListeners(){
   const editButton = document.querySelectorAll(".editButton");
+  const formEdit = document.getElementById("formEdit");
+  const editFrm = document.getElementById("editFrm");
+  const cancelButton = formEdit.querySelector("#cancelButton");
+  const usernameInput = document.getElementById("username");
+
   editButton.forEach(btn => {
     btn.addEventListener("click", ()=> {
       const userId = btn.getAttribute("data-id");
-      window.location.href = `update_page_1.php?id=${userId}`;
+      const userToEdit = users.find(user=>user.user_id == userId);
+      usernameInput.value = userToEdit.username;
+      editFrm.action = `update_page_1.php?id=${userId};`;
+
+
+      formEdit.style.display = "flex";
     });
-  });
+  }); 
 
 
   const deleteButton = document.querySelectorAll(".delButton");
@@ -374,6 +461,19 @@ function addEventListeners(){
       window.location.href = `delete_page_1.php?id=${userId}`;
     });
   });
+
+
+window.addEventListener("click", function(event){
+  if(event.target == formEdit){
+    formEdit.style.display = "none";
+  }
+});
+
+cancelButton.onclick = function(){
+  formEdit.style.display = "none";
+}
+
+
 }
 
 
@@ -395,7 +495,24 @@ function showData(userType){
 // // end of accoouns pagination
 
 
-createEmp.addEventListener("click", () =>  window.location.href = "signup.php");
+  const modal = document.getElementById("form");
+
+  createEmp.addEventListener("click", () => modal.style.display = 'flex');
+  const btn = document.getElementById("buttonz");
+
+btn.onclick = function(){
+  modal.style.display = "none";
+}
+
+window.onclick = function(event){
+  if(event.target == modal){
+    modal.style.display = "none";
+  }
+}
+
+
+
+
 
 </script> 
 

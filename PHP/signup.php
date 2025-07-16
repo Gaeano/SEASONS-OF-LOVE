@@ -32,20 +32,20 @@
             else{
                 echo '<script>
                     alert("Passwords do not match");
-                    window.location.href = "signup.php";
+                    window.location.href = "adminPage.php?error=password_mismatch";
                 </script>';
             }
         }
         else{
             if($count_user>0){
                 echo '<script>
-                    window.location.href="signup.php";
+                    window.location.href="adminPage.php?error=username_exists";
                     alert("Username already exists!!");
                 </script>';
             }
             if($count_email>0){
                 echo '<script>
-                    window.location.href="signup.php";
+                    window.location.href="adminPage.php?error=email_exists";
                     alert("Email already exists!!");
                 </script>';
             }
