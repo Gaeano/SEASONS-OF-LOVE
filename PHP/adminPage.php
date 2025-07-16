@@ -13,7 +13,9 @@
   include('connection.php');
 
 
-  $sql = "Select username, UserType from login";
+
+  $sql = "Select user_id, username, userType from login";
+
   $result = mysqli_query($conn, $sql);
 
   $users = [];
@@ -42,7 +44,7 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
 
-    <link rel="stylesheet" href="../CSS/adminPage.css">
+    <link rel="stylesheet" href="../CSS/adminpage.css">
 
 
 <!--For font for brand-->
@@ -90,7 +92,13 @@
           <a id="closeBtn" onclick=hideSideBar()> <svg xmlns="http://www.w3.org/2000/svg" height="27x" viewBox="0 -960 960 960" width="27px" fill="black"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a>
         
 
-          <a id="linkSide" href="HTML/gallery.html" target="_self"> EMPLOYEE </a>
+
+          <a id="linkSide" href="HTML/gallery.html" target="_self"> MANAGE BOOKINGS </a>
+          <a id="linkSide" href="../HTML/empManagementPage.html" target="_self"> MANAGE MENU </a>
+          <a id="linkSide" href="HTML/gallery.html" target="_self"> ADMIN </a>
+
+          <a id="linkSide" href="../HTML/employeePage.php" target="_self"> EMPLOYEE </a>
+
 
         </nav>
 
@@ -99,7 +107,11 @@
      
           </div>
           <div>
-          <a class="hideOnMobile" id="reserve" href="HTML/reserve date.html" target="_self"> EMPLOYEE </a>
+
+          <a class="hideOnMobile" id="reserve" href="HTML/reserve date.html" target="_self"> MANAGE BOOKINGS </a>
+          <a class="hideOnMobile" id="reserve" href="../HTML/empManagementPage.html" target="_self"> MANAGE MENU </a>
+          <a class="hideOnMobile" id="reserve" href="adminPage.php" target="_self"> ADMIN </a>
+
 
           </div>
         </nav>
@@ -143,6 +155,7 @@
             <table id="tableEmp">
                 <thead>
                   <tr>
+                    <th>ID</th>
                     <th id="emp">Employee</th>
                   </tr>
                 </thead>
@@ -157,6 +170,7 @@
           <table id="tableCustomer">
             <thead>
               <tr>
+                <th>ID</th>
                 <th id="cust">Customer</th>
               </tr>
             </thead>
@@ -175,15 +189,16 @@
   <div class="accountCrudTable">
     <div id ="buttons">
         <button id="employeeButton" style="margin-left:20px;"> Employee </button>
-        <button id="employeeButton"> Customer </button>
-        <button id="employeeButton"> Create Employee Account </button>
+        <button id="customerButton"> Customer </button>
+        <button id="createEmp"> Create Employee Account </button>
     </div>
 
     <table class=tbl>
       <thead>
         <tr>
+          <th>ID</th>
           <th> Name </th>
-          <th> Actions </th>
+          <th  id="actions"> Actions </th>
         </tr>
       </thead>
       
@@ -191,7 +206,8 @@
 
       </tbody>
     </table>
-    <div id="nextPage" class="pagination"></div>
+  
+    <div id="nextPage"></div>
 
 
   </div>
@@ -239,9 +255,12 @@ function pagination (data, tableBody, page){
 
     pageData.forEach(user => {
         const row = document.createElement("tr");
-
+        row.addClass
+        const userID = document.createElement("td");
+        userID.textContent = user.user_id;
         const nameCell = document.createElement("td");
         nameCell.textContent = user.username;
+        row.appendChild(userID);
         row.appendChild(nameCell);
         tableBody.appendChild(row);
 
@@ -267,72 +286,116 @@ function pageControls (containerId, data, tableBody){
   pagination(employeeData, tableEmployee, 1);
   pagination(customerData, tableCustomer, 1);
 
-  pageControls("nextPage", employeeData, tableEmployee);
-  pageControls("nextPage", customerData, tableCustomer);
+  pageControls("empPagination", employeeData, tableEmployee);
+  pageControls("custPagination", customerData, tableCustomer);
     
     // end of pagination
 
-//     // start of accounts pagination
+    // start of accounts pagination
     
-// const tblBody = document.querySelector(".tbl tbody");
-// const users = usersFromPHP;
-// const paginationContainer = document.getElementById('nextPage')
+const tblBody = document.querySelector(".tbl tbody");
+const users = usersFromPHP;
+const buttonContainers = document.getElementById("nextPage");
+
+const employeeButton = document.getElementById("employeeButton");
+const customerButton = document.getElementById("customerButton");
 
 
-// const rowsPerPage = 5;
+const rowsPerPage = 5;
+let currentData =  usersFromPHP.filter(u => u.userType === "employee");
+let currentPage = 1;
 
-// function paginate (data, tableBody, page){
-//     tableBody.innerHTML = "";
-
-
-//   const startz = (page - 1) * rowsPerPage;
-//   const endz = startz + rowsPerPage;
-//   const pageDataz = data.slice(startz, endz);
-
-//     pageDataz.forEach(user => {
-//         const rows = document.createElement("tr");
-
-//         const nameCellz = document.createElement("td");
-//         nameCellz.textContent = user.username;
-
-//         const edit = document.createElement("td");
-//         edit.innerHTML = `<button>Edit</button>`;
-
-//         const del= document.createElement("td");
-//         del.innerHTML = `<button>Delete</button>`;
-
-//         rows.appendChild(nameCellz);
-//         rows.appendChild(edit);
-//         rows.appendChild(del)
-//         tableBody.appendChild(rows);
-
-//     });
-// } 
-
-// function controlz (containerId, data, tableBody){
-//   const container = document.getElementById(containerId);
-//   container.innerHTML = "";
-
-//   const totalPagesz = Math.ceil (data.length / rowsPerPage);
-  
-//   for (let i = 1; i <= totalPagesz; i++){
-//     const btnz = document.createElement("button");
-//     btnz.textContent = i;
-//     btnz.classList.add ("page-btn");
-//     btnz.addEventListener("click", () => paginate(data, tableBody, i));
-//     container.appendChild(btn);
-//   }
-// }
+function paginate (data, page){
+    tblBody.innerHTML = "";
 
 
-//   paginate(empData, tblEmp, 1);
-//   paginate(custData, tblCust, 1);
+  const start = (page - 1) * rowsPerPage;
+  const end = start + rowsPerPage;
+  const pageData = data.slice(start, end);
 
-//   controlz("nextPage", empData, tblEmp);
-//   controlz("nextPage", custData, tblCust);
+    pageData.forEach(user => {
+        const rows = document.createElement("tr");
+        rows.classList.add("rowz")
+
+        const userID = document.createElement("td");
+        userID.textContent = user.user_id;
+        userID.classList.add("userIDCol")
+
+        const nameCellz = document.createElement("td");
+        nameCellz.textContent = user.username;
+        nameCellz.classList.add("nameCol")
+    
+
+        const editDel = document.createElement("td");
+        editDel.innerHTML = `
+          <button class ="editButton" data-id= ${user.user_id}>Edit</button>
+          <button class="delButton" data-id=${user.user_id}>Delete</button>`;
+        editDel.classList.add("table3Data")
+        rows.appendChild(userID);
+        rows.appendChild(nameCellz);
+        rows.appendChild(editDel);
+        tblBody.appendChild(rows);
+
+    });
+
+    addEventListeners();
+} 
+
+function controlz (container, data){
+  container.innerHTML = "";
+  const totalPagesz = Math.ceil (data.length / rowsPerPage);
+
+  for (let i = 1; i <= totalPagesz; i++){
+    const btnz = document.createElement("button");
+    btnz.textContent = i;
+    btnz.classList.add ("page-btn");
+    btnz.addEventListener("click", () => {
+      currentPage = i;
+      paginate(data, currentPage);
+    });
+    container.appendChild(btnz);
+  }
+}
+
+function addEventListeners(){
+  const editButton = document.querySelectorAll(".editButton");
+  editButton.forEach(btn => {
+    btn.addEventListener("click", ()=> {
+      const userId = btn.getAttribute("data-id");
+      window.location.href = `update_page_1.php?id=${userId}`;
+    });
+  });
+
+
+  const deleteButton = document.querySelectorAll(".delButton");
+  deleteButton.forEach(btn =>{
+    btn.addEventListener("click", () => {
+      const userId = btn.getAttribute("data-id");
+      window.location.href = `delete_page_1.php?id=${userId}`;
+    });
+  });
+}
+
+
+function showData(userType){
+  currentData = users.filter(user => user.userType === userType);
+  currentPage = 1;
+  paginate (currentData, currentPage);
+  controlz(buttonContainers, currentData);
+}
+
+
+
+  paginate(currentData, currentPage);
+  controlz(buttonContainers, currentData);
+
+  employeeButton.addEventListener("click", () => showData("employee"));
+  customerButton.addEventListener("click", () => showData("customer"));
 
 // // end of accoouns pagination
 
+
+createEmp.addEventListener("click", () =>  window.location.href = "signup.php");
 
 </script> 
 
