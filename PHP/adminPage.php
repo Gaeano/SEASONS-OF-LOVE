@@ -18,9 +18,9 @@
 
   $result = mysqli_query($conn, $sql);
 
-  $users = [];
+  $users = []; //initialize users as an array
 
-  while ($row = mysqli_fetch_assoc($result)){
+  while ($row = mysqli_fetch_assoc($result)){  //put the results inside the array
       $users[] = $row;
   }
 
