@@ -3,7 +3,7 @@ header('Content-Type: application/json');
 
 $data = json_decode(file_get_contents("php://input"), true);
 
-if (!$data || !isset($data['name'], $data['email'], $data['contact'], $data['date'], $data['dishes'])) {
+if (!$data || !isset($data['address'], $data['contact'], $data['name'], $data['date'], $data['dishes'])) {
     echo json_encode(['success' => false, 'error' => 'Invalid data']);
     exit;
 }
@@ -13,8 +13,8 @@ require __DIR__ . '/db.php';
 try {
     $pdo->beginTransaction();
 
-    $stmt = $pdo->prepare("INSERT INTO orders (customer_name, customer_phone, order_date, status) VALUES (?, ?, ?, 'pending')");
-    $stmt->execute([$data['name'], $data['contact'], $data['date']]);
+    $stmt = $pdo->prepare("INSERT INTO orders (address, customer_phone, customer_name, order_date, status) VALUES (?, ?, ?, ?, 'pending')");
+    $stmt->execute([$data['address'], $data['contact'], $data['name'], $data['date']]);
 
 
     $orderId = $pdo->lastInsertId();
@@ -71,17 +71,18 @@ try {
         'Macaroni Salad' => 50, 
     ];
 
-    $insertItem = $pdo->prepare("INSERT INTO order_items (order_id, dish_id, quantity) VALUES (?, ?, ?)");
+$insertItem = $pdo->prepare("INSERT INTO order_items (order_id, dish_id, quantity) VALUES (?, ?, ?)");
 
-  
-   foreach ($data['dishes'] as $dish) {
+foreach ($data['dishes'] as $dish) {
     $name = $dish['name'];
     $quantity = (int)$dish['quantity'];
 
-    if (!isset($dishMap[$name])) continue;
+    if (!isset($dishMap[$name])) continue;  // Skip if no match
 
-    $insertItem->execute([$orderId, $dishMap[$name], $quantity]);
+    $dishId = $dishMap[$name];
+    $insertItem->execute([$orderId, $dishId, $quantity]);
 }
+
 
 
     $pdo->commit();
