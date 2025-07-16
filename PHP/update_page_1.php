@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
 </head>
   <body>
-    <div id="form">
+    <div id="formEdit">
         <h1 id="heading">Edit Form</h1>
         <form name="form" action="update_page_1.php?id=<?php echo $id;?>" method="POST">
             <label>Edit Name: </label>
