@@ -259,7 +259,7 @@
   }
 
   .userCrudContainer{
-    border: solid black;
+    /* border: solid black; */
     margin-left: 750px;
     margin-right: 20px;
   }
@@ -288,14 +288,16 @@
   }
 
   .nameCol{
-    width: 70%;
+    width: 68%;
   }
 
-  #employeeButton, #customerButton, #createEmp{
+  #employeeButton, #customerButton, #createEmp, .editButton, .delButton{
     background-color: rgb(215, 172, 215);
+    border-radius: 3px;
+    border: solid rgb(185, 148, 185);
   }
 
-  #employeeButton:hover, #customerButton:hover, #createEmp:hover{
+  #employeeButton:hover, #customerButton:hover, #createEmp:hover, .editButton:hover{
     background-color: rgb(150, 121, 150);
   }
   #nextPage{
@@ -307,13 +309,7 @@
   padding: 10px 20px 10px;
   }
 
-  .editButton, .delButton{
-    background-color: rgb(215, 172, 215);
-  }
 
-  .editButton:hover{
-    background-color: rgb(150, 121, 150);
-  }
   .delButton:hover{
     background-color: rgb(180, 0, 0);
     color: white;
@@ -332,14 +328,6 @@
     align-items: center;
   }
 
-  #btn, #buttonz{
-      padding: 5px;
-      font-size: large;
-  }
-
-  #btn:hover, #buttonz:hover{
-    background-color: rgb(138, 136, 136);
-}
 
   @media screen and (max-width:700px){
       #form{
@@ -369,12 +357,14 @@
     align-items: center;
   }
 
-  #btn, #buttonz{
+ .button{
       padding: 5px;
       font-size: large;
+      border-radius: 2px;
+      border: solid rgb(255, 255, 255);
   }
 
-  #btn:hover, #buttonz:hover{
+.button:hover{
     background-color: rgb(138, 136, 136);
 }
 
@@ -406,17 +396,8 @@
     align-items: center;
   }
 
-  #btn, #buttonz{
-      padding: 5px;
-      font-size: large;
-  }
-
-  #btn:hover, #buttonz:hover{
-    background-color: rgb(138, 136, 136);
-}
-
   @media screen and (max-width:700px){
-      #form{
+      #formEdit{
           width: 65%;
           padding: 40px
       }

@@ -53,20 +53,20 @@
             else{
                 echo '<script>
                     alert("Passwords do not match");
-                    window.location.href = "signup.php?error=password_mismatch";
+                    window.location.href = "adminPage.php?error=password_mismatch";
                 </script>';
             }
         }
         else{
             if($count_user>0){
                 echo '<script>
-                    window.location.href="signup.php?error=username_exists";
+                    window.location.href="adminPage.php?error=username_exists";
                     alert("Username already exists!!");
                 </script>';
             }
             if($count_email>0){
                 echo '<script>
-                    window.location.href="signup.php?error=email_exists";
+                    window.location.href="adminPage.php?error=email_exists";
                     alert("Email already exists!!");
                 </script>';
             }
@@ -274,8 +274,8 @@
             <input type="password" id="pass" name="pass" required><br><br>
             <label>Retype Password: </label>
             <input type="password" id="cpass" name="cpass" required><br><br>
-            <input type="submit" id="btn" value="SignUp" name = "submit"/>
-            <button id="buttonz">Cancel</button>
+            <input type="submit" id="btn" class="button" value="SignUp" name = "submit"/>
+            <button class="button" id="buttonz">Cancel</button>
         </form>
       </div>
     </div>
@@ -286,8 +286,8 @@
     <form name="form" id="editFrm" method="POST">
         <label>Edit Name: </label>
         <input type="text" id="username" name="username" required><br><br>
-        <input type="submit" id="btn" value="Edit" name = "submit"/>
-        <button id="cancelButton">Cancel</button>
+        <input type="submit" id="btn" class="button" value="Edit" name = "submit"/>
+        <button id="cancelButton" class="button">Cancel</button>
     </form>
   </div>
 </div>
