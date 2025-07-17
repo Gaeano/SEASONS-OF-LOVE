@@ -9,7 +9,7 @@ if(!isset($_GET['id'])){
 
 $id = $_GET['id'];
 
-$sql = "select * from login where user_id = ?";
+$sql = "select * from login where userid = ?";
 $stmt = mysqli_prepare($conn, $sql); 
 mysqli_stmt_bind_param($stmt, "i", $id);
 mysqli_stmt_execute($stmt);
@@ -21,7 +21,7 @@ if ($count_user === 0){
     exit();
 }
 
-$sql = "delete from login where user_id = ?";
+$sql = "delete from login where userid = ?";
 $stmt = mysqli_prepare($conn, $sql);
 mysqli_stmt_bind_param($stmt, "i", $id);
 

@@ -14,7 +14,7 @@
 
 
 
-  $sql = "Select user_id, username, userType from login";
+  $sql = "Select userid, username, userType from login";
 
   $result = mysqli_query($conn, $sql);
 
@@ -344,7 +344,7 @@ function pagination (data, tableBody, page){
         const row = document.createElement("tr");
         row.addClass
         const userID = document.createElement("td");
-        userID.textContent = user.user_id;
+        userID.textContent = user.userid;
         const nameCell = document.createElement("td");
         nameCell.textContent = user.username;
         row.appendChild(userID);
@@ -405,7 +405,7 @@ function paginate (data, page){
         rows.classList.add("rowz")
 
         const userID = document.createElement("td");
-        userID.textContent = user.user_id;
+        userID.textContent = user.userid;
         userID.classList.add("userIDCol")
 
         const nameCellz = document.createElement("td");
@@ -415,8 +415,8 @@ function paginate (data, page){
 
         const editDel = document.createElement("td");
         editDel.innerHTML = `
-          <button class ="editButton" data-id= ${user.user_id}>Edit</button>
-          <button class="delButton" data-id=${user.user_id}>Delete</button>`;
+          <button class ="editButton" data-id= ${user.userid}>Edit</button>
+          <button class="delButton" data-id=${user.userid}>Delete</button>`;
         editDel.classList.add("table3Data")
         rows.appendChild(userID);
         rows.appendChild(nameCellz);
@@ -454,7 +454,7 @@ function addEventListeners(){
   editButton.forEach(btn => {
     btn.addEventListener("click", ()=> {
       const userId = btn.getAttribute("data-id");
-      const userToEdit = users.find(user=>user.user_id == userId);
+      const userToEdit = users.find(user=>user.userid == userId);
       usernameInput.value = userToEdit.username;
       editFrm.action = `update_page_1.php?id=${userId};`;
 
