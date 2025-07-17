@@ -1,402 +1,474 @@
-   .navBar{
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    height: 62px;
-    background-color: white;
-    
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 30px;
-    z-index: 100;
-    
-    
-  }
+.navBar{
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+height: 62px;
+background-color: white;
 
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 0 30px;
+z-index: 100;
 
-  .navLogo{
-    margin-right: 20px;
 
-  }
-
-  .menu a{
-    list-style:none;
-    display: inline-block;
-    
-    font-weight: 500;
-    text-decoration: none;
-
-    font-size: 0.8rem;
-    margin: 0 20px;
-    color: black;
-    padding: 20px;
-    
-
-    font-family: "Verdana", sans-serif;
-    border-bottom: 3px solid white;
-    transition: all 0.5s ease;
-
-  }
-  .sideBar a{
-    list-style:none;
-    display: inline-block;
-    
-    font-weight: 500;
-    text-decoration: none;
-
-    font-size: 18px;
-    margin: 0 20px;
-    color: black;
-    padding: 20px;
-    
-
-    font-family: "Verdana", sans-serif;
-    transition: all 0.5s ease;
-
-  }
-
-  .menu {
-    display: flex;
-    align-items: center;
-    flex-grow: 1;
-    justify-content: space-between;
-
-  }
-
-
-  .menuLeft {
-    display: flex;
-    align-items: center;
-    gap: 5px; 
-    
-  }
-
-  .menuLeft a:hover{
-    color:rgb(0, 0, 0);
-    border-bottom: 3px solid rgb(243, 124, 124);
-
-  }
-
-  #reserve:hover{
-    color: white;
-    background-color: rgb(243, 124, 124);
-  }
-
-
-
-
-
-  #reserve{
-    
-    list-style:none;
-    text-decoration: none;
-    display: inline-block;
-    
-    font-weight: 500;
-    text-decoration: none;
-
-    font-size: 0.8rem;
-
-    color: rgb(0, 0, 0);
-    
-    font-family: "Verdana", sans-serif;
-
-  }
-
-  #brandlogo{
-    width: auto;
-    height: 60px;
-    margin-left: 50px;
-    margin-right: 0px;
-  }
-
-
-
-
-  .sideBar{
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 100vh;
-    width: 250px;
-    z-index: 999;
-    backdrop-filter: blur(10px);
-    background-color: rgba(255, 255, 255, 0.716);
-    box-shadow: -10px 0 10px rgb(0, 0, 0, 0.1);
-    display: none;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: flex-start;
-    margin-right: 0;
-  }
-
-  #linkSide{
-    width: 50%;
-  }
-
-
-
-  #menuButton{
-    display: none;
-  }
-
-
-  @media screen and (min-width: 768px)  {
-    .navBar {
-      flex-wrap: nowrap;
-    }
-
-    #menuButton {
-      display: none;
-    }
-
-    .sideBar {
-      display: none;
-    }
-
-
-  }
-
-  @media screen and (max-width: 920px) {
-    .menu{
-      display: none;
-    }
-
-    #menuButton{
-      display: block;
-    }
-
-  }
-
-
-
-  /* NAV BAR END */
-
-  body{
-      background-color: rgb(220, 156, 220);
-  }
-
-
-
-
-  #menuTitle h2{
-    text-align: center;
-  }
-
-  .productContainer{
-    border-style: solid;
-    margin: 5px;
-    margin-top: 10px;
-  }
-
-  #myTable{
-    padding:30px;
-    width: 100%;
-
-  } 
-
-  th{
-    padding-right: 20px;
-    padding-left: 20px;
-    border: solid black;
-  }
-
-  td{
-    border: solid black;
-  }
-
-  .contentContainer{
-    display: flex;
-    gap: 25vw;
-    /* border:solid black; */
-    margin-bottom: 10px;
-  }
-
-  .userContainer{
-    margin-top: 20px;
-    margin-right: 20px;
-    width: 50%;
-    /* border: solid black; */
-  }
-
-  /* for the  */
-  .userTable{ 
-    display: flex;
-    gap: 10px;
-  }
-
-  #tableEmp, #tableCustomer{
-    width: 100%;
-    background-color:  rgb(202, 160, 202);
-  }
-
-  .customerTable, .employeeTable{
-    width: 100%;
-  }
-
-  .page-btn {
-    padding: 5px 10px;
-    margin: 3px;
-    border: 1px solid  rgb(170, 136, 170);
-    background-color:  rgb(170, 136, 170);
-    cursor: pointer;
-    border-radius: 4px;
-  }
-
-  .page-btn:hover {
-    background-color:  rgb(215, 172, 215);
-  }
-
-  .pagination {
-    margin: 10px 0;
-    text-align: center;
-
-
-  }
-
-  .userCrudContainer{
-    /* border: solid black; */
-    margin-left: 750px;
-    margin-right: 20px;
-  }
-
-  /* .accountCrudTable{ */
-    /* margin-left: 220px; */
-  /* }dsa */
-
-  #buttons{
-    gap: 20px;
-    margin-bottom: 10px;
-    margin-top: 20px;
-  }
-
-  .tbl{
-    margin-left: 20px;
-    background-color:  rgb(202, 160, 202);
-  }
-
-  /* .tbl th{
-    width: 50%;
-  } */
-
-  .userIDCol{
-    width: fit-content;
-  }
-
-  .nameCol{
-    width: 68%;
-  }
-
-  #employeeButton, #customerButton, #createEmp, .editButton, .delButton{
-    background-color: rgb(215, 172, 215);
-    border-radius: 3px;
-    border: solid rgb(185, 148, 185);
-  }
-
-  #employeeButton:hover, #customerButton:hover, #createEmp:hover, .editButton:hover{
-    background-color: rgb(150, 121, 150);
-  }
-  #nextPage{
-    margin-left: 20px;
-    margin-top: 5px;
-  }
-
-  .table3Data{
-  padding: 10px 20px 10px;
-  }
-
-
-  .delButton:hover{
-    background-color: rgb(180, 0, 0);
-    color: white;
-  }
-
-  #form{
-    display: none; 
-    position: fixed; 
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5); 
-    z-index: 9999; 
-    justify-content: center;
-    align-items: center;
-  }
-
-
-  @media screen and (max-width:700px){
-      #form{
-          width: 65%;
-          padding: 40px
-      }
-  }
-
-  #modal-content{
-    background-color: #e1abe7;
-    padding: 20px;
-    border-radius: 8px;
-    max-width: 500px;
-    width: 100%;
-  } 
-
-   #form{
-    display: none; 
-    position: fixed; 
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5); 
-    z-index: 9999; 
-    justify-content: center;
-    align-items: center;
-  }
-
- .button{
-      padding: 5px;
-      font-size: large;
-      border-radius: 2px;
-      border: solid rgb(255, 255, 255);
-  }
-
-.button:hover{
-    background-color: rgb(138, 136, 136);
 }
 
-  @media screen and (max-width:700px){
-      #form{
-          width: 65%;
-          padding: 40px
-      }
+
+.navLogo{
+margin-right: 20px;
+
+}
+
+.menu a{
+list-style:none;
+display: inline-block;
+
+font-weight: 500;
+text-decoration: none;
+
+font-size: 0.8rem;
+margin: 0 20px;
+color: black;
+padding: 20px;
+
+
+font-family: "Verdana", sans-serif;
+border-bottom: 3px solid white;
+transition: all 0.5s ease;
+
+}
+.sideBar a{
+list-style:none;
+display: inline-block;
+
+font-weight: 500;
+text-decoration: none;
+
+font-size: 18px;
+margin: 0 20px;
+color: black;
+padding: 20px;
+
+
+font-family: "Verdana", sans-serif;
+transition: all 0.5s ease;
+
+}
+
+.menu {
+display: flex;
+align-items: center;
+flex-grow: 1;
+justify-content: space-between;
+
+}
+
+
+.menuLeft {
+display: flex;
+align-items: center;
+gap: 5px; 
+
+}
+
+.menuLeft a:hover{
+color:rgb(0, 0, 0);
+border-bottom: 3px solid rgb(243, 124, 124);
+
+}
+
+#reserve:hover{
+color: white;
+background-color: rgb(243, 124, 124);
+}
+
+
+
+
+
+#reserve{
+
+list-style:none;
+text-decoration: none;
+display: inline-block;
+
+font-weight: 500;
+text-decoration: none;
+
+font-size: 0.8rem;
+
+color: rgb(0, 0, 0);
+
+font-family: "Verdana", sans-serif;
+
+}
+
+#brandlogo{
+width: auto;
+height: 60px;
+margin-left: 50px;
+margin-right: 0px;
+}
+
+
+
+
+.sideBar{
+position: fixed;
+top: 0;
+right: 0;
+height: 100vh;
+width: 250px;
+z-index: 999;
+backdrop-filter: blur(10px);
+background-color: rgba(255, 255, 255, 0.716);
+box-shadow: -10px 0 10px rgb(0, 0, 0, 0.1);
+display: none;
+flex-direction: column;
+align-items: flex-start;
+justify-content: flex-start;
+margin-right: 0;
+}
+
+#linkSide{
+width: 50%;
+}
+
+
+
+#menuButton{
+display: none;
+}
+
+
+@media screen and (min-width: 768px)  {
+  .navBar {
+  flex-wrap: nowrap;
   }
 
-  #modal-content{
-    background-color: #e1abe7;
-    padding: 20px;
-    border-radius: 8px;
-    max-width: 500px;
-    width: 100%;
-  } 
 
-   #formEdit{
-    display: none; 
-    position: fixed; 
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5); 
-    z-index: 9999; 
-    justify-content: center;
+  #menuButton {
+  display: none;
+  }
+
+  .sideBar {
+  display: none;
+  }
+
+
+}
+
+@media screen and (max-width: 920px) {
+  .menu{
+  display: none;
+  }
+
+#menuButton{
+  display: block;
+  }
+
+
+}
+/* NAV BAR END */
+
+body{
+background-color: rgb(220, 156, 220);
+}
+
+.tableContainer{
+border-style: solid;
+padding: 2px;
+width: 50%;
+margin: 20px;
+}
+
+#menuTitle h2{
+text-align: center;
+}
+
+.productContainer{
+border-style: solid;
+margin: 5px;
+margin-top: 10px;
+}
+
+#myTable{
+padding:30px;
+width: 100%;
+
+} 
+
+th{
+padding-right: 20px;
+padding-left: 20px;
+border: solid black;
+}
+
+td{
+border: solid black;
+}
+
+.contentContainer{
+display: flex;
+gap: 40px;
+/* border:solid black; */
+margin-bottom: 10px;
+}
+
+.userContainer{
+margin-top: 20px;
+margin-right: 20px;
+width: 50%;
+/* border: solid black; */
+}
+
+/* for the  */
+.userTable{ 
+display: flex;
+gap: 10px;
+}
+
+#tableEmp, #tableCustomer{
+width: 100%;
+background-color:  rgb(202, 160, 202);
+}
+
+.customerTable, .employeeTable{
+width: 100%;
+}
+
+.page-btn {
+padding: 5px 10px;
+margin: 3px;
+border: 1px solid  rgb(170, 136, 170);
+background-color:  rgb(170, 136, 170);
+cursor: pointer;
+border-radius: 4px;
+transition: all 0.5s ease;
+
+}
+
+.page-btn:hover {
+background-color:  rgb(215, 172, 215);
+}
+
+.pagination {
+margin: 10px 0;
+text-align: center;
+
+
+}
+
+.userCrudContainer{
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px;
+  max-width: 1600px;
+  margin: 0 auto;
+  box-sizing: border-box;
+
+}
+
+.accountCrudTable{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 100%;
+
+}
+
+@media (max-width: 1024px) {
+  .accountCrudTable{
     align-items: center;
   }
+}
 
-  @media screen and (max-width:700px){
-      #formEdit{
-          width: 65%;
-          padding: 40px
-      }
+#buttons{
+gap: 20px;
+margin-bottom: 10px;
+margin-top: 20px;
+}
+
+.tbl{
+margin-left: 20px;
+background-color:  rgb(202, 160, 202);
+}
+
+/* .tbl th{
+width: 50%;
+} */
+
+.userIDCol{
+width: fit-content;
+}
+
+.nameCol{
+width: 68%;
+}
+
+#employeeButton, #customerButton, #createEmp, .editButton, .delButton, #cancelDeletion{
+background-color: rgb(215, 172, 215);
+border-radius: 3px;
+border: solid rgb(185, 148, 185);
+transition: all 0.5s ease;
+}
+
+#employeeButton:hover, #customerButton:hover, #createEmp:hover, .editButton:hover, #cancelDeletion:hover{
+background-color: rgb(150, 121, 150);
+}
+#nextPage{
+margin-left: 20px;
+margin-top: 5px;
+}
+
+.table3Data{
+padding: 10px 20px 10px;
+}
+
+#confirmDeletion{
+color: white;
+background-color: rgb(180, 0, 0);
+}
+
+#confirmDeletion:hover{
+color: white;
+background-color: rgb(241, 48, 48);
+}
+
+.delButton:hover{
+background-color: rgb(180, 0, 0);
+color: white;
+}
+
+#form{
+display: none; 
+position: fixed; 
+top: 0;
+left: 0;
+width: 100vw;
+height: 100vh;
+background-color: rgba(0, 0, 0, 0.5); 
+z-index: 9999; 
+justify-content: center;
+align-items: center;
+}
+
+
+@media screen and (max-width:700px){
+  #form{
+      width: 65%;
+      padding: 40px
   }
+}
+
+#modal-content{
+background-color: #e1abe7;
+padding: 20px;
+border-radius: 8px;
+max-width: 500px;
+width: 100%;
+} 
+
+#form{
+display: none; 
+position: fixed; 
+top: 0;
+left: 0;
+width: 100vw;
+height: 100vh;
+background-color: rgba(0, 0, 0, 0.5); 
+z-index: 9999; 
+justify-content: center;
+align-items: center;
+}
+
+.button{
+padding: 5px;
+font-size: large;
+border-radius: 2px;
+border: solid rgb(255, 255, 255);
+}
+
+.button:hover{
+background-color: rgb(138, 136, 136);
+}
+
+#confirm{
+color: green;
+display: none;
+}
+
+
+@media screen and (max-width:700px){
+  #form{
+      width: 65%;
+      padding: 40px
+  }
+}
+
+#modal-content{
+background-color: #e1abe7;
+padding: 20px;
+border-radius: 8px;
+max-width: 500px;
+width: 100%;
+} 
+
+#formEdit{
+display: none; 
+position: fixed; 
+top: 0;
+left: 0;
+width: 100vw;
+height: 100vh;
+background-color: rgba(0, 0, 0, 0.5); 
+z-index: 9999; 
+justify-content: center;
+align-items: center;
+}
+
+@media screen and (max-width:700px){
+  #formEdit{
+      width: 65%;
+      padding: 40px
+  }
+}
+
+#modal-content-edit{
+background-color: #e1abe7;
+padding: 20px;
+border-radius: 8px;
+max-width: 500px;
+width: 100%;
+} 
+
+#deleteConfirm{
+display: none; 
+position: fixed; 
+top: 0;
+left: 0;
+width: 100vw;
+height: 100vh;
+background-color: rgba(0, 0, 0, 0.5); 
+z-index: 9999; 
+justify-content: center;
+align-items: center;
+}
+
+@media screen and (max-width:700px){
+  #formEdit{
+      width: 65%;
+      padding: 40px
+  }
+}
+
+
+#deleteContent{
+background-color: #e1abe7;
+padding: 20px;
+border-radius: 8px;
+max-width: 500px;
+width: 100%;
+} 
 
   #modal-content-edit{
     background-color: #e1abe7;
@@ -409,6 +481,5 @@
 
   .menuContainer{
     padding: 40px;
-
 
   }

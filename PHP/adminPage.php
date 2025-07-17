@@ -14,13 +14,15 @@
 
 
 
+
   $sql = "Select userID, username, UserType from login";
+
 
   $result = mysqli_query($conn, $sql);
 
-  $users = [];
+  $users = []; //initialize users as an array
 
-  while ($row = mysqli_fetch_assoc($result)){
+  while ($row = mysqli_fetch_assoc($result)){  //put the results inside the array
       $users[] = $row;
   }
 
@@ -149,11 +151,10 @@
         
 
 
-          <a id="linkSide" href="HTML/gallery.html" target="_self"> MANAGE BOOKINGS </a>
+          <a id="linkSide" href="../HTML/employeePage.php" target="_self"> MANAGE BOOKINGS </a>
           <a id="linkSide" href="../HTML/empManagementPage.html" target="_self"> MANAGE MENU </a>
-          <a id="linkSide" href="HTML/gallery.html" target="_self"> ADMIN </a>
-
-          <a id="linkSide" href="../HTML/employeePage.php" target="_self"> EMPLOYEE </a>
+          <a id="linkSide" href="reviewFeedbackPage.php" target="_self"> CUSTOMER FEEDBACK </a>
+          <a id="linkSide" href="adminPage.php" target="_self"> ADMIN </a>
 
 
         </nav>
@@ -166,7 +167,9 @@
 
           <a class="hideOnMobile" id="reserve" href="HTML/reserve date.html" target="_self"> MANAGE BOOKINGS </a>
           <a class="hideOnMobile" id="reserve" href="../HTML/empManagementPage.html" target="_self"> MANAGE MENU </a>
+          <a class="hideOnMobile" id="reserve" href="../PHP/reviewFeedbackPage.php" target="_self"> CUSTOMER FEEDBACK </a>
           <a class="hideOnMobile" id="reserve" href="adminPage.php" target="_self"> ADMIN </a>
+          
 
 
           </div>
@@ -298,6 +301,7 @@
             <input type="password" id="cpass" name="cpass" required><br><br>
             <input type="submit" id="btn" class="button" value="SignUp" name = "submit"/>
             <button class="button" id="buttonz">Cancel</button>
+            <p id="confirm">Account Successfully Created</p>
         </form>
       </div>
     </div>
@@ -327,11 +331,22 @@
       <div class="modal-body">
        
       </div>
-      <div class="modal-footer">
-        <button type="submit" form="dishEditForm" class="btn btn-success">Save</button>
+      <div class="modal-footer"> 
+
+        <button type="submit" form="dishEditForm" class="btn btn-success">Save</button> 
+        <button type="button" class="btn btn-secondary" id="availabilityToggle" onclick="toggleAvailability(this)" data-dishid="">Change Availability</button>
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
       </div>
     </div>
+  </div>
+</div>
+
+<div id="deleteConfirm"> 
+  <div id= "deleteContent">
+    <h3> Are you sure you want to delete this user? </h3>
+    <h4> Warning: This action cannot be undone! </h4>
+    <button id="confirmDeletion"> Delete </button>
+    <button id="cancelDeletion"> Cancel </button>
   </div>
 </div>
 
@@ -354,7 +369,8 @@
       }
       
       // JS NAV BAR END
-  
+
+
 
 // pagination
 const tableEmployee = document.querySelector("#tableEmp tbody");
@@ -377,9 +393,11 @@ function pagination (data, tableBody, page){
 
     pageData.forEach(user => {
         const row = document.createElement("tr");
-        row.addClass
+        row.addClass //?
         const userID = document.createElement("td");
+
         userID.textContent = user.userID;
+
         const nameCell = document.createElement("td");
         nameCell.textContent = user.username;
         row.appendChild(userID);
@@ -440,7 +458,9 @@ function paginate (data, page){
         rows.classList.add("rowz")
 
         const userID = document.createElement("td");
+
         userID.textContent = user.userID;
+
         userID.classList.add("userIDCol")
 
         const nameCellz = document.createElement("td");
@@ -450,8 +470,10 @@ function paginate (data, page){
 
         const editDel = document.createElement("td");
         editDel.innerHTML = `
-          <button class ="editButton" data-id= ${user.userID}>Edit</button>
-          <button class="delButton" data-id=${user.userID}>Delete</button>`;
+
+          <button class ="editButton" data-id= ${user.userid}>Edit</button>
+          <button class="delButton" data-id=${user.userid}>Delete</button>`;
+
         editDel.classList.add("table3Data")
         rows.appendChild(userID);
         rows.appendChild(nameCellz);
@@ -489,7 +511,10 @@ function addEventListeners(){
   editButton.forEach(btn => {
     btn.addEventListener("click", ()=> {
       const userId = btn.getAttribute("data-id");
+
+
       const userToEdit = users.find(user=>user.userID == userId);
+
       usernameInput.value = userToEdit.username;
       editFrm.action = `update_page_1.php?id=${userId}`;
 
@@ -498,14 +523,29 @@ function addEventListeners(){
     });
   }); 
 
-
+  const confirmButton = document.getElementById("confirmDeletion");
   const deleteButton = document.querySelectorAll(".delButton");
+  const deleteForm = document.getElementById("deleteConfirm");
+  const cancelDeletion = document.getElementById("cancelDeletion");
+
+
+  cancelDeletion.onclick =function(){
+    deleteForm.style.display = "none";
+  };
+
+
   deleteButton.forEach(btn =>{
     btn.addEventListener("click", () => {
       const userId = btn.getAttribute("data-id");
-      window.location.href = `delete_page_1.php?id=${userId}`;
+      deleteForm.style.display = "Flex";
+      confirmButton.setAttribute("data-id", userId);
     });
   });
+
+  confirmButton.addEventListener("click", ()=> {
+    const userId = confirmButton.getAttribute("data-id");
+    window.location.href = `delete_page_1.php?id=${userId}`;
+  })
 
 
 window.addEventListener("click", function(event){
@@ -544,6 +584,10 @@ function showData(userType){
 
   createEmp.addEventListener("click", () => modal.style.display = 'flex');
   const btn = document.getElementById("buttonz");
+
+  btn.onclick = function(){
+    alert("Account Successfully created");
+  }
 
 btn.onclick = function(){
   modal.style.display = "none";
@@ -600,7 +644,7 @@ function menuPages(data, tableBody, page) {
     editButton.setAttribute("data-bs-target", "#menuModal");
     editButton.setAttribute("data-dishid", dish.dish_id);
 
-    editButton.addEventListener("click", () => {
+    editButton.addEventListener("click", () => { 
       const modalBody = document.querySelector("#menuModal .modal-body");
       modalBody.innerHTML = "";
 
@@ -680,7 +724,9 @@ function menuPages(data, tableBody, page) {
       form.appendChild(categoryGroup);
       form.appendChild(imageGroup);
       form.appendChild(descriptionGroup);
-      modalBody.appendChild(form);
+      modalBody.appendChild(form); 
+
+      document.getElementById("availabilityToggle").setAttribute("data-dishid", dish.dish_id);
     });
 
     row.appendChild(nameCell);
@@ -696,7 +742,35 @@ menuPages(menuData, menuTable, 1);
 
 </script> 
  
+<script>
+function toggleAvailability(button) {
+    const dish_id = button.getAttribute('data-dishid');  
 
+  if (!dish_id) {
+    alert("No dish ID found.");
+    return;
+  }
+
+   if (!confirm("Are you sure you want to change this item's availability?")) {
+        return; 
+    }
+    
+
+    fetch('toggle_availability.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: `dish_id=${encodeURIComponent(dish_id)}`
+    })
+    .then(response => response.text())
+    .then(data => {
+        alert(data); 
+        location.reload(); 
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+</script>
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>

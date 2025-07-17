@@ -12,6 +12,7 @@
         $password = mysqli_real_escape_string($conn, $_POST['pass']);
         $cpassword = mysqli_real_escape_string($conn, $_POST['cpass']);
        
+        
         $sql="select * from login where username='$username'";
         $result = mysqli_query($conn, $sql);
         $count_user = mysqli_num_rows($result);
@@ -26,7 +27,11 @@
                 $sql = "INSERT INTO login(username, email, password, userType) VALUES('$username', '$email', '$hash', 'employee')";
                 $result = mysqli_query($conn, $sql);
                 if($result){
-                    header("Location: adminPage.php");
+                    echo '<script> alert("Account Successfully Created");
+                    window.location.href = "adminPage.php";
+                    </script>';
+                    exit();
+                    
                 }
             }
             else{

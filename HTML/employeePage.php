@@ -24,9 +24,10 @@
   
 <div style="display: flex; flex-direction: row; gap: 3vw; width: 100%; margin: 20px; margin-left: 3.5vw;" id="orderdatecontainer">
         <div>
-            <div style="margin-left: 20px;">
+            <div style="margin-left: 20px;"> 
+                <button id="tab-cancelled">Cancelled</button>
                 <button id="tab-pending" style="border: solid lightcoral">Pending</button>
-                <button id="tab-completed" style="border: solid lightgreen">Completed</button>
+                <button id="tab-completed" style="border: solid lightgreen">Completed</button> 
             </div>
     
             <div id="order-container"></div>

@@ -107,7 +107,7 @@ foreach ($data['dishes'] as $dish) {
 
 
     // Redirect to confirmation page
-    header("Location: order_success.html");
+    header("Location: ../HTML/order_success.html");
    
 
 
