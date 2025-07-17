@@ -74,7 +74,11 @@ while ($row = mysqli_fetch_assoc($result)) {
 
           <a id="linkSide" href="../HTML/contact.html" target="_self"> CONTACT US </a>
 
-          <a id="linkSide" href="" target="_self"> BOOKINGS </a>
+          <a id="linkSide" href="../PHP/reviewbookings.php" target="_self"> BOOKINGS </a> 
+
+          <a id="linkSide" href="../PHP/employeeLoginPage.php" target="_self"> LOGIN </a>
+
+         <a id="linkSide" href="../PHP/customerSignUp.php" target="_self"> SIGNUP </a>
 
           <a id="linkSide" href="reserve date.php" target="_self"> RESERVE A DATE </a>
 
@@ -90,7 +94,11 @@ while ($row = mysqli_fetch_assoc($result)) {
 
           <a class="hideOnMobile" href="../HTML/contact.html" target="_self"> CONTACT US </a>
 
-          <a id="hideOnMobile" href="" target="_self"> BOOKINGS </a>
+          <a id="hideOnMobile" href="../PHP/reviewbookings.php" target="_self"> BOOKINGS </a> 
+
+          <a id="hideOnMobile" href="../PHP/employeeLoginPage.php" target="_self"> LOGIN </a>  
+
+          <a id="hideOnMobile" href="../PHP/customerSignUp.php" target="_self"> SIGNUP </a>
 
           </div>
           <div>
