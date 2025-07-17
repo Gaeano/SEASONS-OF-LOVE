@@ -1,12 +1,27 @@
 <?php
 header('Content-Type: application/json');
 
-$data = json_decode(file_get_contents("php://input"), true);
+// $data = json_decode(file_get_contents("php://input"), true);
+
+$data = $_POST;
+
+// Decode the JSON cart items from the hidden input
+$data['dishes'] = json_decode($_POST['orderData'], true);
+$data['date'] = $_POST['selectedDate'] ?? '';
+
+
+
 
 if (!$data || !isset($data['address'], $data['contact'], $data['name'], $data['date'], $data['dishes'])) {
     echo json_encode(['success' => false, 'error' => 'Invalid data']);
     exit;
 }
+
+if (!$data['dishes'] || !is_array($data['dishes']) || !$data['date']) {
+    echo json_encode(['success' => false, 'error' => 'Cart or date missing']);
+    exit;
+}
+
 
 
 require __DIR__ . '/db.php';
@@ -88,7 +103,21 @@ foreach ($data['dishes'] as $dish) {
 
     $pdo->commit();
 
-    echo json_encode(['success' => true]);
+    // echo json_encode(['success' => true]);
+
+
+    // Redirect to confirmation page
+    header("Location: order_success.html");
+   
+
+
+
+
+
+
+
+
+
 } catch (Exception $e) {
     $pdo->rollBack();
     echo json_encode(['success' => false, 'error' => $e->getMessage()]);

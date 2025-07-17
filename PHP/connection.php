@@ -14,7 +14,7 @@
 $host = "localhost";
 $user = "root";
 $password = ""; // default in XAMPP
-$dbname = "s19010108_seasonsoflove"; // your database name
+$dbname = "sol"; // your database name
 
 $conn = new mysqli("localhost", "root", "", "sol"); // ✅ working default
 

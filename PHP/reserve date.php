@@ -1,5 +1,4 @@
 <?php
-// menu.php with pagination, search, category filter, and add-to-cart
 include('connection.php');
 
 $sql = "SELECT image_path, NAME, description, category FROM dishes";
@@ -8,7 +7,9 @@ $result = mysqli_query($conn, $sql);
 $dishes = [];
 while ($row = mysqli_fetch_assoc($result)) {
   $dishes[] = $row;
-}?>
+}
+?>
+
 
 <!DOCTYPE html>
 <html>
@@ -193,11 +194,21 @@ while ($row = mysqli_fetch_assoc($result)) {
     <button class="checkout-btn" type="submit" onclick="prepareCheckoutData()">Checkout</button>
   </form> -->
 
-  <form method="POST" action="checkout.php">
+  <!-- <form method="POST" action="checkout.php">
   <input type="hidden" name="orderData" id="orderDataField">
   <input type="hidden" name="selectedDate" id="selectedDateField">
-  <button class="checkout-btn" type="submit" onclick="prepareCheckoutData()">Checkout</button>
+  <button class="checkout-btn" type="submit" onsubmit="prepareCheckoutData()">Checkout</button>
+  <form method="POST" action="checkout.php" onsubmit="return prepareCheckoutData()">
+    <button type="submit">Checkout</button>
 </form>
+</form> -->
+
+<form method="POST" action="checkout.php" onsubmit="prepareCheckoutData()">
+  <input type="hidden" name="orderData" id="orderDataField">
+  <input type="hidden" name="selectedDate" id="selectedDateField">
+  <button class = "checkout-btn" type="submit">Checkout</button>
+</form>
+
 
 
 
@@ -245,11 +256,13 @@ while ($row = mysqli_fetch_assoc($result)) {
 
 
 <script>
-const dishes = <?php echo json_encode($dishes); ?>;
+const dishes = <?php echo json_encode($dishes);?>;
 const rowsPerPage = 6;
 let currentPage = 1;
 let filteredDishes = dishes;
 let cart = [];
+let selectedDate = null;
+
 
 function renderDishes() {
   const container = document.getElementById('dishContainer');
@@ -315,11 +328,39 @@ function renderCart() {
 }
 
 function prepareCheckoutData() {
+  // const field = document.getElementById('orderDataField');
+  // const dateField = document.getElementById('selectedDateField');
+  // const convertedCart = cart.map(item => ({ name: item.name, quantity: item.qty }));
+  // field.value = JSON.stringify(convertedCart);
+  // dateField.value = selectedDate || '';
+
+ 
   const field = document.getElementById('orderDataField');
   const dateField = document.getElementById('selectedDateField');
+
   const convertedCart = cart.map(item => ({ name: item.name, quantity: item.qty }));
+
+  if (convertedCart.length === 0) {
+    alert("Please add items to your cart.");
+    return false;
+  }
+
+  if (!selectedDate) {
+    alert("Please select a reservation date.");
+    return false;
+  }
+
   field.value = JSON.stringify(convertedCart);
-  dateField.value = selectedDate || '';
+  dateField.value = selectedDate;
+
+  console.log("Sending to checkout:", {
+    cart: field.value,
+    date: dateField.value
+  });
+
+  return true;
+
+
 }
 
 
@@ -447,3 +488,5 @@ renderDishes();
 
 </body>
 </html>
+
+

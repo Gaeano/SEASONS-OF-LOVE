@@ -102,7 +102,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['orderData']) && isset
 
 
 
+<script>
+document.querySelector("form").addEventListener("submit", function(e) {
+  const orderData = <?= json_encode($cartItems) ?>;
+  const selectedDate = <?= json_encode($selectedDate) ?>;
 
-    <script>
-        
-    </script>
+  document.getElementById('orderDataField').value = JSON.stringify(orderData);
+  document.getElementById('selectedDateField').value = selectedDate;
+});
+</script>
+

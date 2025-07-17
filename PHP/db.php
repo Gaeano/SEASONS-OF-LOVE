@@ -9,7 +9,7 @@
 // $pdo = new PDO($dsn, $user, $pass);
 
 $host = 'localhost';
-$db   = 's19010108_seasonsoflove';
+$db   = 'sol';
 $user = 'root';
 $pass = '';
 $charset = 'utf8mb4';
