@@ -327,8 +327,10 @@
       <div class="modal-body">
        
       </div>
-      <div class="modal-footer">
-        <button type="submit" form="dishEditForm" class="btn btn-success">Save</button>
+      <div class="modal-footer"> 
+
+        <button type="submit" form="dishEditForm" class="btn btn-success">Save</button> 
+        <button type="button" class="btn btn-secondary" id="availabilityToggle" onclick="toggleAvailability(this)" data-dishid="">Change Availability</button>
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
       </div>
     </div>
@@ -600,7 +602,7 @@ function menuPages(data, tableBody, page) {
     editButton.setAttribute("data-bs-target", "#menuModal");
     editButton.setAttribute("data-dishid", dish.dish_id);
 
-    editButton.addEventListener("click", () => {
+    editButton.addEventListener("click", () => { 
       const modalBody = document.querySelector("#menuModal .modal-body");
       modalBody.innerHTML = "";
 
@@ -680,7 +682,9 @@ function menuPages(data, tableBody, page) {
       form.appendChild(categoryGroup);
       form.appendChild(imageGroup);
       form.appendChild(descriptionGroup);
-      modalBody.appendChild(form);
+      modalBody.appendChild(form); 
+
+      document.getElementById("availabilityToggle").setAttribute("data-dishid", dish.dish_id);
     });
 
     row.appendChild(nameCell);
@@ -696,7 +700,35 @@ menuPages(menuData, menuTable, 1);
 
 </script> 
  
+<script>
+function toggleAvailability(button) {
+    const dish_id = button.getAttribute('data-dishid');  
 
+  if (!dish_id) {
+    alert("No dish ID found.");
+    return;
+  }
+
+   if (!confirm("Are you sure you want to change this item's availability?")) {
+        return; 
+    }
+    
+
+    fetch('toggle_availability.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: `dish_id=${encodeURIComponent(dish_id)}`
+    })
+    .then(response => response.text())
+    .then(data => {
+        alert(data); 
+        location.reload(); 
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+</script>
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
