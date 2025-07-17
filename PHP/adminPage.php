@@ -142,9 +142,8 @@
 
           <a id="linkSide" href="HTML/gallery.html" target="_self"> MANAGE BOOKINGS </a>
           <a id="linkSide" href="../HTML/empManagementPage.html" target="_self"> MANAGE MENU </a>
+          <a id="linkSide" href="HTML/gallery.html" target="_self"> CUSTOMER FEEDBACK </a>
           <a id="linkSide" href="HTML/gallery.html" target="_self"> ADMIN </a>
-
-          <a id="linkSide" href="../HTML/employeePage.php" target="_self"> EMPLOYEE </a>
 
 
         </nav>
@@ -157,7 +156,9 @@
 
           <a class="hideOnMobile" id="reserve" href="HTML/reserve date.html" target="_self"> MANAGE BOOKINGS </a>
           <a class="hideOnMobile" id="reserve" href="../HTML/empManagementPage.html" target="_self"> MANAGE MENU </a>
+          <a class="hideOnMobile" id="reserve" href="../PHP/reviewFeedbackPage.php" target="_self"> CUSTOMER FEEDBACK </a>
           <a class="hideOnMobile" id="reserve" href="adminPage.php" target="_self"> ADMIN </a>
+          
 
 
           </div>
@@ -321,7 +322,8 @@
       }
       
       // JS NAV BAR END
-  
+
+
 
 // pagination
 const tableEmployee = document.querySelector("#tableEmp tbody");
@@ -342,7 +344,7 @@ function pagination (data, tableBody, page){
 
     pageData.forEach(user => {
         const row = document.createElement("tr");
-        row.addClass
+        row.addClass //?
         const userID = document.createElement("td");
         userID.textContent = user.userid;
         const nameCell = document.createElement("td");
