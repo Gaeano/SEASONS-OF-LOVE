@@ -171,6 +171,11 @@ echo "<script> const contactData = " . json_encode($contacts). "</script>";
         email.setAttribute("id", "user_email");
         email.textContent = contact.email;
 
+        const date = document.createElement("h6");
+        date.classList.add("date");
+        date.setAttribute("id", "date_sent");
+        date.textContent = contact.msgdate;
+
         const message = document.createElement("p");
         message.setAttribute("id", "message");
         message.textContent = contact.message;
@@ -178,6 +183,7 @@ echo "<script> const contactData = " . json_encode($contacts). "</script>";
 
         container.appendChild(name);
         container.appendChild(email);
+        container.appendChild(date);
         container.appendChild(message);
         masterContainer.appendChild(container);
         count++;
