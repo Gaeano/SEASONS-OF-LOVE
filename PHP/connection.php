@@ -1,17 +1,5 @@
 <?php 
 
-    // $host = "localhost";
-    // $user = "root";
-    // $password = "";
-    // $dbname = "s19010108_seasonsoflove";
-    // $conn = new mysqli($host, $user, $password, $dbname);
-    
-    // if($conn->connect_error){
-    //      die("Connection failed".$conn->connect_error);
-    //  }
-    //  echo "";
-    //  return $conn;
-
 
     $host = "localhost";
     $dbname = "s19010108_seasonsoflove";
@@ -25,5 +13,21 @@
      echo "";
      return $conn;
 
+
+$host = "localhost";
+$user = "root";
+$password = ""; // default in XAMPP
+$dbname = "sol"; // your database name
+
+$conn = new mysqli("localhost", "root", "", "sol"); // ✅ working default
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
 ?>
+
+?><?php
+// connection.php
+
+
 
