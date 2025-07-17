@@ -9,7 +9,9 @@ if(!isset($_GET['id'])){
 
 $id = $_GET['id'];
 
+
 $sql = "select * from login where userID = ?";
+
 $stmt = mysqli_prepare($conn, $sql); 
 mysqli_stmt_bind_param($stmt, "i", $id);
 mysqli_stmt_execute($stmt);
@@ -22,11 +24,13 @@ if ($count_user === 0){
 }
 
 $sql = "delete from login where userID = ?";
+
 $stmt = mysqli_prepare($conn, $sql);
 mysqli_stmt_bind_param($stmt, "i", $id);
 
 if (mysqli_stmt_execute($stmt)){
-    echo "<script>alert('user deleted successfully'); window.location.href = 'adminPage.php';</script>";
+    echo "<script>alert('user deleted successfully');
+     window.location.href = 'adminPage.php';</script>";
 } else {
     echo "deletion unsuccessfully :(";
 }
