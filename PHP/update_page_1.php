@@ -23,16 +23,31 @@ if ($count_user === 0){
 
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $new_username = $_POST['username'];
+    $existingUsername = "select * from login where username = ?";
+    $check = mysqli_prepare($conn, $existingUsername);
+    mysqli_stmt_bind_param($check, "s", $new_username);
+    mysqli_stmt_execute($check);
+    $checkUsername = mysqli_stmt_get_result($check);
 
-    $update_sql = "update login set username = ? where user_id = ?";
-    $update_stmt = mysqli_prepare($conn, $update_sql);
-    mysqli_stmt_bind_param($update_stmt, "si", $new_username, $id);
-
-    if (mysqli_stmt_execute($update_stmt)){
-        echo "<script>alert('User Updated Successfully'); window.location.href = 'adminPage.php';</script>";
+    if($checkUsername){
+        echo "<script> alert('Username already exists');
+        window.location.href ='adminpage.php';
+        </script> ";
+        exit(1);
     } else {
-        echo "error updating user.";
+        $update_sql = "update login set username = ? where user_id = ?";
+        $update_stmt = mysqli_prepare($conn, $update_sql);
+        mysqli_stmt_bind_param($update_stmt, "si", $new_username, $id);
+
+        if (mysqli_stmt_execute($update_stmt)){
+            echo "<script>alert('User Updated Successfully'); window.location.href = 'adminPage.php';</script>";
+        } else {
+            echo "error updating user.";
+        }
     }
+
+
+    
 }
 
 
