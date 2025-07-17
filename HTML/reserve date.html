@@ -123,7 +123,7 @@
 
     </center>
 
-    <div class="info" onclick="clickOpenBEEF()">
+<div class="info" onclick="clickOpenBEEF()">
   <center>
         <h3><hr><b>BEEF</b><hr></h3>
   </center>
@@ -716,7 +716,7 @@
 
 
 
-  </div>
+
 
 
   <div class="footer">
@@ -808,199 +808,191 @@
 }
 
 
-// BEEF COLLAPSIBLE
-function clickOpenBEEF(){
-let product_container = document.querySelector('.product_containerBEEF');
-product_container.classList.toggle('open');
+// // BEEF COLLAPSIBLE
+// function clickOpenBEEF(){
+// let product_container = document.querySelector('.product_containerBEEF');
+// product_container.classList.toggle('open');
 
 
 
-}
+// }
 
-// CHICKEN COLLAPSIBLE
-function clickOpenCHICKEN(){
-let product_container = document.querySelector('.product_containerCHICKEN');
-product_container.classList.toggle('open');
-
-
-
-
-
-}
-
-
-// PORK COLLAPSIBLE
-function clickOpenPORK(){
-let product_container = document.querySelector('.product_containerPORK');
-product_container.classList.toggle('open');
+// // CHICKEN COLLAPSIBLE
+// function clickOpenCHICKEN(){
+// let product_container = document.querySelector('.product_containerCHICKEN');
+// product_container.classList.toggle('open');
 
 
 
 
-}
 
-// FISH COLLAPSIBLE
-function clickOpenFISH(){
-let product_container = document.querySelector('.product_containerFISH');
-product_container.classList.toggle('open');
+// }
 
 
-
-}
-
-// NOODLES COLLAPSIBLE
-function clickOpenNOODLES(){
-let product_container = document.querySelector('.product_containerNOODLES');
-product_container.classList.toggle('open');
-
-
-
-}
-
-// SALADS COLLAPSIBLE
-function clickOpenSALADS(){
-let product_container = document.querySelector('.product_containerSALADS');
-product_container.classList.toggle('open');
+// // PORK COLLAPSIBLE
+// function clickOpenPORK(){
+// let product_container = document.querySelector('.product_containerPORK');
+// product_container.classList.toggle('open');
 
 
 
 
-}
+// }
 
-//END OOF COLLAPSE
-
-    //for thee demn forms men ugh. watafak
-    document.getElementById("contactForm").addEventListener("submit", function (event) {
-      event.preventDefault();
-
-      const name = document.getElementById("userName").value.trim();
-      const email = document.getElementById("email").value.trim();
-      const contact = document.getElementById("contact").value.trim();
-
-      const responseMessage = document.getElementById("responseMessage");
-
-      if (!name || !email || !contact || !selectedDate || selectedDishes.length === 0) {
-        responseMessage.style.color = "red";
-        responseMessage.textContent = "All Fields are required!";
-        return;
-      }
-
-      if (!validateEmail(email)) {
-        responseMessage.style.color = "red";
-        responseMessage.textContent = "Please enter valid email.";
-        return;
-      } 
-
-      if (existingOrderDates.includes(selectedDate)) {
-     responseMessage.style.color = "red";
-     responseMessage.textContent = "Sorry, that date is already reserved.";
-      return;
-    }
-
-      fetch("../PHP/place_order.php", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name,
-          email,
-          contact,
-          date: selectedDate,
-          dishes: selectedDishes
-        })
-      })
-        .then(res => res.json())
-        .then(data => {
-          if (data.success) {
-            responseMessage.style.color = "green";
-            responseMessage.textContent = "Order placed successfully!";
-            selectedDishes = [];
-            selectedDate = null;
-            updateOrderSummary();
-            this.reset();
-          } else {
-            responseMessage.style.color = "red";
-            responseMessage.textContent = "Error placing order.";
-          }
-        })
-        .catch(err => {
-          responseMessage.style.color = "red";
-          responseMessage.textContent = "Server error.";
-          console.error(err);
-        });
-    });
+// // FISH COLLAPSIBLE
+// function clickOpenFISH(){
+// let product_container = document.querySelector('.product_containerFISH');
+// product_container.classList.toggle('open');
 
 
-    function validateEmail(email) {
-      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    }
+
+// }
+
+// // NOODLES COLLAPSIBLE
+// function clickOpenNOODLES(){
+// let product_container = document.querySelector('.product_containerNOODLES');
+// product_container.classList.toggle('open');
 
 
-    function updateOrderSummary() {
-      const summaryList = document.getElementById("summary-list");
-      summaryList.innerHTML = '';
 
-      selectedDishes.forEach((dish, index) => {
-        const li = document.createElement("li");
-        li.innerHTML = `
-      ${dish.name} 
-      <input type="number" min="1" value="${dish.quantity}" data-index="${index}" class="qty-input" style="width: 50px; margin-left: 10px;" />
-      <button onclick="removeDish(${index})" style="margin-left: 5px;">X</button>
-    `;
-        summaryList.appendChild(li);
-      });
+// }
 
-      document.querySelectorAll(".qty-input").forEach(input => {
-        input.addEventListener("input", function () {
-          const idx = this.dataset.index;
-          const newQty = parseInt(this.value);
-          if (newQty > 0) {
-            selectedDishes[idx].quantity = newQty;
-          }
-        });
-      });
-    }
+// // SALADS COLLAPSIBLE
+// function clickOpenSALADS(){
+// let product_container = document.querySelector('.product_containerSALADS');
+// product_container.classList.toggle('open');
 
-    function removeDish(index) {
-      const removed = selectedDishes.splice(index, 1)[0];
+
+
+
+// }
+
+// //END OOF COLLAPSE
+
+//     //for thee demn forms men ugh. watafak
+//     document.getElementById("contactForm").addEventListener("submit", function (event) {
+//       event.preventDefault();
+
+//       const name = document.getElementById("userName").value.trim();
+//       const email = document.getElementById("email").value.trim();
+//       const contact = document.getElementById("contact").value.trim();
+
+//       const responseMessage = document.getElementById("responseMessage");
+
+//       if (!name || !email || !contact || !selectedDate || selectedDishes.length === 0) {
+//         responseMessage.style.color = "red";
+//         responseMessage.textContent = "All Fields are required!";
+//         return;
+//       }
+
+//       if (!validateEmail(email)) {
+//         responseMessage.style.color = "red";
+//         responseMessage.textContent = "Please enter valid email.";
+//         return;
+//       } 
+
+//       if (existingOrderDates.includes(selectedDate)) {
+//      responseMessage.style.color = "red";
+//      responseMessage.textContent = "Sorry, that date is already reserved.";
+//       return;
+//     }
+
+//       fetch("../PHP/place_order.php", {
+//         method: "POST",
+//         headers: { "Content-Type": "application/json" },
+//         body: JSON.stringify({
+//           name,
+//           email,
+//           contact,
+//           date: selectedDate,
+//           dishes: selectedDishes
+//         })
+//       })
+//         .then(res => res.json())
+//         .then(data => {
+//           if (data.success) {
+//             responseMessage.style.color = "green";
+//             responseMessage.textContent = "Order placed successfully!";
+//             selectedDishes = [];
+//             selectedDate = null;
+//             updateOrderSummary();
+//             this.reset();
+//           } else {
+//             responseMessage.style.color = "red";
+//             responseMessage.textContent = "Error placing order.";
+//           }
+//         })
+//         .catch(err => {
+//           responseMessage.style.color = "red";
+//           responseMessage.textContent = "Server error.";
+//           console.error(err);
+//         });
+//     });
+
+
+//     function validateEmail(email) {
+//       return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+//     }
+
+
+//     function updateOrderSummary() {
+//       const summaryList = document.getElementById("summary-list");
+//       summaryList.innerHTML = '';
+
+//       selectedDishes.forEach((dish, index) => {
+//         const li = document.createElement("li");
+//         li.innerHTML = `
+//       ${dish.name} 
+//       <input type="number" min="1" value="${dish.quantity}" data-index="${index}" class="qty-input" style="width: 50px; margin-left: 10px;" />
+//       <button onclick="removeDish(${index})" style="margin-left: 5px;">X</button>
+//     `;
+//         summaryList.appendChild(li);
+//       });
+
+//       document.querySelectorAll(".qty-input").forEach(input => {
+//         input.addEventListener("input", function () {
+//           const idx = this.dataset.index;
+//           const newQty = parseInt(this.value);
+//           if (newQty > 0) {
+//             selectedDishes[idx].quantity = newQty;
+//           }
+//         });
+//       });
+//     }
+
+//     function removeDish(index) {
+//       const removed = selectedDishes.splice(index, 1)[0];
 
     
-      document.querySelectorAll('.product').forEach(card => {
-        const name = card.querySelector('h2').textContent.trim();
-        if (name === removed.name) {
-          card.classList.remove("highlight");
-        }
-      });
+//       document.querySelectorAll('.product').forEach(card => {
+//         const name = card.querySelector('h2').textContent.trim();
+//         if (name === removed.name) {
+//           card.classList.remove("highlight");
+//         }
+//       });
 
-      updateOrderSummary();
-    }
-
-
+//       updateOrderSummary();
+//     }
 
 
 
-  </script> 
+
+
+//   </script> 
   <script>
 
-
-  const calendar = document.getElementById("calendar");
+const calendar = document.getElementById("calendar");
 const monthText = document.getElementById("calendar-month");
 const yearText = document.getElementById("calendar-year");
-
 const prevBtn = document.getElementById("prevMonth");
 const nextBtn = document.getElementById("nextMonth");
-
-const monthNames = [
-  "January", "February", "March", "April", "May", "June",
-  "July", "August", "September", "October", "November", "December"
-];
-
+const monthNames = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"];
 let currentMonth = new Date().getMonth();
 let currentYear = new Date().getFullYear();
 
-
 function renderCalendar(orderDates) {
   calendar.innerHTML = "";
-
   monthText.textContent = monthNames[currentMonth];
   yearText.textContent = currentYear;
 
@@ -1053,9 +1045,6 @@ function loadAndRenderCalendar() {
     .then(res => res.json())
     .then(orderDates => {
       renderCalendar(orderDates);
-      existingOrderDates = orderDates
-        .filter(order => order.status === "pending")
-        .map(order => order.date);
     })
     .catch(err => {
       calendar.textContent = "Calendar failed to load.";
@@ -1083,7 +1072,21 @@ nextBtn.addEventListener("click", () => {
 
 loadAndRenderCalendar();
 
+renderDishes();
+
 </script>
+
+
+ JS DISPLAY
+<script>
+
+
+
+
+
+</script>
+
+
 </body>
 
 </html>
