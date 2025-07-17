@@ -276,6 +276,7 @@
             <input type="password" id="cpass" name="cpass" required><br><br>
             <input type="submit" id="btn" class="button" value="SignUp" name = "submit"/>
             <button class="button" id="buttonz">Cancel</button>
+            <p id="confirm">Account Successfully Created</p>
         </form>
       </div>
     </div>
@@ -499,6 +500,10 @@ function showData(userType){
 
   createEmp.addEventListener("click", () => modal.style.display = 'flex');
   const btn = document.getElementById("buttonz");
+
+  btn.onclick = function(){
+    alert("Account Successfully created");
+  }
 
 btn.onclick = function(){
   modal.style.display = "none";
