@@ -539,6 +539,23 @@ td:hover {
   margin-top: 5px;
   
 }
+#address{
+  width: 500px;
+}
+
+#name{
+  width: 500px;
+}
+
+#contact{
+  width: 500px;
+}
+
+
+
+.forms{
+  margin-bottom: 50px;
+}
 
 #btn {
   background-color: #3e3a19;
@@ -720,6 +737,14 @@ width: 100%;
   .summaryOrder{
     width: 90%;
   }
+
+  h3{
+    width: 90%;
+  }
+
+  .cart{
+    width: 90%;
+  }
 }
 
 @media (max-width: 472px){
@@ -807,7 +832,7 @@ width: 100%;
       position: fixed;
       right: 20px;
       top: 20px;
-      width: 300px;
+      width: 400px;
       background: white;
       border-radius: 10px;
       box-shadow: 0 2px 15px rgba(0,0,0,0.1);
@@ -852,6 +877,11 @@ width: 100%;
       margin-left: 8px;
     }
 
+    .cartProductList {
+  line-height: 27px;
+  font-family: "Verdana", sans-serif;
+  text-align: justify;
+}
 
 
 
@@ -987,9 +1017,36 @@ width: 100%;
       padding: 10px 20px; 
     } */
 
+/* THE INCREASE DECREASE BUTTON */
+.cart-item-controls {
+  display: inline-flex; 
+  align-items: center; 
+}
+.cart-item-controls button {
+  background-color: rgba(0, 0, 0, 0.68); 
+  border: none; 
+  color: white; 
+  padding: 5px 10px; 
+  
+  text-align: center;
 
 
+  text-decoration: none; 
+  display: inline-block; 
+  font-size: 14px;
 
+  margin: 0 3px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+.cart-item-controls button:hover {
+  background-color: #ffee00be;
+}
+.cart-item-controls span {
+  margin: 0 5px; 
+  font-size: 16px;
+}
 
 
 

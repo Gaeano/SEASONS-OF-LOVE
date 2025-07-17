@@ -22,6 +22,7 @@ while ($row = mysqli_fetch_assoc($result)) {
     .cart { position: fixed; top: 20px; right: 20px; border: 1px solid #000; padding: 10px; width: 200px; background: #fff; }
     .pagination { margin-top: 20px; }
     .pagination button { margin: 0 5px; } */
+    
   </style>
 
   <meta charset="utf=8">
@@ -31,7 +32,7 @@ while ($row = mysqli_fetch_assoc($result)) {
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
-  <link rel="stylesheet" href="reserve date.css">
+  <link rel="stylesheet" href="../CSS/reserve date.css">
 
   <!--For font for brand-->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -56,7 +57,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 
       <div class="navLogo">
         <a href="../index.html">
-           <img id="brandlogo" src="logo3.png" alt="Logo">  
+           <img id="brandlogo" src="../IMAGES/logo3.png" alt="Logo">  
         </a>
        
       </div>
@@ -67,13 +68,13 @@ while ($row = mysqli_fetch_assoc($result)) {
         
           <a id="linkSide" href="../index.html" target="_self"> HOME </a>
 
-          <a id="linkSide" href="gallery.html" target="_self"> GALLERY </a>
+          <a id="linkSide" href="../HTML/gallery.html" target="_self"> GALLERY </a>
 
-          <a id="linkSide" href="about company.html" target="_self"> COMPANY </a>
+          <a id="linkSide" href="../HTML/about company.html" target="_self"> COMPANY </a>
 
-          <a id="linkSide" href="contact.html" target="_self"> CONTACT US </a>
+          <a id="linkSide" href="../HTML/contact.html" target="_self"> CONTACT US </a>
 
-          <a id="linkSide" href="reserve date.html" target="_self"> RESERVE A DATE </a>
+          <a id="linkSide" href="reserve date.php" target="_self"> RESERVE A DATE </a>
 
         </nav>
 
@@ -81,14 +82,14 @@ while ($row = mysqli_fetch_assoc($result)) {
           <div class="menuLeft">
           <a class="hideOnMobile" href="../index.html" target="_self"> HOME </a>
 
-          <a class="hideOnMobile" href="gallery.html" target="_self"> GALLERY </a></button>
+          <a class="hideOnMobile" href="../HTML/gallery.html" target="_self"> GALLERY </a></button>
 
-          <a class="hideOnMobile" href="about company.html" target="_self"> COMPANY </a>
+          <a class="hideOnMobile" href="../HTML/about company.html" target="_self"> COMPANY </a>
 
-          <a class="hideOnMobile" href="contact.html" target="_self"> CONTACT US </a>
+          <a class="hideOnMobile" href="../HTML/contact.html" target="_self"> CONTACT US </a>
           </div>
           <div>
-          <a class="hideOnMobile" href="reserve date.html" id="reserve" target="_self"> RESERVE A DATE </a>
+          <a class="hideOnMobile" href="reserve date.php" id="reserve" target="_self"> RESERVE A DATE </a>
           </div>
         </nav>
        
@@ -310,6 +311,26 @@ function addToCart(dishName) {
   renderCart();
 }
 
+//THE INCREASE DECREASE THINGY
+function increaseQty(dishName) {
+  const item = cart.find(i => i.name === dishName);
+  if (item) {
+    item.qty++;
+    renderCart();
+  }
+}
+
+function decreaseQty(dishName) {
+  const item = cart.find(i => i.name === dishName);
+  if (item && item.qty > 1) {
+    item.qty--;
+  } else {
+    cart = cart.filter(i => i.name !== dishName);
+  }
+  renderCart();
+}
+
+
 
 function renderCart() {
   const cartList = document.getElementById('cartList');
@@ -319,13 +340,30 @@ function renderCart() {
 
   cart.forEach(item => {
     const li = document.createElement('li');
-    li.textContent = `${item.name} x${item.qty}`;
+    li.innerHTML = `
+      <span class = "cartProductList">${item.name}</span>
+      <div class="cart-item-controls">
+        <button onclick="decreaseQty('${item.name}')">-</button>
+        <span>${item.qty}</span>
+        <button onclick="increaseQty('${item.name}')">+</button>
+      </div>
+    `;
     cartList.appendChild(li);
     totalCount += item.qty;
   });
 
   cartCount.textContent = totalCount;
 }
+
+
+
+
+
+
+
+
+
+
 
 function prepareCheckoutData() {
   // const field = document.getElementById('orderDataField');
@@ -361,6 +399,35 @@ function prepareCheckoutData() {
   return true;
 
 
+}
+
+function prepareCheckoutData() {
+  const field = document.getElementById('orderDataField');
+  const dateField = document.getElementById('selectedDateField');
+
+  const convertedCart = cart.map(item => ({ name: item.name, quantity: item.qty }));
+
+  if (convertedCart.length === 0) {
+    alert("Please add items to your cart.");
+    return false;
+  }
+
+  if (!selectedDate) {
+    alert("Please select a reservation date.");
+    return false;
+  }
+
+  field.value = JSON.stringify(convertedCart);
+  dateField.value = selectedDate;
+
+
+console.log("Sending to checkout:", {
+    cart: field.value,
+    date: dateField.value
+  });
+
+
+  return true;
 }
 
 
