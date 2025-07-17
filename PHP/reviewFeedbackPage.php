@@ -103,7 +103,7 @@ echo "<script> const contactData = " . json_encode($contacts). "</script>";
           </div>
           <div>
 
-          <a class="hideOnMobile" id="reserve" href="HTML/reserve date.html" target="_self"> MANAGE BOOKINGS </a>
+          <a class="hideOnMobile" id="reserve" href="../HTML/employeePage.php" target="_self"> MANAGE BOOKINGS </a>
           <a class="hideOnMobile" id="reserve" href="empManagementPage.html" target="_self"> MANAGE MENU </a>
         <a class="hideOnMobile" id="reserve" href="reviewFeedbackPage.html" target="_self"> CUSTOMER FEEDBACK </a>
           <a class="hideOnMobile" id="reserve" href="../PHP/adminPage.php" target="_self"> ADMIN </a>
@@ -171,6 +171,11 @@ echo "<script> const contactData = " . json_encode($contacts). "</script>";
         email.setAttribute("id", "user_email");
         email.textContent = contact.email;
 
+        const date = document.createElement("h6");
+        date.classList.add("date");
+        date.setAttribute("id", "date_sent");
+        date.textContent = contact.msgdate;
+
         const message = document.createElement("p");
         message.setAttribute("id", "message");
         message.textContent = contact.message;
@@ -178,6 +183,7 @@ echo "<script> const contactData = " . json_encode($contacts). "</script>";
 
         container.appendChild(name);
         container.appendChild(email);
+        container.appendChild(date);
         container.appendChild(message);
         masterContainer.appendChild(container);
         count++;
