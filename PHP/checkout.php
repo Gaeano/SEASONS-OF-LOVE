@@ -2,7 +2,7 @@
 $orderItems = isset($_POST['orderData']) ? json_decode($_POST['orderData'], true) : [];
 
 if (!$orderItems || count($orderItems) === 0) {
-    echo "<p>No items in cart. <a href='menu.php'>Go back to menu</a></p>";
+    echo "<p>No items in cart. <a href='reserve date.php'>Go back to menu</a></p>";
     exit;
 }
 
@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['orderData']) && isset
 <html>
 <head>
   <title>Checkout</title>
- <link rel="stylesheet" href="reserve date.css">
+ <link rel="stylesheet" href="../CSS/reserve date.css">
 
   <style>
     /* body { font-family: Arial; margin: 2rem; }

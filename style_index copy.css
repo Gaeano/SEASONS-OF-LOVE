@@ -30,10 +30,12 @@
   color: black;
   padding: 20px;
   
+  
 
   font-family: "Verdana", sans-serif;
   border-bottom: 3px solid white;
   transition: all 0.5s ease;
+  
 
 }
 .sideBar a{
@@ -69,6 +71,7 @@
   gap: 5px; 
   
 }
+
 
 .menuLeft a:hover{
   color:rgb(0, 0, 0);
