@@ -1,196 +1,414 @@
-.list{ 
-    border-style: solid; 
-    width: 30vw; 
-    height: 85vw; 
-    align-content: center; 
-    margin: 10px;
-} 
+   .navBar{
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    height: 62px;
+    background-color: white;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    z-index: 100;
+    
+    
+  }
 
 
-  #order-container {
-      width: 800px;
-      height: 800px;
-      overflow-y: auto;
-      
-      padding: 10px;
-      margin: 20px;
-      background-color: #fafafa; 
-      box-shadow: 15px 15px 10px #8888887d;
-      border-radius: 10px;
+  .navLogo{
+    margin-right: 20px;
+
+  }
+
+  .menu a{
+    list-style:none;
+    display: inline-block;
+    
+    font-weight: 500;
+    text-decoration: none;
+
+    font-size: 0.8rem;
+    margin: 0 20px;
+    color: black;
+    padding: 20px;
+    
+
+    font-family: "Verdana", sans-serif;
+    border-bottom: 3px solid white;
+    transition: all 0.5s ease;
+
+  }
+  .sideBar a{
+    list-style:none;
+    display: inline-block;
+    
+    font-weight: 500;
+    text-decoration: none;
+
+    font-size: 18px;
+    margin: 0 20px;
+    color: black;
+    padding: 20px;
+    
+
+    font-family: "Verdana", sans-serif;
+    transition: all 0.5s ease;
+
+  }
+
+  .menu {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    justify-content: space-between;
+
+  }
+
+
+  .menuLeft {
+    display: flex;
+    align-items: center;
+    gap: 5px; 
+    
+  }
+
+  .menuLeft a:hover{
+    color:rgb(0, 0, 0);
+    border-bottom: 3px solid rgb(243, 124, 124);
+
+  }
+
+  #reserve:hover{
+    color: white;
+    background-color: rgb(243, 124, 124);
+  }
+
+
+
+
+
+  #reserve{
+    
+    list-style:none;
+    text-decoration: none;
+    display: inline-block;
+    
+    font-weight: 500;
+    text-decoration: none;
+
+    font-size: 0.8rem;
+
+    color: rgb(0, 0, 0);
+    
+    font-family: "Verdana", sans-serif;
+
+  }
+
+  #brandlogo{
+    width: auto;
+    height: 60px;
+    margin-left: 50px;
+    margin-right: 0px;
+  }
+
+
+
+
+  .sideBar{
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 250px;
+    z-index: 999;
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.716);
+    box-shadow: -10px 0 10px rgb(0, 0, 0, 0.1);
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-right: 0;
+  }
+
+  #linkSide{
+    width: 50%;
+  }
+
+
+
+  #menuButton{
+    display: none;
+  }
+
+
+  @media screen and (min-width: 768px)  {
+    .navBar {
+      flex-wrap: nowrap;
     }
 
-    .item {
-      border: 1px solid #ccc;
-      padding: 10px;
-      margin-bottom: 10px;
-      background-color: #f0f0f0;
-      border-radius: 5px;
-    } 
+    #menuButton {
+      display: none;
+    }
+
+    .sideBar {
+      display: none;
+    }
 
 
-    .order {
-  border: 1px solid #ccc;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 6px;
-  background: #f9f9f9; 
-} 
- 
-
-
-h3{ 
-  color: red;
-} 
-
-
-
-#orderdatecontainer{
- display: flex;
-  flex-direction: row;       
-  justify-content: center;
-  align-items: flex-start;
-  flex-wrap: wrap;  
-
-}
- 
-
-
-#calendar {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 5px;
-  background-color: #fafafa;
-  width: 800px; 
-  height: 800px; 
-  box-shadow: 15px 15px 10px #8888887d;
-  border-radius: 10px;
-}
-.calendar-day {
-  padding: 10px;
-  border: 1px solid #ccc;
-  text-align: center;
-}
-.has-order {
-  background-color: #ffe19d;
-  font-weight: bold;
-}
-.today {
-  border: 2px solid #000;
-} 
-
-
-
-
-.calendar-wrapper h2{
-  color: white;
-} 
-
-
-
-
-
- 
-
-button { 
-  background-color: #fafafa;
-   border-radius: 6px;
-  padding: 5px;
-  margin: none; 
-
-}  
-
-body{ 
-  background-image: linear-gradient(rgb(54, 54, 54), rgb(27, 27, 27), rgb(56, 56, 56));
-} 
-
- 
-@media (min-width: 1440px) {
-  .calendar-wrapper {
-    flex-direction: row;
-    justify-content: center;
-    gap: 5vw;
   }
 
-  #calendar, #order-container {
-    width: 40vw;
-    height: auto;
+  @media screen and (max-width: 920px) {
+    .menu{
+      display: none;
+    }
+
+    #menuButton{
+      display: block;
+    }
+
   }
 
-  .calendar-day {
-    padding: 12px;
-    font-size: 1.1rem;
+
+
+  /* NAV BAR END */
+
+  body{
+      background-color: rgb(220, 156, 220);
   }
 
-  h3 {
-    font-size: 1.6rem;
+
+
+
+  #menuTitle h2{
+    text-align: center;
+  }
+
+  .productContainer{
+    border-style: solid;
+    margin: 5px;
+    margin-top: 10px;
+  }
+
+  #myTable{
+    padding:30px;
+    width: 100%;
+
   } 
-}
 
-
-@media (max-width: 768px) {
-  .list {
-    width: 90vw;
-    height: auto;
+  th{
+    padding-right: 20px;
+    padding-left: 20px;
+    border: solid black;
   }
 
-  #order-container {
-    width: 90vw;
-    height: auto;
+  td{
+    border: solid black;
   }
 
-  #calendar {
-    width: 95vw;
-    height: auto;
-    grid-template-columns: repeat(7, 1fr);
+  .contentContainer{
+    display: flex;
+    gap: 25vw;
+    /* border:solid black; */
+    margin-bottom: 10px;
   }
 
-  .calendar-day {
-    padding: 8px;
-    font-size: 0.9rem;
+  .userContainer{
+    margin-top: 20px;
+    margin-right: 20px;
+    width: 50%;
+    /* border: solid black; */
   }
 
-  .calendar-wrapper {
-    padding: 1rem;
+  /* for the  */
+  .userTable{ 
+    display: flex;
+    gap: 10px;
   }
 
-  h3 {
-    font-size: 1.25rem;
-  }
-}
-
-/* For phones and very narrow screens */
-@media (max-width: 480px) {
-  .list {
+  #tableEmp, #tableCustomer{
     width: 100%;
-    height: auto;
+    background-color:  rgb(202, 160, 202);
   }
 
-  #order-container {
-    width: 100%;
-    height: auto;
-    margin: 10px;
-  }
-
-  #calendar {
-    grid-template-columns: repeat(4, 1fr); /* fewer columns to avoid cramping */
-    gap: 3px;
-  }
-
-  .calendar-day {
-    padding: 6px;
-    font-size: 0.8rem;
-  }
-
-  .calendar-wrapper {
+  .customerTable, .employeeTable{
     width: 100%;
   }
 
-  button {
-    font-size: 0.9rem;
-    padding: 4px 8px;
+  .page-btn {
+    padding: 5px 10px;
+    margin: 3px;
+    border: 1px solid  rgb(170, 136, 170);
+    background-color:  rgb(170, 136, 170);
+    cursor: pointer;
+    border-radius: 4px;
   }
 
-  h3 {
-    font-size: 1.1rem;
+  .page-btn:hover {
+    background-color:  rgb(215, 172, 215);
   }
+
+  .pagination {
+    margin: 10px 0;
+    text-align: center;
+
+
+  }
+
+  .userCrudContainer{
+    /* border: solid black; */
+    margin-left: 750px;
+    margin-right: 20px;
+  }
+
+  /* .accountCrudTable{ */
+    /* margin-left: 220px; */
+  /* }dsa */
+
+  #buttons{
+    gap: 20px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+  }
+
+  .tbl{
+    margin-left: 20px;
+    background-color:  rgb(202, 160, 202);
+  }
+
+  /* .tbl th{
+    width: 50%;
+  } */
+
+  .userIDCol{
+    width: fit-content;
+  }
+
+  .nameCol{
+    width: 68%;
+  }
+
+  #employeeButton, #customerButton, #createEmp, .editButton, .delButton{
+    background-color: rgb(215, 172, 215);
+    border-radius: 3px;
+    border: solid rgb(185, 148, 185);
+  }
+
+  #employeeButton:hover, #customerButton:hover, #createEmp:hover, .editButton:hover{
+    background-color: rgb(150, 121, 150);
+  }
+  #nextPage{
+    margin-left: 20px;
+    margin-top: 5px;
+  }
+
+  .table3Data{
+  padding: 10px 20px 10px;
+  }
+
+
+  .delButton:hover{
+    background-color: rgb(180, 0, 0);
+    color: white;
+  }
+
+  #form{
+    display: none; 
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 9999; 
+    justify-content: center;
+    align-items: center;
+  }
+
+
+  @media screen and (max-width:700px){
+      #form{
+          width: 65%;
+          padding: 40px
+      }
+  }
+
+  #modal-content{
+    background-color: #e1abe7;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 100%;
+  } 
+
+   #form{
+    display: none; 
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 9999; 
+    justify-content: center;
+    align-items: center;
+  }
+
+ .button{
+      padding: 5px;
+      font-size: large;
+      border-radius: 2px;
+      border: solid rgb(255, 255, 255);
+  }
+
+.button:hover{
+    background-color: rgb(138, 136, 136);
 }
+
+  @media screen and (max-width:700px){
+      #form{
+          width: 65%;
+          padding: 40px
+      }
+  }
+
+  #modal-content{
+    background-color: #e1abe7;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 100%;
+  } 
+
+   #formEdit{
+    display: none; 
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 9999; 
+    justify-content: center;
+    align-items: center;
+  }
+
+  @media screen and (max-width:700px){
+      #formEdit{
+          width: 65%;
+          padding: 40px
+      }
+  }
+
+  #modal-content-edit{
+    background-color: #e1abe7;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 100%;
+  }  
+
+
+  .menuContainer{
+    padding: 40px;
+
+
+  }

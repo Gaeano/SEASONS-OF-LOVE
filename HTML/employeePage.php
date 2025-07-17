@@ -1,7 +1,7 @@
 <?php 
    session_start();
      if (!isset($_SESSION['username'])) {
-    header("Location: ../PHP/adminLoginPage.php");
+    header("Location: ../PHP/employeeLoginPage.php");
     exit();
 }
 ?>
@@ -15,7 +15,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
-     <link rel="stylesheet" href="../CSS/adminpage.css">
+     <link rel="stylesheet" href="../CSS/employeePage.css">
 </head> 
 
 
@@ -40,7 +40,6 @@
 
 </div>
 
-  <!-- Add Logout Button -->
     <form action="../PHP/logout.php" method="post">
         <button type="submit">Logout</button>
     </form>
