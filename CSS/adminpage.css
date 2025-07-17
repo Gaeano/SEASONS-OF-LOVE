@@ -291,13 +291,13 @@
     width: 68%;
   }
 
-  #employeeButton, #customerButton, #createEmp, .editButton, .delButton{
+  #employeeButton, #customerButton, #createEmp, .editButton, .delButton, #cancelDeletion{
     background-color: rgb(215, 172, 215);
     border-radius: 3px;
     border: solid rgb(185, 148, 185);
   }
 
-  #employeeButton:hover, #customerButton:hover, #createEmp:hover, .editButton:hover{
+  #employeeButton:hover, #customerButton:hover, #createEmp:hover, .editButton:hover, #cancelDeletion:hover{
     background-color: rgb(150, 121, 150);
   }
   #nextPage{
@@ -309,6 +309,15 @@
   padding: 10px 20px 10px;
   }
 
+  #confirmDeletion{
+    color: white;
+    background-color: rgb(180, 0, 0);
+  }
+
+  #confirmDeletion:hover{
+    color: white;
+    background-color: rgb(241, 48, 48);
+  }
 
   .delButton:hover{
     background-color: rgb(180, 0, 0);
@@ -410,6 +419,34 @@
   }
 
   #modal-content-edit{
+    background-color: #e1abe7;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 100%;
+  } 
+
+  #deleteConfirm{
+    display: none; 
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 9999; 
+    justify-content: center;
+    align-items: center;
+  }
+
+    @media screen and (max-width:700px){
+      #formEdit{
+          width: 65%;
+          padding: 40px
+      }
+  }
+
+  #deleteContent{
     background-color: #e1abe7;
     padding: 20px;
     border-radius: 8px;

@@ -293,6 +293,15 @@
   </div>
 </div>
 
+<div id="deleteConfirm"> 
+  <div id= "deleteContent">
+    <h3> Are you sure you want to delete this user? </h3>
+    <h4> Warning: This action cannot be undone! </h4>
+    <button id="confirmDeletion"> Delete </button>
+    <button id="cancelDeletion"> Cancel </button>
+  </div>
+</div>
+
 
 
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
@@ -454,14 +463,29 @@ function addEventListeners(){
     });
   }); 
 
-
+  const confirmButton = document.getElementById("confirmDeletion");
   const deleteButton = document.querySelectorAll(".delButton");
+  const deleteForm = document.getElementById("deleteConfirm");
+  const cancelDeletion = document.getElementById("cancelDeletion");
+
+
+  cancelDeletion.onclick =function(){
+    deleteForm.style.display = "none";
+  };
+
+
   deleteButton.forEach(btn =>{
     btn.addEventListener("click", () => {
       const userId = btn.getAttribute("data-id");
-      window.location.href = `delete_page_1.php?id=${userId}`;
+      deleteForm.style.display = "Flex";
+      confirmButton.setAttribute("data-id", userId);
     });
   });
+
+  confirmButton.addEventListener("click", ()=> {
+    const userId = confirmButton.getAttribute("data-id");
+    window.location.href = `delete_page_1.php?id=${userId}`;
+  })
 
 
 window.addEventListener("click", function(event){

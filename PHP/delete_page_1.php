@@ -26,7 +26,8 @@ $stmt = mysqli_prepare($conn, $sql);
 mysqli_stmt_bind_param($stmt, "i", $id);
 
 if (mysqli_stmt_execute($stmt)){
-    echo "<script>alert('user deleted successfully'); window.location.href = 'adminPage.php';</script>";
+    echo "<script>alert('user deleted successfully');
+     window.location.href = 'adminPage.php';</script>";
 } else {
     echo "deletion unsuccessfully :(";
 }
