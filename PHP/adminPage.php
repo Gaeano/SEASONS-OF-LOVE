@@ -142,8 +142,8 @@
 
           <a id="linkSide" href="HTML/gallery.html" target="_self"> MANAGE BOOKINGS </a>
           <a id="linkSide" href="../HTML/empManagementPage.html" target="_self"> MANAGE MENU </a>
-          <a id="linkSide" href="HTML/gallery.html" target="_self"> CUSTOMER FEEDBACK </a>
-          <a id="linkSide" href="HTML/gallery.html" target="_self"> ADMIN </a>
+          <a id="linkSide" href="reviewFeedbackPage.php" target="_self"> CUSTOMER FEEDBACK </a>
+          <a id="linkSide" href="adminPage.php" target="_self"> ADMIN </a>
 
 
         </nav>
