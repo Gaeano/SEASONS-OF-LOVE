@@ -27,7 +27,7 @@
                 $sql = "INSERT INTO login(username, email, password, userType) VALUES('$username', '$email', '$hash', 'customer')";
                 $result = mysqli_query($conn, $sql);
                 if($result){
-                    header("Location: ..index.html");
+                    header("Location: employeeLoginPage.php");
                 }
             }
             else{

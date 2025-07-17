@@ -1,11 +1,9 @@
 <?php
 header("Content-Type: application/json");
 
+  
 
-$host = "localhost";      
-$dbname = "s19010108_seasonsoflove";      
-$user = "s19010108_seasonsoflove";              
-$password = "mutiamanlangitherediasanding2025";     
+
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $password);

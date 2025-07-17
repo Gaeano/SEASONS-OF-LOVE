@@ -2,10 +2,10 @@
     session_start();
 
 
-  //   //if (isset($_SESSION['username']) && $_SESSION['UserType'] === 'admin') {
-  //   header("Location: adminPage.php");
-  //   exit();
-  //  }
+   if (!isset($_SESSION['UserType']) || $_SESSION['UserType'] !== 'admin') {
+    header("Location:../HTML/reserve date.html");
+    exit();
+    }
 
 ?>
 
@@ -14,7 +14,9 @@
 
 
 
-  $sql = "Select userid, username, userType from login";
+
+  $sql = "Select userID, username, UserType from login";
+
 
   $result = mysqli_query($conn, $sql);
 
@@ -24,7 +26,16 @@
       $users[] = $row;
   }
 
-  echo "<script>const usersFromPHP = " . json_encode($users).";</script>";
+  echo "<script>const usersFromPHP = " . json_encode($users).";</script>"; 
+
+  $sqlMenu = "SELECT dish_id, NAME, category, image_path, description FROM dishes";
+  $resultMenu = mysqli_query($conn, $sqlMenu);
+
+  $menu = [];
+  while ($row = mysqli_fetch_assoc($resultMenu)) {
+    $menu[] = $row;
+  }
+  echo "<script>const menuFromPHP = " . json_encode($menu) . ";</script>";
 
   if(isset($_POST['submit'])){
         $username = mysqli_real_escape_string($conn, $_POST['user']);
@@ -166,24 +177,28 @@
 
 
 
-        <p id="menuButton" onclick= openSideBar()> <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="black"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg> </p>
+        <p id="nextPage" onclick= openSideBar()> <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="black"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg> </p>
 
   </div>
 <!-- NAV BAR END -->
 
 <div class="contentContainer"> 
-      <div class="tableContainer"> 
+  <div class="menuContainer">  
+   
+      <div>  
         <div id="menuTitle">
-          <h2>MENU</h2>
+          <h2>Menu</h2>
           </div>
 
-          <table id="myTable">
+          <table id="menuTable">
             <thead>
               <tr>
                 
-                <th>Product Name</th>
-                <th>Status</th>
-                <th>Edit</th>
+                <th>Dish</th>
+                <th>Category</th> 
+                <th>Description</th> 
+                <th>Edit</th> 
+                
               </tr>
 
             </thead>
@@ -191,9 +206,13 @@
               <!-- insert rows -->
             </tbody>
 
-          </table>
+          </table> 
+          <div id="menuPage" class="menuPages"></div>
 
-        </div>
+     </div>
+ </div> 
+
+
 
 
       <div class="userContainer">
@@ -258,12 +277,17 @@
     <div id="nextPage"></div>
 
 
-  </div>
+  </div> 
+
+
+
+
+
 
 
 </div>
   <div id="form">
-    <div id="modal-content">
+    <div id="modal-.">
         <h1 id="heading">SignUp Form</h1>
         <h2> Employee Sign Up</h2>  
         <form name="form" action="signup.php" method="POST">
@@ -291,6 +315,29 @@
         <input type="submit" id="btn" class="button" value="Edit" name = "submit"/>
         <button id="cancelButton" class="button">Cancel</button>
     </form>
+  </div>
+</div> 
+
+
+
+
+<div class="modal fade" id="menuModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Edit Dish</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       
+      </div>
+      <div class="modal-footer"> 
+
+        <button type="submit" form="dishEditForm" class="btn btn-success">Save</button> 
+        <button type="button" class="btn btn-secondary" id="availabilityToggle" onclick="toggleAvailability(this)" data-dishid="">Change Availability</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -329,8 +376,10 @@
 const tableEmployee = document.querySelector("#tableEmp tbody");
 const tableCustomer = document.querySelector("#tableCustomer tbody");
 
-const employeeData = usersFromPHP.filter(user => user.userType === "employee");
-const customerData = usersFromPHP.filter(user => user.userType === "customer");
+const employeeData = usersFromPHP.filter(user => user.UserType === "employee");
+const customerData = usersFromPHP.filter(user => user.UserType === "customer");
+const menuData = menuFromPHP; 
+
 
 const rowPerPage = 5;
 
@@ -346,7 +395,9 @@ function pagination (data, tableBody, page){
         const row = document.createElement("tr");
         row.addClass //?
         const userID = document.createElement("td");
-        userID.textContent = user.userid;
+
+        userID.textContent = user.userID;
+
         const nameCell = document.createElement("td");
         nameCell.textContent = user.username;
         row.appendChild(userID);
@@ -385,13 +436,13 @@ function pageControls (containerId, data, tableBody){
 const tblBody = document.querySelector(".tbl tbody");
 const users = usersFromPHP;
 const buttonContainers = document.getElementById("nextPage");
-
+const MenuButtons = document.getElementById("menuPage")
 const employeeButton = document.getElementById("employeeButton");
 const customerButton = document.getElementById("customerButton");
 
 
 const rowsPerPage = 5;
-let currentData =  usersFromPHP.filter(u => u.userType === "employee");
+let currentData =  usersFromPHP.filter(u => u.UserType === "employee");
 let currentPage = 1;
 
 function paginate (data, page){
@@ -407,7 +458,9 @@ function paginate (data, page){
         rows.classList.add("rowz")
 
         const userID = document.createElement("td");
-        userID.textContent = user.userid;
+
+        userID.textContent = user.userID;
+
         userID.classList.add("userIDCol")
 
         const nameCellz = document.createElement("td");
@@ -417,8 +470,10 @@ function paginate (data, page){
 
         const editDel = document.createElement("td");
         editDel.innerHTML = `
+
           <button class ="editButton" data-id= ${user.userid}>Edit</button>
           <button class="delButton" data-id=${user.userid}>Delete</button>`;
+
         editDel.classList.add("table3Data")
         rows.appendChild(userID);
         rows.appendChild(nameCellz);
@@ -456,9 +511,12 @@ function addEventListeners(){
   editButton.forEach(btn => {
     btn.addEventListener("click", ()=> {
       const userId = btn.getAttribute("data-id");
-      const userToEdit = users.find(user=>user.userid == userId);
+
+
+      const userToEdit = users.find(user=>user.userID == userId);
+
       usernameInput.value = userToEdit.username;
-      editFrm.action = `update_page_1.php?id=${userId};`;
+      editFrm.action = `update_page_1.php?id=${userId}`;
 
 
       formEdit.style.display = "flex";
@@ -505,7 +563,7 @@ cancelButton.onclick = function(){
 
 
 function showData(userType){
-  currentData = users.filter(user => user.userType === userType);
+  currentData = users.filter(user => user.UserType === UserType);
   currentPage = 1;
   paginate (currentData, currentPage);
   controlz(buttonContainers, currentData);
@@ -539,13 +597,183 @@ window.onclick = function(event){
   if(event.target == modal){
     modal.style.display = "none";
   }
-}
+} 
+ 
 
 
+const menuTable = document.querySelector("#menuTable tbody");
 
+function menuControls (containerId, data, tableBody){
+  const container = document.getElementById(containerId);
+  container.innerHTML = "";
 
+  const totalPages = Math.ceil (data.length / rowPerPage);
+  
+  for (let i = 1; i <= totalPages; i++){
+    const btn = document.createElement("button");
+    btn.textContent = i;
+    btn.classList.add ("page-btn");
+    btn.addEventListener("click", () => menuPages(data, tableBody, i));
+    container.appendChild(btn);
+  }
+  }
+ 
+function menuPages(data, tableBody, page) {
+  tableBody.innerHTML = "";
+
+  const start = (page - 1) * rowPerPage;
+  const end = start + rowPerPage;
+  const pageData = data.slice(start, end);
+
+  pageData.forEach(dish => {
+    const row = document.createElement("tr");
+
+    const nameCell = document.createElement("td");
+    const categoryCell = document.createElement("td");  
+    const descriptionCell = document.createElement("td");
+    const editButton = document.createElement("button");
+
+    nameCell.textContent = dish.NAME || "Unnamed Dish";
+    categoryCell.textContent = dish.category || "Uncategorized"; 
+    descriptionCell.textContent = dish.description || "No Description"; 
+
+    editButton.textContent = "Edit";
+    editButton.type = "button";
+    editButton.classList.add("btn", "btn-primary");
+    editButton.setAttribute("data-bs-toggle", "modal");
+    editButton.setAttribute("data-bs-target", "#menuModal");
+    editButton.setAttribute("data-dishid", dish.dish_id);
+
+    editButton.addEventListener("click", () => { 
+      const modalBody = document.querySelector("#menuModal .modal-body");
+      modalBody.innerHTML = "";
+
+      const form = document.createElement("form");
+      form.id = "dishEditForm";
+      form.setAttribute("data-dishid", dish.dish_id); 
+
+ 
+      form.action = `update_dish.php?id=${dish.dish_id}`; 
+      form.method = "POST";
+
+      // Dish Name
+      const nameGroup = document.createElement("div");
+      nameGroup.classList.add("mb-3");
+      const nameLabel = document.createElement("label");
+      nameLabel.textContent = "Dish Name";
+      nameLabel.setAttribute("for", "dishName");
+      nameLabel.classList.add("form-label");
+      const nameInput = document.createElement("input");
+      nameInput.type = "text";
+      nameInput.name = "name";
+      nameInput.value = dish.NAME || "";
+      nameInput.id = "dishName";
+      nameInput.classList.add("form-control");
+      nameGroup.appendChild(nameLabel);
+      nameGroup.appendChild(nameInput);
+
+      // Category
+      const categoryGroup = document.createElement("div");
+      categoryGroup.classList.add("mb-3");
+      const categoryLabel = document.createElement("label");
+      categoryLabel.textContent = "Category";
+      categoryLabel.setAttribute("for", "dishCategory");
+      categoryLabel.classList.add("form-label");
+      const categoryInput = document.createElement("input");
+      categoryInput.type = "text";
+      categoryInput.name = "category";
+      categoryInput.value = dish.category || "";
+      categoryInput.id = "dishCategory";
+      categoryInput.classList.add("form-control");
+      categoryGroup.appendChild(categoryLabel);
+      categoryGroup.appendChild(categoryInput);
+
+      // Image Path
+      const imageGroup = document.createElement("div");
+      imageGroup.classList.add("mb-3");
+      const imageLabel = document.createElement("label");
+      imageLabel.textContent = "Image Path";
+      imageLabel.setAttribute("for", "dishImage");
+      imageLabel.classList.add("form-label");
+      const imageInput = document.createElement("input");
+      imageInput.type = "text";
+      imageInput.name = "image_path";
+      imageInput.value = dish.image_path || "";
+      imageInput.id = "dishImage";
+      imageInput.classList.add("form-control");
+      imageGroup.appendChild(imageLabel);
+      imageGroup.appendChild(imageInput); 
+
+      // Description
+    const descriptionGroup = document.createElement("div");
+    descriptionGroup.classList.add("mb-3");
+    const descriptionLabel = document.createElement("label");
+    descriptionLabel.textContent = "Description";
+    descriptionLabel.setAttribute("for", "dishDescription");
+    descriptionLabel.classList.add("form-label");
+    const descriptionInput = document.createElement("textarea");
+    descriptionInput.name = "description";
+    descriptionInput.value = dish.description || "";
+    descriptionInput.id = "dishDescription";
+    descriptionInput.classList.add("form-control");
+    descriptionGroup.appendChild(descriptionLabel);
+    descriptionGroup.appendChild(descriptionInput);
+
+      // Append all to form
+      form.appendChild(nameGroup);
+      form.appendChild(categoryGroup);
+      form.appendChild(imageGroup);
+      form.appendChild(descriptionGroup);
+      modalBody.appendChild(form); 
+
+      document.getElementById("availabilityToggle").setAttribute("data-dishid", dish.dish_id);
+    });
+
+    row.appendChild(nameCell);
+    row.appendChild(categoryCell); 
+    row.appendChild(descriptionCell);
+    row.appendChild(editButton);
+    tableBody.appendChild(row);
+  });
+} 
+
+menuControls("menuPage", menuData, menuTable);
+menuPages(menuData, menuTable, 1);
 
 </script> 
+ 
+<script>
+function toggleAvailability(button) {
+    const dish_id = button.getAttribute('data-dishid');  
+
+  if (!dish_id) {
+    alert("No dish ID found.");
+    return;
+  }
+
+   if (!confirm("Are you sure you want to change this item's availability?")) {
+        return; 
+    }
+    
+
+    fetch('toggle_availability.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: `dish_id=${encodeURIComponent(dish_id)}`
+    })
+    .then(response => response.text())
+    .then(data => {
+        alert(data); 
+        location.reload(); 
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
 
 </body>
 
