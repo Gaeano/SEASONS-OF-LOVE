@@ -145,6 +145,7 @@ display: none;
   flex-wrap: nowrap;
   }
 
+
   #menuButton {
   display: none;
   }
@@ -164,8 +165,6 @@ display: none;
 #menuButton{
   display: block;
   }
-
-}
 
 
 
@@ -462,6 +461,7 @@ align-items: center;
   }
 }
 
+
 #deleteContent{
 background-color: #e1abe7;
 padding: 20px;
@@ -469,3 +469,17 @@ border-radius: 8px;
 max-width: 500px;
 width: 100%;
 } 
+
+  #modal-content-edit{
+    background-color: #e1abe7;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 100%;
+  }  
+
+
+  .menuContainer{
+    padding: 40px;
+
+
