@@ -9,7 +9,7 @@ if(!isset($_GET['id'])){
 
 $id = $_GET['id'];
 
-$sql = "select * from login where user_id = ?";
+$sql = "select * from login where userID = ?";
 $stmt = mysqli_prepare($conn, $sql); 
 mysqli_stmt_bind_param($stmt, "i", $id);
 mysqli_stmt_execute($stmt);
@@ -24,7 +24,7 @@ if ($count_user === 0){
 if ($_SERVER["REQUEST_METHOD"] == "POST"){
     $new_username = $_POST['username'];
 
-    $update_sql = "update login set username = ? where user_id = ?";
+    $update_sql = "update login set username = ? where userID = ?";
     $update_stmt = mysqli_prepare($conn, $update_sql);
     mysqli_stmt_bind_param($update_stmt, "si", $new_username, $id);
 

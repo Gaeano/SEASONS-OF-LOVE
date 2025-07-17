@@ -176,12 +176,7 @@
   }
 
 
-  .tableContainer{
-    border-style: solid;
-    padding: 2px;
-    width: 50%;
-    margin: 20px;
-  }
+
 
   #menuTitle h2{
     text-align: center;
@@ -211,7 +206,7 @@
 
   .contentContainer{
     display: flex;
-    gap: 40px;
+    gap: 25vw;
     /* border:solid black; */
     margin-bottom: 10px;
   }
@@ -409,4 +404,11 @@
     border-radius: 8px;
     max-width: 500px;
     width: 100%;
-  } 
+  }  
+
+
+  .menuContainer{
+    padding: 40px;
+
+
+  }
