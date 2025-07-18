@@ -60,7 +60,7 @@
           <a class="hideOnMobile" id="reserve" href="empManagementPage.html" target="_self"> MANAGE MENU </a>
           <a class="hideOnMobile" id="reserve" href="../PHP/reviewFeedbackPage.php" target="_self"> CUSTOMER FEEDBACK </a>
           <a class="hideOnMobile" id="reserve" href="../PHP/adminPage.php" target="_self"> ADMIN </a>
-          <a class="hideOnMobile" id="reserve" href="logout.php" target="_self"> LOGOUT </a>
+          <a class="hideOnMobile" id="reserve" href="../PHP/logout.php" target="_self"> LOGOUT </a>
 
 
           </div>
