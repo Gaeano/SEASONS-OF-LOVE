@@ -165,8 +165,8 @@
           </div>
           <div>
 
-          <a class="hideOnMobile" id="reserve" href="HTML/reserve date.html" target="_self"> MANAGE BOOKINGS </a>
-          <a class="hideOnMobile" id="reserve" href="../HTML/empManagementPage.html" target="_self"> MANAGE MENU </a>
+          <a class="hideOnMobile" id="reserve" href="../HTML/employeePage.php" target="_self"> MANAGE BOOKINGS </a>
+          <a class="hideOnMobile" id="reserve" href="../HTML/empManagementPage.php" target="_self"> MANAGE MENU </a>
           <a class="hideOnMobile" id="reserve" href="../PHP/reviewFeedbackPage.php" target="_self"> CUSTOMER FEEDBACK </a>
           <a class="hideOnMobile" id="reserve" href="adminPage.php" target="_self"> ADMIN </a>
           
