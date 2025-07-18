@@ -1,20 +1,30 @@
 body{
-    background-color: rgba(201, 201, 201, 0.87);
+    background-image: url(../IMAGES/log_in_bg.jpg);
+    background-repeat:no-repeat ;
+    background-position: center;
+    background-size: cover;
+    
 }
 
 #form{
-    margin: 150px auto;
-    background-color: #28362eb4;  
+    margin: 200px auto;
+    background-color: #e48fddef;  
     width: 25%;
     padding: 50px;
-    box-shadow: 10px 10px 5px #28362ed2;
+    box-shadow: 10px 10px 5px #a5599fef;
     border-radius: 8px;
     color: white;
+    font-family: Verdana, sans-serif;
 }
+
+
+
 
 #btn{
     padding: 5px;
     font-size: large;
+    border-radius: 2px;
+    border: solid rgb(255, 255, 255);
 }
 
 @media screen and (max-width:700px){
