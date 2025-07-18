@@ -1,7 +1,7 @@
 <?php
 include('connection.php');
 
-$sql = "SELECT image_path, NAME, description, category FROM dishes";
+$sql = "SELECT image_path, NAME, description, category FROM dishes where isAvailable = 1";
 $result = mysqli_query($conn, $sql);
 
 $dishes = [];
@@ -32,7 +32,7 @@ while ($row = mysqli_fetch_assoc($result)) {
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
-  <link rel="stylesheet" href="../CSS/reserve date.css">
+  <link rel="stylesheet" href="reserve date.css">
 
   <!--For font for brand-->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -74,7 +74,11 @@ while ($row = mysqli_fetch_assoc($result)) {
 
           <a id="linkSide" href="../HTML/contact.html" target="_self"> CONTACT US </a>
 
-          <a id="linkSide" href="" target="_self"> BOOKINGS </a>
+          <a id="linkSide" href="../PHP/reviewbookings.php" target="_self"> BOOKINGS </a> 
+
+          <a id="linkSide" href="../PHP/employeeLoginPage.php" target="_self"> LOGIN </a>
+
+         <a id="linkSide" href="../PHP/customerSignUp.php" target="_self"> SIGNUP </a>
 
           <a id="linkSide" href="reserve date.php" target="_self"> RESERVE A DATE </a>
 
@@ -90,7 +94,11 @@ while ($row = mysqli_fetch_assoc($result)) {
 
           <a class="hideOnMobile" href="../HTML/contact.html" target="_self"> CONTACT US </a>
 
-          <a id="hideOnMobile" href="" target="_self"> BOOKINGS </a>
+          <a id="hideOnMobile" href="../PHP/reviewbookings.php" target="_self"> BOOKINGS </a> 
+
+          <a id="hideOnMobile" href="../PHP/employeeLoginPage.php" target="_self"> LOGIN </a>  
+
+          <a id="hideOnMobile" href="../PHP/customerSignUp.php" target="_self"> SIGNUP </a>
 
           </div>
           <div>
