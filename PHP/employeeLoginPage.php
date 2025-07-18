@@ -2,7 +2,8 @@
 session_start();
 
 
-if (isset($_SESSION['username'])) {
+if (isset($_SESSION['username'])) { 
+    alert("Already Signed in! Redirecting...");
     header("Location: ../HTML/employeePage.php");
     exit();
     }
