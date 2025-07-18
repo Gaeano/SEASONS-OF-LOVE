@@ -338,34 +338,6 @@ background-color: rgb(180, 0, 0);
 color: white;
 }
 
-#form{
-display: none; 
-position: fixed; 
-top: 0;
-left: 0;
-width: 100vw;
-height: 100vh;
-background-color: rgba(0, 0, 0, 0.5); 
-z-index: 9999; 
-justify-content: center;
-align-items: center;
-}
-
-
-@media screen and (max-width:700px){
-  #form{
-      width: 65%;
-      padding: 40px
-  }
-}
-
-#modal-content{
-background-color: #e1abe7;
-padding: 20px;
-border-radius: 8px;
-max-width: 500px;
-width: 100%;
-} 
 
 #form{
 display: none; 
@@ -397,11 +369,18 @@ display: none;
 }
 
 
-@media screen and (max-width:700px){
-  #form{
-      width: 65%;
-      padding: 40px
-  }
+
+#form{
+display: none; 
+position: fixed; 
+top: 0;
+left: 0;
+width: 100vw;
+height: 100vh;
+background-color: rgba(0, 0, 0, 0.5); 
+z-index: 9999; 
+justify-content: center;
+align-items: center;
 }
 
 #modal-content{

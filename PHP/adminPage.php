@@ -288,7 +288,7 @@
 
 </div>
   <div id="form">
-    <div id="modal-.">
+    <div id="modal-content">
         <h1 id="heading">SignUp Form</h1>
         <h2> Employee Sign Up</h2>  
         <form name="form" action="signup.php" method="POST">
@@ -300,7 +300,7 @@
             <input type="password" id="pass" name="pass" required><br><br>
             <label>Retype Password: </label>
             <input type="password" id="cpass" name="cpass" required><br><br>
-            <input type="submit" id="btn" class="button" value="SignUp" name = "submit"/>
+            <input type="submit" id="btn" class="signUpButton" value="SignUp" name = "submit"/>
             <button class="button" id="buttonz">Cancel</button>
             <p id="confirm">Account Successfully Created</p>
         </form>
@@ -564,7 +564,7 @@ cancelButton.onclick = function(){
 
 
 function showData(userType){
-  currentData = users.filter(user => user.UserType === UserType);
+  currentData = users.filter(user => user.UserType === userType);
   currentPage = 1;
   paginate (currentData, currentPage);
   controlz(buttonContainers, currentData);
@@ -580,17 +580,17 @@ function showData(userType){
 
 // // end of accoouns pagination
 
-
+  createEmp = document.getElementById("createEmp")
   const modal = document.getElementById("form");
 
   createEmp.addEventListener("click", () => modal.style.display = 'flex');
-  const btn = document.getElementById("buttonz");
+  const signUpButton = document.querySelector(".signUpButton");
 
-  btn.onclick = function(){
+  signUpButton.onclick = function(){
     alert("Account Successfully created");
   }
 
-btn.onclick = function(){
+signUpButton.onclick = function(){
   modal.style.display = "none";
 }
 
