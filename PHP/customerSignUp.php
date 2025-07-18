@@ -1,6 +1,8 @@
 <?php
-    session_start();
-    if(isset($_SESSION['username'])){
+    session_start(); 
+
+    if(isset($_SESSION['username'])){ 
+        alert("Already Signed in! Redirecting...");
         header("Location: ../HTML/reserve date.html");
     }
 ?>

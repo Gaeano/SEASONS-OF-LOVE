@@ -8,8 +8,6 @@
   justify-content: space-between;
   padding: 0 30px;
   z-index: 100;
-  
-  
 }
 
 
@@ -219,7 +217,7 @@ h4{
 p{
     line-height: 27px;
     font-family: "Verdana", sans-serif;
-    text-align: justify;
+    text-align: center;
 }
 
 h3{
@@ -252,9 +250,9 @@ p2{
     letter-spacing: 1px;
 
     text-align: center;
-   place-content: center;
+    place-content: center;
 
-   font-weight: normal;
+    font-weight: normal;
 
     padding: 20px;
     margin-bottom: 100px;
@@ -280,7 +278,7 @@ p2{
       color:  black;
       padding: 8px;
       background:none;
-      border: 0;
+      border: 2px solid black;
       border-radius: 16px;
       outline: none;
       margin-top: 30px;
@@ -315,7 +313,16 @@ p2{
 
 
     .part1{
-      height: 80%;
+      width: 100%;
+      min-height: 60vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px 10px;
+      text-align: center;
+      margin-bottom: 0;
+      
     }
   }
 
@@ -338,81 +345,34 @@ p2{
   }
 
 
-.part2{
-  height: 70%;
-  margin: auto;
-
-   display: flex;
-    gap: 1.5rem;
-    
-    width: 80%;
-    flex-wrap: wrap;
-    justify-content: center;
-
-  
-  
-    
+.part2 {
+  display: flex;
+  gap: 1.5rem;
+  width: 80%;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px auto 50px;
 }
 
-
-  .card {
-    background: white;
- 
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    overflow: hidden;
-    cursor: pointer;
-    flex: 1 1 30%;
-    max-width: 500px;
-    display: flex;
-    flex-direction: column;
-    transition: all 0.4s ease;
-    box-sizing: border-box;
-    height: fit-content;
-
-    padding: 30px;
-
-    margin-top: 100px;
-      margin-bottom: 50px;
-  }
-
-  .card .content {
-    max-height: 0;
-    margin-top: 20px;
-    overflow: hidden;
-    padding: 0 1.25rem;
-    color: black;
-    font-size: 1rem;
-    line-height: 1.5;
-    transition: max-height 0.4s ease, padding 0.4s ease;
-  }
-  .card:hover .content {
-    max-height: 500px; /* Enough height for content */
-    padding: 0 1.25rem 1rem 1.25rem;
-  }
-  /* Responsive: stack cards vertically on small screens */
-  @media screen and (max-width: 900px) {
-    .card {
-      flex: 1 1 80%;
-       max-width: 90%;
-      margin-bottom: 1.5rem;
-    }
-  }
-
-
-
-.card2{
-  border: 1px solid black;
-  width: 400px;
-  margin-top: 50px;
+.card {
+  background: white;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  flex: 1 1 30%;
+  max-width: 500px;
+  padding: 30px;
+  height: fit-content;
+  box-sizing: border-box;
+  transition: all 0.4s ease;
+  min-height: 400px; 
 }
 
-.card3{
-  border: 1px solid black;
-  margin-top: 50px;
-  width: 400px;
+.card .content {
+  margin-top: 30px;
+  margin-bottom: 40px;
+  color: black;
+  font-size: 1rem;
+  line-height: 1.5;
 }
-  
-
 
 #icon a{
 font-size: 50px;
@@ -423,11 +383,12 @@ justify-content:space-around;
 color: black;
 }
 
-
-
-
-
-
+#feedback {
+  display: block;
+  text-align: center;
+  font-weight: bold;
+  margin-top: 10px;
+}
 
 /*the demmn footer*/
 
