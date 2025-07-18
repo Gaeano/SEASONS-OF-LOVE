@@ -15,7 +15,7 @@
 
 
 
-  $sql = "Select userID, username, UserType from login";
+  $sql = "Select userid, username, UserType from login";
 
 
   $result = mysqli_query($conn, $sql);
@@ -307,6 +307,7 @@
       </div>
     </div>
 
+
 <div id="formEdit">
   <div id="modal-content-edit">
     <h1 id="heading">Edit Form</h1>
@@ -443,7 +444,7 @@ const customerButton = document.getElementById("customerButton");
 
 
 const rowsPerPage = 5;
-let currentData =  usersFromPHP.filter(u => u.UserType === "employee");
+let currentData =  users.filter(u => u.UserType === "employee");
 let currentPage = 1;
 
 function paginate (data, page){
@@ -483,7 +484,7 @@ function paginate (data, page){
 
     });
 
-    addEventListeners();
+  addEventListeners();
 } 
 
 function controlz (container, data){
@@ -505,6 +506,7 @@ function controlz (container, data){
 function addEventListeners(){
   const editButton = document.querySelectorAll(".editButton");
   const formEdit = document.getElementById("formEdit");
+  const users = usersFromPHP;
   const editFrm = document.getElementById("editFrm");
   const cancelButton = formEdit.querySelector("#cancelButton");
   const usernameInput = document.getElementById("username");
@@ -514,7 +516,7 @@ function addEventListeners(){
       const userId = btn.getAttribute("data-id");
 
 
-      const userToEdit = users.find(user=>user.userID == userId);
+      const userToEdit = users.find(user=>user.userid == userId);
 
       usernameInput.value = userToEdit.username;
       editFrm.action = `update_page_1.php?id=${userId}`;
@@ -549,22 +551,22 @@ function addEventListeners(){
   })
 
 
-window.addEventListener("click", function(event){
-  if(event.target == formEdit){
+  window.addEventListener("click", function(event){
+    if(event.target == formEdit){
+      formEdit.style.display = "none";
+    }
+  });
+
+  cancelButton.onclick = function(){
     formEdit.style.display = "none";
   }
-});
-
-cancelButton.onclick = function(){
-  formEdit.style.display = "none";
-}
 
 
 }
 
 
 function showData(userType){
-  currentData = users.filter(user => user.UserType === userType);
+  currentData = usersFromPHP.filter(user => user.UserType === userType);
   currentPage = 1;
   paginate (currentData, currentPage);
   controlz(buttonContainers, currentData);
