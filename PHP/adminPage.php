@@ -15,7 +15,7 @@
 
 
 
-  $sql = "Select userID, username, UserType from login";
+  $sql = "Select userid, username, UserType from login";
 
 
   $result = mysqli_query($conn, $sql);
@@ -155,6 +155,7 @@
           <a id="linkSide" href="../HTML/empManagementPage.html" target="_self"> MANAGE MENU </a>
           <a id="linkSide" href="reviewFeedbackPage.php" target="_self"> CUSTOMER FEEDBACK </a>
           <a id="linkSide" href="adminPage.php" target="_self"> ADMIN </a>
+          <a id="linkSide" href="logout.php" target="_self"> LOGOUT </a>
 
 
         </nav>
@@ -165,11 +166,11 @@
           </div>
           <div>
 
-          <a class="hideOnMobile" id="reserve" href="HTML/reserve date.html" target="_self"> MANAGE BOOKINGS </a>
+          <a class="hideOnMobile" id="reserve" href="../HTML/employeePage.php" target="_self"> MANAGE BOOKINGS </a>
           <a class="hideOnMobile" id="reserve" href="../HTML/empManagementPage.html" target="_self"> MANAGE MENU </a>
           <a class="hideOnMobile" id="reserve" href="../PHP/reviewFeedbackPage.php" target="_self"> CUSTOMER FEEDBACK </a>
           <a class="hideOnMobile" id="reserve" href="adminPage.php" target="_self"> ADMIN </a>
-          
+          <a class="hideOnMobile" id="reserve" href="logout.php" target="_self"> LOGOUT </a>
 
 
           </div>
@@ -177,7 +178,7 @@
 
 
 
-        <p id="nextPage" onclick= openSideBar()> <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="black"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg> </p>
+        <p id="sideBarButton" onclick= openSideBar()> <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="black"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg> </p>
 
   </div>
 <!-- NAV BAR END -->
@@ -287,7 +288,7 @@
 
 </div>
   <div id="form">
-    <div id="modal-.">
+    <div id="modal-content">
         <h1 id="heading">SignUp Form</h1>
         <h2> Employee Sign Up</h2>  
         <form name="form" action="signup.php" method="POST">
@@ -299,12 +300,13 @@
             <input type="password" id="pass" name="pass" required><br><br>
             <label>Retype Password: </label>
             <input type="password" id="cpass" name="cpass" required><br><br>
-            <input type="submit" id="btn" class="button" value="SignUp" name = "submit"/>
+            <input type="submit" id="btn" class="signUpButton" value="SignUp" name = "submit"/>
             <button class="button" id="buttonz">Cancel</button>
             <p id="confirm">Account Successfully Created</p>
         </form>
       </div>
     </div>
+
 
 <div id="formEdit">
   <div id="modal-content-edit">
@@ -442,7 +444,7 @@ const customerButton = document.getElementById("customerButton");
 
 
 const rowsPerPage = 5;
-let currentData =  usersFromPHP.filter(u => u.UserType === "employee");
+let currentData =  users.filter(u => u.UserType === "employee");
 let currentPage = 1;
 
 function paginate (data, page){
@@ -482,7 +484,7 @@ function paginate (data, page){
 
     });
 
-    addEventListeners();
+  addEventListeners();
 } 
 
 function controlz (container, data){
@@ -504,6 +506,7 @@ function controlz (container, data){
 function addEventListeners(){
   const editButton = document.querySelectorAll(".editButton");
   const formEdit = document.getElementById("formEdit");
+  const users = usersFromPHP;
   const editFrm = document.getElementById("editFrm");
   const cancelButton = formEdit.querySelector("#cancelButton");
   const usernameInput = document.getElementById("username");
@@ -513,7 +516,7 @@ function addEventListeners(){
       const userId = btn.getAttribute("data-id");
 
 
-      const userToEdit = users.find(user=>user.userID == userId);
+      const userToEdit = users.find(user=>user.userid == userId);
 
       usernameInput.value = userToEdit.username;
       editFrm.action = `update_page_1.php?id=${userId}`;
@@ -548,22 +551,22 @@ function addEventListeners(){
   })
 
 
-window.addEventListener("click", function(event){
-  if(event.target == formEdit){
+  window.addEventListener("click", function(event){
+    if(event.target == formEdit){
+      formEdit.style.display = "none";
+    }
+  });
+
+  cancelButton.onclick = function(){
     formEdit.style.display = "none";
   }
-});
-
-cancelButton.onclick = function(){
-  formEdit.style.display = "none";
-}
 
 
 }
 
 
 function showData(userType){
-  currentData = users.filter(user => user.UserType === UserType);
+  currentData = usersFromPHP.filter(user => user.UserType === userType);
   currentPage = 1;
   paginate (currentData, currentPage);
   controlz(buttonContainers, currentData);
@@ -579,17 +582,17 @@ function showData(userType){
 
 // // end of accoouns pagination
 
-
+  createEmp = document.getElementById("createEmp")
   const modal = document.getElementById("form");
 
   createEmp.addEventListener("click", () => modal.style.display = 'flex');
-  const btn = document.getElementById("buttonz");
+  const signUpButton = document.querySelector(".signUpButton");
 
-  btn.onclick = function(){
+  signUpButton.onclick = function(){
     alert("Account Successfully created");
   }
 
-btn.onclick = function(){
+signUpButton.onclick = function(){
   modal.style.display = "none";
 }
 
