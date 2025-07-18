@@ -7,6 +7,17 @@ $result = mysqli_query($conn, $sql);
 $dishes = [];
 while ($row = mysqli_fetch_assoc($result)) {
   $dishes[] = $row;
+
+  
+}
+
+// USER CAN'T GO TO RESERVE A DATE WITHOUT ACCOUNT
+if (!isset($_SESSION['username'])) {
+    echo "<script>
+            alert('Please login to reserve a date.');
+            window.location.href = '../PHP/employeeLoginPage.php';
+          </script>";
+    exit();
 }
 ?>
 
@@ -32,7 +43,7 @@ while ($row = mysqli_fetch_assoc($result)) {
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
-  <link rel="stylesheet" href="reserve date.css">
+  <link rel="stylesheet" href="../CSS/reserve date.css">
 
   <!--For font for brand-->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -54,7 +65,7 @@ while ($row = mysqli_fetch_assoc($result)) {
     <div class="navBar">
               
   
-
+ 
       <div class="navLogo">
         <a href="../index.html">
            <img id="brandlogo" src="../IMAGES/logo3.png" alt="Logo">  
@@ -68,19 +79,19 @@ while ($row = mysqli_fetch_assoc($result)) {
         
           <a id="linkSide" href="../index.html" target="_self"> HOME </a>
 
-          <a id="linkSide" href="../HTML/gallery.html" target="_self"> GALLERY </a>
+          <a id="linkSide" href="gallery.php" target="_self"> GALLERY </a>
 
           <a id="linkSide" href="../HTML/about company.html" target="_self"> COMPANY </a>
 
           <a id="linkSide" href="../HTML/contact.html" target="_self"> CONTACT US </a>
 
-          <a id="linkSide" href="../PHP/reviewbookings.php" target="_self"> BOOKINGS </a> 
+          <a id="linkSide" href="reviewbookings.php" target="_self"> BOOKINGS </a> 
 
-          <a id="linkSide" href="../PHP/employeeLoginPage.php" target="_self"> LOGIN </a>
+          <a id="linkSide" href="employeeLoginPage.php" target="_self"> LOGIN </a>
 
-         <a id="linkSide" href="../PHP/customerSignUp.php" target="_self"> SIGNUP </a>
+         <a id="linkSide" href="customerSignUp.php" target="_self"> SIGNUP </a>
 
-          <a id="linkSide" href="reserve date.php" target="_self"> RESERVE A DATE </a>
+          <a id="linkSide" href="reserve_date.php" target="_self"> RESERVE A DATE </a>
 
         </nav>
 
@@ -88,17 +99,17 @@ while ($row = mysqli_fetch_assoc($result)) {
           <div class="menuLeft">
           <a class="hideOnMobile" href="../index.html" target="_self"> HOME </a>
 
-          <a class="hideOnMobile" href="../HTML/gallery.html" target="_self"> GALLERY </a></button>
+          <a class="hideOnMobile" href="gallery.php" target="_self"> GALLERY </a></button>
 
           <a class="hideOnMobile" href="../HTML/about company.html" target="_self"> COMPANY </a>
 
           <a class="hideOnMobile" href="../HTML/contact.html" target="_self"> CONTACT US </a>
 
-          <a id="hideOnMobile" href="../PHP/reviewbookings.php" target="_self"> BOOKINGS </a> 
+          <a id="hideOnMobile" href="reviewbookings.php" target="_self"> BOOKINGS </a> 
 
-          <a id="hideOnMobile" href="../PHP/employeeLoginPage.php" target="_self"> LOGIN </a>  
+          <a id="hideOnMobile" href="employeeLoginPage.php" target="_self"> LOGIN </a>  
 
-          <a id="hideOnMobile" href="../PHP/customerSignUp.php" target="_self"> SIGNUP </a>
+          <a id="hideOnMobile" href="customerSignUp.php" target="_self"> SIGNUP </a>
 
           </div>
           <div>
@@ -270,6 +281,31 @@ while ($row = mysqli_fetch_assoc($result)) {
 
 
 <script>
+
+// JS NAV BAR START
+          function openSideBar(){
+            const sideBar = document.querySelector(".sideBar");
+    
+            sideBar.style.display = 'flex';
+          }
+    
+          function hideSideBar(){
+            const sideBar = document.querySelector(".sideBar");
+    
+            sideBar.style.display =  'none';
+    
+          }
+          
+          // JS NAV BAR END
+
+
+
+
+
+
+
+
+
 const dishes = <?php echo json_encode($dishes);?>;
 const rowsPerPage = 6;
 let currentPage = 1;
@@ -561,7 +597,6 @@ renderDishes();
 
 
 
-// JS CHECKOUT MODAL CONFIRMATION LETTER
 
 
 </script>

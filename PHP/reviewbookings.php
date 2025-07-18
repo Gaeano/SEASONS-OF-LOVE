@@ -54,8 +54,8 @@ $result = $stmt->get_result();
 
 </head>
 <body>
-
-<div id="bgimg"> </div>
+<!-- NAV BAR START -->
+    <div id="bgimg"> </div>
 
 
     <div class="navBar">
@@ -63,10 +63,9 @@ $result = $stmt->get_result();
   
 
       <div class="navLogo">
-        <a href="../index.html">
-          <img id="brandlogo" src="../IMAGES/logo3.png" alt="Logo">  
-        </a>
-        
+       <a href="index.html " >
+        <img id="brandlogo" src="../IMAGES/logo3.png" href="index.html" alt="Logo">
+       </a>   
       </div>
       
         <nav class="sideBar">
@@ -75,13 +74,19 @@ $result = $stmt->get_result();
         
           <a id="linkSide" href="../index.html" target="_self"> HOME </a>
 
-          <a id="linkSide" href="gallery.html" target="_self"> GALLERY </a>
+          <a id="linkSide" href="gallery.php" target="_self"> GALLERY </a>
 
-          <a id="linkSide" href="about company.html" target="_self"> COMPANY </a>
+          <a id="linkSide" href="../HTML/about company.html" target="_self"> COMPANY </a>
 
-          <a id="linkSide" href="contact.html" target="_self"> CONTACT US </a>
+          <a id="linkSide" href="../HTML/contact.html" target="_self"> CONTACT US </a>
 
-          <a id="linkSide" href="reserve date.html" target="_self"> RESERVE A DATE </a>
+          <a id="linkSide" href="reviewbookings.php" target="_self"> BOOKINGS </a>  
+
+          <a id="linkSide" href="employeeLoginPage.php" target="_self"> LOGIN </a> 
+
+         <a id="linkSide" href="customerSignUp.php" target="_self"> SIGNUP </a>   
+
+          <a id="linkSide" href="reserve_date.php" target="_self"> RESERVE A DATE </a>
 
         </nav>
 
@@ -89,18 +94,28 @@ $result = $stmt->get_result();
           <div class="menuLeft">
           <a class="hideOnMobile" href="../index.html" target="_self"> HOME </a>
 
-          <a class="hideOnMobile" href="gallery.html" target="_self"> GALLERY </a></button>
+          <a class="hideOnMobile" href="gallery.php" target="_self"> GALLERY </a></button>
 
-          <a class="hideOnMobile" href="about company.html" target="_self"> COMPANY </a>
+          <a class="hideOnMobile" href="../HTML/about company.html" target="_self"> COMPANY </a>
 
-          <a class="hideOnMobile" href="contact.html" target="_self"> CONTACT US </a>
+          <a class="hideOnMobile" href="../HTML/contact.html" target="_self"> CONTACT US</a>
+
+          <a id="hideOnMobile" href="reviewbookings.php" target="_self"> BOOKINGS </a>  
+          
+          <a class="hideOnMobile" href="employeeLoginPage.php" target="_self"> LOGIN </a> 
+        
+          <a class="hideOnMobile" href="customerSignUp.php" target="_self"> SIGNUP </a>
+          
+          
+
           </div>
           <div>
-          <a class="hideOnMobile" href="reserve date.html" id="reserve" target="_self"> RESERVE A DATE </a>
+          <a class="hideOnMobile" id="reserve" href="reserve_date.php" target="_self"> RESERVE A DATE </a>
           </div>
         </nav>
 
-        
+
+
         <p id="menuButton" onclick= openSideBar()> <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="black"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg> </p>
 
         
@@ -108,9 +123,8 @@ $result = $stmt->get_result();
 
 
   </div>
+<!-- NAV BAR END -->
 
- 
-  <!-- NAVBAR END  --> 
 
 
 
@@ -202,7 +216,7 @@ $result = $stmt->get_result();
 
         editButton.textContent = 'Edit';  
         editButton.type = "button"; 
-        editButton.classList.add("btn", "btn-primary");  
+        editButton.classList.add("btn", "boton");  
         editButton.setAttribute("data-bs-toggle", "modal");
         editButton.setAttribute("data-bs-target", "#editModal"); 
 
@@ -372,14 +386,15 @@ document.getElementById("cancelButton").addEventListener("click", () => {
   });
 
 
+
+
+
+
+
+
+
 </script> 
 
-<script> 
-
-
-
-
-</script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
 
