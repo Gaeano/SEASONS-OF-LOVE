@@ -165,9 +165,8 @@ display: none;
 #menuButton{
   display: block;
   }
-
-
 }
+
 /* NAV BAR END */
 
 body{
@@ -481,5 +480,6 @@ width: 100%;
 
   .menuContainer{
     padding: 40px;
-
   }
+
+

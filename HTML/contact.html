@@ -121,7 +121,7 @@
 
           <label for="message">Message:</label>
 
-          <textarea id="message" name="messaage" rows="4" placeholder="Write message" required></textarea>
+          <textarea id="message" name="message" rows="4" placeholder="Write message" required></textarea>
 
 
 
@@ -178,7 +178,9 @@ document.getElementById("contactForm").addEventListener("submit", function (e) {
   const email = document.getElementById("email").value.trim();
   const message = document.getElementById("message").value.trim();
   const responseMessage = document.getElementById("responseMessage");
+  const msgdate = new Date().toISOString().split('T')[0];
 
+  console.log(msgdate);
   if (!name || !email || !message) {
     responseMessage.textContent = "Please fill in all fields.";
     responseMessage.style.color = "red";
@@ -188,10 +190,11 @@ document.getElementById("contactForm").addEventListener("submit", function (e) {
   fetch("../PHP/submit_message.php", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ name, email, message })
+    body: JSON.stringify({ name, email, message, msgdate})
   })
     .then(res => res.json())
     .then(data => {
+  
       if (data.success) {
         responseMessage.textContent = "Message sent successfully!";
         responseMessage.style.color = "green";
@@ -202,7 +205,7 @@ document.getElementById("contactForm").addEventListener("submit", function (e) {
       }
     })
     .catch(err => {
-      responseMessage.textContent = "Server error.";
+      responseMessage.textContent = "Server error." + err.message;
       responseMessage.style.color = "red";
       console.error(err);
     });

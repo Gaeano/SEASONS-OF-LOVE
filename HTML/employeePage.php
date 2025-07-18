@@ -21,6 +21,57 @@
 
 
 <body>
+    
+<!-- NAV BAR START -->
+    <div id="bgimg"> </div>
+
+
+    <div class="navBar">
+              
+  
+
+      <div class="navLogo">
+       <a href="index.html " >
+        <img id="brandlogo" src="../IMAGES/logo3.png" href="index.html" alt="Logo">
+       </a>   
+      </div>
+      
+        <nav class="sideBar">
+
+          <a id="closeBtn" onclick=hideSideBar()> <svg xmlns="http://www.w3.org/2000/svg" height="27x" viewBox="0 -960 960 960" width="27px" fill="black"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a>
+        
+
+
+          <a id="linkSide" href="employeePage.php" target="_self"> MANAGE BOOKINGS </a>
+          <a id="linkSide" href=".empManagementPage.html" target="_self"> MANAGE MENU </a>
+          <a id="linkSide" href="../PHP/reviewFeedbackPage.php" target="_self"> CUSTOMER FEEDBACK </a>
+          <a id="linkSide" href="adminPage.php" target="_self"> ADMIN </a>
+
+
+        </nav>
+
+        <nav class="menu">
+          <div class="menuLeft">
+     
+          </div>
+          <div>
+
+          <a class="hideOnMobile" id="reserve" href="employeePage.php" target="_self"> MANAGE BOOKINGS </a>
+          <a class="hideOnMobile" id="reserve" href="empManagementPage.html" target="_self"> MANAGE MENU </a>
+          <a class="hideOnMobile" id="reserve" href="../PHP/reviewFeedbackPage.php" target="_self"> CUSTOMER FEEDBACK </a>
+          <a class="hideOnMobile" id="reserve" href="adminPage.php" target="_self"> ADMIN </a>
+          
+
+
+          </div>
+        </nav>
+
+
+
+        <p id="menuButton" onclick= openSideBar()> <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="black"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg> </p>
+
+  </div>
+<!-- NAV BAR END -->
   
 <div style="display: flex; flex-direction: row; gap: 3vw; width: 100%; margin: 20px; margin-left: 3.5vw;" id="orderdatecontainer">
         <div>
