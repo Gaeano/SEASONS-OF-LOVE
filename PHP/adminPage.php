@@ -653,7 +653,8 @@ function menuPages(data, tableBody, page) {
 
       const form = document.createElement("form");
       form.id = "dishEditForm";
-      form.setAttribute("data-dishid", dish.dish_id); 
+      form.setAttribute("data-dishid", dish.dish_id);  
+      form.setAttribute("enctype", "multipart/form-data");
 
  
       form.action = `update_dish.php?id=${dish.dish_id}`; 
@@ -699,9 +700,8 @@ function menuPages(data, tableBody, page) {
       imageLabel.setAttribute("for", "dishImage");
       imageLabel.classList.add("form-label");
       const imageInput = document.createElement("input");
-      imageInput.type = "text";
-      imageInput.name = "image_path";
-      imageInput.value = dish.image_path || "";
+      imageInput.type = "file";
+      imageInput.name = "image";
       imageInput.id = "dishImage";
       imageInput.classList.add("form-control");
       imageGroup.appendChild(imageLabel);

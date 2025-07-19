@@ -317,9 +317,8 @@ function menuPages(data, tableBody, page) {
       imageLabel.setAttribute("for", "dishImage");
       imageLabel.classList.add("form-label");
       const imageInput = document.createElement("input");
-      imageInput.type = "text";
-      imageInput.name = "image_path";
-      imageInput.value = dish.image_path || "";
+      imageInput.type = "file";
+      imageInput.name = "image";
       imageInput.id = "dishImage";
       imageInput.classList.add("form-control");
       imageGroup.appendChild(imageLabel);
