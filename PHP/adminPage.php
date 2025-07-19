@@ -315,7 +315,7 @@
         <label>Edit Name: </label>
         <input type="text" id="username" name="username" required><br><br>
         <input type="submit" id="btn" class="button" value="Edit" name = "submit"/>
-        <button id="cancelButton" class="button">Cancel</button>
+        <button type="button" id="cancelButton" class="button" onclick="window.location.href='adminPage.php'">Cancel</button>
     </form>
   </div>
 </div> 
@@ -557,9 +557,7 @@ function addEventListeners(){
     }
   });
 
-  cancelButton.onclick = function(){
-    formEdit.style.display = "none";
-  }
+  
 
 
 }
