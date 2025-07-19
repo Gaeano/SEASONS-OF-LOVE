@@ -93,6 +93,9 @@ if (!isset($_SESSION['username'])) {
 
           <a id="linkSide" href="reserve_date.php" target="_self"> RESERVE A DATE </a>
 
+                    <a class="linkSide" href="logout.php" target="_self"> LOGOUT </a>
+
+
         </nav>
 
         <nav class="menu">
@@ -114,6 +117,9 @@ if (!isset($_SESSION['username'])) {
           </div>
           <div>
           <a class="hideOnMobile" href="reserve date.php" id="reserve" target="_self"> RESERVE A DATE </a>
+
+                    <a class="hideOnMobile" id="reserve" href="logout.php" target="_self"> LOGOUT </a>
+
           </div>
         </nav>
        

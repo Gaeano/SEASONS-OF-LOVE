@@ -152,7 +152,7 @@
 
 
           <a id="linkSide" href="../HTML/employeePage.php" target="_self"> MANAGE BOOKINGS </a>
-          <a id="linkSide" href="../HTML/empManagementPage.html" target="_self"> MANAGE MENU </a>
+          <a id="linkSide" href="../HTML/empManagementPage.php" target="_self"> MANAGE MENU </a>
           <a id="linkSide" href="reviewFeedbackPage.php" target="_self"> CUSTOMER FEEDBACK </a>
           <a id="linkSide" href="adminPage.php" target="_self"> ADMIN </a>
           <a id="linkSide" href="logout.php" target="_self"> LOGOUT </a>
@@ -167,8 +167,10 @@
           <div>
 
           <a class="hideOnMobile" id="reserve" href="../HTML/employeePage.php" target="_self"> MANAGE BOOKINGS </a>
-          <a class="hideOnMobile" id="reserve" href="../HTML/empManagementPage.html" target="_self"> MANAGE MENU </a>
-          <a class="hideOnMobile" id="reserve" href="../PHP/reviewFeedbackPage.php" target="_self"> CUSTOMER FEEDBACK </a>
+
+          <a class="hideOnMobile" id="reserve" href="../HTML/empManagementPage.php" target="_self"> MANAGE MENU </a>
+          <a class="hideOnMobile" id="reserve" href="reviewFeedbackPage.php" target="_self"> CUSTOMER FEEDBACK </a>
+
           <a class="hideOnMobile" id="reserve" href="adminPage.php" target="_self"> ADMIN </a>
           <a class="hideOnMobile" id="reserve" href="logout.php" target="_self"> LOGOUT </a>
 
@@ -178,7 +180,9 @@
 
 
 
+
         <p id="sideBarButton" onclick= openSideBar()> <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="black"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg> </p>
+
 
   </div>
 <!-- NAV BAR END -->
@@ -186,7 +190,7 @@
 <div class="contentContainer"> 
   <div class="menuContainer">  
    
-      <div>  
+      
         <div id="menuTitle">
           <h2>Menu</h2>
           </div>
@@ -195,10 +199,10 @@
             <thead>
               <tr>
                 
-                <th>Dish</th>
-                <th>Category</th> 
+                <th class="dishdish">Dish</th>
+                <th class="catcat">Category</th> 
                 <th>Description</th> 
-                <th>Edit</th> 
+                <th class="editedit">Edit</th> 
                 
               </tr>
 
@@ -210,14 +214,12 @@
           </table> 
           <div id="menuPage" class="menuPages"></div>
 
-     </div>
+   
  </div> 
 
-
-
-
-      <div class="userContainer">
-        <h2 style="text-align: center;">USERS</h2>
+ <div class="beside">
+  <div class="userContainer">
+        <h2>USERS</h2>
         <div class="userTable">
           <div class="employeeTable">
             <table id="tableEmp">
@@ -251,7 +253,7 @@
     </div>
     
   </div>
-</div>
+
 
 <div class="userCrudContainer">
   <div class="accountCrudTable">
@@ -276,20 +278,25 @@
     </table>
   
     <div id="nextPage"></div>
-
+  
 
   </div> 
 
-
-
-
-
-
-
 </div>
+
+
+ </div>
+
+
+
+
+    
+</div>
+
+
   <div id="form">
     <div id="modal-content">
-        <h1 id="heading">SignUp Form</h1>
+
         <h2> Employee Sign Up</h2>  
         <form name="form" action="signup.php" method="POST">
             <label>Enter Username: </label>
@@ -300,9 +307,11 @@
             <input type="password" id="pass" name="pass" required><br><br>
             <label>Retype Password: </label>
             <input type="password" id="cpass" name="cpass" required><br><br>
-            <input type="submit" id="btn" class="signUpButton" value="SignUp" name = "submit"/>
+
+            <input type="submit" id="btnYES" class="signUpButton" value="SignUp" name = "submit"/>
+
             <button class="button" id="buttonz">Cancel</button>
-            <p id="confirm">Account Successfully Created</p>
+            <!-- <p id="confirm">Account Successfully Created</p> -->
         </form>
       </div>
     </div>
@@ -310,12 +319,14 @@
 
 <div id="formEdit">
   <div id="modal-content-edit">
-    <h1 id="heading">Edit Form</h1>
+    <h2 id="heading">Edit Form</h2>
     <form name="form" id="editFrm" method="POST">
         <label>Edit Name: </label>
         <input type="text" id="username" name="username" required><br><br>
-        <input type="submit" id="btn" class="button" value="Edit" name = "submit"/>
-        <button id="cancelButton" class="button">Cancel</button>
+
+        <input type="submit" id="btn" class="delButton" value="Edit" name = "submit"/>
+        <button type="button" id="cancelButton" class="editButton" onclick="window.location.href='adminPage.php'">Cancel</button>
+
     </form>
   </div>
 </div> 
@@ -347,8 +358,11 @@
   <div id= "deleteContent">
     <h3> Are you sure you want to delete this user? </h3>
     <h4> Warning: This action cannot be undone! </h4>
-    <button id="confirmDeletion"> Delete </button>
+    <div class="bubu">
+       <button id="confirmDeletion"> Delete </button>
     <button id="cancelDeletion"> Cancel </button>
+    </div>
+
   </div>
 </div>
 
@@ -398,7 +412,7 @@ function pagination (data, tableBody, page){
         row.addClass //?
         const userID = document.createElement("td");
 
-        userID.textContent = user.userID;
+        userID.textContent = user.userid;
 
         const nameCell = document.createElement("td");
         nameCell.textContent = user.username;
@@ -461,7 +475,7 @@ function paginate (data, page){
 
         const userID = document.createElement("td");
 
-        userID.textContent = user.userID;
+        userID.textContent = user.userid;
 
         userID.classList.add("userIDCol")
 
@@ -557,9 +571,8 @@ function addEventListeners(){
     }
   });
 
-  cancelButton.onclick = function(){
-    formEdit.style.display = "none";
-  }
+
+  
 
 
 }
@@ -642,7 +655,7 @@ function menuPages(data, tableBody, page) {
 
     editButton.textContent = "Edit";
     editButton.type = "button";
-    editButton.classList.add("btn", "btn-primary");
+    editButton.classList.add("btn", "boton");
     editButton.setAttribute("data-bs-toggle", "modal");
     editButton.setAttribute("data-bs-target", "#menuModal");
     editButton.setAttribute("data-dishid", dish.dish_id);
@@ -773,6 +786,46 @@ function toggleAvailability(button) {
         console.error('Error:', error);
     });
 }
+
+
+
+//PAGINATION HIGHLIGHTS WHEN ITS ON THAT PAGE
+document.addEventListener("DOMContentLoaded", () => {
+  // Function to handle active state per container
+  function setupPagination(containerSelector, buttonSelector = 'button') {
+    const container = document.querySelector(containerSelector);
+    if (!container) return;
+
+    const buttons = container.querySelectorAll(buttonSelector);
+    if (buttons.length === 0) return;
+
+    // Set first as active by default
+    buttons[0].classList.add('active');
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        buttons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        console.log(`Clicked: ${button.textContent} in ${containerSelector}`);
+      });
+    });
+  }
+
+  // Apply to each pagination group
+  setupPagination('.menuPages');                      // Plain buttons
+  setupPagination('.userContainer');                  // Plain buttons
+  setupPagination('#nextPage', '.page-btn button');   // Buttons inside .page-btn
+});
+
+
+
+
+
+
+
+
+
+
 </script>
 
 
