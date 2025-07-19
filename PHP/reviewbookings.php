@@ -404,6 +404,22 @@ document.getElementById("cancelButton").addEventListener("click", () => {
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
+<script>
+   // JS NAV BAR START
+      function openSideBar(){
+        const sideBar = document.querySelector(".sideBar");
 
+        sideBar.style.display = 'flex';
+      }
+
+      function hideSideBar(){
+        const sideBar = document.querySelector(".sideBar");
+
+        sideBar.style.display =  'none';
+
+      }
+      
+      // JS NAV BAR END
+    </script>
 </body>
 </html> 

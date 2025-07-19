@@ -136,14 +136,11 @@
 
 
 
-#menuButton{
-  display: none;
-}
 
 
-@media screen and (min-width: 768px)  {
-  .navBar {
-    flex-wrap: nowrap;
+@media screen and (min-width: 921px) {
+  .menu {
+    display: flex;
   }
 
   #menuButton {
@@ -151,7 +148,19 @@
   }
 
   .sideBar {
+    display: none ;
+  }
+
+
+}
+
+@media screen and (max-width: 1440px) {
+  .menu{
     display: none;
+  }
+
+  #menuButton{
+    display: block;
   }
 
 
@@ -165,9 +174,9 @@
   #menuButton{
     display: block;
   }
-}
- 
 
+
+}
 
 
 /* NAV BAR END */
