@@ -3,7 +3,7 @@
 
 session_start();
 
-    if(isset($_SESSION['username'])){ 
+    if(isset($_SESSION['username']  && $_SESSION['UserType'] === 'customer')){ 
         echo "<script> alert('Already Signed in! Redirecting...'); 
               window.location.href = 'reserve_date.php';
         </script>";

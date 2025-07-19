@@ -1,4 +1,6 @@
 <?php
+
+session_start();
 include('connection.php');
 
 $sql = "SELECT image_path, NAME, description, category FROM dishes where isAvailable = 1";
@@ -113,12 +115,12 @@ if (!isset($_SESSION['username'])) {
           <a id="hideOnMobile" href="employeeLoginPage.php" target="_self"> LOGIN </a>  
 
           <a id="hideOnMobile" href="customerSignUp.php" target="_self"> SIGNUP </a>
+          <a class="hideOnMobile" id="reserve" href="logout.php" target="_self"> LOGOUT </a>
 
           </div>
           <div>
           <a class="hideOnMobile" href="reserve date.php" id="reserve" target="_self"> RESERVE A DATE </a>
 
-                    <a class="hideOnMobile" id="reserve" href="logout.php" target="_self"> LOGOUT </a>
 
           </div>
         </nav>
