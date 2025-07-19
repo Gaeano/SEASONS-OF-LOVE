@@ -42,7 +42,7 @@ if (isset($_POST['submit'])) {
                 header("Location: ../HTML/employeePage.php");
                 exit;
             } else {
-                header("Location: reserve date.php");
+                header("Location: reserve_date.php");
                 exit;
             }
         }
