@@ -1,8 +1,7 @@
-.navBar{
+.navBar {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   height: 62px;
   background-color: white;
-  
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -10,46 +9,35 @@
   z-index: 100;
 }
 
-
-.navLogo{
+.navLogo {
   margin-right: 20px;
-
 }
 
-.menu a{
-  list-style:none;
+.menu a {
+  list-style: none;
   display: inline-block;
-  
   font-weight: 500;
   text-decoration: none;
-
   font-size: 0.8rem;
   margin: 0 20px;
   color: black;
   padding: 20px;
-  
-
   font-family: "Verdana", sans-serif;
   border-bottom: 3px solid white;
   transition: all 0.5s ease;
-
 }
-.sideBar a{
-  list-style:none;
+
+.sideBar a {
+  list-style: none;
   display: inline-block;
-  
   font-weight: 500;
   text-decoration: none;
-
   font-size: 18px;
   margin: 0 20px;
   color: black;
   padding: 20px;
-  
-
   font-family: "Verdana", sans-serif;
   transition: all 0.5s ease;
-
 }
 
 .menu {
@@ -57,60 +45,42 @@
   align-items: center;
   flex-grow: 1;
   justify-content: space-between;
-
 }
-
 
 .menuLeft {
   display: flex;
   align-items: center;
-  gap: 5px; 
-  
+  gap: 5px;
 }
 
-.menuLeft a:hover{
-  color:rgb(0, 0, 0);
+.menuLeft a:hover {
+  color: rgb(0, 0, 0);
   border-bottom: 3px solid rgb(243, 124, 124);
-
 }
 
-#reserve:hover{
+#reserve:hover {
   color: white;
   background-color: rgb(243, 124, 124);
 }
 
-
-
-
-
-#reserve{
-  
-  list-style:none;
+#reserve {
+  list-style: none;
   text-decoration: none;
   display: inline-block;
-  
   font-weight: 500;
-  text-decoration: none;
-
   font-size: 0.8rem;
-
   color: black;
-  
   font-family: "Verdana", sans-serif;
-
 }
 
-#brandlogo{
+#brandlogo {
   width: auto;
   height: 60px;
   margin-left: 50px;
   margin-right: 0px;
 }
 
-
-
-
-.sideBar{
+.sideBar {
   position: fixed;
   top: 0;
   right: 0;
@@ -127,18 +97,15 @@
   margin-right: 0;
 }
 
-#linkSide{
+#linkSide {
   width: 50%;
 }
 
-
-
-#menuButton{
+#menuButton {
   display: none;
 }
 
-
-@media screen and (min-width: 768px)  {
+@media screen and (min-width: 768px) {
   .navBar {
     flex-wrap: nowrap;
   }
@@ -150,300 +117,306 @@
   .sideBar {
     display: none;
   }
-
-
 }
 
 @media screen and (max-width: 920px) {
-  .menu{
+  .menu {
     display: none;
   }
 
-  #menuButton{
+  #menuButton {
     display: block;
   }
-
 }
 
-
-
-/* NAV BAR END */
-
-
-
-body{
-  background:#fdfbd4;
-   
-    background-repeat: no-repeat;
-    background-size: cover;
-   background-attachment: fixed;
-    margin: 0;
-    padding: 0;
-    
-    height: 100vh;
-    width: auto;
-
+body {
+  background: #fdfbd4;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  margin: 0;
+  padding: 0;
+  width: auto;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 h1 {
   font-family: "Marck Script", cursive;
   font-weight: 400;
   font-style: normal;
-
   color: black;
-    font-size: 100px;
-   
-    text-align: center;
-
-   
-    margin-bottom: 30px;
-
-    
-    
-
-}
-
-
-h4{
-    text-align: center;
-    font-family: "Glass Antiqua", cursive;
-    font-weight: bold;
-    font-size: 30px;
-    color: #a4990a;
-    
-    
-}
-
-p{
-    line-height: 27px;
-    font-family: "Verdana", sans-serif;
-    text-align: center;
-}
-
-h3{
-  font-family: "Glass Antiqua", cursive;
-  font-weight: 400;
-  font-style: normal;
+  font-size: 100px;
   text-align: center;
-
-  font-size: 30px;
-
-    letter-spacing: 5px;
-
-
-  background-color:  #ffee00be;
-  padding: 20px;
-  width: 900px;
-    border-radius: 6px;
-    margin-bottom: 50px;
-
-    margin-top: 100px;
-
+  margin-bottom: 30px;
 }
 
-p2{
-    color: #a09604;
-    font-family: "Verdana", sans-serif;
-    
-      font-size: 18px;
-      
-    letter-spacing: 1px;
-
-    text-align: center;
-    place-content: center;
-
-    font-weight: normal;
-
-    padding: 20px;
-    margin-bottom: 100px;
-
+p {
+  line-height: 27px;
+  font-family: "Verdana", sans-serif;
+  text-align: center;
 }
 
-
-.part1{
-  
-    margin: 0;
-    padding: 0;
-    
-    width: auto;
-    z-index: -1;
-
-    height: 60%;
-    align-content: center;
-}
-
-  
-  button{
-      width: 500px;
-      color:  black;
-      padding: 8px;
-      background:none;
-      border: 2px solid black;
-      border-radius: 16px;
-      outline: none;
-      margin-top: 30px;
-
-      font-size: 25px;
-
-
-      font-family: "Verdana", sans-serif;
-    font-weight: 600;
-      font-style: normal;
-    
-      letter-spacing: 9px;
-
-      overflow: hidden;
-      z-index: 0;
-      position: relative;
-
-    
-  }
-
-  button:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 24px black;
-  }
-
-  @media (max-width: 480px) {
-    button {
-      font-size: 1rem;
-      padding: 0.5em 1em;
-      width: 80%;
-    }
-
-
-    .part1{
-      width: 100%;
-      min-height: 60vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 40px 20px 10px;
-      text-align: center;
-      margin-bottom: 0;
-      
-    }
-  }
-
-  button::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    
-    width: 0;
-    background-color:#ffee00;
-    transition: width 0.4s ease;
-    z-index: -1;
-    color: black;
-  }
-  button:hover::before{
-    width: 100%;
-    color: black;
-  }
-
-
-.part2 {
-  display: flex;
-  gap: 1.5rem;
-  width: 80%;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 20px auto 50px;
-}
-
-.card {
-  background: white;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  flex: 1 1 30%;
-  max-width: 500px;
-  padding: 30px;
-  height: fit-content;
-  box-sizing: border-box;
-  transition: all 0.4s ease;
-  min-height: 400px; 
-}
-
-.card .content {
+button {
+  width: 500px;
+  color: black;
+  padding: 8px;
+  background: none;
+  border: 2px solid black;
+  border-radius: 16px;
+  outline: none;
   margin-top: 30px;
-  margin-bottom: 40px;
+  font-size: 25px;
+  font-family: "Verdana", sans-serif;
+  font-weight: 600;
+  letter-spacing: 9px;
+  overflow: hidden;
+  z-index: 0;
+  position: relative;
+}
+
+button:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px black;
+}
+
+@media (max-width: 480px) {
+  button {
+    font-size: 1rem;
+    padding: 0.5em 1em;
+    width: 80%;
+  }
+}
+
+button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  background-color: #ffee00;
+  transition: width 0.4s ease;
+  z-index: -1;
   color: black;
-  font-size: 1rem;
-  line-height: 1.5;
 }
 
-#icon a{
-font-size: 50px;
-margin-right: 20px;
-margin-left: 50px;
-
-justify-content:space-around;
-color: black;
+button:hover::before {
+  width: 100%;
+  color: black;
 }
 
-#feedback {
-  display: block;
-  text-align: center;
-  font-weight: bold;
-  margin-top: 10px;
-}
-
-/*the demmn footer*/
-
-.footer{
+.footer {
   height: 120px;
   border: 3px solid black;
   background: black;
-
   display: inline-block;
   box-direction: column;
   align-items: center;
-  
-width: 100%;
+  width: 100%;
   text-align: center;
   color: white;
   padding-bottom: 10px;
-
-  
 }
 
-.footer a{
+.footer a {
   color: white;
   font-size: 25px;
 }
 
-.footer p{
+.footer p {
   font-size: 12px;
   margin: 0;
   padding: 0;
   text-align: center;
 }
 
+/* HERO IMAGE SECTION */
+.hero-image-container {
+  position: relative;
+  height: 400px;
+  overflow: hidden;
+}
 
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
 
+.hero-image.blurred {
+  filter: brightness(0.6) blur(2px);
+}
 
-    
+.hero-title-overlay {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-        
-        
+.hero-title-overlay h1 {
+  font-family: "Marck Script", cursive;
+  font-size: 80px;
+  color: white;
+  text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.6);
+  margin: 0;
+  text-align: center;
+}
 
-          
+@media (max-width: 768px) {
+  .hero-title-overlay h1 {
+    font-size: 50px;
+  }
+}
 
+/* ZIGZAG LAYOUT */
+.about-zigzag {
+  display: flex;
+  flex-direction: column;
+  gap: 160px;
+  padding: 80px 10%;
+}
 
+.about-block {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 50px;
+  flex-wrap: wrap;
+  scroll-margin-top: 100px;
+}
 
+.about-block.reverse {
+  flex-direction: row-reverse;
+}
 
+.about-image {
+  flex: 1 1 45%;
+}
 
+.about-image img {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+  max-height: 420px;
+}
 
+.about-text {
+  flex: 1 1 45%;
+}
+
+.about-text h2 {
+  font-family: "Glass Antiqua", cursive;
+  font-size: 36px;
+  color: #134e4a;
+  margin-bottom: 20px;
+}
+
+.about-text p {
+  font-family: "Verdana", sans-serif;
+  font-size: 18px;
+  line-height: 1.8;
+  color: #444;
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .about-block,
+  .about-block.reverse {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-image,
+  .about-text {
+    flex: 1 1 100%;
+  }
+
+  .about-image img {
+    max-height: 300px;
+  }
+
+  .about-text h2 {
+    font-size: 28px;
+  }
+
+  .about-text p {
+    font-size: 16px;
+  }
+}
+
+/* CTA SECTIONS */
+.final-cta {
+  text-align: center;
+  margin: 80px 0 60px;
+}
+
+.final-cta h2 {
+  font-family: "Glass Antiqua", cursive;
+  font-size: 36px;
+  color: #134e4a;
+  margin-bottom: 20px;
+}
+
+.final-cta .cta-button {
+  display: inline-block;
+  padding: 15px 40px;
+  background-color: black;
+  color: white;
+  font-size: 18px;
+  font-family: "Verdana", sans-serif;
+  border-radius: 10px;
+  border: 2px solid black;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.final-cta .cta-button:hover {
+  background-color: white;
+  color: black;
+}
+
+.contact-feedback {
+  text-align: center;
+  margin: 100px 0 40px;
+  padding: 0 20px;
+}
+
+.contact-feedback h2 {
+  font-family: "Glass Antiqua", cursive;
+  font-size: 32px;
+  color: #134e4a;
+  margin-bottom: 10px;
+}
+
+.contact-feedback p {
+  font-family: "Verdana", sans-serif;
+  font-size: 16px;
+  color: #444;
+  margin-bottom: 30px;
+}
+
+.contact-feedback .cta-button {
+  display: inline-block;
+  margin: 10px;
+  padding: 12px 30px;
+  background-color: black;
+  color: white;
+  font-size: 16px;
+  font-family: "Verdana", sans-serif;
+  border-radius: 10px;
+  border: 2px solid black;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.contact-feedback .cta-button:hover {
+  background-color: white;
+  color: black;
+}
