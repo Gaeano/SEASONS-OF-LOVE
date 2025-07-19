@@ -1,11 +1,10 @@
 <?php
 header("Content-Type: application/json");
 
-
-$host = "localhost";      
-$dbname = "s19010108_seasonsoflove";      
-$user = "s19010108_seasonsoflove";              
-$password = "mutiamanlangitherediasanding2025";     
+$host = "localhost";
+$dbname = "s19010108_seasonsoflove";
+$user = "s19010108_seasonsoflove";
+$password = "mutiamanlangitherediasanding2025";
 
 try {
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $password);
@@ -15,7 +14,6 @@ try {
     echo json_encode(["error" => "Oopsie Woopsie something went weally wong :3" . $e->getMessage()]);
     exit;
 }
-
 
 $sql = "
     SELECT 
@@ -34,7 +32,6 @@ $sql = "
 
 $stmt = $pdo->query($sql);
 $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
 
 $orders = [];
 

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Order Confirmation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fdfbd4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .popup {
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+    .popup h2 {
+      color: black;
+      margin-bottom: 20px;
+    }
+    .popup p {
+      margin-bottom: 30px;
+    }
+    .popup a {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px 20px;
+      background-color: #ffee00be;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    .popup a:hover {
+      background-color: #ffee00be;
+    }
+  </style>
+</head>
+<body>
+  <div class="popup">
+    <h2>Successfully Ordered!</h2>
+    <p>Thank you for booking with Seasons of Love Catering Services.</p>
+    <a href="../PHP/reserve_date.php">Back to Menu</a>
+    <a href="../PHP/reviewbookings.php">View My Bookings</a>
+  </div>
+</body>
+</html>

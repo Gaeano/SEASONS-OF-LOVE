@@ -1,3 +1,4 @@
+
 .navBar{
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
   height: 62px;
@@ -172,20 +173,12 @@
 /* NAV BAR END */
 
 
-
-
-
-
-
-
-
-
 body{
-    background-image: url(../IMAGES/log_in_bg.jpg);
+     background-image: url(../IMAGES/log_in_bg.jpg);
     background-repeat:no-repeat ;
     background-position: center;
     background-size: cover;
-    
+      background-attachment: fixed;
     
     margin: 0;
   padding: 0;
@@ -194,6 +187,42 @@ body{
   width: auto;
   z-index: -1;
 }
+
+/* #form{
+    margin: 150px auto;
+    background-color: #737b76b4;  
+    width: 25%;
+    padding: 50px;
+    box-shadow: 10px 10px 5px #28362ed2;
+    border-radius: 8px;
+    color: white;
+} */
+/* 
+#form{
+    margin: 200px auto;
+    background-color: #fdfbd4;
+    width: 25%;
+    padding: 50px;
+    box-shadow: 15px 15px 10px rgba(0, 0, 0, 0.479);
+    border-radius: 8px;
+    color: black;
+    font-family: Verdana, sans-serif;
+}
+
+
+#btn{
+    padding: 5px;
+    font-size: large;
+}
+
+@media screen and (max-width:700px){
+    #form{
+        width: 65%;
+        padding: 40px
+    }
+} */
+
+
 
 #form{
     margin: 200px auto;

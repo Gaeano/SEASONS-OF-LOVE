@@ -1,0 +1,362 @@
+.navBar{
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  height: 62px;
+  background-color: white;
+  
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  z-index: 100;
+  
+  
+}
+
+
+.navLogo{
+  margin-right: 20px;
+
+}
+
+.menu a{
+  list-style:none;
+  display: inline-block;
+  
+  font-weight: 500;
+  text-decoration: none;
+
+  font-size: 0.8rem;
+  margin: 0 20px;
+  color: black;
+  padding: 20px;
+  
+
+  font-family: "Verdana", sans-serif;
+  border-bottom: 3px solid white;
+  transition: all 0.5s ease;
+
+}
+.sideBar a{
+  list-style:none;
+  display: inline-block;
+  
+  font-weight: 500;
+  text-decoration: none;
+
+  font-size: 18px;
+  margin: 0 20px;
+  color: black;
+  padding: 20px;
+  
+
+  font-family: "Verdana", sans-serif;
+  transition: all 0.5s ease;
+
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  justify-content: space-between;
+
+}
+
+
+.menuLeft {
+  display: flex;
+  align-items: center;
+  gap: 5px; 
+  
+}
+
+.menuLeft a:hover{
+  color:rgb(0, 0, 0);
+  border-bottom: 3px solid rgb(243, 124, 124);
+
+}
+
+#reserve:hover{
+  color: white;
+  background-color: rgb(243, 124, 124);
+}
+
+
+
+
+
+#reserve{
+  
+  list-style:none;
+  text-decoration: none;
+  display: inline-block;
+  
+  font-weight: 500;
+  text-decoration: none;
+
+  font-size: 0.8rem;
+
+  color: black;
+  
+  font-family: "Verdana", sans-serif;
+
+}
+
+#brandlogo{
+  width: auto;
+  height: 60px;
+  margin-left: 50px;
+  margin-right: 0px;
+}
+
+
+
+
+.sideBar{
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 250px;
+  z-index: 999;
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.716);
+  box-shadow: -10px 0 10px rgb(0, 0, 0, 0.1);
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-right: 0;
+}
+
+#linkSide{
+  width: 50%;
+}
+
+
+
+#menuButton{
+  display: none;
+}
+
+
+@media screen and (min-width: 768px)  {
+  .navBar {
+    flex-wrap: nowrap;
+  }
+
+  #menuButton {
+    display: none;
+  }
+
+  .sideBar {
+    display: none;
+  }
+
+
+}
+
+@media screen and (max-width: 920px) {
+  .menu{
+    display: none;
+  }
+
+  #menuButton{
+    display: block;
+  }
+
+}
+
+/* Navbar end  */ 
+
+body {
+
+  background: #fdfbd4;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  margin: 0;
+  padding: 0;
+
+  height: 100vh;
+  width: auto;
+  z-index: -1;
+
+
+
+}
+
+
+
+
+
+
+
+
+/* Table start */
+
+/* 
+
+.tableContainer{
+  border-style: solid;
+  padding: 2px;
+  width: 50%;
+  margin: 20px; 
+  margin-left:  25%;
+}
+
+#menuTitle h2{
+  text-align: center;
+}
+
+/* .productContainer{
+  border-style: solid;
+  margin: 5px;
+  margin-top: 10px;
+} */
+/* Main Container */
+.contentContainer {
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+  background-color: #fff9dc;
+  min-height: 100vh;
+}
+
+/* TABLE*/
+.tableContainer {
+  width: 100%;
+  max-width: 1100px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  border: 1px solid #ccc;
+}
+
+
+#menuTitle h2 {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+}
+
+
+
+#tab-pending, #tab-completed {
+  padding: 8px 16px;
+  font-weight: bold;
+  margin-right: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+#tab-pending {
+  background-color: #f8d7da;
+  color: #c82333;
+  border: 2px solid #f5c6cb;
+}
+
+
+#tab-pending:hover {
+  background-color: #f1b0b7;
+}
+
+#tab-completed {
+  background-color: #d4edda;
+  color: #218838;
+  border: 2px solid #c3e6cb;
+}
+
+
+#tab-completed:hover {
+  background-color: #b1dfbb;
+}
+
+
+
+
+
+
+
+#myTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-family: 'Segoe UI', sans-serif;
+  table-layout: fixed;
+
+}
+
+#myTable thead th {
+  background-color: #f5f5f5;
+  color: #333;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 12px;
+  border: 1px solid #ccc;
+  text-align: center;
+}
+
+#myTable tbody td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+  font-size: 16px;
+}
+
+/* PAGINATION ASS */
+.page-btn {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.page-btn {
+  padding: 8px 14px;
+  background-color: #fff;
+  border: 1px solid #888;
+  border-radius: 4px;
+
+
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.page-btn:hover {
+  background-color: #e2e2e2;
+}
+
+.boton{
+ 
+  width: 100%;
+  padding: 8px 0;
+  background-color: #66b2ff;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+}
+
+.boton:hover{
+   background-color: #3399ff;
+}
+
+
+
+
+
+
+
+
