@@ -152,7 +152,7 @@
 
 
           <a id="linkSide" href="../HTML/employeePage.php" target="_self"> MANAGE BOOKINGS </a>
-          <a id="linkSide" href="empManagementPage.php" target="_self"> MANAGE MENU </a>
+          <a id="linkSide" href="../HTML/empManagementPage.php" target="_self"> MANAGE MENU </a>
           <a id="linkSide" href="reviewFeedbackPage.php" target="_self"> CUSTOMER FEEDBACK </a>
           <a id="linkSide" href="adminPage.php" target="_self"> ADMIN </a>
 
@@ -166,8 +166,8 @@
           <div>
 
           <a class="hideOnMobile" id="reserve" href="../HTML/employeePage.php" target="_self"> MANAGE BOOKINGS </a>
-          <a class="hideOnMobile" id="reserve" href="../PHP/empManagementPage.php" target="_self"> MANAGE MENU </a>
-          <a class="hideOnMobile" id="reserve" href="../PHP/reviewFeedbackPage.php" target="_self"> CUSTOMER FEEDBACK </a>
+          <a class="hideOnMobile" id="reserve" href="../HTML/empManagementPage.php" target="_self"> MANAGE MENU </a>
+          <a class="hideOnMobile" id="reserve" href="reviewFeedbackPage.php" target="_self"> CUSTOMER FEEDBACK </a>
           <a class="hideOnMobile" id="reserve" href="adminPage.php" target="_self"> ADMIN </a>
           
 
@@ -177,7 +177,7 @@
 
 
 
-        <p id="nextPage" onclick= openSideBar()> <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="black"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg> </p>
+        <p id="nextPages" onclick= openSideBar()> <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="black"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg> </p>
 
   </div>
 <!-- NAV BAR END -->
@@ -273,7 +273,7 @@
     </table>
   
     <div id="nextPage"></div>
-
+  
 
   </div> 
 
@@ -777,6 +777,46 @@ function toggleAvailability(button) {
         console.error('Error:', error);
     });
 }
+
+
+
+//PAGINATION HIGHLIGHTS WHEN ITS ON THAT PAGE
+document.addEventListener("DOMContentLoaded", () => {
+  // Function to handle active state per container
+  function setupPagination(containerSelector, buttonSelector = 'button') {
+    const container = document.querySelector(containerSelector);
+    if (!container) return;
+
+    const buttons = container.querySelectorAll(buttonSelector);
+    if (buttons.length === 0) return;
+
+    // Set first as active by default
+    buttons[0].classList.add('active');
+
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        buttons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        console.log(`Clicked: ${button.textContent} in ${containerSelector}`);
+      });
+    });
+  }
+
+  // Apply to each pagination group
+  setupPagination('.menuPages');                      // Plain buttons
+  setupPagination('.userContainer');                  // Plain buttons
+  setupPagination('#nextPage', '.page-btn button');   // Buttons inside .page-btn
+});
+
+
+
+
+
+
+
+
+
+
 </script>
 
 

@@ -1,9 +1,10 @@
 <?php 
 session_start();
 
-
-if (isset($_SESSION['username'])) {
-    header("Location: ../HTML/employeePage.php");
+if (isset($_SESSION['username'])) { 
+    echo "<script> alert('Already Signed in! Redirecting...'); 
+      window.location.href = '../HTML/employeePage.php';
+    </script>";
     exit();
     }
 ?>
@@ -109,6 +110,9 @@ if (isset($_POST['submit'])) {
 
           <a id="linkSide" href="reserve_date.php" target="_self"> RESERVE A DATE </a>
 
+                    <a class="linkSide" href="logout.php" target="_self"> LOGOUT </a>
+
+
         </nav>
 
         <nav class="menu">
@@ -132,6 +136,9 @@ if (isset($_POST['submit'])) {
           </div>
           <div>
           <a class="hideOnMobile" id="reserve" href="reserve_date.php" target="_self"> RESERVE A DATE </a>
+
+                    <a class="hideOnMobile" id="reserve" href="logout.php" target="_self"> LOGOUT </a>
+
           </div>
         </nav>
 

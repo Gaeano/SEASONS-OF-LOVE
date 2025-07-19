@@ -72,6 +72,9 @@ while ($row = mysqli_fetch_assoc($result)) {
 
           <a id="linkSide" href="reserve_date.php" target="_self"> RESERVE A DATE </a>
 
+          <a class="linkSide" href="logout.php" target="_self"> LOGOUT </a>
+
+
         </nav>
 
         <nav class="menu">
@@ -91,10 +94,14 @@ while ($row = mysqli_fetch_assoc($result)) {
           <a class="hideOnMobile" href="customerSignUp.php" target="_self"> SIGNUP </a>
           
           
+          
 
           </div>
           <div>
           <a class="hideOnMobile" id="reserve" href="reserve_date.php" target="_self"> RESERVE A DATE </a>
+          <a class="hideOnMobile" id="reserve" href="logout.php" target="_self"> LOGOUT </a>
+
+
           </div>
         </nav>
 

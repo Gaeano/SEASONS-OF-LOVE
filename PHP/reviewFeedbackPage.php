@@ -203,10 +203,10 @@ margin-bottom: 10px;
         
 
 
-          <a id="linkSide" href="HTML/gallery.html" target="_self"> MANAGE BOOKINGS </a>
-          <a id="linkSide" href="empManagementPage.html" target="_self"> MANAGE MENU </a>
+          <a id="linkSide" href="../HTML/employeePage.php" target="_self"> MANAGE BOOKINGS </a>
+          <a id="linkSide" href=".../HTML/empManagementPage.php" target="_self"> MANAGE MENU </a>
           <a id="linkSide" href="reviewFeedbackPage.html" target="_self"> CUSTOMER FEEDBACK </a>
-          <a id="linkSide" href="../PHP/adminPage.php" target="_self"> ADMIN </a>
+          <a id="linkSide" href="adminPage.php" target="_self"> ADMIN </a>
 
 
 
@@ -219,9 +219,9 @@ margin-bottom: 10px;
           <div>
 
           <a class="hideOnMobile" id="reserve" href="../HTML/employeePage.php" target="_self"> MANAGE BOOKINGS </a>
-          <a class="hideOnMobile" id="reserve" href="empManagementPage.html" target="_self"> MANAGE MENU </a>
-        <a class="hideOnMobile" id="reserve" href="reviewFeedbackPage.html" target="_self"> CUSTOMER FEEDBACK </a>
-          <a class="hideOnMobile" id="reserve" href="../PHP/adminPage.php" target="_self"> ADMIN </a>
+          <a class="hideOnMobile" id="reserve" href="../HTML/empManagementPage.php" target="_self"> MANAGE MENU </a>
+        <a class="hideOnMobile" id="reserve" href="reviewFeedbackPage.php" target="_self"> CUSTOMER FEEDBACK </a>
+          <a class="hideOnMobile" id="reserve" href="adminPage.php" target="_self"> ADMIN </a>
 
 
           </div>

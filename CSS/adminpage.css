@@ -286,6 +286,9 @@ margin-bottom: 10px;
   align-items: flex-start;  
   flex-wrap: wrap;        
   width: 100%;
+  
+
+  
 }
 
 
@@ -420,6 +423,14 @@ transition: transform 0.2s ease, box-shadow 0.2s ease;
   background-color: #e6e6e6;
      transform: translateY(-5px);
        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.532);
+}
+
+.userContainer button.active {
+  background-color: #ffe97c;
+  color: rgb(0, 0, 0);
+
+  transform: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 .pagination {
@@ -955,19 +966,41 @@ width: 100%;
        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.532);
 } 
 
+.menuPages button.active {
+  background-color: #ffe97c;
+  color: rgb(0, 0, 0);
 
+  transform: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
 
 #nextPage{
-    margin-top: 20px;
+margin-top: 10px;
     display: flex;
 
     
     gap: 8px;
+}
+
+#nextPage .page-btn{
+  
+    padding: 8px 14px;
+margin: 3px;
+
+  border: 1px solid #ccc;
+ background-color: #fff;
+
+cursor: pointer;
+border-radius: 5px;
+
+font-weight: bold;
+
+transition: transform 0.2s ease, box-shadow 0.2s ease;
 
    
 }
 
-#nextPage .page-btn{
+.page-btn button{
   padding: 8px 14px;
 margin: 3px;
 
@@ -984,18 +1017,25 @@ transition: transform 0.2s ease, box-shadow 0.2s ease;
 
 }
 
-#nextPage .page-btn:hover{
+.page-btn:hover{
     background-color: #e6e6e6;
      transform: translateY(-5px);
        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.532);
 }
 
+#nextPage .page-btn button.active {
+  background-color: #ffe97c;
+  color: black;
+  transform: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
 
 
 
 
 .accountCrudTable {
   width: 100%;
+  height: auto;
 }
 
 #buttons {

@@ -88,6 +88,9 @@ $result = $stmt->get_result();
 
           <a id="linkSide" href="reserve_date.php" target="_self"> RESERVE A DATE </a>
 
+                    <a class="linkSide" href="logout.php" target="_self"> LOGOUT </a>
+
+
         </nav>
 
         <nav class="menu">
@@ -105,12 +108,16 @@ $result = $stmt->get_result();
           <a class="hideOnMobile" href="employeeLoginPage.php" target="_self"> LOGIN </a> 
         
           <a class="hideOnMobile" href="customerSignUp.php" target="_self"> SIGNUP </a>
+
           
           
 
           </div>
           <div>
           <a class="hideOnMobile" id="reserve" href="reserve_date.php" target="_self"> RESERVE A DATE </a>
+
+                    <a class="hideOnMobile" id="reserve" href="logout.php" target="_self"> LOGOUT </a>
+
           </div>
         </nav>
 

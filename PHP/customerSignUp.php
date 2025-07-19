@@ -1,7 +1,19 @@
 <?php
-    session_start();
-    if(isset($_SESSION['username'])){
-        header("Location: ../HTML/reserve date.html");
+
+session_start();
+
+    if(isset($_SESSION['username'])){ 
+        echo "<script> alert('Already Signed in! Redirecting...'); 
+              window.location.href = 'reserve_date.php';
+        </script>";
+    } else if (isset($_SESSION['username']) && $_SESSION['UserType'] === 'admin'){ 
+         echo "<script> alert('Already Signed in! Redirecting...'); 
+              window.location.href = adminPage.php';
+        </script>";
+    } else { 
+         echo "<script> alert('Already Signed in! Redirecting...'); 
+              window.location.href = ../HTML/employeePage.php';
+        </script>";
     }
 ?>
 <?php
@@ -109,6 +121,9 @@
 
           <a id="linkSide" href="reserve_date.php" target="_self"> RESERVE A DATE </a>
 
+                    <a class="linkSide" href="logout.php" target="_self"> LOGOUT </a>
+
+
         </nav>
 
         <nav class="menu">
@@ -132,6 +147,8 @@
           </div>
           <div>
           <a class="hideOnMobile" id="reserve" href="reserve_date.php" target="_self"> RESERVE A DATE </a>
+                    <a class="hideOnMobile" id="reserve" href="logout.php" target="_self"> LOGOUT </a>
+
           </div>
         </nav>
 

@@ -16,6 +16,14 @@
      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
      <link rel="stylesheet" href="../CSS/employeePage.css">
+
+  
+  <!--For font for brand-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Glass+Antiqua&family=Marck+Script&display=swap" rel="stylesheet">
+
+
 </head> 
 
 
@@ -43,9 +51,9 @@
 
 
           <a id="linkSide" href="employeePage.php" target="_self"> MANAGE BOOKINGS </a>
-          <a id="linkSide" href=".empManagementPage.html" target="_self"> MANAGE MENU </a>
+          <a id="linkSide" href="empManagementPage.php" target="_self"> MANAGE MENU </a>
           <a id="linkSide" href="../PHP/reviewFeedbackPage.php" target="_self"> CUSTOMER FEEDBACK </a>
-          <a id="linkSide" href="adminPage.php" target="_self"> ADMIN </a>
+          <a id="linkSide" href="../PHP/adminPage.php" target="_self"> ADMIN </a>
 
 
         </nav>
@@ -57,9 +65,9 @@
           <div>
 
           <a class="hideOnMobile" id="reserve" href="employeePage.php" target="_self"> MANAGE BOOKINGS </a>
-          <a class="hideOnMobile" id="reserve" href="empManagementPage.html" target="_self"> MANAGE MENU </a>
+          <a class="hideOnMobile" id="reserve" href="empManagementPage.php" target="_self"> MANAGE MENU </a>
           <a class="hideOnMobile" id="reserve" href="../PHP/reviewFeedbackPage.php" target="_self"> CUSTOMER FEEDBACK </a>
-          <a class="hideOnMobile" id="reserve" href="adminPage.php" target="_self"> ADMIN </a>
+          <a class="hideOnMobile" id="reserve" href="../PHP/adminPage.php" target="_self"> ADMIN </a>
           
 
 
@@ -73,28 +81,35 @@
   </div>
 <!-- NAV BAR END -->
   
-<div style="display: flex; flex-direction: row; gap: 3vw; width: 100%; margin: 20px; margin-left: 3.5vw;" id="orderdatecontainer">
-        <div>
-            <div style="margin-left: 20px;"> 
+<div id="orderdatecontainer">
+        <div class="orderorder">
+            <div class="order_list"> 
                 <button id="tab-cancelled">Cancelled</button>
-                <button id="tab-pending" style="border: solid lightcoral">Pending</button>
-                <button id="tab-completed" style="border: solid lightgreen">Completed</button> 
+                <button id="tab-pending">Pending</button>
+                <button id="tab-completed">Completed</button> 
             </div>
     
             <div id="order-container"></div>
         </div>  
-        
+
+        <div class="calcal">
         <div class="calendar-wrapper">
             <div id="calendar-header"></div>
             <div id="calendar" class="calendar" ></div>
+
+
+
+            <!-- <form action="../PHP/logout.php" method="post">
+        <button class="logoutt" type="submit">Logout</button>
+    </form> -->
         </div>
+
+         </div>
 
 
 </div>
 
-    <form action="../PHP/logout.php" method="post">
-        <button type="submit">Logout</button>
-    </form>
+    
 
 
 
