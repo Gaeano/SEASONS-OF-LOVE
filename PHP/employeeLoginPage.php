@@ -1,13 +1,19 @@
 <?php 
 session_start();
 
+if(isset($_SESSION['username']  && $_SESSION['UserType'] === 'customer')){ 
+        echo "<script> alert('Already Signed in! Redirecting...'); 
+              window.location.href = 'reserve_date.php';
+        </script>";
+    } else if (isset($_SESSION['username']) && $_SESSION['UserType'] === 'admin'){ 
+         echo "<script> alert('Already Signed in! Redirecting...'); 
+              window.location.href = adminPage.php';
+        </script>";
+    } else { 
+         echo "<script> alert('Already Signed in! Redirecting...'); 
+              window.location.href = ../HTML/employeePage.php';
+        </script>";
 
-if (isset($_SESSION['username'])) { 
-    echo "<script> alert('Already Signed in! Redirecting...'); 
-      window.location.href = '../HTML/employeePage.php';
-    </script>";
-
-    exit();
     }
 ?>
 <?php
@@ -42,7 +48,7 @@ if (isset($_POST['submit'])) {
                 header("Location: ../HTML/employeePage.php");
                 exit;
             } else {
-                header("Location: ../HTML/reserve date.html");
+                header("Location: reserve_date.php");
                 exit;
             }
         }
@@ -185,8 +191,9 @@ if (isset($_POST['submit'])) {
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-            crossorigin="anonymous">
+            crossorigin="anonymous">  </script>
         
+    <script>
         
         // JS NAV BAR START
           function openSideBar(){
@@ -203,8 +210,8 @@ if (isset($_POST['submit'])) {
           }
           
           // JS NAV BAR END
-        
-        </script>
+       </script> 
+      
 
 </body> 
 </html>
