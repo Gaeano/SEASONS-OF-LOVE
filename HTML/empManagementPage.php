@@ -100,9 +100,9 @@
 </head>
 <body>
     
+
     <!-- NAV BAR START -->
     <div id="bgimg"> </div>
-
 
     <div class="navBar">
               
@@ -115,6 +115,7 @@
       </div>
       
         <nav class="sideBar">
+
 
           <a id="closeBtn" onclick=hideSideBar()> <svg xmlns="http://www.w3.org/2000/svg" height="27x" viewBox="0 -960 960 960" width="27px" fill="black"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a>
         
@@ -134,13 +135,12 @@
           </div>
           <div>
 
+
           <a class="hideOnMobile" id="reserve" href="employeePage.php" target="_self"> MANAGE BOOKINGS </a>
           <a class="hideOnMobile" id="reserve" href="empManagementPage.php" target="_self"> MANAGE MENU </a>
           <a class="hideOnMobile" id="reserve" href="../PHP/reviewFeedbackPage.php" target="_self"> CUSTOMER FEEDBACK </a>
           <a class="hideOnMobile" id="reserve" href="../PHP/adminPage.php" target="_self"> ADMIN </a>
           
-
-
           </div>
         </nav>
 
@@ -154,8 +154,7 @@
 <div class="mainContainer">  
    
       <div class="menuContainer">  
-   
-      
+  
         <div id="menuTitle">
           <h2>Menu</h2>
           </div>
@@ -164,6 +163,7 @@
             <thead>
               <tr>
                 
+
                 <th class="dishdish">Dish</th>
                 <th class="catcat">Category</th> 
                 <th>Description</th> 
@@ -181,6 +181,7 @@
 
    
  </div> 
+
  </div> 
  
 
@@ -274,7 +275,9 @@ function menuPages(data, tableBody, page) {
 
     editButton.textContent = "Edit";
     editButton.type = "button";
+
     editButton.classList.add("btn", "boton");
+
     editButton.setAttribute("data-bs-toggle", "modal");
     editButton.setAttribute("data-bs-target", "#menuModal");
     editButton.setAttribute("data-dishid", dish.dish_id);
@@ -394,6 +397,7 @@ const pageButtons = document.querySelectorAll('.menuPages button');
 
 
 </script>
+
 
 
 

@@ -155,6 +155,7 @@
           <a id="linkSide" href="../HTML/empManagementPage.php" target="_self"> MANAGE MENU </a>
           <a id="linkSide" href="reviewFeedbackPage.php" target="_self"> CUSTOMER FEEDBACK </a>
           <a id="linkSide" href="adminPage.php" target="_self"> ADMIN </a>
+          <a id="linkSide" href="logout.php" target="_self"> LOGOUT </a>
 
 
         </nav>
@@ -166,10 +167,12 @@
           <div>
 
           <a class="hideOnMobile" id="reserve" href="../HTML/employeePage.php" target="_self"> MANAGE BOOKINGS </a>
+
           <a class="hideOnMobile" id="reserve" href="../HTML/empManagementPage.php" target="_self"> MANAGE MENU </a>
           <a class="hideOnMobile" id="reserve" href="reviewFeedbackPage.php" target="_self"> CUSTOMER FEEDBACK </a>
+
           <a class="hideOnMobile" id="reserve" href="adminPage.php" target="_self"> ADMIN </a>
-          
+          <a class="hideOnMobile" id="reserve" href="logout.php" target="_self"> LOGOUT </a>
 
 
           </div>
@@ -177,7 +180,9 @@
 
 
 
-        <p id="nextPages" onclick= openSideBar()> <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="black"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg> </p>
+
+        <p id="sideBarButton" onclick= openSideBar()> <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="black"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg> </p>
+
 
   </div>
 <!-- NAV BAR END -->
@@ -291,7 +296,7 @@
 
   <div id="form">
     <div id="modal-content">
-        <!-- <h1 id="heading">SignUp Form</h1> -->
+
         <h2> Employee Sign Up</h2>  
         <form name="form" action="signup.php" method="POST">
             <label>Enter Username: </label>
@@ -302,12 +307,15 @@
             <input type="password" id="pass" name="pass" required><br><br>
             <label>Retype Password: </label>
             <input type="password" id="cpass" name="cpass" required><br><br>
+
             <input type="submit" id="btnYES" class="signUpButton" value="SignUp" name = "submit"/>
+
             <button class="button" id="buttonz">Cancel</button>
             <!-- <p id="confirm">Account Successfully Created</p> -->
         </form>
       </div>
     </div>
+
 
 <div id="formEdit">
   <div id="modal-content-edit">
@@ -315,8 +323,10 @@
     <form name="form" id="editFrm" method="POST">
         <label>Edit Name: </label>
         <input type="text" id="username" name="username" required><br><br>
+
         <input type="submit" id="btn" class="delButton" value="Edit" name = "submit"/>
-        <button id="cancelButton" class="editButton">Cancel</button>
+        <button type="button" id="cancelButton" class="editButton" onclick="window.location.href='adminPage.php'">Cancel</button>
+
     </form>
   </div>
 </div> 
@@ -561,9 +571,8 @@ function addEventListeners(){
     }
   });
 
-  cancelButton.onclick = function(){
-    formEdit.style.display = "none";
-  }
+
+  
 
 
 }

@@ -1,10 +1,12 @@
 <?php 
 session_start();
 
+
 if (isset($_SESSION['username'])) { 
     echo "<script> alert('Already Signed in! Redirecting...'); 
       window.location.href = '../HTML/employeePage.php';
     </script>";
+
     exit();
     }
 ?>

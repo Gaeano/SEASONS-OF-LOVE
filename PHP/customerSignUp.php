@@ -1,5 +1,6 @@
 <?php
 
+
 session_start();
 
     if(isset($_SESSION['username'])){ 
@@ -14,6 +15,7 @@ session_start();
          echo "<script> alert('Already Signed in! Redirecting...'); 
               window.location.href = ../HTML/employeePage.php';
         </script>";
+
     }
 ?>
 <?php
@@ -36,7 +38,7 @@ session_start();
         if($count_user == 0 & $count_email==0){
             if($password==$cpassword){
                 $hash = password_hash($password, PASSWORD_DEFAULT);
-                $sql = "INSERT INTO login(username, email, password, userType) VALUES('$username', '$email', '$hash', 'customer')";
+                $sql = "INSERT INTO login(username, email, password, UserType) VALUES('$username', '$email', '$hash', 'customer')";
                 $result = mysqli_query($conn, $sql);
                 if($result){
                     header("Location: employeeLoginPage.php");
@@ -175,12 +177,9 @@ session_start();
 
 
     <div id="form">
-     <h1> Seasons Of Love </h1>
-    <h3>Signup</h3> 
-
-        <!-- <h1 id="heading">SignUp Form</h1>
-        <h2> Customer Sign Up</h2>   -->
-        <form name="form" action="signup.php" method="POST">
+        <h1 id="heading">SignUp Form</h1>
+        <h2> Customer Sign Up</h2>  
+        <form name="form" action="customerSignUp.php" method="POST">
             <label>Enter Username: </label>
             <input type="text" id="user" name="user" required><br><br>
             <label>Enter Email: </label>

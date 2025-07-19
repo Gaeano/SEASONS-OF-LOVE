@@ -55,6 +55,7 @@
           <a id="linkSide" href="../PHP/reviewFeedbackPage.php" target="_self"> CUSTOMER FEEDBACK </a>
           <a id="linkSide" href="../PHP/adminPage.php" target="_self"> ADMIN </a>
 
+          <a id="linkSide" href="logout.php" target="_self"> LOGOUT </a>
 
         </nav>
 
@@ -68,7 +69,9 @@
           <a class="hideOnMobile" id="reserve" href="empManagementPage.php" target="_self"> MANAGE MENU </a>
           <a class="hideOnMobile" id="reserve" href="../PHP/reviewFeedbackPage.php" target="_self"> CUSTOMER FEEDBACK </a>
           <a class="hideOnMobile" id="reserve" href="../PHP/adminPage.php" target="_self"> ADMIN </a>
-          
+
+          <a class="hideOnMobile" id="reserve" href="../PHP/logout.php" target="_self"> LOGOUT </a>
+
 
 
           </div>
@@ -118,5 +121,22 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script src="../JS/displayreqs.js"></script> 
 <script src="../JS/calendar.js"></script>
+  <script>
+      // JS NAV BAR START
+      function openSideBar(){
+        const sideBar = document.querySelector(".sideBar");
+
+        sideBar.style.display = 'flex';
+      }
+
+      function hideSideBar(){
+        const sideBar = document.querySelector(".sideBar");
+
+        sideBar.style.display =  'none';
+
+      }
+      
+      // JS NAV BAR END
+
 </body>  
 </html> 

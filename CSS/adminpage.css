@@ -136,8 +136,7 @@ width: 50%;
 
 
 
-
-#menuButton{
+#sideBar{
 display: none;
 }
 
@@ -148,7 +147,7 @@ display: none;
   }
 
 
-  #menuButton {
+  #sideBarButton {
   display: none;
   }
 
@@ -173,7 +172,7 @@ display: none;
   display: none;
   }
 
-#menuButton{
+#sideBarButton{
   display: block;
   }
 }
@@ -709,19 +708,6 @@ color: white;
 } */
 
 
-#form{
-display: none; 
-position: fixed; 
-top: 0;
-left: 0;
-width: 100vw;
-height: 100vh;
-background-color: rgba(0, 0, 0, 0.5); 
-z-index: 9999; 
-justify-content: center;
-align-items: center;
-}
-
 /*
 
 @media screen and (max-width:700px){
@@ -799,11 +785,18 @@ display: none;
 }
 
 
-@media screen and (max-width:700px){
-  #form{
-      width: 65%;
-      padding: 40px
-  }
+
+#form{
+display: none; 
+position: fixed; 
+top: 0;
+left: 0;
+width: 100vw;
+height: 100vh;
+background-color: rgba(0, 0, 0, 0.5); 
+z-index: 9999; 
+justify-content: center;
+align-items: center;
 }
 
 #user, #email, #pass, #cpass{
@@ -869,12 +862,6 @@ justify-content: center;
 align-items: center;
 }
 
-@media screen and (max-width:700px){
-  #formEdit{
-      width: 65%;
-      padding: 40px
-  }
-}
 
 
 #deleteContent{
