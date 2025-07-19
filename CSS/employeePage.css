@@ -100,7 +100,18 @@ button {
 }  
 
 body{ 
-  background-image: linear-gradient(rgb(54, 54, 54), rgb(27, 27, 27), rgb(56, 56, 56));
+  
+  background: #fdfbd4;
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  margin: 0;
+  padding: 0;
+
+  height: 100vh;
+  width: auto;
+  z-index: -1;
 } 
 
  

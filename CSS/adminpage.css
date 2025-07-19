@@ -682,7 +682,7 @@ margin-top: 5px;
 padding: 10px 20px 10px;
 }*/
 
-#confirmDeletion{
+/* #confirmDeletion{
 color: white;
 background-color: rgb(180, 0, 0);
 }
@@ -690,14 +690,14 @@ background-color: rgb(180, 0, 0);
 #confirmDeletion:hover{
 color: white;
 background-color: rgb(241, 48, 48);
-}
+} */
 
-.delButton:hover{
+/* .delButton:hover{
 background-color: rgb(180, 0, 0);
 color: white;
-}
+} */
 
-/*
+
 #form{
 display: none; 
 position: fixed; 
@@ -711,6 +711,7 @@ justify-content: center;
 align-items: center;
 }
 
+/*
 
 @media screen and (max-width:700px){
   #form{
