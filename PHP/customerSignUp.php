@@ -1,14 +1,17 @@
 <?php
     session_start();
     if(isset($_SESSION['username'])){ 
-         alert("Already Signed in! Redirecting...");
-        header("Location: ../HTML/reserve date.html");
+        echo "<script> alert('Already Signed in! Redirecting...'); 
+              window.location.href = '../HTML/reserve.date.php';
+        </script>" 
     } else if (isset($_SESSION['username']) && $_SESSION['UserType'] === 'admin'){ 
-         alert("Already Signed in! Redirecting...");
-        header("Location: adminPage.php");
+         echo "<script> alert('Already Signed in! Redirecting...'); 
+              window.location.href = adminPage.php';
+        </script>" 
     } else { 
-         alert("Already Signed in! Redirecting...");
-        header("Locaiton: ../HTML/employeePage.php");
+         echo "<script> alert('Already Signed in! Redirecting...'); 
+              window.location.href = ../HTML/employeePage.php';
+        </script>" 
     }
 ?>
 <?php

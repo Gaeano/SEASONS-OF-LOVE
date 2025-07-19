@@ -3,8 +3,9 @@ session_start();
 
 
 if (isset($_SESSION['username'])) { 
-    alert("Already Signed in! Redirecting...");
-    header("Location: ../HTML/employeePage.php");
+    echo "<script> alert('Already Signed in! Redirecting...'); 
+      window.location.href = '../HTML/employeePage.php';
+    </script>";
     exit();
     }
 ?>
