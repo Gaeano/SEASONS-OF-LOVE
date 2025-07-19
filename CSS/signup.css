@@ -234,7 +234,7 @@ body{
 
 
 #form{
-    margin: 200px;
+    margin: 120px auto;
     background-color: #fdfbd4;
     width: 25%;
     padding: 50px;
@@ -242,7 +242,7 @@ body{
     border-radius: 8px;
     color: black;
     font-family: Verdana, sans-serif;
-
+    align-items: center;
     margin-bottom: 50px;
 
 }
