@@ -1,3 +1,4 @@
+
 .navBar{
 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 height: 62px;
@@ -173,28 +174,3 @@ display: none;
 
 
 
-
-body{
-    background-color: #fff9dc;
-}
-
-
-
-#container{
-    margin: 8%;
-    padding: 10px;
-    background-color: #fff9dc;
-}
-
-.contentContainer{
-    margin-bottom: 20px;
-    padding: 15px;
-   background-color: #fff9dc;
-    border-radius: 10px;
-    
-}
-
-#customerFeedbackForm{
-    padding: 10px;
-    border-radius: 6px;
-}

@@ -100,6 +100,10 @@
 </head>
 <body>
     
+
+    <!-- NAV BAR START -->
+    <div id="bgimg"> </div>
+
     <div class="navBar">
               
   
@@ -112,13 +116,17 @@
       
         <nav class="sideBar">
 
-            <a id="closeBtn" onclick=hideSideBar()> <svg xmlns="http://www.w3.org/2000/svg" height="27x" viewBox="0 -960 960 960" width="27px" fill="black"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a>
-            
 
-            <a id="linkSide" href="HTML/gallery.html" target="_self"> MANAGE BOOKINGS </a>
-            <a id="linkSide" href="HTML/gallery.html" target="_self"> MANAGE MENU </a>
-            <a id="linkSide" href="HTML/gallery.html" target="_self"> ADMIN </a>
-            
+          <a id="closeBtn" onclick=hideSideBar()> <svg xmlns="http://www.w3.org/2000/svg" height="27x" viewBox="0 -960 960 960" width="27px" fill="black"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></a>
+        
+
+
+          <a id="linkSide" href="employeePage.php" target="_self"> MANAGE BOOKINGS </a>
+          <a id="linkSide" href="empManagementPage.php" target="_self"> MANAGE MENU </a>
+          <a id="linkSide" href="../PHP/reviewFeedbackPage.php" target="_self"> CUSTOMER FEEDBACK </a>
+          <a id="linkSide" href="../PHP/adminPage.php" target="_self"> ADMIN </a>
+
+
         </nav>
 
         <nav class="menu">
@@ -126,23 +134,27 @@
      
           </div>
           <div>
-          <a class="hideOnMobile" id="reserve" href="HTML/reserve date.html" target="_self"> MANAGE BOOKINGS </a>
-          <a class="hideOnMobile" id="reserve" href="HTML/reserve date.html" target="_self"> MANAGE MENU </a>
-          <!-- this theng must be redirected to a log in -->
-          <a class="hideOnMobile" id="reserve" href="../PHP/adminPage.php" target="_self"> ADMIN </a>   
+
+
+          <a class="hideOnMobile" id="reserve" href="employeePage.php" target="_self"> MANAGE BOOKINGS </a>
+          <a class="hideOnMobile" id="reserve" href="empManagementPage.php" target="_self"> MANAGE MENU </a>
+          <a class="hideOnMobile" id="reserve" href="../PHP/reviewFeedbackPage.php" target="_self"> CUSTOMER FEEDBACK </a>
+          <a class="hideOnMobile" id="reserve" href="../PHP/adminPage.php" target="_self"> ADMIN </a>
+          
           </div>
         </nav>
 
 
 
         <p id="menuButton" onclick= openSideBar()> <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="black"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg> </p>
- 
-  </div>
-<!-- NAV BAR END --> 
 
-<div class="menuContainer">  
+  </div>
+<!-- NAV BAR END -->
+
+<div class="mainContainer">  
    
-      <div>  
+      <div class="menuContainer">  
+  
         <div id="menuTitle">
           <h2>Menu</h2>
           </div>
@@ -151,10 +163,11 @@
             <thead>
               <tr>
                 
-                <th>Dish</th>
-                <th>Category</th> 
+
+                <th class="dishdish">Dish</th>
+                <th class="catcat">Category</th> 
                 <th>Description</th> 
-                <th>Edit</th> 
+                <th class="editedit">Edit</th> 
                 
               </tr>
 
@@ -166,7 +179,9 @@
           </table> 
           <div id="menuPage" class="menuPages"></div>
 
-     </div>
+   
+ </div> 
+
  </div> 
  
 
@@ -260,7 +275,9 @@ function menuPages(data, tableBody, page) {
 
     editButton.textContent = "Edit";
     editButton.type = "button";
-    editButton.classList.add("btn", "btn-primary");
+
+    editButton.classList.add("btn", "boton");
+
     editButton.setAttribute("data-bs-toggle", "modal");
     editButton.setAttribute("data-bs-target", "#menuModal");
     editButton.setAttribute("data-dishid", dish.dish_id);
@@ -362,7 +379,33 @@ menuControls("menuPage", menuData, menuTable);
 menuPages(menuData, menuTable, 1);
 
 
+//PAGINATION HIGHLIGHTS WHEN ITS ON THAT PAGE
+const pageButtons = document.querySelectorAll('.menuPages button');
+
+  pageButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      
+      pageButtons.forEach(btn => btn.classList.remove('active'));
+     
+      button.classList.add('active');
+
+     
+      const pageNum = button.textContent;
+      console.log("Go to page:", pageNum);
+    });
+  });
+
+
 </script>
+
+
+
+
+
+
+
+
+
 </body>
 
 

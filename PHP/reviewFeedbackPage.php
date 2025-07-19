@@ -39,7 +39,9 @@ echo "<script> const contactData = " . json_encode($contacts). "</script>";
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
 
+    
     <link rel="stylesheet" href="../CSS/reviewFeedbackPage.css">
+    
 
 
 <!--For font for brand-->
@@ -56,8 +58,121 @@ echo "<script> const contactData = " . json_encode($contacts). "</script>";
         font-family: "Marck Script", cursive;
         font-weight: 400;
         font-style: normal;
+
       }
 
+      body{
+     background-image: url(../IMAGES/log_in_bg.jpg);
+    background-repeat:no-repeat ;
+    background-position: center;
+    background-size: cover;
+      background-attachment: fixed;
+    
+    margin: 0;
+  padding: 0;
+
+  height: 100vh;
+  width: auto;
+  z-index: -1;
+      }
+/* }
+
+
+
+#container{
+    margin: 8%;
+    padding: 10px;
+    background-color: #fff9dc;
+}
+
+.contentContainer{
+    margin-bottom: 20px;
+    padding: 15px;
+   background-color: #fff9dc;
+    border-radius: 10px;
+    
+}*/
+
+#customerFeedbackForm{
+    padding: 10px;
+    border-radius: 6px;
+}
+ 
+
+
+#container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  background-color: #fff9dc;
+
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+
+  margin-top:50px;
+  height:auto;
+}
+
+h2 {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #333;
+  text-transform: uppercase;
+}
+ 
+
+
+.contentContainer {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px 25px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contentContainer:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+
+.name {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 5px;
+    font-weight: bold;
+margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+
+.email {
+  font-size: 15px;
+  color: #777;
+  margin-bottom: 5px;
+}
+
+
+.date {
+  font-size: 15px;
+  color: #aaa;
+  margin-bottom: 12px;
+}
+
+
+#message {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #444;
+  text-align: justify;
+}
+
+
+
+     
     </style>
 
 
@@ -88,11 +203,13 @@ echo "<script> const contactData = " . json_encode($contacts). "</script>";
         
 
 
+
          <a id="linkSide" href="employeePage.php" target="_self"> MANAGE BOOKINGS </a>
           <a id="linkSide" href=".empManagementPage.html" target="_self"> MANAGE MENU </a>
           <a id="linkSide" href="../PHP/reviewFeedbackPage.php" target="_self"> CUSTOMER FEEDBACK </a>
           <a id="linkSide" href="../PHP/adminPage.php" target="_self"> ADMIN </a>
           <a id="linkSide" href="logout.php" target="_self"> LOGOUT </a>
+
 
 
 
@@ -105,10 +222,12 @@ echo "<script> const contactData = " . json_encode($contacts). "</script>";
           <div>
 
           <a class="hideOnMobile" id="reserve" href="../HTML/employeePage.php" target="_self"> MANAGE BOOKINGS </a>
+
           <a class="hideOnMobile" id="reserve" href="../HTML/empManagementPage.html" target="_self"> MANAGE MENU </a>
           <a class="hideOnMobile" id="reserve" href="reviewFeedbackPage.php" target="_self"> CUSTOMER FEEDBACK </a>
           <a class="hideOnMobile" id="reserve" href="adminPage.php" target="_self"> ADMIN </a>
           <a class="hideOnMobile" id="reserve" href="logout.php" target="_self"> LOGOUT </a>
+
 
 
           </div>
@@ -179,6 +298,7 @@ echo "<script> const contactData = " . json_encode($contacts). "</script>";
         date.textContent = contact.msgdate;
 
         const message = document.createElement("p");
+         const hr = document.createElement("hr");
         message.setAttribute("id", "message");
         message.textContent = contact.message;
         message.style.textAlign = "justify"
@@ -186,6 +306,7 @@ echo "<script> const contactData = " . json_encode($contacts). "</script>";
         container.appendChild(name);
         container.appendChild(email);
         container.appendChild(date);
+        container.appendChild(hr);
         container.appendChild(message);
         masterContainer.appendChild(container);
         count++;
