@@ -125,7 +125,7 @@
           <a id="linkSide" href="empManagementPage.php" target="_self"> MANAGE MENU </a>
           <a id="linkSide" href="../PHP/reviewFeedbackPage.php" target="_self"> CUSTOMER FEEDBACK </a>
           <a id="linkSide" href="../PHP/adminPage.php" target="_self"> ADMIN </a>
-
+          <a id="linkSide" href="logout.php" target="_self"> LOGOUT </a>
 
         </nav>
 
@@ -140,6 +140,7 @@
           <a class="hideOnMobile" id="reserve" href="empManagementPage.php" target="_self"> MANAGE MENU </a>
           <a class="hideOnMobile" id="reserve" href="../PHP/reviewFeedbackPage.php" target="_self"> CUSTOMER FEEDBACK </a>
           <a class="hideOnMobile" id="reserve" href="../PHP/adminPage.php" target="_self"> ADMIN </a>
+          <a class="hideOnMobile" id="reserve" href="logout.php" target="_self"> LOGOUT </a>
           
           </div>
         </nav>
