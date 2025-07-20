@@ -3,11 +3,11 @@
 
 session_start();
 
-    if(isset($_SESSION['username']  && $_SESSION['UserType'] === 'customer')){ 
+    if (isset($_SESSION['username'], $_SESSION['UserType']) && $_SESSION['UserType'] === 'customer'){ 
         echo "<script> alert('Already Signed in! Redirecting...'); 
               window.location.href = 'reserve_date.php';
         </script>";
-    } else if (isset($_SESSION['username']) && $_SESSION['UserType'] === 'admin'){ 
+    } else if (isset($_SESSION['username'], $_SESSION['UserType']) && $_SESSION['UserType'] === 'admin'){ 
          echo "<script> alert('Already Signed in! Redirecting...'); 
               window.location.href = adminPage.php';
         </script>";

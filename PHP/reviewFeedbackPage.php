@@ -12,7 +12,7 @@
 include('connection.php');
 
 
-$sql = "select * from contact order by name desc";
+$sql = "select * from contact order by msgdate desc";
 $result = mysqli_query($conn, $sql);
 
 $contacts = [];
