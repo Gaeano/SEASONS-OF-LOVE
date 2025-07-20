@@ -1,4 +1,6 @@
 <?php
+
+session_start();
 header('Content-Type: application/json');
 
 // $data = json_decode(file_get_contents("php://input"), true);
@@ -29,8 +31,8 @@ require __DIR__ . '/db.php';
 try {
     $pdo->beginTransaction();
 
-    $stmt = $pdo->prepare("INSERT INTO orders (address, customer_phone, customer_name, order_date, status) VALUES (?, ?, ?, ?, 'pending')");
-    $stmt->execute([$data['address'], $data['contact'], $data['name'], $data['date']]);
+    $stmt = $pdo->prepare("INSERT INTO orders (address, customer_phone, customer_name, order_date, userID, status) VALUES (?, ?, ?, ?, ?, 'pending')");
+    $stmt->execute([$data['address'], $data['contact'], $data['name'], $data['date'], $_SESSION['userID']]);
 
 
     $orderId = $pdo->lastInsertId();

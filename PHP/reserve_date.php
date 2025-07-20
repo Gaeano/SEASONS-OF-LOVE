@@ -236,7 +236,7 @@ if (!isset($_SESSION['username'])) {
 </form>
 </form> -->
 
-<form method="POST" action="checkout.php" onsubmit="prepareCheckoutData()">
+<form method="POST" action="checkout.php" onsubmit="return prepareCheckoutData()">
   <input type="hidden" name="orderData" id="orderDataField">
   <input type="hidden" name="selectedDate" id="selectedDateField">
   <button class = "checkout-btn" type="submit">Checkout</button>
